@@ -1,26 +1,26 @@
 services:
     nonebot:
-        platform: linux/arm/v7
-        build: ./nonebot/
-        image: xana278/nonebot:armv7
+        build: .
+        image: xana278/nonebot
         container_name: nb
         network_mode: host
         volumes:
-            - "/etc/localtime:/etc/localtime"
-            - "./nonebot:/nonebot"
-            - "./wb:/usr/local/lib/python3.9/site-packages/nonebot_plugin_wordbank/data"
+        - "/etc/localtime:/etc/localtime"
+        - "./:/nonebot"
+        - "./wb:/usr/local/lib/python3.9/site-packages/nonebot_plugin_wordbank/data/"
+        environment: 
+        - TIME_ZONE=Asia/Shanghai
         command: sh -c "python bot.py"
         working_dir: /nonebot
         restart: always
 
     go-cqhttp: 
-        platform: linux/arm/v7
         image: alpine
         container_name: go
         network_mode: host
         volumes:
-            - "/etc/localtime:/etc/localtime"
-            - "./go-cqhttp:/go-cqhttp"
+        - "/etc/localtime:/etc/localtime"
+        - "./go-cqhttp:/go-cqhttp"
         working_dir: /go-cqhttp
         command: sh -c "./go-cqhttp"
         restart: always
