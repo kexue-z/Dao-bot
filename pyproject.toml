@@ -1,0 +1,36 @@
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+[tool.poetry]
+name = "dao-Bot"
+version = "0.1.0"
+description = ""
+authors = ["kexue <xana278@foxmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+nb-cli = "^0.4.2"
+nonebot-adapter-cqhttp = "^2.0.0-alpha.13"
+nonebot-plugin-status = "^0.2.1"
+nonebot-hk-reporter = "^0.3.1"
+nonebot-plugin-gamedraw = "^0.1.8"
+nonebot-plugin-apscheduler = "^0.1.2"
+nonebot-plugin-statistical = "^0.4.3"
+nonebot-plugin-cocdicer = "^0.2.4"
+nonebot-plugin-wordbank = "^1.0.2"
+nonebot-plugin-picsearcher = "^0.1.4"
+nonebot-plugin-manager = "^0.4.0"
+ujson = "^4.0.2"
+bilibili-api = "^6.1.2"
+pillow = "^8.3.1"
+dnspython = "^2.1.0"
+aiofiles = "^0.7.0"
+pypinyin = "^0.42.0"
+matplotlib = "^3.4.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
