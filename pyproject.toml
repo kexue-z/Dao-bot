@@ -34,3 +34,8 @@ matplotlib = "^3.4.2"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[nonebot]
+[nonebot.plugins]
+plugins = ["nonebot_plugin_test", "nonebot_plugin_gamedraw"]
+plugin_dirs = []
