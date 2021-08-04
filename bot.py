@@ -23,6 +23,8 @@ nonebot.load_plugin("nonebot_plugin_manager")
 nonebot.load_plugin("nonebot_hk_reporter")
 nonebot.load_plugin("nonebot_plugin_gamedraw")
 nonebot.load_plugin("nonebot_plugin_statistical")
+nonebot.load_plugin("nonebot_plugin_test")
+
 
 if __name__ == "__main__":
     nonebot.run(app="bot:app")
