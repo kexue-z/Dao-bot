@@ -25,22 +25,21 @@ async def ghs_pic3(keyword='', r18=False) -> str:
             base64 = await downPic(setu_url)
             setu_pid = res.json()['data'][0]['pid']
             setu_author = res.json()['data'][0]['author']
-            pic = "[CQ:image,file=base64://" + base64 + "]"
             if base64:
-                local_img_url = "[CQ:image,file=base64://" + base64 + "]\n标题:" + setu_title + "\npid:" + str(
+                pic = "[CQ:image,file=base64://" + base64 + "]"
+                data = "标题:" + setu_title + "\npid:" + str(
                     setu_pid) + "\n画师:" + setu_author
-                logger.opt(colors=True).info('<blue>SETU</blue> | <green>发送成功</green> | {}'.format(res.text))
         
             # return setu_url
-            return local_img_url
+            return pic, data, True
             # return pic
         except Exception as e:
             logger.opt(colors=True).warning('<blue>SETU</blue> | {}'.format(res.text))
             logger.opt(colors=True).warning('<blue>SETU</blue> | {}'.format(e))
             if '额度限制' not in res.text:
-                return f"图库中没有搜到关于{keyword}的图。"
+                return 'Error:' ,f"图库中没有搜到关于{keyword}的图。", False
             else:
-                return 'api调用已到达上限'
+                return 'Error:' ,e , False
 
 
 async def downPic(url) -> str:

@@ -48,20 +48,28 @@ async def _(bot: Bot, event: Event):
             key = ''
 
     log(f'{key},{r18}')
-    
-    try:
-        if cd > cdTime or event.get_user_id() in nonebot.get_driver().config.superusers:
-            await setu.send(random.choice(setu_SendMessage), at_sender=True)
-            pic = await ghs_pic3(key, r18)
-            mid = await setu.send(message=Message(pic))
-            log(mid)
-            writeJson(qid, event.time, mid['message_id'], data)
-        else:
-            await setu.send(f'{random.choice(setu_SendCD)} 你的CD还有{cdTime - cd}秒', at_sender=True)
-    except Exception as e:
-        log(e, 'warning')
-        await setu.send(message=Message('消息被风控，屑岛风背锅'), at_sender=True)
 
+    # try:
+    if cd > cdTime or event.get_user_id() in nonebot.get_driver().config.superusers:
+        # await setu.send(random.choice(setu_SendMessage), at_sender=True)
+        pic = await ghs_pic3(key, r18)
+        if pic[2]:
+            try:
+                mid = await setu.send(message=Message(pic[0]))
+                writeJson(qid, event.time, mid['message_id'], data)
+            except Exception as e:
+                log(e, 'warning')
+                await setu.finish(message=Message('消息被风控，屑岛风背锅'), at_sender=True)
+            await setu.send(message= f"{random.choice(setu_SendMessage)}\n" + Message(pic[1]), at_sender=True)
+
+        else:
+            await setu.finish(pic[0]+pic[1])
+        
+    else:
+        await setu.finish(f'{random.choice(setu_SendCD)} 你的CD还有{cdTime - cd}秒', at_sender=True)
+    # except Exception as e:
+    #     
+    #     
 
 @withdraw.handle()
 async def _(bot: Bot, event: GroupMessageEvent):
