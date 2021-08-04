@@ -18,7 +18,8 @@ nonebot-plugin-statistical \
 nonebot-plugin-cocdicer \
 nonebot-plugin-wordbank \
 nonebot-plugin-picsearcher \
-nonebot-plugin-manager 
+nonebot-plugin-manager \
+nonebot-plugin-test
 
 RUN pip install ujson \
 bilibili-api \
