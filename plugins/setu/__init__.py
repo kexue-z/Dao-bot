@@ -11,18 +11,12 @@ from nonebot.log import logger
 from .getPic import ghs_pic3
 from .setu_Message import *
 
+__name__ = 'setu'
+
 setu = on_command('setu', aliases={'无内鬼', '涩图', '色图'})
 withdraw = on_command('撤回')
 cdTime = nonebot.get_driver().config.cdtime
 data_dir = r"./data/setuCD/"
-
-def log(text,type='info'):
-    if type == 'info':
-        logger.opt(colors=True).info('<blue>SETU</blue> | {}'.format(text))
-    elif type == 'debug':
-        logger.opt(colors=True).debug('<blue>SETU</blue> | {}'.format(text))
-    elif type == 'waring':
-        logger.opt(colors=True).warning('<blue>SETU</blue> | {}'.format(text))
 
 @setu.handle()
 async def _(bot: Bot, event: Event):
@@ -48,7 +42,7 @@ async def _(bot: Bot, event: Event):
         except:
             key = ''
 
-    log(f'{key},{r18}')
+    logger.info(f'key={key},r18={r18}')
 
     # try:
     if cd > cdTime or event.get_user_id() in nonebot.get_driver().config.superusers:
@@ -58,9 +52,10 @@ async def _(bot: Bot, event: Event):
         if pic[2]:
             try:
                 await setu.send(message=Message(pic[0]))
+                logger.info('已发送')
                 # writeJson(qid, event.time, mid['message_id'], data)
             except Exception as e:
-                log(e, 'warning')
+                logger.warning(e)
                 removeJson(qid)
                 await setu.finish(message=Message('消息被风控，屑岛风背锅'), at_sender=True)
             await setu.send(message= f"{random.choice(setu_SendMessage)}\n" + Message(pic[1]), at_sender=True)
@@ -70,7 +65,7 @@ async def _(bot: Bot, event: Event):
             await setu.finish(pic[0]+pic[1])
         
     else:
-        await setu.finish(f'{random.choice(setu_SendCD)} 你的CD还有{cdTime - cd}秒', at_sender=True)
+        await setu.send(f'{random.choice(setu_SendCD)} 你的CD还有{cdTime - cd}秒', at_sender=True)
 
 
 def readJson():

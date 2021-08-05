@@ -5,6 +5,8 @@ import nonebot
 from nonebot import logger
 from httpx import AsyncClient
 
+__name__ = 'setu'
+
 apikey = nonebot.get_driver().config.apikey
 if nonebot.get_driver().config.setuproxy == 'True':
     proxy = 'i.pixiv.cat'
@@ -29,13 +31,13 @@ async def ghs_pic3(keyword='', r18=False) -> str:
                 pic = "[CQ:image,file=base64://" + base64 + "]"
                 data = "标题:" + setu_title + "\npid:" + str(
                     setu_pid) + "\n画师:" + setu_author
-        
+            logger.info(res.text)
             # return setu_url
             return pic, data, True
             # return pic
         except Exception as e:
-            logger.opt(colors=True).warning('<blue>SETU</blue> | {}'.format(res.text))
-            logger.opt(colors=True).warning('<blue>SETU</blue> | {}'.format(e))
+            logger.warning('{}'.format(res.text))
+            logger.warning('{}'.format(e))
             if '额度限制' not in res.text:
                 return 'Error:' ,f"图库中没有搜到关于{keyword}的图。", False
             else:
@@ -49,10 +51,11 @@ async def downPic(url) -> str:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
         }
-        re = await client.get(url=url, headers=headers, timeout=30)
+        re = await client.get(url=url, headers=headers, timeout=10)
         if re:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
+            logger.info('成功获取图片')
             return pic
 
 
