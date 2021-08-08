@@ -27,7 +27,8 @@ pillow \
 dnspython \
 aiofiles \
 pypinyin \
-matplotlib
+matplotlib \
+wolframalpha
 
 COPY SIMHEI.ttf /usr/local/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf
 
