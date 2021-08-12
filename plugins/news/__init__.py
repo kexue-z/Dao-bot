@@ -11,7 +11,7 @@ from httpx import AsyncClient
 
 
 __name__ = 'news'
-api_url = 'https://api.iyk0.com/60s/'
+api_url = 'http://api.iyk0.com/60s/'
 
 
 
