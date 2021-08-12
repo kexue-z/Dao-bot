@@ -48,7 +48,12 @@ async def _(bot: Bot, event: Event):
     if cd > cdTime or event.get_user_id() in nonebot.get_driver().config.superusers:
         # await setu.send(random.choice(setu_SendMessage), at_sender=True)
         writeJson(qid, event.time, mid, data)
-        pic = await ghs_pic3(key, r18)
+        try: 
+            pic = await ghs_pic3(key, r18)
+        except Exception as e:
+            logger.warning(e)
+            removeJson(qid)
+            await setu.finish(message=Message(f'错误: {e}'), at_sender=True)
         if pic[2]:
             try:
                 await setu.send(message=Message(pic[0]))
