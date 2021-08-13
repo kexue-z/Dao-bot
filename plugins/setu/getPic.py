@@ -20,7 +20,10 @@ async def ghs_pic3(keyword='', r18=False) -> str:
         params = {'keyword': keyword,
                   'r18': 1 if r18 else 0
                   }
-        res = await client.get(req_url, params=params)
+        try:
+            res = await client.get(req_url, params=params)
+        except Exception as e:
+            return 'Error:', 'API异常', False
         try:
             setu_title = res.json()['data'][0]['title']
             setu_url = res.json()['data'][0]['url']
