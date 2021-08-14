@@ -1,5 +1,6 @@
 import base64
 from re import findall
+import httpx
 
 import nonebot
 from nonebot import logger
@@ -21,9 +22,10 @@ async def ghs_pic3(keyword='', r18=False) -> str:
                   'r18': 1 if r18 else 0
                   }
         try:
-            res = await client.get(req_url, params=params)
-        except Exception as e:
-            return 'Error:', 'API异常', False
+            res = await client.get(req_url, params=params, timeout=120)
+        except httpx.HTTPError as e:
+            logger.warning(e)
+            return 'Error:', f'API异常{e}', False
         try:
             setu_title = res.json()['data'][0]['title']
             setu_url = res.json()['data'][0]['url']
@@ -54,7 +56,7 @@ async def downPic(url) -> str:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
         }
-        re = await client.get(url=url, headers=headers, timeout=10)
+        re = await client.get(url=url, headers=headers, timeout=120)
         if re:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
