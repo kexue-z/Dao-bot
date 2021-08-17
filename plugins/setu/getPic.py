@@ -8,12 +8,6 @@ from httpx import AsyncClient
 
 __name__ = 'setu'
 
-apikey = nonebot.get_driver().config.apikey
-if nonebot.get_driver().config.setuproxy == 'True':
-    proxy = 'i.pixiv.cat'
-else:
-    proxy = 'disable'
-
 
 async def ghs_pic3(keyword='', r18=False) -> str:
     async with AsyncClient() as client:
@@ -44,9 +38,9 @@ async def ghs_pic3(keyword='', r18=False) -> str:
             logger.warning('{}'.format(res.text))
             logger.warning('{}'.format(e))
             if '额度限制' not in res.text:
-                return 'Error:' ,f"图库中没有搜到关于{keyword}的图。", False
+                return 'Error:', f"图库中没有搜到关于{keyword}的图。", False
             else:
-                return 'Error:' ,e , False
+                return 'Error:', e, False
 
 
 async def downPic(url) -> str:
