@@ -19,11 +19,12 @@ nonebot.load_plugins("plugins")
 nonebot.load_plugin("nonebot_plugin_cocdicer")
 nonebot.load_plugin("nonebot_plugin_wordbank")
 nonebot.load_plugin("nonebot_plugin_picsearcher")
-nonebot.load_plugin("nonebot_plugin_manager")
-nonebot.load_plugin("nonebot_hk_reporter")
+# nonebot.load_plugin("nonebot_plugin_manager")
+# nonebot.load_plugin("nonebot_hk_reporter")
 nonebot.load_plugin("nonebot_plugin_gamedraw")
-nonebot.load_plugin("nonebot_plugin_statistical")
+# nonebot.load_plugin("nonebot_plugin_statistical")
 nonebot.load_plugin("nonebot_plugin_test")
+nonebot.load_plugin("nonebot_plugin_puppet")
 
 
 if __name__ == "__main__":
