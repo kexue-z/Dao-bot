@@ -18,6 +18,7 @@ withdraw = on_command('撤回')
 cdTime = nonebot.get_driver().config.cdtime
 data_dir = r"./data/setuCD/"
 
+
 @setu.handle()
 async def _(bot: Bot, event: Event):
     global mid
@@ -28,10 +29,11 @@ async def _(bot: Bot, event: Event):
         cd = event.time - data[qid][0]
     except:
         cd = cdTime + 1
-    
+
     args = str(event.get_message()).split()
-    r18 = True if (isinstance(event, PrivateMessageEvent) and ('r18' or 'R18') in args) else False
-        
+    r18 = True if (isinstance(event, PrivateMessageEvent)
+                   and ('r18' or 'R18') in args) else False
+
     try:
         key = args[1] if args is not None else ''
     except:
@@ -53,17 +55,17 @@ async def _(bot: Bot, event: Event):
             try:
                 await setu.send(message=Message(pic[0]))
                 logger.info('已发送')
+                await setu.send(message=f"{random.choice(setu_SendMessage)}\n" + Message(pic[1]), at_sender=True)
                 # writeJson(qid, event.time, mid['message_id'], data)
             except Exception as e:
                 logger.warning(e)
                 removeJson(qid)
-                await setu.finish(message=Message('消息被风控，屑岛风背锅'), at_sender=True)
-            await setu.send(message= f"{random.choice(setu_SendMessage)}\n" + Message(pic[1]), at_sender=True)
+                await setu.finish(message=Message(f'消息被风控，图发不出来\n{pic[1]}\n这是链接\n{pic[3]}'), at_sender=True)
 
         else:
             removeJson(qid)
             await setu.finish(pic[0]+pic[1])
-        
+
     else:
         await setu.send(f'{random.choice(setu_SendCD)} 你的CD还有{cdTime - cd}秒', at_sender=True)
 
@@ -80,14 +82,16 @@ def readJson():
             os.makedirs(data_dir)
         except FileExistsError:
             pass
-        with open(data_dir+"usercd.json",mode="w") as f_out:
-            json.dump({},f_out)
+        with open(data_dir+"usercd.json", mode="w") as f_out:
+            json.dump({}, f_out)
+
 
 def writeJson(qid: str, time: int, mid: int, data: dict):
     data[qid] = [time, mid]
     with open(data_dir+"usercd.json", 'w') as f_out:
         json.dump(data, f_out)
         f_out.close()
+
 
 def removeJson(qid: str):
     with open(data_dir+"usercd.json", 'r') as f_in:

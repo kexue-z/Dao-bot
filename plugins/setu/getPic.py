@@ -32,7 +32,7 @@ async def ghs_pic3(keyword='', r18=False) -> str:
                     setu_pid) + "\n画师:" + setu_author
             logger.info(res.text)
             # return setu_url
-            return pic, data, True
+            return pic, data, True, setu_url
             # return pic
         except Exception as e:
             logger.warning('{}'.format(res.text))
