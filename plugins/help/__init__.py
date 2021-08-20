@@ -6,9 +6,10 @@ message = "[CQ:share,url=https://wiki.kexue.io:3000/,title=屑岛风bot使用指
 
 
 help = on_command('帮助',
-                  aliases={'机器人帮助', '机器人说明'}, 
+                  aliases={'机器人帮助', '机器人说明'},
                   priority=1)
 
+
 @help.handle()
-async def _(bot: Bot, event:MessageEvent):
+async def _(bot: Bot, event: MessageEvent):
     await help.send(message=Message(message))

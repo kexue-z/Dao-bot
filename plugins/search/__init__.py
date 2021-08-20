@@ -13,24 +13,23 @@ from .baidu import *
 # google = on_command('谷歌', aliases={'google'}, priority=1)
 
 
-
 # @bing.handle()
 # async def _bing(bing: Bot, event: MessageEvent):
 #     msg = bing_url + event.message
 #     await bing.send(message= MessageSegment.share(
-#         url = msg, 
+#         url = msg,
 #         title = str(event.message)))
 
 # @sogou.handle()
 # async def _sogou(sogou: Bot, event: MessageEvent):
 #     msg = sogou_url + event.message
 #     await sogou.send(message= MessageSegment.share(
-#         url = msg, 
+#         url = msg,
 #         title = str(event.message)))
 
 # @google.handle()
 # async def _google(google: Bot, event: MessageEvent):
 #     msg = google_url + event.message
 #     await google.send(message= MessageSegment.share(
-#         url = msg, 
+#         url = msg,
 #         title = str(event.message)))

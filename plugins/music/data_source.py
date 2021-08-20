@@ -91,7 +91,8 @@ async def search_kugou(keyword, page=1, pagesize=1, number=1):
             data = await resp.read()
     result = json.loads(data)
     info = result['data']
-    url = 'https://www.kugou.com/song/#hash={}&album_id={}'.format(hash, album_id)
+    url = 'https://www.kugou.com/song/#hash={}&album_id={}'.format(
+        hash, album_id)
     audio = info['play_url']
     title = info['song_name']
     content = info['author_name']

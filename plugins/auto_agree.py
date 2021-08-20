@@ -7,6 +7,7 @@ from nonebot.adapters.cqhttp.event import FriendRequestEvent, GroupRequestEvent,
 
 friend_req = on_request(priority=5)
 
+
 @friend_req.handle()
 async def add_superuser(bot: Bot, event: RequestEvent, state: T_State):
     if str(event.user_id) in bot.config.superusers and event.request_type == 'private':
@@ -15,4 +16,3 @@ async def add_superuser(bot: Bot, event: RequestEvent, state: T_State):
     elif event.sub_type == 'invite' and str(event.user_id) in bot.config.superusers and event.request_type == 'group':
         await event.approve(bot)
         logger.info('add group {}'.format(event.group_id))
-

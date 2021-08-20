@@ -91,7 +91,8 @@ class StatusPing:
             except:
                 return("error")
             # Send handshake + status request
-            self._send_data(connection, b'\x00\x00', self._host, self._port, b'\x01')
+            self._send_data(connection, b'\x00\x00',
+                            self._host, self._port, b'\x01')
             self._send_data(connection, b'\x00')
 
             # Read response, offset for string length
@@ -104,9 +105,9 @@ class StatusPing:
         # Load json and return
         try:
             response = json.loads(data.decode('utf8'))
-            response['ping'] = int(time.time() * 1000) - struct.unpack('Q', unix)[0]
+            response['ping'] = int(time.time() * 1000) - \
+                struct.unpack('Q', unix)[0]
         except:
             return("error")
 
         return response
-
