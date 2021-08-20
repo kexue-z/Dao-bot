@@ -15,14 +15,15 @@ def mcping(say):
     try:
         port = say.split(":")[1]
         get_status = StatusPing(host=host, port=int(port)).get_status()
-    except: 
+    except:
         try:
             srv_records = dns.resolver.query('_minecraft._tcp.'+host, 'SRV')
             srvInfo = {}
             for srv in srv_records:
                 srvInfo['host'] = str(srv.target).rstrip('.')
                 srvInfo['port'] = srv.port
-            get_status = StatusPing(host=srvInfo['host'], port=int(srvInfo['port'])).get_status()
+            get_status = StatusPing(
+                host=srvInfo['host'], port=int(srvInfo['port'])).get_status()
         except:
             get_status = StatusPing(host=host).get_status()
 
@@ -73,7 +74,7 @@ def mcping(say):
         sVer = get_status["version"]["name"]
     else:
         if get_status["version"]["name"].find(" ") > 0:
-            serType = get_status["version"]["name"].rsplit(" ",1)
+            serType = get_status["version"]["name"].rsplit(" ", 1)
             sType = serType[0]
             sVer = serType[1]
             # print(serType)
@@ -82,9 +83,10 @@ def mcping(say):
         else:
             sType = "Vanilla"
             sVer = get_status["version"]["name"]
-    
+
     sDevVer = str(get_status["version"]["protocol"])
-    sPlayer = str(get_status["players"]["online"]) + " / " + str(get_status["players"]["max"])
+    sPlayer = str(get_status["players"]["online"]) + \
+        " / " + str(get_status["players"]["max"])
 
     msg_send.append(f"游戏版本：" + sVer + "\n")
     msg_send.append(f"协议版本：" + sDevVer + "\n")

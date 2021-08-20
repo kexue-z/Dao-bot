@@ -5,7 +5,6 @@ import nonebot
 from nonebot.adapters.cqhttp import Bot as CQHTTPBot
 
 
-
 nonebot.init()
 
 

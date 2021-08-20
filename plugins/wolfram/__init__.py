@@ -29,7 +29,8 @@ async def _(bot: Bot, event: Event, state: T_State):
     logger.info(f'input={text}')
     # msg = await get_wolframalpha_simple(text)
     plaintext = False
-    pattern = [r'-p +.*?', r'.*? +-p', r'--plaintext +.*?', r'.*? +--plaintext']
+    pattern = [r'-p +.*?', r'.*? +-p',
+               r'--plaintext +.*?', r'.*? +--plaintext']
     for p in pattern:
         if re.fullmatch(p, text):
             plaintext = True
@@ -39,8 +40,9 @@ async def _(bot: Bot, event: Event, state: T_State):
         await wolfram.finish(export.usage)
 
     if not re.fullmatch(r'[\x00-\x7F]+', text):
-        #TODO 翻译功能无法实现
-        text = subprocess.getoutput(f'trans -t en -brief -no-warn "{text}"').strip()
+        # TODO 翻译功能无法实现
+        text = subprocess.getoutput(
+            f'trans -t en -brief -no-warn "{text}"').strip()
         if text:
             await wolfram.send('WolframAlpha 仅支持英文，将使用如下翻译进行搜索：\n' + text)
         else:

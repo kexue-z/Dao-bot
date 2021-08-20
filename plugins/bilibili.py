@@ -19,7 +19,7 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
     try:
         data = json.loads(get_message_json(event.json())['data'])
     except KeyError:
-        data =  {}
+        data = {}
     if data:
         if data.get('prompt') == '[QQ小程序]哔哩哔哩':
             async with aiohttp.ClientSession() as session:
@@ -36,7 +36,7 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
             like = vd_info['stat']['like']      # 点赞
             # danmu = vd_info['stat']['danmaku']  # 弹幕
             date = time.strftime("%Y-%m-%d", time.localtime(vd_info['ctime']))
-            sender = await bot.get_group_member_info(group_id = event.group_id, user_id = event.user_id)
+            sender = await bot.get_group_member_info(group_id=event.group_id, user_id=event.user_id)
             try:
                 await parse_bilibili_json.send(
                     MessageSegment.image(vd_info["pic"]) +
@@ -52,7 +52,9 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
             try:
                 await bot.delete_msg(message_id=event.message_id)
             except Exception as e:
-                logger.opt(colors=True).warning('<blue>bilibili</blue> | {}'.format(e))
+                logger.opt(colors=True).warning(
+                    '<blue>bilibili</blue> | {}'.format(e))
+
 
 def get_message_json(data: str) -> dict:
     data = json.loads(data)
@@ -63,4 +65,3 @@ def get_message_json(data: str) -> dict:
         return {}
     except Exception:
         return {}
-
