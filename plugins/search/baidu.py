@@ -2,7 +2,7 @@ from nonebot import on_command
 from nonebot.adapters.cqhttp import Bot, MessageEvent, MessageSegment
 from urllib.parse import quote
 
-baidu_url = 'http://buhuibaidu.me/?s='
+baidu_url = 'https://www.baidu.com/s?wd='
 
 baidu = on_command('百度', aliases={'baidu'}, priority=1)
 
@@ -14,6 +14,6 @@ async def _baidu(bot: Bot, event: MessageEvent):
     await baidu.send(message=MessageSegment(
         type='share',
         data={'url': url,
-              'title': f'百度{str(event.message)}',
+              'title': f'{str(event.message)}',
               'content': '你不会百度吗？？？'}
     ))
