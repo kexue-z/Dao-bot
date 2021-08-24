@@ -9,9 +9,9 @@ from nonebot.adapters.cqhttp.message import MessageSegment
 # from models.group_remind import GroupRemind
 from utils.message_builder import image
 
-__plugin_name__ = "广播 [Hidden]"
+# __plugin_name__ = "广播 [Hidden]"
 
-__plugin_usage__ = '广播- [消息] or [图片]'
+# __plugin_usage__ = '广播- [消息] or [图片]'
 
 broadcast = on_command("广播-", priority=1, permission=SUPERUSER, block=True)
 

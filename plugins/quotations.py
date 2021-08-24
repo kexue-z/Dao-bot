@@ -5,8 +5,8 @@ from nonebot.typing import T_State
 import aiohttp
 
 
-__plugin_name__ = "语录"
-__plugin_usage__ = "用法： 二次元语录给你力量"
+# __plugin_name__ = "语录"
+# __plugin_usage__ = "用法： 二次元语录给你力量"
 
 
 quotations = on_command("语录", aliases={"二次元", "二次元语录"}, priority=5, block=True)

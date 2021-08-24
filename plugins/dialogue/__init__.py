@@ -8,8 +8,8 @@ from utils.message_builder import image
 from nonebot.rule import to_me
 import nonebot
 
-__plugin_name__ = "联系管理员"
-__plugin_usage__ = "用法：私聊或@bot"
+# __plugin_name__ = "联系管理员"
+# __plugin_usage__ = "用法：私聊或@bot"
 
 
 dialogue_data = {}
