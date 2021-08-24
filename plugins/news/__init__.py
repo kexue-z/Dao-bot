@@ -7,11 +7,11 @@ from nonebot.adapters.cqhttp import(
 from nonebot.adapters.cqhttp.message import MessageSegment
 from nonebot.log import logger
 import base64
-from httpx import AsyncClient
+import httpx
 
 
 __name__ = 'news'
-api_url = 'http://api.iyk0.com/60s/'
+api_url = 'https://api.iyk0.com/60s'
 
 
 news = on_command('news', aliases={'新闻'}, priority=1)
@@ -19,17 +19,15 @@ news = on_command('news', aliases={'新闻'}, priority=1)
 
 @news.handle()
 async def _(bot: Bot, event: MessageEvent):
-    logger.info('got')
     async with AsyncClient() as client:
-        logger.info('获取图片')
         try:
-            res = await client.get(api_url)
-            logger.info(res)
-
+            res = await client.get(url=api_url, timeout=10)
             imageUrl = res.json()['imageUrl']
             logger.info(imageUrl)
-            # with open('./data/news.img')
         except Exception as e:
+            logger.warning(e)
+            await news.finish(f'Error:{e}')
+        except httpx.HTTPError as e:
             logger.warning(e)
             await news.finish(f'Error:{e}')
 
@@ -39,11 +37,14 @@ async def _(bot: Bot, event: MessageEvent):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
         }
-        re = await client.get(url=imageUrl, headers=headers, timeout=10)
-        logger.info(type(re))
-        if re:
-            ba = str(base64.b64encode(re.content))
-            pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
-            logger.info('成功获取图片')
+        try:
+            re = await client.get(url=imageUrl, headers=headers, timeout=10)
+            if re:
+                ba = str(base64.b64encode(re.content))
+                pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
+                logger.info('成功获取图片')
+        except httpx.HTTPError as e:
+            logger.warning(e)
+            await news.finish(f'Error:{e}')
 
     await news.finish(MessageSegment.image('base64://'+pic))
