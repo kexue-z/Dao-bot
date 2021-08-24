@@ -10,15 +10,17 @@ RUN python3 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/s
 RUN pip install \
     nb-cli \
     nonebot-adapter-cqhttp \
-    # nonebot-hk-reporter \
+    nonebot-hk-reporter \
     nonebot-plugin-gamedraw \
     nonebot-plugin-apscheduler \
-    # nonebot-plugin-statistical \
+    nonebot-plugin-statistical \
     nonebot-plugin-cocdicer \
     nonebot-plugin-wordbank \
     nonebot-plugin-picsearcher \
     nonebot-plugin-manager \
-    nonebot-plugin-test
+    nonebot-plugin-test \
+    nonebot-plugin-trpglogger \
+    nonebot_plugin_puppet 
 
 RUN pip install ujson \
     bilibili-api \
@@ -29,8 +31,6 @@ RUN pip install ujson \
     matplotlib \
     wolframalpha
 
-RUN pip install nonebot-plugin-trpglogger
-RUN pip install nonebot_plugin_puppet
 COPY SIMHEI.ttf /usr/local/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf
 
 
