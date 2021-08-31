@@ -26,9 +26,11 @@ async def get_WeatherInfo(api_type):
 async def get_City_Weather(city):
     global city_id
     city_info = await get_Location(city)
-    city_id = city_info['location'][0]['id']
-    city_name = city_info['location'][0]['name']
-
+    try:
+        city_id = city_info['location'][0]['id']
+        city_name = city_info['location'][0]['name']
+    except KeyError:
+        return None
     # 3天天气
     daily_info = await get_WeatherInfo('3d')
     daily = daily_info['daily']

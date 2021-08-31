@@ -19,7 +19,9 @@ def img_to_b64(pic: Image.Image) -> str:
 async def _(bot: Bot, event: MessageEvent):
     city = str(event.get_message())
     data = await get_City_Weather(city)
-
-    img = draw(data)
-    b64 = img_to_b64(img)
-    await bot.send(event, MessageSegment.image(b64))
+    if data:
+        img = draw(data)
+        b64 = img_to_b64(img)
+        await weather.finish(MessageSegment.image(b64))
+    else:
+        await weather.finish('地点不存在哦! 它在地球上吗...?')

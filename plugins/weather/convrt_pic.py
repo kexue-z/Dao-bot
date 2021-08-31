@@ -107,4 +107,8 @@ def draw(data: dict) -> Image:
     d.multiline_text((770, 1262), text, fill='black', font=size(30),
                      align='right', spacing=10)
 
+    obsTime = data['now']['obsTime'][5:10] + ' '+data['now']['obsTime'][11:16]
+    d.text((500, 1533), obsTime, fill='white', font=size(35),
+           align='center', anchor='mt')
+    
     return im
