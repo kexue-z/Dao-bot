@@ -20,7 +20,8 @@ RUN pip install \
     nonebot-plugin-manager \
     nonebot-plugin-test \
     nonebot-plugin-trpglogger \
-    nonebot_plugin_puppet 
+    nonebot_plugin-puppet \
+    nonebot-plugin-heweather
 
 RUN pip install ujson \
     bilibili-api \
