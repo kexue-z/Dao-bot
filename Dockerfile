@@ -32,6 +32,8 @@ RUN pip install ujson \
     matplotlib \
     wolframalpha
 
+RUN pip install brotlipy
+
 COPY SIMHEI.ttf /usr/local/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf
 
 
