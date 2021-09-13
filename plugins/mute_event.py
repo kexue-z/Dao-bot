@@ -17,15 +17,15 @@ async def sent_mute(bot: Bot, event: GroupBanNoticeEvent):
     group_name = group_info["group_name"]
     operator_id = event.operator_id
     # 获取被禁言人名字
-    mute_member_info = await bot.get_group_member_info(group_id=group_id,
-                                                       user_id=qq_id)
+    mute_member_info = await bot.get_group_member_info(group_id=group_id, user_id=qq_id)
     if mute_member_info["card"]:
         mute_name = mute_member_info["card"]
     else:
         mute_name = mute_member_info["nickname"]
     # 获取管理人名字
-    operator_member_info = await bot.get_group_member_info(group_id=group_id,
-                                                           user_id=operator_id)
+    operator_member_info = await bot.get_group_member_info(
+        group_id=group_id, user_id=operator_id
+    )
     if operator_member_info["card"]:
         operator_name = operator_member_info["card"]
     else:
@@ -34,7 +34,9 @@ async def sent_mute(bot: Bot, event: GroupBanNoticeEvent):
     if mute_member_info["user_id"] == event.self_id and mute_time:
         # 被禁言提示
         message = f"Bot在群{event.group_id}（{group_name}）被 {operator_name} 禁言了 {mute_time//60} 分钟"
-        await bot.send_private_msg(user_id=list(get_driver().config.superusers)[0], message=message)
+        await bot.send_private_msg(
+            user_id=list(get_driver().config.superusers)[0], message=message
+        )
 
     elif mute_time:
         message = f"{mute_name} 被 {operator_name} 禁言了 {mute_time//60} 分钟!"
@@ -43,7 +45,9 @@ async def sent_mute(bot: Bot, event: GroupBanNoticeEvent):
     elif mute_time == 0:
         if mute_member_info["user_id"] == event.self_id:
             message = f"Bot在群{event.group_id}（{group_name}）的禁言被 {operator_name} 解除了！"
-            await bot.send_private_msg(user_id=list(get_driver().config.superusers)[0], message=message)
+            await bot.send_private_msg(
+                user_id=list(get_driver().config.superusers)[0], message=message
+            )
             sleep(5)
         message = f"{mute_name} 被 {operator_name} 复活了!"
         await bot.send(event, message)

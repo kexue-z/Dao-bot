@@ -9,6 +9,6 @@ matcher = on_regex("((E|e)(P|p)(I|i)(C|c))?喜(加一|\+1)", priority=1)
 
 @matcher.handle()
 async def handle(bot: Bot, event: Event, state: T_State):
-  imfree = await get_Epicfree()
-  msg = Message(imfree)
-  await matcher.finish(msg)
+    imfree = await get_Epicfree()
+    msg = Message(imfree)
+    await matcher.finish(msg)

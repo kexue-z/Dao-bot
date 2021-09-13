@@ -1,6 +1,12 @@
 from nonebot import on_message, on_command
 from nonebot.typing import T_State
-from nonebot.adapters.cqhttp import Bot, MessageEvent, Message, GroupMessageEvent, MessageSegment
+from nonebot.adapters.cqhttp import (
+    Bot,
+    MessageEvent,
+    Message,
+    GroupMessageEvent,
+    MessageSegment,
+)
 from nonebot.permission import SUPERUSER
 from utils.utils import get_message_text, is_number, get_message_imgs
 from nonebot.log import logger
@@ -61,7 +67,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
             "user_id": event.user_id,
             "group_id": group_id,
             "group_name": group_name,
-            "msg": f'{text} {img_msg}',
+            "msg": f"{text} {img_msg}",
         }
         # print(dialogue_data)
         logger.info(f"Q{uid}@群{group_id} 联系管理员：{coffee} text:{text}")
@@ -81,11 +87,11 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         result = "*****待回复消息总览*****\n"
         for key in dialogue_data.keys():
             result += (
-                f'id：{key}\n'
+                f"id：{key}\n"
                 f'\t昵称：{dialogue_data[key]["nickname"]}({dialogue_data[key]["user_id"]})\n'
                 f'\t群群：{dialogue_data[key]["group_name"]}({dialogue_data[key]["group_id"]})\n'
                 f'\t消息：{dialogue_data[key]["msg"]}'
-                f'\n--------------------\n'
+                f"\n--------------------\n"
             )
         await reply.finish(Message(result[:-1]))
     msg = msg.split()
@@ -123,17 +129,14 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
     if group_id:
         if user_id:
             await bot.send_group_msg(
-                group_id=group_id, message=MessageSegment.at(
-                    user_id) + text
+                group_id=group_id, message=MessageSegment.at(user_id) + text
             )
         else:
             await bot.send_group_msg(group_id=group_id, message=text)
         await reply.finish("消息发送成功...", at_sender=True)
     else:
         if user_id in [qq["user_id"] for qq in await bot.get_friend_list()]:
-            await bot.send_private_msg(
-                user_id=user_id, message=text
-            )
+            await bot.send_private_msg(user_id=user_id, message=text)
             await reply.finish("发送成功", at_sender=True)
         else:
             await reply.send(

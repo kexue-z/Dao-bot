@@ -20,13 +20,15 @@ async def get_wolframalpha_simple(input, params=(), **kwargs):
     )
     data = itertools.chain(params, data.items(), kwargs.items())
     query = urllib.parse.urlencode(tuple(data))
-    url = 'https://api.wolframalpha.com/v2/simple?' + query
+    url = "https://api.wolframalpha.com/v2/simple?" + query
 
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
             if resp.status == 200:
                 data = await resp.read()
-                return MessageSegment.image(f"base64://{base64.b64encode(data).decode()}")
+                return MessageSegment.image(
+                    f"base64://{base64.b64encode(data).decode()}"
+                )
             else:
                 return None
 
@@ -38,4 +40,4 @@ async def get_wolframalpha_text(input, params=(), **kwargs):
         return next(res.results).text
     except Exception as e:
         logger.error(e)
-        return ''
+        return ""

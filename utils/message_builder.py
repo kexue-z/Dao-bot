@@ -1,5 +1,5 @@
-IMAGE_PATH = './data/image'
-VOICE_PATH = './data/voice'
+IMAGE_PATH = "./data/image"
+VOICE_PATH = "./data/voice"
 from nonebot.adapters.cqhttp.message import MessageSegment
 from nonebot.log import logger
 from typing import Optional
