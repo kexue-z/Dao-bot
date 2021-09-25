@@ -36,21 +36,14 @@ async def _(bot: Bot, event: Event):
         cd = cdTime + 1
 
     args = str(event.get_message()).split()
-    r18 = (
-        True
-        if (isinstance(event, PrivateMessageEvent) and ("r18" or "R18") in args)
-        else False
-    )
+    r18 = True if (isinstance(event, PrivateMessageEvent) and "r18" in args) else False
 
+    if r18:
+        args.remove("r18")
     try:
-        key = args[1] if args is not None else ""
+        key = " ".join(args) if args is not None else ""
     except:
-        try:
-            key = args[0]
-            if key == ("r18" or "R18"):
-                key = ""
-        except:
-            key = ""
+        key = ""
 
     logger.info(f"key={key},r18={r18}")
 
