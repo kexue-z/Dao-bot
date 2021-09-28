@@ -109,28 +109,4 @@ def make_logo(left_text: str, right_text) -> Image:
         (blank + left_img.width, int((bg_img_height - right_img.height) / 2)),
         mask=right_img,
     )
-    # bg_img.save(out_put_path)
     return bg_img
-
-
-# def make_logo(left_text: str, right_text: str) -> Image:
-
-
-# def make_ph_style_logo():
-#     input_params_nums = len(sys.argv)
-#     if input_params_nums == 1:
-#         print("请输入需要转换为p**n h*b风格的文本,如'Bilibili 舞蹈区'")
-#     elif input_params_nums == 2:
-#         print("请用空格分开文本,如'Bilibili 舞蹈区'")
-#     elif input_params_nums == 3:
-#         left_text = sys.argv[1]
-#         right_text = sys.argv[2]
-#         img_name = f'{left_text} {right_text}.png'
-#         out_put_path = str(Path.home() / 'Desktop' / img_name)
-#         combine_img(left_text, right_text, FONT_SIZE, out_put_path)
-#         print(f"已成功导出至{out_put_path}")
-#     else:
-#         print("只能输入空格隔开的两端文本")
-
-# if __name__ == "__main__":
-#     make_ph_style_logo()
