@@ -22,10 +22,11 @@ async def add_superuser(bot: Bot, event: RequestEvent, state: T_State):
     # elif event.request_type == "invite":
     else:
         # if
+        user_name = bot.get_stranger_info(event.user_id)
         msg = (
             f"[收到{'好友' if event.request_type == 'friend' else '加群'}邀请]\n"
-            f"邀请人: {event.user_id}\n"
-            f"群: {event.group_id if event.request_type == 'group' else 'n/a'} "
+            f"邀请人: {user_name}({event.user_id})\n"
+            f"群: {event.group_id if event.request_type == 'group' else 'n/a'}\n"
         )
         try:
             msg += f"加群请求\n" if event.sub_type == "add" else "邀请入群\n"
@@ -44,7 +45,8 @@ approve_friend = on_command("添加好友", permission=SUPERUSER)
 async def _(bot: Bot, event: MessageEvent):
     flag = str(event.get_message())
     await bot.set_friend_add_request(flag=flag,approve=True)
-    await _.finish("已添加好友")
+    admin = int(list(bot.config.superusers)[0])
+    await bot.send_private_msg(message="已添加好友",user_id=admin)
 
 
 approve_group = on_command("添加群", permission=SUPERUSER)
@@ -53,5 +55,6 @@ approve_group = on_command("添加群", permission=SUPERUSER)
 @approve_group.handle()
 async def _(bot: Bot, event: MessageEvent):
     flag = str(event.get_message())
-    await bot.set_group_add_request(flag, sub_type="add", approve=True)
-    await _.finish("已添加群")
+    await bot.set_group_add_request(flag=flag, sub_type="invite", approve=True)
+    admin = int(list(bot.config.superusers)[0])
+    await bot.send_private_msg(message="已添加群",user_id=admin)
