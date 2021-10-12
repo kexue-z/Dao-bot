@@ -1,47 +1,57 @@
-from nonebot import on_request, on_command, logger
+from nonebot import on_request, on_command
 from nonebot.adapters.cqhttp import Bot, MessageEvent, RequestEvent
 from nonebot.permission import SUPERUSER
 from nonebot.typing import T_State
 from nonebot.adapters.cqhttp.permission import PRIVATE_FRIEND
 
-friend_req = on_request(priority=5)
+super_req = on_request(priority=5)
 
 
-@friend_req.handle()
+@super_req.handle()
 async def add_superuser(bot: Bot, event: RequestEvent, state: T_State):
-    if str(event.user_id) in bot.config.superusers and event.request_type == "private":
-        await event.approve(bot)
-        logger.info("add user {}".format(event.user_id))
 
-    elif (
-        event.sub_type == "invite"
-        and str(event.user_id) in bot.config.superusers
-        and event.request_type == "group"
-    ):
-        await event.approve(bot)
-        logger.info("add group {}".format(event.group_id))
+    if str(event.user_id) in bot.config.superusers:
+        if event.request_type == "private":
+            await event.approve(bot)
+            await event.send(f"添加好友{event.user_id}")
 
-    elif event.sub_type == "invite":
+        elif event.sub_type == "invite" and event.request_type == "group":
+            await event.approve(bot)
+            await event.send(f"添加群{event.group_id}")
+
+    # elif event.request_type == "invite":
+    else:
+        # if
         msg = (
-            f"[收到{'好友' if event.request_type == 'private' else '加群'}邀请]\n"
+            f"[收到{'好友' if event.request_type == 'friend' else '加群'}邀请]\n"
             f"邀请人: {event.user_id}\n"
-            f"群: {event.group_id}\n"
-            f"flag: {event.flag}"
+            f"群: {event.group_id if event.request_type == 'group' else 'n/a'} "
         )
-        await bot.send_private_msg(user_id=bot.config.superusers[0], message=msg)
+        try:
+            msg += f"加群请求\n" if event.sub_type == "add" else "邀请入群\n"
+        except:
+            pass
 
-approve_friend = on_command("添加好友",permission=SUPERUSER)
+        admin = int(list(bot.config.superusers)[0])
+        msg += f"flag: {event.flag}\n"
+        await bot.send_private_msg(user_id=admin, message=msg)
+
+
+approve_friend = on_command("添加好友", permission=SUPERUSER)
+
 
 @approve_friend.handle()
 async def _(bot: Bot, event: MessageEvent):
     flag = str(event.get_message())
-    await bot.set_friend_add_request(flag)
-    
-approve_group = on_command("添加群",permission=SUPERUSER)
+    await bot.set_friend_add_request(flag=flag,approve=True)
+    await _.finish("已添加好友")
 
-@approve_friend.handle()
+
+approve_group = on_command("添加群", permission=SUPERUSER)
+
+
+@approve_group.handle()
 async def _(bot: Bot, event: MessageEvent):
     flag = str(event.get_message())
-    await bot.set_group_add_request(flag)
-    
-
+    await bot.set_group_add_request(flag, sub_type="add", approve=True)
+    await _.finish("已添加群")
