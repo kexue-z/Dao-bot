@@ -2,39 +2,49 @@ FROM python:3.9
 
 ENV TZ=Asia/Shanghai
 
-RUN python3 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
+RUN python3 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple \
+    && pip install poetry \
+    && poetry config virtualenvs.create false
 
-# RUN echo "deb http://mirrors.aliyun.com/debian/ buster main contrib non-free\ndeb http://mirrors.aliyun.com/debian/ buster-updates main contrib non-free" > /etc/apt/sources.list
-# RUN apt-get update && apt-get install -y fonts-wqy-microhei chromium
+# RUN mkdir /nonebot && cd /nonebot 
 
-RUN pip install \
-    nb-cli \
-    nonebot-adapter-cqhttp \
-    nonebot-hk-reporter \
-    nonebot-plugin-gamedraw \
-    nonebot-plugin-apscheduler \
-    nonebot-plugin-statistical \
-    nonebot-plugin-cocdicer \
-    nonebot-plugin-wordbank \
-    nonebot-plugin-picsearcher \
-    nonebot-plugin-manager \
-    nonebot-plugin-test \
-    nonebot-plugin-trpglogger \
-    nonebot_plugin-puppet \
-    nonebot-plugin-heweather
+COPY  pyproject.toml /
+COPY  poetry.lock /
 
-RUN pip install ujson \
-    bilibili-api \
-    pillow \
-    dnspython \
-    aiofiles \
-    pypinyin \
-    matplotlib \
-    wolframalpha
+RUN poetry export --without-hashes -f requirements.txt \
+  | poetry run pip install -r /dev/stdin
 
-RUN pip install brotlipy
+WORKDIR /nonebot
 
-COPY SIMHEI.ttf /usr/local/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf
+# RUN pip install \
+
+#     nb-cli \
+#     nonebot-adapter-cqhttp \
+#     nonebot-hk-reporter \
+#     nonebot-plugin-gamedraw \
+#     nonebot-plugin-apscheduler \
+#     nonebot-plugin-statistical \
+#     nonebot-plugin-cocdicer \
+#     nonebot-plugin-wordbank \
+#     nonebot-plugin-picsearcher \
+#     nonebot-plugin-manager \
+#     nonebot-plugin-test \
+#     nonebot-plugin-trpglogger \
+#     nonebot_plugin-puppet \
+#     nonebot-plugin-heweather
+
+# RUN pip install ujson \
+#     bilibili-api \
+#     pillow \
+#     dnspython \
+#     aiofiles \
+#     pypinyin \
+#     matplotlib \
+#     wolframalpha
+
+# RUN pip install brotlipy
+
+
 
 
 
