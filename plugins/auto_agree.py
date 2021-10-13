@@ -24,7 +24,7 @@ async def add_superuser(bot: Bot, event: RequestEvent, state: T_State):
     else:
         # if
         user_info = await bot.get_stranger_info(user_id=event.user_id, no_cache=True)
-        user_name = user_info["nickname"]
+        user_name = user_info[0]["nickname"]
         msg = (
             f"[收到{'好友' if event.request_type == 'friend' else '加群'}邀请]\n"
             f"邀请人: {user_name}({event.user_id})\n"
