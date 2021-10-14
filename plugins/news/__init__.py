@@ -10,7 +10,7 @@ import httpx
 
 
 __name__ = "news"
-api_url = "https://api.iyk0.com/60s"
+api_url = "https://api.iyk0.com/60s/"
 
 
 news = on_command("news", aliases={"新闻"}, priority=1)
@@ -22,7 +22,7 @@ async def _(bot: Bot, event: MessageEvent):
         try:
             res = await client.get(url=api_url, timeout=10)
             imageUrl = res.json()["imageUrl"]
-            logger.info(imageUrl)
+            logger.debug(imageUrl)
         except Exception as e:
             logger.warning(e)
             await news.finish(f"Error:{e}")
@@ -41,7 +41,6 @@ async def _(bot: Bot, event: MessageEvent):
             if re:
                 ba = str(base64.b64encode(re.content))
                 pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
-                logger.info("成功获取图片")
         except httpx.HTTPError as e:
             logger.warning(e)
             await news.finish(f"Error:{e}")
