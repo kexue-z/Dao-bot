@@ -12,7 +12,7 @@ __name__ = "setu"
 async def ghs_pic3(keyword="", r18=False) -> str:
     async with AsyncClient() as client:
         req_url = "https://api.lolicon.app/setu/v2"
-        params = {"keyword": keyword, "r18": 1 if r18 else 0}
+        params = {"keyword": keyword, "r18": 1 if r18 else 0, "size": "regular"}
         try:
             res = await client.get(req_url, params=params, timeout=120)
             logger.info(res.json())
@@ -21,7 +21,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
             return "Error:", f"API异常{e}", False
         try:
             setu_title = res.json()["data"][0]["title"]
-            setu_url = res.json()["data"][0]["urls"]["original"]
+            setu_url = res.json()["data"][0]["urls"]["regular"]
             base64 = await downPic(setu_url)
             setu_pid = res.json()["data"][0]["pid"]
             setu_author = res.json()["data"][0]["author"]
