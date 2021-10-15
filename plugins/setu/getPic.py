@@ -43,7 +43,9 @@ async def ghs_pic3(keyword="", r18=False) -> str:
                 return "Error:", f"图库中没有搜到关于{keyword}的图。", False
             else:
                 return "Error:", e, False
-
+        except httpx.HTTPError as e:
+            logger.warning("{}".format(e))
+            return "Error:", f"API异常{e}", False
 
 async def downPic(url) -> str:
     proxies = {

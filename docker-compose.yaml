@@ -9,7 +9,6 @@ services:
       - "/etc/localtime:/etc/localtime"
       - "./:/nonebot"
       - "./wb:/usr/local/lib/python3.9/site-packages/nonebot_plugin_wordbank/data/"
-      - "/data/clash:/nonebot/data/clash"
     environment:
       - TIME_ZONE=Asia/Shanghai
     command: sh -c "python bot.py"
