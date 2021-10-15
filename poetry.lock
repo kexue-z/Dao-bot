@@ -192,14 +192,14 @@ reference = "aliyun"
 
 [[package]]
 name = "boto3"
-version = "1.18.61"
+version = "1.18.62"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.21.61,<1.22.0"
+botocore = ">=1.21.62,<1.22.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -213,7 +213,7 @@ reference = "aliyun"
 
 [[package]]
 name = "botocore"
-version = "1.21.61"
+version = "1.21.62"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -784,7 +784,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-gamedraw"
-version = "0.1.8.9.2"
+version = "0.1.8.9.3"
 description = "Nonebot2插件"
 category = "main"
 optional = false
@@ -1619,12 +1619,12 @@ bilibili-api = [
     {file = "bilibili_api-6.1.3-py3-none-any.whl", hash = "sha256:6dd19d5f3994719caaa15c3366d36f65df84e783c1309806193202c5fb73ca5f"},
 ]
 boto3 = [
-    {file = "boto3-1.18.61-py3-none-any.whl", hash = "sha256:d2a8f8cd0a53093b2f1ab5a4b233533f1aa04e751209266597a05f50a46f6683"},
-    {file = "boto3-1.18.61.tar.gz", hash = "sha256:08dc897299ecc9eef6df3cd296864154dfbc9f78edb8995b93258b59d747cbdc"},
+    {file = "boto3-1.18.62-py3-none-any.whl", hash = "sha256:2ea8e74678af768343bfc005590d41e162ce8dda9320542dc93f707588df049c"},
+    {file = "boto3-1.18.62.tar.gz", hash = "sha256:364a0fd497147ff0e15327f653223b05e60a1afce002995e5b1106084355352e"},
 ]
 botocore = [
-    {file = "botocore-1.21.61-py3-none-any.whl", hash = "sha256:eda50985c229b01c7de6f0a0ccb561dfa52ded06c8c59044f624133a33357b94"},
-    {file = "botocore-1.21.61.tar.gz", hash = "sha256:92ae0ca56a6582bddf42aca199ac3f67579910860bcd86166ae10f7a83f8841b"},
+    {file = "botocore-1.21.62-py3-none-any.whl", hash = "sha256:6b854186caa198043e078956d46072600a0cea64b08a29b56a8bb42c3dbf1d7d"},
+    {file = "botocore-1.21.62.tar.gz", hash = "sha256:c92fee381c6f2771f7ec2bffaff2938b8a1c2a957560815a01ad77c975268fdd"},
 ]
 brotlipy = [
     {file = "brotlipy-0.7.0-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:af65d2699cb9f13b26ec3ba09e75e80d31ff422c03675fcb36ee4dabe588fdc2"},
@@ -2040,8 +2040,8 @@ nonebot-plugin-cocdicer = [
     {file = "nonebot_plugin_cocdicer-0.2.5.tar.gz", hash = "sha256:384788520e3012e50c7a071d9e6cca0ff930b8dcf1f5aa6eb6fe36431efa3143"},
 ]
 nonebot-plugin-gamedraw = [
-    {file = "nonebot-plugin-gamedraw-0.1.8.9.2.tar.gz", hash = "sha256:962b509b7644ed0d3d02a182fa022c75516de747bf5c87e94a119b3457a82bba"},
-    {file = "nonebot_plugin_gamedraw-0.1.8.9.2-py3-none-any.whl", hash = "sha256:300544c7202a66b01a29417feff835dcaa2d87703255c40d55b52413fb4d2b9a"},
+    {file = "nonebot-plugin-gamedraw-0.1.8.9.3.tar.gz", hash = "sha256:f1253837f8f6e64e580be5117aeaea31bb85d1d2b3671efd986d4d78780df94b"},
+    {file = "nonebot_plugin_gamedraw-0.1.8.9.3-py3-none-any.whl", hash = "sha256:b0557ae5a2af8ea55dd8c57816312f91c61b0e1f280661b053a74fccd0dfaed0"},
 ]
 nonebot-plugin-manager = [
     {file = "nonebot_plugin_manager-0.5.3-py3-none-any.whl", hash = "sha256:3800592a9d939a4067756f599e8d04d317c80d8b18879e52c52d58b2e569d2df"},

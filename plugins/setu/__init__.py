@@ -26,7 +26,6 @@ data_dir = r"./data/setuCD/"
 
 @setu.handle()
 async def _(bot: Bot, event: Event):
-    _.finish("色图被墙了, 无了. 改天再修")
     global mid
     qid = event.get_user_id()
     mid = event.message_id

@@ -35,12 +35,9 @@ async def ghs_pic3(keyword="", r18=False) -> str:
                     + "\n画师:"
                     + setu_author
                 )
-            logger.info(res.text)
-            # return setu_url
             return pic, data, True, setu_url
-            # return pic
+
         except Exception as e:
-            logger.warning("{}".format(res.text))
             logger.warning("{}".format(e))
             if "额度限制" not in res.text:
                 return "Error:", f"图库中没有搜到关于{keyword}的图。", False
@@ -50,8 +47,8 @@ async def ghs_pic3(keyword="", r18=False) -> str:
 
 async def downPic(url) -> str:
     proxies = {
-    "http://": "http://192.169.0.37:9090",
-    "https://": "http://192.169.0.37:9090",
+        "http://": "http://192.168.0.49:7890",
+        "https://": "http://192.168.0.49:7890",
     }
     async with AsyncClient(proxies=proxies) as client:
         headers = {
