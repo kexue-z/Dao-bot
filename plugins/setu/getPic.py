@@ -15,6 +15,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
         params = {"keyword": keyword, "r18": 1 if r18 else 0}
         try:
             res = await client.get(req_url, params=params, timeout=120)
+            logger.info(res.json())
         except httpx.HTTPError as e:
             logger.warning(e)
             return "Error:", f"API异常{e}", False
@@ -48,7 +49,11 @@ async def ghs_pic3(keyword="", r18=False) -> str:
 
 
 async def downPic(url) -> str:
-    async with AsyncClient() as client:
+    proxies = {
+    "http://": "http://192.169.0.37:9090",
+    "https://": "http://192.169.0.37:9090",
+    }
+    async with AsyncClient(proxies=proxies) as client:
         headers = {
             "Referer": "https://accounts.pixiv.net/login?lang=zh&source=pc&view_type=page&ref=wwwtop_accounts_index",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) "
