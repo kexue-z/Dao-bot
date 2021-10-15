@@ -1,28 +1,29 @@
 services:
-    nonebot:
-        build: .
-        image: xana278/nonebot
-        container_name: nb
-        network_mode: host
-        volumes:
-        - "./test:/test"
-        - "/etc/localtime:/etc/localtime"
-        - "./:/nonebot"
-        - "./wb:/usr/local/lib/python3.9/site-packages/nonebot_plugin_wordbank/data/"
-        environment: 
-        - TIME_ZONE=Asia/Shanghai
-        command: sh -c "python bot.py"
-        working_dir: /nonebot
-        restart: always
+  nonebot:
+    build: .
+    image: xana278/nonebot
+    container_name: nb
+    network_mode: host
+    volumes:
+      - "./test:/test"
+      - "/etc/localtime:/etc/localtime"
+      - "./:/nonebot"
+      - "./wb:/usr/local/lib/python3.9/site-packages/nonebot_plugin_wordbank/data/"
+      - "/data/clash:/nonebot/data/clash"
+    environment:
+      - TIME_ZONE=Asia/Shanghai
+    command: sh -c "python bot.py"
+    working_dir: /nonebot
+    restart: always
 
-    go-cqhttp: 
-        image: alpine
-        container_name: go
-        network_mode: host
-        volumes:
-        - "/etc/localtime:/etc/localtime"
-        - "./go-cqhttp:/go-cqhttp"
-        - "./test:/test"
-        working_dir: /go-cqhttp
-        command: sh -c "./go-cqhttp"
-        restart: always
+  go-cqhttp:
+    image: alpine
+    container_name: go
+    network_mode: host
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "./go-cqhttp:/go-cqhttp"
+      - "./test:/test"
+    working_dir: /go-cqhttp
+    command: sh -c "./go-cqhttp"
+    restart: always
