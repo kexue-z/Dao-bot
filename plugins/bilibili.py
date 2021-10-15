@@ -1,15 +1,14 @@
-from nonebot import on_message
-from nonebot.adapters.cqhttp import Bot, GroupMessageEvent
-from nonebot.typing import T_State
 import json
-from nonebot.adapters.cqhttp.permission import GROUP
-from bilibili_api import video
-from nonebot.adapters.cqhttp import MessageSegment
-from nonebot.adapters.cqhttp.exception import ActionFailed
 import time
-import aiohttp
-from nonebot.log import logger
 
+import aiohttp
+from bilibili_api import video
+from nonebot import on_message
+from nonebot.adapters.cqhttp import Bot, GroupMessageEvent, MessageSegment
+from nonebot.adapters.cqhttp.exception import ActionFailed
+from nonebot.adapters.cqhttp.permission import GROUP
+from nonebot.log import logger
+from nonebot.typing import T_State
 
 parse_bilibili_json = on_message(priority=1, permission=GROUP, block=False)
 

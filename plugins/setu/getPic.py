@@ -1,17 +1,17 @@
 import base64
 from re import findall
-import httpx
 
+import httpx
 import nonebot
-from nonebot import logger
 from httpx import AsyncClient
+from nonebot import logger
 
 __name__ = "setu"
 
 
 async def ghs_pic3(keyword="", r18=False) -> str:
     async with AsyncClient() as client:
-        req_url = "https://api.lolicon.app/setu/"
+        req_url = "https://api.lolicon.app/setu/v2"
         params = {"keyword": keyword, "r18": 1 if r18 else 0}
         try:
             res = await client.get(req_url, params=params, timeout=120)
