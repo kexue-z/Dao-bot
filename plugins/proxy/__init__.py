@@ -22,7 +22,7 @@ async def _(bot: Bot, event: Event):
     await update_Porxy.send("已保存config.yaml")
 
     async with AsyncClient() as client:
-        url = docker_url + "/containers/clash/restart"
+        url = docker_url + "containers/clash/restart"
         res = await client.post(url)
     await update_Porxy.send("已重启Clash")
 
