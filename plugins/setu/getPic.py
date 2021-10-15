@@ -20,7 +20,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
             return "Error:", f"API异常{e}", False
         try:
             setu_title = res.json()["data"][0]["title"]
-            setu_url = res.json()["data"][0]["url"]
+            setu_url = res.json()["data"][0]["urls"]["original"]
             base64 = await downPic(setu_url)
             setu_pid = res.json()["data"][0]["pid"]
             setu_author = res.json()["data"][0]["author"]
