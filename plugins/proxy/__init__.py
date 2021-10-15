@@ -24,7 +24,10 @@ async def _(bot: Bot, event: Event):
     async with AsyncClient() as client:
         url = docker_url + "containers/clash/restart"
         res = await client.post(url)
-    await update_Porxy.send("已重启Clash")
+        if res.status_code == 204:
+            await update_Porxy.send("已重启Clash")
+        else:
+            await update_Porxy.send(f"错误! {res.status_code}")
 
 
 get_Proxy = on_command("订阅选择", permission=SUPERUSER)
