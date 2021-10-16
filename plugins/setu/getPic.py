@@ -25,7 +25,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
             base64 = await downPic(setu_url)
             setu_pid = res.json()["data"][0]["pid"]
             setu_author = res.json()["data"][0]["author"]
-            if base64:
+            if type(base64) == str:
                 pic = "[CQ:image,file=base64://" + base64 + "]"
                 data = (
                     "标题:"
@@ -35,6 +35,8 @@ async def ghs_pic3(keyword="", r18=False) -> str:
                     + "\n画师:"
                     + setu_author
                 )
+            else:
+                return "Error:", f"获取图片失败! 错误码: {base64}", False
             return pic, data, True, setu_url
 
         except Exception as e:
@@ -45,7 +47,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
                 return "Error:", e, False
 
 
-async def downPic(url) -> str:
+async def downPic(url):
     proxies = {
         "http://": "http://192.168.0.49:7890",
         "https://": "http://192.168.0.49:7890",
@@ -57,11 +59,14 @@ async def downPic(url) -> str:
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
         }
         re = await client.get(url=url, headers=headers, timeout=120)
-        if re:
+        if re.status_code == 400:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
             logger.info("成功获取图片")
             return pic
+        else:
+            logger.error(f"获取图片失败: {re.status_code}")
+            return re.status_code
 
 
 if __name__ == "__main__":
