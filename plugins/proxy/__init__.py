@@ -62,7 +62,8 @@ async def get_Proxy_Selection(bot: Bot, state: dict):
 @get_Proxy.handle()
 async def get_Proxy_done(bot: Bot, state: T_State):
     user_Selection = int(state["Selection"]) - 1
-
+    if user_Selection == -1:
+        await get_Proxy.finish("已取消")
     Selection = state["proxies"][user_Selection]
     logger.info(f"已选择节点 {Selection}")
     res = await Select_Proxy(Selection, proxy_url)
