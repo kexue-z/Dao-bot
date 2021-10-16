@@ -61,7 +61,7 @@ async def downPic(url,r18) -> str:
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
         }
         re = await client.get(url=url, headers=headers, timeout=120)
-        if re.status_code == 400:
+        if re.status_code == 200:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
             logger.info("成功获取图片")
