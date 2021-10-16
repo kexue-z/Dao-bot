@@ -6,7 +6,7 @@ import nonebot
 from httpx import AsyncClient
 from nonebot import logger
 
-__name__ = "setu"
+from .save_img import *
 
 
 async def ghs_pic3(keyword="", r18=False) -> str:
@@ -22,7 +22,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
         try:
             setu_title = res.json()["data"][0]["title"]
             setu_url = res.json()["data"][0]["urls"]["regular"]
-            base64 = await downPic(setu_url)
+            base64 = await downPic(setu_url, r18)
             setu_pid = res.json()["data"][0]["pid"]
             setu_author = res.json()["data"][0]["author"]
             if base64:
@@ -47,7 +47,7 @@ async def ghs_pic3(keyword="", r18=False) -> str:
             logger.warning("{}".format(e))
             return "Error:", f"API异常{e}", False
 
-async def downPic(url) -> str:
+async def downPic(url,r18) -> str:
     proxies = {
         "http://": "http://192.168.0.49:7890",
         "https://": "http://192.168.0.49:7890",
@@ -63,6 +63,7 @@ async def downPic(url) -> str:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
             logger.info("成功获取图片")
+            await save_img(re,r18)
             return pic
 
 
