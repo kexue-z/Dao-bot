@@ -2,7 +2,7 @@
 <h1>屑岛风Bot</h1>
 <img width="250" src="docs/image.png"/>
 
-[文档](https://wiki.kexue.io/)
+[文档](https://wiki.kexue.io:3000/)
 </div> 
 
 
@@ -16,4 +16,4 @@
 
 # 使用说明
 
-[文档](https://wiki.kexue.io/)
+[文档](https://wiki.kexue.io:3000/)
