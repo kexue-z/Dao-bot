@@ -11,6 +11,7 @@ from nonebot.adapters.cqhttp import (
     Event,
     PrivateMessageEvent,
 )
+from nonebot.adapters.cqhttp.permission import PRIVATE_FRIEND, GROUP_MEMBER
 from nonebot.log import logger
 
 from .getPic import ghs_pic3
@@ -18,7 +19,11 @@ from .setu_Message import *
 
 __name__ = "setu"
 
-setu = on_command("setu", aliases={"无内鬼", "涩图", "色图"})
+setu = on_command(
+    "setu",
+    aliases={"无内鬼", "涩图", "色图", "来点色色", "色色"},
+    permission=PRIVATE_FRIEND | GROUP_MEMBER,
+)
 withdraw = on_command("撤回")
 cdTime = nonebot.get_driver().config.cdtime
 data_dir = r"./data/setuCD/"
@@ -28,8 +33,6 @@ data_dir = r"./data/setuCD/"
 async def _(bot: Bot, event: Event):
     global mid
     qid = event.get_user_id()
-    if qid not in [qq["user_id"] for qq in await bot.get_friend_list()]:
-        await setu.finish()
     mid = event.message_id
     data = readJson()
     try:
