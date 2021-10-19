@@ -28,6 +28,8 @@ data_dir = r"./data/setuCD/"
 async def _(bot: Bot, event: Event):
     global mid
     qid = event.get_user_id()
+    if qid not in [qq["user_id"] for qq in await bot.get_friend_list()]:
+        await setu.finish()
     mid = event.message_id
     data = readJson()
     try:
