@@ -11,7 +11,7 @@ from nonebot.adapters.cqhttp import (
     Event,
     PrivateMessageEvent,
 )
-from nonebot.adapters.cqhttp.permission import PRIVATE_FRIEND, GROUP_MEMBER
+from nonebot.adapters.cqhttp.permission import PRIVATE_FRIEND, GROUP
 from nonebot.log import logger
 
 from .getPic import ghs_pic3
@@ -22,7 +22,7 @@ __name__ = "setu"
 setu = on_command(
     "setu",
     aliases={"无内鬼", "涩图", "色图", "来点色色", "色色"},
-    permission=PRIVATE_FRIEND | GROUP_MEMBER,
+    permission=PRIVATE_FRIEND | GROUP,
 )
 withdraw = on_command("撤回")
 cdTime = nonebot.get_driver().config.cdtime
