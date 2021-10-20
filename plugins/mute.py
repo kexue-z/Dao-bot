@@ -5,8 +5,8 @@ from nonebot.permission import SUPERUSER
 from nonebot.adapters.cqhttp.permission import GROUP_OWNER, GROUP_ADMIN
 
 mute_command = on_command(
-    "/mute",
-    aliases={"/禁言", "/m"},
+    "mute",
+    aliases={"禁言", "m"},
     priority=1,
     permission=SUPERUSER | GROUP_OWNER | GROUP_ADMIN,
 )

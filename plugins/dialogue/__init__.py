@@ -22,7 +22,7 @@ dialogue_data = {}
 
 
 dialogue = on_message(priority=99, rule=to_me())
-reply = on_command("/t", priority=1, permission=SUPERUSER, block=True)
+reply = on_command("t", priority=1, permission=SUPERUSER, block=True)
 
 
 @dialogue.handle()
