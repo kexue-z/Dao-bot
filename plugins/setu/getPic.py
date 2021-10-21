@@ -1,8 +1,8 @@
 import base64
 from re import findall
+from sys import exc_info
 
 import httpx
-import nonebot
 from httpx import AsyncClient
 from nonebot import logger
 
@@ -35,21 +35,19 @@ async def ghs_pic3(keyword="", r18=False) -> str:
                     + "\n画师:"
                     + setu_author
                 )
-            else:
-                return "Error:", f"获取图片失败! 错误码: {base64}", False
             return pic, data, True, setu_url
+        except httpx.ProxyError as e:
+            logger.warning(e)
+            return "Error:", f"代理错误: {e}", False
+        except IndexError as e:
+            logger.warning(e)
+            return "Error:", f"图库中没有搜到关于{keyword}的图。", False
+        except:
+            logger.warning(exc_info()[0])
+            return "Error:", f"{exc_info()[0]}。", False
 
-        except Exception as e:
-            logger.warning("{}".format(e))
-            if "额度限制" not in res.text:
-                return "Error:", f"图库中没有搜到关于{keyword}的图。", False
-            else:
-                return "Error:", e, False
-        except httpx.HTTPError as e:
-            logger.warning("{}".format(e))
-            return "Error:", f"API异常{e}", False
 
-async def downPic(url,r18) -> str:
+async def downPic(url, r18) -> str:
     proxies = {
         "http://": "http://192.168.0.49:7890",
         "https://": "http://192.168.0.49:7890",
@@ -65,7 +63,7 @@ async def downPic(url,r18) -> str:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
             logger.info("成功获取图片")
-            await save_img(re,r18)
+            await save_img(re, r18)
             return pic
         else:
             logger.error(f"获取图片失败: {re.status_code}")

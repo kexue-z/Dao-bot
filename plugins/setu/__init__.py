@@ -1,37 +1,36 @@
 import json
-import re
 import random
+from re import I
 
 import nonebot
-from nonebot import on_command
-from nonebot.adapters.cqhttp import (
-    Bot,
-    Message,
-    GroupMessageEvent,
-    Event,
-    PrivateMessageEvent,
-)
-from nonebot.adapters.cqhttp.permission import PRIVATE_FRIEND, GROUP
+from nonebot import on_command, on_regex
+from nonebot.adapters.cqhttp import (Bot, Event, GroupMessageEvent, Message,
+                                     PrivateMessageEvent)
+from nonebot.adapters.cqhttp.permission import GROUP, PRIVATE_FRIEND
 from nonebot.log import logger
-
+from nonebot.typing import T_State
 from .getPic import ghs_pic3
 from .setu_Message import *
 
 __name__ = "setu"
 
-setu = on_command(
-    "setu",
-    aliases={"无内鬼", "涩图", "色图", "来点色色", "色色"},
+setu = on_regex(
+    r".*?(setu|色图|涩图|来点色色|色色)\s?(r18)?\s?(.*)?",
+    flags=I,
     permission=PRIVATE_FRIEND | GROUP,
 )
+# ((setu)|(色图)|(来点色色)|(涩图)|(无内鬼)|(色色))((r|R)18)?.*
 withdraw = on_command("撤回")
 cdTime = nonebot.get_driver().config.cdtime
 data_dir = r"./data/setuCD/"
 
 
 @setu.handle()
-async def _(bot: Bot, event: Event):
+async def _(bot: Bot, event: Event,state: T_State):
     global mid
+    args = list(state["_matched_groups"])
+    r18 = args[1]
+    key = args[2]
     qid = event.get_user_id()
     mid = event.message_id
     data = readJson()
@@ -39,16 +38,15 @@ async def _(bot: Bot, event: Event):
         cd = event.time - data[qid][0]
     except:
         cd = cdTime + 1
-
-    args = str(event.get_message()).split()
-    r18 = True if (isinstance(event, PrivateMessageEvent) and "r18" in args) else False
-
-    if r18:
-        args.remove("r18")
-    try:
-        key = " ".join(args) if args is not None else ""
-    except:
-        key = ""
+        
+    r18 = True if (isinstance(event, PrivateMessageEvent) and r18) else False
+    
+    # if r18:
+    #     args.remove("r18")
+    # try:
+    #     key = " ".join(args) if args is not None else ""
+    # except:
+    #     key = ""
 
     logger.info(f"key={key},r18={r18}")
 
