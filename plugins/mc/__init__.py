@@ -24,7 +24,7 @@ async def mc_server(bot: Bot, event: MessageEvent, state: T_State):
     await bot.send(event, msg)
 
 
-mc_server_on = on_command("mcon", aliases={"开服", "开启服务器"}, priority=1, rule=to_me())
+mc_server_on = on_command("mcon", aliases={"开服", "开启服务器"}, priority=1)
 
 
 @mc_server_on.handle()
@@ -77,7 +77,7 @@ async def mc_server_on_done(bot: Bot, event: MessageEvent, state: T_State):
             await bot.send(event, message=f'错误: {res["error"]}')
 
 
-mc_server_off = on_command("mcoff", aliases={"关服", "关闭服务器"}, priority=1, rule=to_me())
+mc_server_off = on_command("mcoff", aliases={"关服", "关闭服务器"}, priority=1)
 
 
 @mc_server_off.handle()
@@ -130,9 +130,7 @@ async def mc_server_off_done(bot: Bot, event: MessageEvent, state: T_State):
             await bot.send(event, message=f'错误: {res["error"]}')
 
 
-mc_server_restart = on_command(
-    "mcrestart", aliases={"重启服", "重启服务器"}, priority=1, rule=to_me()
-)
+mc_server_restart = on_command("mcrestart", aliases={"重启服", "重启服务器"}, priority=1)
 
 
 @mc_server_restart.handle()
