@@ -20,7 +20,7 @@ from .setu_Message import *
 __name__ = "setu"
 
 setu = on_regex(
-    r".*?(setu|色图|涩图|来点色色|色色)\s?(r18)?\s?(.*)?",
+    r"(setu|色图|涩图|来点色色|色色)\s?(r18)?\s?(.*)?",
     flags=I,
     permission=PRIVATE_FRIEND | GROUP,
 )
