@@ -4,8 +4,13 @@ from re import I
 
 import nonebot
 from nonebot import on_command, on_regex
-from nonebot.adapters.cqhttp import (Bot, Event, GroupMessageEvent, Message,
-                                     PrivateMessageEvent)
+from nonebot.adapters.cqhttp import (
+    Bot,
+    Event,
+    GroupMessageEvent,
+    Message,
+    PrivateMessageEvent,
+)
 from nonebot.adapters.cqhttp.permission import GROUP, PRIVATE_FRIEND
 from nonebot.log import logger
 from nonebot.typing import T_State
@@ -19,14 +24,13 @@ setu = on_regex(
     flags=I,
     permission=PRIVATE_FRIEND | GROUP,
 )
-# ((setu)|(色图)|(来点色色)|(涩图)|(无内鬼)|(色色))((r|R)18)?.*
 withdraw = on_command("撤回")
 cdTime = nonebot.get_driver().config.cdtime
 data_dir = r"./data/setuCD/"
 
 
 @setu.handle()
-async def _(bot: Bot, event: Event,state: T_State):
+async def _(bot: Bot, event: Event, state: T_State):
     global mid
     args = list(state["_matched_groups"])
     r18 = args[1]
@@ -38,19 +42,11 @@ async def _(bot: Bot, event: Event,state: T_State):
         cd = event.time - data[qid][0]
     except:
         cd = cdTime + 1
-        
+
     r18 = True if (isinstance(event, PrivateMessageEvent) and r18) else False
-    
-    # if r18:
-    #     args.remove("r18")
-    # try:
-    #     key = " ".join(args) if args is not None else ""
-    # except:
-    #     key = ""
 
     logger.info(f"key={key},r18={r18}")
 
-    # try:
     if cd > cdTime or event.get_user_id() in nonebot.get_driver().config.superusers:
         # await setu.send(random.choice(setu_SendMessage), at_sender=True)
         writeJson(qid, event.time, mid, data)
@@ -58,12 +54,10 @@ async def _(bot: Bot, event: Event,state: T_State):
         if pic[2]:
             try:
                 await setu.send(message=Message(pic[0]))
-                logger.info("已发送")
                 await setu.send(
                     message=f"{random.choice(setu_SendMessage)}\n" + Message(pic[1]),
                     at_sender=True,
                 )
-                # writeJson(qid, event.time, mid['message_id'], data)
             except Exception as e:
                 logger.warning(e)
                 removeJson(qid)
