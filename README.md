@@ -15,5 +15,10 @@
 - 给群友了解使用说明
 
 # 使用说明
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkexue-z%2FDao-bot.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkexue-z%2FDao-bot?ref=badge_shield)
+
 
 [文档](https://wiki.kexue.io:3000/)
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkexue-z%2FDao-bot.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkexue-z%2FDao-bot?ref=badge_large)
