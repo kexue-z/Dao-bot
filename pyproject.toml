@@ -31,6 +31,7 @@ boto3 = "^1.18.59"
 brotlipy = "^0.7.0"
 nonebot2 = "2.0.0a16"
 nonebot-plugin-picsearcher = "0.1.5rc1"
+webdav4 = "^0.9.3"
 
 [tool.poetry.dev-dependencies]
 

@@ -6,8 +6,7 @@ import httpx
 from httpx import AsyncClient
 from nonebot import logger
 
-from .save_img import *
-
+from .dav import *
 
 async def ghs_pic3(keyword="", r18=False) -> str:
     async with AsyncClient() as client:
@@ -63,7 +62,7 @@ async def downPic(url, r18) -> str:
             ba = str(base64.b64encode(re.content))
             pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
             logger.info("成功获取图片")
-            await save_img(re, r18)
+            save_img(re.content, r18)
             return pic
         else:
             logger.error(f"获取图片失败: {re.status_code}")
