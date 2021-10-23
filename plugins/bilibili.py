@@ -37,13 +37,19 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
             like = vd_info["stat"]["like"]  # 点赞
             # danmu = vd_info['stat']['danmaku']  # 弹幕
             date = time.strftime("%Y-%m-%d", time.localtime(vd_info["ctime"]))
+            
             sender = await bot.get_group_member_info(
                 group_id=event.group_id, user_id=event.user_id
             )
+            if sender["card"]:
+                name = sender["card"]
+            else:
+                name = sender["nickname"]
+                
             try:
                 await parse_bilibili_json.send(
                     MessageSegment.image(vd_info["pic"])
-                    + f"\n{sender['nickname']}发送了一个傻卵QQ小程序：\n"
+                    + f"\n{name}发送了一个傻卵QQ小程序：\n"
                     f"标题：{title}\n"
                     f"UP：{author}\n"
                     f"上传日期：{date}\n"
