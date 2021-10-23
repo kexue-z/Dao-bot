@@ -49,7 +49,9 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
             try:
                 await parse_bilibili_json.send(
                     MessageSegment.image(vd_info["pic"])
-                    + f"\n{name}发送了一个傻卵QQ小程序：\n"
+                    + "\n"
+                    + MessageSegment.at(event.user_id)
+                    + f"发送了一个傻卵QQ小程序：\n"
                     f"标题：{title}\n"
                     f"UP：{author}\n"
                     f"上传日期：{date}\n"
