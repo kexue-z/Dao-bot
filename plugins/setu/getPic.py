@@ -8,6 +8,7 @@ from nonebot import logger
 
 from .dav import *
 
+
 async def ghs_pic3(keyword="", r18=False) -> str:
     async with AsyncClient() as client:
         req_url = "https://api.lolicon.app/setu/v2"
@@ -21,9 +22,14 @@ async def ghs_pic3(keyword="", r18=False) -> str:
         try:
             setu_title = res.json()["data"][0]["title"]
             setu_url = res.json()["data"][0]["urls"]["regular"]
-            base64 = await downPic(setu_url, r18)
+            content = await downPic(setu_url)
             setu_pid = res.json()["data"][0]["pid"]
             setu_author = res.json()["data"][0]["author"]
+            p = res.json()["data"][0]["p"]
+
+            base64 = convert_b64(content)
+            save_img(content, pid=setu_pid, p=p, r18=r18)
+
             if type(base64) == str:
                 pic = "[CQ:image,file=base64://" + base64 + "]"
                 data = (
@@ -42,11 +48,11 @@ async def ghs_pic3(keyword="", r18=False) -> str:
             logger.warning(e)
             return "Error:", f"图库中没有搜到关于{keyword}的图。", False
         except:
-            logger.warning(exc_info()[0])
-            return "Error:", f"{exc_info()[0]}。", False
+            logger.warning({exc_info()[0]}, {exc_info()[1]})
+            return "Error:", f"{exc_info()[0]} {exc_info()[1]}。", False
 
 
-async def downPic(url, r18) -> str:
+async def downPic(url) -> str:
     proxies = {
         "http://": "http://192.168.0.49:7890",
         "https://": "http://192.168.0.49:7890",
@@ -59,14 +65,19 @@ async def downPic(url, r18) -> str:
         }
         re = await client.get(url=url, headers=headers, timeout=120)
         if re.status_code == 200:
-            ba = str(base64.b64encode(re.content))
-            pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
+            # pic = convert_b64(re.content)
             logger.info("成功获取图片")
-            save_img(re.content, r18)
-            return pic
+            # save_img(re.content, r18)
+            return re.content
         else:
             logger.error(f"获取图片失败: {re.status_code}")
             return re.status_code
+
+
+def convert_b64(content) -> str:
+    ba = str(base64.b64encode(content))
+    pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
+    return pic
 
 
 if __name__ == "__main__":
