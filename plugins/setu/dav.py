@@ -26,18 +26,3 @@ def convert_file(bytes_file):
 
 def save_img(content, pid: str, p: str, r18: bool = False):
     upload_file(convert_file(content), pid, p, r18)
-
-
-async def downPic(url):
-    proxies = {
-        "http://": "http://192.168.0.49:7890",
-        "https://": "http://192.168.0.49:7890",
-    }
-    async with httpx_client(proxies=proxies) as client:
-        headers = {
-            "Referer": "https://accounts.pixiv.net/login?lang=zh&source=pc&view_type=page&ref=wwwtop_accounts_index",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
-        }
-        re = await client.get(url=url, headers=headers, timeout=120)
-    return re.content
