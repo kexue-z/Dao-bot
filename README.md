@@ -19,4 +19,4 @@
 [文档](https://wiki.kexue.io:3000/)
 
 # 可以Pr吗？
-[![讷讷讷，prprprpr](https://kexue.io:5210/api/v3/file/get/577/1000.jpg?sign=01vcHDDrHX2vSu2K9Zn8BjprPp5dRTivdVcLqLk7E-w%3D%3A0)](https://github.com/kexue-z/Dao-bot/pulls)
+[![讷讷讷，prprprpr](https://kexue.io:5210/api/v3/file/get/583/1000.jpg?sign=1Xe2jcNTM7KYptV6DdBa99-sTJAg8lEL5Zf20edvaJ4%3D%3A0)](https://github.com/kexue-z/Dao-bot/pulls)
