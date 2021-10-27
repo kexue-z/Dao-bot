@@ -13,7 +13,7 @@ proxies = (
     else get_driver().config.setu_porxy
 )
 
-save = get_driver().setu_save
+save = get_driver().config.setu_save
 if save == "webdav":
     from .save_to_WebDAV import *
 else:
@@ -85,7 +85,7 @@ async def downPic(url):
         }
         re = await client.get(url=url, headers=headers, timeout=120)
         if re.status_code == 200:
-            logger.info("成功获取图片")
+            logger.success("成功获取图片")
             return re.content
         else:
             logger.error(f"获取图片失败: {re.status_code}")
