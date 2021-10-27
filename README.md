@@ -18,5 +18,15 @@
 
 [文档](https://wiki.kexue.io:3000/)
 
+#
+想要尝试部署吗？
+```
+pip3 install -U -i https://mirrors.aliyun.com/pypi/simple/ poetry 
+git clone git@github.com:kexue-z/Dao-bot.git
+cd Dao-bot
+poetry install
+poetry run python bot.py
+```
+
 # 可以Pr吗？
 [![讷讷讷，prprprpr](https://kexue.io:5210/api/v3/file/get/583/1000.jpg?sign=1Xe2jcNTM7KYptV6DdBa99-sTJAg8lEL5Zf20edvaJ4%3D%3A0)](https://github.com/kexue-z/Dao-bot/pulls)
