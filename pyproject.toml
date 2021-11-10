@@ -34,6 +34,7 @@ nonebot-plugin-picsearcher = "0.1.5rc1"
 webdav4 = "^0.9.3"
 
 [tool.poetry.dev-dependencies]
+black = {version = "^21.10b0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

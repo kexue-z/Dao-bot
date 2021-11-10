@@ -29,7 +29,7 @@ mc_server_on = on_command("mcon", aliases={"开服", "开启服务器"}, priorit
 
 @mc_server_on.handle()
 async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State):
-    if str(event.user_id) not in trust_id:
+    if str(event.user_id) not in get_yaml_file():
         await mc_server_on.finish("你没有权限")
     res = await server_get(apikey)
     server_list_all = res["data"]
@@ -56,7 +56,8 @@ async def mc_server_on_get_server_name(bot: Bot, event: MessageEvent, state: T_S
 
 @mc_server_on.got("user_code")
 async def mc_server_on_got_code(bot: Bot, event: MessageEvent, state: dict):
-    pass
+    if state["user_code"] == "0":
+        await mc_server_on.finish()
 
 
 @mc_server_on.handle()
@@ -82,7 +83,7 @@ mc_server_off = on_command("mcoff", aliases={"关服", "关闭服务器"}, prior
 
 @mc_server_off.handle()
 async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State):
-    if str(event.user_id) not in trust_id:
+    if str(event.user_id) not in get_yaml_file():
         await mc_server_on.finish("你没有权限")
     res = await server_get(apikey)
     server_list_all = res["data"]
@@ -109,7 +110,8 @@ async def mc_server_off_get_server_name(bot: Bot, event: MessageEvent, state: T_
 
 @mc_server_off.got("user_code")
 async def mc_server_off_got_code(bot: Bot, event: MessageEvent, state: dict):
-    pass
+    if state["user_code"] == "0":
+        await mc_server_on.finish()
 
 
 @mc_server_off.handle()
@@ -135,7 +137,7 @@ mc_server_restart = on_command("mcrestart", aliases={"重启服", "重启服务�
 
 @mc_server_restart.handle()
 async def mc_server_restart_frist(bot: Bot, event: MessageEvent, state: T_State):
-    if str(event.user_id) not in trust_id:
+    if str(event.user_id) not in get_yaml_file():
         await mc_server_on.finish("你没有权限")
     res = await server_get(apikey)
     server_list_all = res["data"]
@@ -164,7 +166,8 @@ async def mc_server_restart_get_server_name(
 
 @mc_server_restart.got("user_code")
 async def mc_server_restart_got_code(bot: Bot, event: MessageEvent, state: dict):
-    pass
+    if state["user_code"] == "0":
+        await mc_server_on.finish()
 
 
 @mc_server_restart.handle()
