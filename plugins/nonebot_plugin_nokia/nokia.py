@@ -1,5 +1,5 @@
 import base64
-import io
+from io import BytesIO
 from os.path import dirname
 from typing import Tuple
 from collections import deque
@@ -25,11 +25,11 @@ def image_to_byte_array(image: Image):
     return imgByteArr
 
 
-def im_2_b64(image):
-    buff = io.BytesIO()
-    image.save(buff, format="PNG")
-    img_str = base64.b64encode(buff.getvalue())
-    return img_str
+def im_2_b64(pic: Image.Image) -> str:
+    buf = BytesIO()
+    pic.save(buf, format="PNG")
+    base64_str = base64.b64encode(buf.getbuffer()).decode()
+    return "base64://" + base64_str
 
 
 def draw_subtitle(im, text: str):
