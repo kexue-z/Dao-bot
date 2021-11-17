@@ -1,7 +1,8 @@
 services:
   nonebot:
     build: .
-    image: xana278/nonebot
+    image: 
+    
     container_name: nb
     network_mode: host
     volumes:
