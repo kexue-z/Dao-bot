@@ -1,8 +1,16 @@
+from io import BytesIO
 from typing import Dict
-from nonebot.adapters.cqhttp import Bot, MessageEvent, GroupMessageEvent, PrivateMessageEvent, Message
-from nonebot.typing import T_State
+
+from httpx import AsyncClient
 from nonebot import on_command, on_message
-from .qr_handle import get_qr_data
+from nonebot.adapters.cqhttp import (Bot, GroupMessageEvent, Message,
+                                     MessageEvent, PrivateMessageEvent)
+from nonebot.typing import T_State
+from PIL import Image
+from pyzbar.pyzbar import decode
+from nonebot.log import logger
+# from .qr_handle import get_qr_data
+
 # qr_map: Dict[str, str] = {}  # 保存这个群的上一张色图 {"123456":"http://xxx"}
 
 
@@ -43,10 +51,15 @@ async def handle_first_receive(bot: Bot, event: MessageEvent, state: T_State):
 @qrcode.got("qr_img", prompt="图呢")
 async def get_qr_img(bot: Bot, event: MessageEvent, state: T_State):
     msg: Message = Message(state["qr_img"])
-    try:
-        if msg[0].type == "image":
-            url = msg[0].data["url"]
-            msg = await get_qr_data(url)
-        await qrcode.finish(msg)
-    except:
-        pass
+    # try:
+    if msg[0].type == "image":
+        url = msg[0].data["url"]
+        
+        async with AsyncClient() as client:
+            res = await client.get(url=url, timeout=10)
+        img= Image.open(BytesIO(res.content))
+        data = decode(img)
+        qr_data = data[0][0]
+        logger.info(str(qr_data.decode()))
+        await qrcode.finish(str(qr_data.decode()))
+
