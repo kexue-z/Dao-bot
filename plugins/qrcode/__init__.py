@@ -1,3 +1,4 @@
+from asyncio import sleep
 from io import BytesIO
 from typing import Dict
 
@@ -10,12 +11,10 @@ from nonebot.adapters.cqhttp import (
     MessageEvent,
     PrivateMessageEvent,
 )
+from nonebot.log import logger
 from nonebot.typing import T_State
 from PIL import Image
 from pyzbar.pyzbar import decode
-from nonebot.log import logger
-
-# from .qr_handle import get_qr_data
 
 qr_map: Dict[str, str] = {}
 
@@ -65,8 +64,11 @@ async def handle_pqr(bot: Bot, event: MessageEvent, state: T_State):
             res = await client.get(url=url, timeout=10)
         img = Image.open(BytesIO(res.content))
         data = decode(img)
-        qr_data = data[0][0]
-        await pqr.finish(str(qr_data.decode()))
+        for i in range(len(data)):
+            qr_data = data[i][0]
+            await pqr.send(str(qr_data.decode()))
+            await sleep(3)
+        pqr.finish()
     except (IndexError):
         await pqr.finish()
     except KeyError:
@@ -95,8 +97,10 @@ async def get_qr_img(bot: Bot, event: MessageEvent, state: T_State):
             res = await client.get(url=url, timeout=10)
         img = Image.open(BytesIO(res.content))
         data = decode(img)
-        qr_data = data[0][0]
-        logger.info(str(qr_data.decode()))
-        await qrcode.finish(str(qr_data.decode()))
+        for i in range(len(data)):
+            qr_data = data[i][0]
+            await qrcode.send(str(qr_data.decode()))
+            await sleep(3)
+        await qrcode.finish()
     else:
         await qrcode.finish("这啥？指令已取消")
