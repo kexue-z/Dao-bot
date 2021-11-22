@@ -68,7 +68,7 @@ async def handle_pqr(bot: Bot, event: MessageEvent, state: T_State):
             qr_data = data[i][0]
             await pqr.send(str(qr_data.decode()))
             await sleep(3)
-        pqr.finish()
+        await pqr.finish()
     except (IndexError):
         await pqr.finish()
     except KeyError:
