@@ -3,6 +3,7 @@ import base64
 from html import escape
 import os
 from time import asctime
+import re
 from typing import Awaitable, Callable, Optional
 
 from nonebot.adapters.cqhttp.message import MessageSegment
@@ -11,6 +12,8 @@ from pyppeteer import connect, launch
 from pyppeteer.browser import Browser
 from pyppeteer.chromium_downloader import check_chromium, download_chromium
 from pyppeteer.page import Page
+
+from bs4 import BeautifulSoup as bs
 
 from .plugin_config import plugin_config
 
@@ -21,7 +24,7 @@ class Singleton(type):
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
 
-if not plugin_config.hk_reporter_browser and not plugin_config.hk_reporter_use_local \
+if not plugin_config.bison_browser and not plugin_config.bison_use_local \
         and not check_chromium():
     os.environ['PYPPETEER_DOWNLOAD_HOST'] = 'http://npm.taobao.org/mirrors'
     download_chromium()
@@ -35,15 +38,15 @@ class Render(metaclass=Singleton):
         self.remote_browser = False
 
     async def get_browser(self) -> Browser:
-        if plugin_config.hk_reporter_browser:
-            if plugin_config.hk_reporter_browser.startswith('local:'):
-                path = plugin_config.hk_reporter_browser.split('local:', 1)[1]
+        if plugin_config.bison_browser:
+            if plugin_config.bison_browser.startswith('local:'):
+                path = plugin_config.bison_browser.split('local:', 1)[1]
                 return await launch(executablePath=path, args=['--no-sandbox'])
-            if plugin_config.hk_reporter_browser.startswith('ws:'):
+            if plugin_config.bison_browser.startswith('ws:'):
                 self.remote_browser = True
-                return await connect(browserWSEndpoint=plugin_config.hk_reporter_browser)
-            raise RuntimeError('HK_REPORTER_BROWSER error')
-        if plugin_config.hk_reporter_use_local:
+                return await connect(browserWSEndpoint=plugin_config.bison_browser)
+            raise RuntimeError('bison_BROWSER error')
+        if plugin_config.bison_use_local:
             return await launch(executablePath='/usr/bin/chromium', args=['--no-sandbox'])
         return await launch(args=['--no-sandbox'])
 
@@ -116,8 +119,20 @@ class Render(metaclass=Singleton):
 
 async def parse_text(text: str) -> MessageSegment:
     'return raw text if don\'t use pic, otherwise return rendered opcode'
-    if plugin_config.hk_reporter_use_pic:
+    if plugin_config.bison_use_pic:
         render = Render()
         return await render.text_to_pic_cqcode(text)
     else:
         return MessageSegment.text(text)
+
+def html_to_text(html: str, query_dict: dict = {}) -> str:
+    html = re.sub(r'<br\s*/?>', '<br>\n', html)
+    html = html.replace('</p>', '</p>\n')
+    soup = bs(html, 'html.parser')
+    if query_dict:
+        node = soup.find(**query_dict)
+    else:
+        node = soup
+    assert node is not None
+    return node.text.strip()
+
