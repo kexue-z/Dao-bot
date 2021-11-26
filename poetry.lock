@@ -224,14 +224,14 @@ reference = "aliyun"
 
 [[package]]
 name = "boto3"
-version = "1.20.12"
+version = "1.20.13"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.23.12,<1.24.0"
+botocore = ">=1.23.13,<1.24.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -245,7 +245,7 @@ reference = "aliyun"
 
 [[package]]
 name = "botocore"
-version = "1.23.12"
+version = "1.23.13"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -340,7 +340,7 @@ reference = "aliyun"
 
 [[package]]
 name = "charset-normalizer"
-version = "2.0.7"
+version = "2.0.8"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 category = "main"
 optional = false
@@ -742,7 +742,7 @@ reference = "aliyun"
 
 [[package]]
 name = "more-itertools"
-version = "8.11.0"
+version = "8.12.0"
 description = "More routines for operating on iterables, beyond itertools"
 category = "main"
 optional = false
@@ -847,19 +847,6 @@ python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
 nonebot2 = ">=2.0.0-alpha.10,<3.0.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pypi/simple"
-reference = "aliyun"
-
-[[package]]
-name = "nonebot-plugin-gamedraw"
-version = "0.1.8.9.3"
-description = "Nonebot2插件"
-category = "main"
-optional = false
-python-versions = "*"
 
 [package.source]
 type = "legacy"
@@ -1761,7 +1748,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e5e90cd47c7882bbadf2c6f569a1a827bb0b35b1056900df1b8f475b6b292eac"
+content-hash = "a2b3ca8ae721ef6d64842287c349a2deb1ee529ae8789ced81a5c49e7024c9d7"
 
 [metadata.files]
 aiofiles = [
@@ -1845,12 +1832,12 @@ black = [
     {file = "black-21.11b1.tar.gz", hash = "sha256:a042adbb18b3262faad5aff4e834ff186bb893f95ba3a8013f09de1e5569def2"},
 ]
 boto3 = [
-    {file = "boto3-1.20.12-py3-none-any.whl", hash = "sha256:df9c74f3dd35e1147e0e873984384e00b0db8c3f6552d8e0b7f50e7b8177f537"},
-    {file = "boto3-1.20.12.tar.gz", hash = "sha256:224a380a3a825beaf7aa54119e7469884c6adb9098cbf3d64bd487ac6c564d57"},
+    {file = "boto3-1.20.13-py3-none-any.whl", hash = "sha256:879ee87037ad51317483ba175dcb982fffbc32de207e033287875b042765d750"},
+    {file = "boto3-1.20.13.tar.gz", hash = "sha256:bbf53a077d6a0575ddec8026f0475ca6ee6f41b227914bf315bf3e049a3d653a"},
 ]
 botocore = [
-    {file = "botocore-1.23.12-py3-none-any.whl", hash = "sha256:002f96a07503c83c1d110174506e68a8fbcb4765b7eafa5f66ef59d910912d17"},
-    {file = "botocore-1.23.12.tar.gz", hash = "sha256:3047ddf3ee3e54d58b896b442d3044eab30e6bfac2a2fbac428e5c12d8670a3d"},
+    {file = "botocore-1.23.13-py3-none-any.whl", hash = "sha256:9b9385e61058eb0e7fc43013e4b43a710c9abafa2b28c340c45978d5a65c7113"},
+    {file = "botocore-1.23.13.tar.gz", hash = "sha256:35792b2196049ef900f538cae51fb8359c940156eef187962aa9e3bd2c0b8e8c"},
 ]
 brotlipy = [
     {file = "brotlipy-0.7.0-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:af65d2699cb9f13b26ec3ba09e75e80d31ff422c03675fcb36ee4dabe588fdc2"},
@@ -1964,8 +1951,8 @@ chardet = [
     {file = "chardet-4.0.0.tar.gz", hash = "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"},
 ]
 charset-normalizer = [
-    {file = "charset-normalizer-2.0.7.tar.gz", hash = "sha256:e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"},
-    {file = "charset_normalizer-2.0.7-py3-none-any.whl", hash = "sha256:f7af805c321bfa1ce6714c51f254e0d5bb5e5834039bc17db7ebe3a4cec9492b"},
+    {file = "charset-normalizer-2.0.8.tar.gz", hash = "sha256:735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"},
+    {file = "charset_normalizer-2.0.8-py3-none-any.whl", hash = "sha256:83fcdeb225499d6344c8f7f34684c2981270beacc32ede2e669e94f7fa544405"},
 ]
 click = [
     {file = "click-8.0.3-py3-none-any.whl", hash = "sha256:353f466495adaeb40b6b5f592f9f91cb22372351c84caeb068132442a4518ef3"},
@@ -2202,8 +2189,8 @@ matplotlib = [
     {file = "matplotlib-3.5.0.tar.gz", hash = "sha256:38892a254420d95594285077276162a5e9e9c30b6da08bdc2a4d53331ad9a6fa"},
 ]
 more-itertools = [
-    {file = "more-itertools-8.11.0.tar.gz", hash = "sha256:0a2fd25d343c08d7e7212071820e7e7ea2f41d8fb45d6bc8a00cd6ce3b7aab88"},
-    {file = "more_itertools-8.11.0-py3-none-any.whl", hash = "sha256:88afff98d83d08fe5e4049b81e2b54c06ebb6b3871a600040865c7a592061cbb"},
+    {file = "more-itertools-8.12.0.tar.gz", hash = "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064"},
+    {file = "more_itertools-8.12.0-py3-none-any.whl", hash = "sha256:43e6dd9942dffd72661a2c4ef383ad7da1e6a3e968a927ad7a6083ab410a688b"},
 ]
 multidict = [
     {file = "multidict-5.2.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3822c5894c72e3b35aae9909bef66ec83e44522faf767c0ad39e0e2de11d3b55"},
@@ -2298,10 +2285,6 @@ nonebot-plugin-apscheduler = [
 nonebot-plugin-cocdicer = [
     {file = "nonebot_plugin_cocdicer-0.2.5-py3-none-any.whl", hash = "sha256:c125d7e988a439695811dafeba3c0d1fcd2afaefe9d372ba66bff4c7bda2c068"},
     {file = "nonebot_plugin_cocdicer-0.2.5.tar.gz", hash = "sha256:384788520e3012e50c7a071d9e6cca0ff930b8dcf1f5aa6eb6fe36431efa3143"},
-]
-nonebot-plugin-gamedraw = [
-    {file = "nonebot-plugin-gamedraw-0.1.8.9.3.tar.gz", hash = "sha256:f1253837f8f6e64e580be5117aeaea31bb85d1d2b3671efd986d4d78780df94b"},
-    {file = "nonebot_plugin_gamedraw-0.1.8.9.3-py3-none-any.whl", hash = "sha256:b0557ae5a2af8ea55dd8c57816312f91c61b0e1f280661b053a74fccd0dfaed0"},
 ]
 nonebot-plugin-manager = [
     {file = "nonebot_plugin_manager-0.5.3-py3-none-any.whl", hash = "sha256:3800592a9d939a4067756f599e8d04d317c80d8b18879e52c52d58b2e569d2df"},
@@ -2649,6 +2632,7 @@ tqdm = [
 ]
 typing-extensions = [
     {file = "typing_extensions-4.0.0-py3-none-any.whl", hash = "sha256:829704698b22e13ec9eaf959122315eabb370b0884400e9818334d8b677023d9"},
+    {file = "typing_extensions-4.0.0.tar.gz", hash = "sha256:2cdf80e4e04866a9b3689a51869016d36db0814d84b8d8a568d22781d45d27ed"},
 ]
 tzdata = [
     {file = "tzdata-2021.5-py2.py3-none-any.whl", hash = "sha256:3eee491e22ebfe1e5cfcc97a4137cd70f092ce59144d81f8924a844de05ba8f5"},
