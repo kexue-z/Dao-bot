@@ -47,7 +47,11 @@ async def _(bot: Bot, event: Event, state: T_State):
 
     logger.info(f"key={key},r18={r18}")
 
-    if cd > cdTime or event.get_user_id() in nonebot.get_driver().config.superusers:
+    if (
+        cd > cdTime
+        or event.get_user_id() in nonebot.get_driver().config.superusers
+        or isinstance(event, PrivateMessageEvent)
+    ):
         writeJson(qid, event.time, mid, data)
         pic = await get_setu(key, r18)
         if pic[2]:
