@@ -76,11 +76,8 @@ async def _(bot: Bot, event: Event, state: T_State):
         time_last = cdTime - cd
         hours, minutes, seconds = 0, 0, 0
         if time_last >= 60:
-            minutes = time_last // 60
-            seconds = time_last % 60
-            if minutes >= 60:
-                hours = minutes // 60
-                minutes -= minutes // 60
+            minutes, seconds = divmod(time_last, 60)
+            hours, minutes = divmod(minutes, 60)
 
         cd_msg = f"{str(hours) + '小时' if hours else ''}{str(minutes) + '分钟' if minutes else ''}{str(seconds) + '秒' if seconds else ''}"
 
