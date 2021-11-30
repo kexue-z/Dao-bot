@@ -2,7 +2,6 @@ import json
 
 data_dir = "./data/setuCD"
 
-
 def readJson():
     try:
         with open(data_dir + "usercd.json", "r") as f_in:
