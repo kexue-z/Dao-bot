@@ -28,7 +28,6 @@ cdTime = (
 )
 
 
-
 @setu.handle()
 async def _(bot: Bot, event: Event, state: T_State):
     global mid
@@ -40,7 +39,7 @@ async def _(bot: Bot, event: Event, state: T_State):
     data = readJson()
     try:
         cd = event.time - data[qid][0]
-    except Exception: 
+    except Exception:
         cd = cdTime + 1
 
     r18 = True if (isinstance(event, PrivateMessageEvent) and r18) else False
@@ -74,6 +73,15 @@ async def _(bot: Bot, event: Event, state: T_State):
             await setu.finish(pic[0] + pic[1])
 
     else:
-        await setu.send(
-            f"{random.choice(setu_SendCD)} 你的CD还有{cdTime - cd}秒", at_sender=True
-        )
+        time_last = cdTime - cd
+        hours, minutes, seconds = 0, 0, 0
+        if time_last >= 60:
+            minutes = time_last // 60
+            seconds = time_last % 60
+            if minutes >= 60:
+                hours = minutes // 60
+                minutes -= minutes // 60
+
+        cd_msg = f"{hours + '小时' if hours else ''}{minutes + '分钟' if minutes else ''}{seconds + '秒' if seconds else ''}"
+
+        await setu.send(f"{random.choice(setu_SendCD)} 你的CD还有{cd_msg}", at_sender=True)
