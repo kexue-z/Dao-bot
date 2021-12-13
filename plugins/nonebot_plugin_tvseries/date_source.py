@@ -5,7 +5,7 @@ from httpx import AsyncClient
 from lxml import etree
 from PIL import Image
 
-from .browser import get_new_page
+from browser import get_new_page
 
 
 async def get_tvseries(week: str = None) -> bytes:
@@ -17,6 +17,9 @@ async def get_tvseries(week: str = None) -> bytes:
     async with AsyncClient() as client:
         res = await client.get(url)
         result = parse_data(res.text)
+        if __name__ == "__main__":
+            with open("./test/out.html","w+") as f:
+                f.write(result)
     image = await create_image(result)
     return image
 
@@ -61,7 +64,7 @@ def parse_data(content: str) -> str:
 
 
 async def create_image(html: str, wait: int = 0) -> str:
-    async with get_new_page(viewport={"width": 400, "height": 100}) as page:
+    async with get_new_page(viewport={"width": 1200, "height": 600}) as page:
         await page.set_content(html, wait_until="networkidle")
         await page.wait_for_timeout(wait)
         img_raw = await page.screenshot(full_page=True)
@@ -74,4 +77,4 @@ if __name__ == "__main__":
 
     img_bytes = asyncio.run(get_tvseries(week="一"))
     img = Image.open(io.BytesIO(img_bytes))
-    img.save("out.png")
+    img.save("./test/out.png")

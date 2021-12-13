@@ -12,16 +12,18 @@ a {
 }
 
 .f12 {
-  font-size: 23px;
+  font-size: 22px;
   text-align: center;
 }
 
 .f14 {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .mb-1 {
   margin-bottom: 10px;
+  padding-top: 5px;
+  break-inside: avoid;
 }
 .shadow-sm {
   box-shadow: 0 15px 30px  rgba(0, 0, 0, .4);
@@ -30,7 +32,12 @@ a {
 .text-light {
   color: #ffffff !important;
   text-align: center;
-  font-size: 25px;
+  font-size: 18px;
+}
+
+.calbox {
+  column-count: 4;
+  column-gap: 10px;
 }
 .link-dark {
   color: #212529;
@@ -44,17 +51,16 @@ a {
 }
 
 .text-secondary {
-  font-size: 18px;
-}
-
-.position-absolute {
-  left: 0;
-  height: auto;
-  padding: 10px;
+  font-size: 20px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .w-100 {
   width: 80%;
-  max-height: 400px;
+  max-width: auto;
+  max-height: 500px;
   border-radius: 20px;
   box-shadow: 0 15px 30px  rgba(0, 0, 0, .4);
+  margin-bottom: 10px;
 }
