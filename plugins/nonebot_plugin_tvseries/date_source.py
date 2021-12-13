@@ -5,7 +5,7 @@ from httpx import AsyncClient
 from lxml import etree
 from PIL import Image
 
-from browser import get_new_page
+from .browser import get_new_page
 
 
 async def get_tvseries(week: str = None) -> bytes:
