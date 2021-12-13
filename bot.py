@@ -25,6 +25,7 @@ nonebot.load_plugin("nonebot_plugin_manager")
 nonebot.load_plugin("nonebot_plugin_test")
 # nonebot.load_plugin("nonebot_plugin_puppet")
 # nonebot.load_plugin("nonebot_plugin_heweather")
+nonebot.load_plugin("nonebot_plugin_web")
 
 if __name__ == "__main__":
     nonebot.run(app="bot:app")

@@ -33,6 +33,8 @@ webdav4 = "^0.9.3"
 pyzbar-x = "^0.2.1"
 # nonebot-plugin-gamedraw = {url = "https://files.pythonhosted.org/packages/b0/7a/cba0f97cbe64b5a6d2f4f585bfacf7587e0daca32f37016e45880294cd12/nonebot_plugin_gamedraw-0.1.8.9.4-py3-none-any.whl"}
 playwright = "^1.17.2"
+nb = "^0.1.2"
+nonebot-plugin-web = "^0.1.4"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
