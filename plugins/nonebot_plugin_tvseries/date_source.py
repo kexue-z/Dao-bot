@@ -1,7 +1,11 @@
-from .browser import get_new_page
-from lxml import etree
-from httpx import AsyncClient
+import io
 from os.path import dirname
+
+from httpx import AsyncClient
+from lxml import etree
+from PIL import Image
+
+from .browser import get_new_page
 
 
 async def get_tvseries(week: str = None) -> bytes:
@@ -40,7 +44,7 @@ def parse_date(date: str = None) -> str:
 
 
 def parse_data(content: str) -> str:
-    with open(dirname(__file__) + "css.css", "r") as f:
+    with open(dirname(__file__) + "/css.css", "r") as f:
         css = f.read()
 
     dom = etree.HTML(content)
@@ -53,25 +57,20 @@ def parse_data(content: str) -> str:
     container.append(result)
     html = etree.tostring(new_dom, encoding="utf-8", method="html").decode()
 
-    with open("out.html", "w+") as f:
-        f.write(html)
-
     return html
 
 
-async def create_image(html: str, wait: int = 0) -> bytes:
+async def create_image(html: str, wait: int = 0) -> str:
     async with get_new_page(viewport={"width": 400, "height": 100}) as page:
         await page.set_content(html, wait_until="networkidle")
         await page.wait_for_timeout(wait)
-        img = await page.screenshot(full_page=True)
-    return img
+        img_raw = await page.screenshot(full_page=True)
+    return img_raw
 
 
 if __name__ == "__main__":
     print("Testing...")
     import asyncio
-    from PIL import Image
-    import io
 
     img_bytes = asyncio.run(get_tvseries(week="一"))
     img = Image.open(io.BytesIO(img_bytes))
