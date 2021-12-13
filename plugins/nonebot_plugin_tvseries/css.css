@@ -1,0 +1,60 @@
+body {
+  font-size: 30px;
+  background-color: #afafb0;
+  margin-bottom: 6px;
+}
+
+div {
+  width: unset !important;
+}
+a {
+  text-decoration: none;
+}
+
+.f12 {
+  font-size: 23px;
+  text-align: center;
+}
+
+.f14 {
+  font-size: 30px;
+}
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+.shadow-sm {
+  box-shadow: 0 15px 30px  rgba(0, 0, 0, .4);
+}
+
+.text-light {
+  color: #ffffff !important;
+  text-align: center;
+  font-size: 25px;
+}
+.link-dark {
+  color: #212529;
+}
+.rounded {
+  border-radius: 20px;
+}
+
+.cal {
+  text-align: center;
+}
+
+.text-secondary {
+  font-size: 18px;
+}
+
+.position-absolute {
+  left: 0;
+  height: auto;
+  padding: 10px;
+}
+.w-100 {
+  width: 80%;
+  max-height: 400px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px  rgba(0, 0, 0, .4);
+}

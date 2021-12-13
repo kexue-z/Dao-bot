@@ -14,4 +14,6 @@ COPY  poetry.lock /
 RUN poetry export --without-hashes -f requirements.txt \
     | poetry run pip install -r /dev/stdin
 
+RUN playwright install chromium
+
 WORKDIR /nonebot
