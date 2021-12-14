@@ -16,16 +16,9 @@ driver.register_adapter("cqhttp", CQHTTPBot)
 
 nonebot.load_plugins("plugins")
 nonebot.load_plugin("nonebot_plugin_cocdicer")
-# nonebot.load_plugin("nonebot_plugin_wordbank")
-# nonebot.load_plugin("nonebot_plugin_picsearcher")
 nonebot.load_plugin("nonebot_plugin_manager")
-# nonebot.load_plugin("nonebot_hk_reporter")
-# nonebot.load_plugin("nonebot_plugin_gamedraw")
-# nonebot.load_plugin("nonebot_plugin_statistical")
-nonebot.load_plugin("nonebot_plugin_test")
-# nonebot.load_plugin("nonebot_plugin_puppet")
-# nonebot.load_plugin("nonebot_plugin_heweather")
-nonebot.load_plugin("nonebot_plugin_web")
+nonebot.load_plugin("nonebot_bison")
+
 
 if __name__ == "__main__":
     nonebot.run(app="bot:app")
