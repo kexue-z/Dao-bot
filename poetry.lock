@@ -951,18 +951,6 @@ type = "legacy"
 url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
-[[package]]
-name = "nonebot-plugin-setu-now"
-version = "0.0.4.1"
-description = "另一个色图插件"
-category = "main"
-optional = false
-python-versions = ">=3.9,<4.0"
-
-[package.dependencies]
-httpx = ">=0.18.0,<1.0.0"
-nonebot-adapter-cqhttp = ">=2.0.0-alpha.16,<3.0.0"
-webdav4 = ">=0.9.3,<0.10.0"
 
 [[package]]
 name = "nonebot-plugin-status"
