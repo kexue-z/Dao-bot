@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf8">
+    <style type="text/css">
+body {
+  background-image: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+    color: white;
+  padding: 10px;
+}
+
+.today-weather {
+  padding: 20px;
+  border-radius: 20px;
+  background-image: linear-gradient(225deg, #2193b0, #6dd5ed);
+}
+
+h1 {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 40px;
+}
+
+p {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 30px;
+}
+
+.today-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.realtime-tem {
+  font-size: 100px;
+}
+
+.obs-time {
+  font-size: 20px;
+  margin-bottom: 5px !important;
+  color: rgba(232, 230, 227, 0.55);
+}
+
+em {
+  font-size: 100px;
+}
+
+p.realtime-text {
+  font-size: 35px;
+}
+
+.today-button {
+  margin-top: 5px;
+  background-color: #0000001e;
+  border-radius: 20px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.des {
+  font-size: 30px;
+  color: rgba(232, 230, 227, 0.55);
+}
+
+.icon-size {
+  font-size: 60px;
+}
+
+.date {
+  color: rgba(232, 230, 227, 0.55);
+  font-size: 20px;
+  text-size-adjust: 100%;
+}
+
+.weeks {
+  color: white;
+  font-size: 30px;
+}
+
+.days-weather {
+  padding: 20px 50px;
+  border-radius: 20px;
+  margin-top: 20px;
+  background-image: linear-gradient(225deg,#0F2027 ,#2C5364);
+}
+
+.tem-line {
+  height: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #f18360, #427bff);
+}
+
+.days-icon {
+  column-count: 2;
+}
+
+.icon-night {
+  text-align: right;
+}
+
+.days {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
+.tem-line-box {
+  width: 250px;
+}
+
+.days-temp {
+  font-size: 40px;
+}
+
+.days-text {
+  font-size: 30px
+}
+
+
+.warning-box {
+  padding: 20px;
+  border-radius: 20px;
+  background-image: linear-gradient(225deg, #b78c579d, #f2d5b2b6);
+  margin-top: 20px;
+}
+.warning-side {
+  display: flex;
+  align-items: center
+}
+
+.warning-header {
+  padding-left: 30px;
+}
+
+.warning-time {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.55)
+}
+.warning-info {
+  padding: 20px;
+}
+.tem-text {
+    width: 80px;
+    text-align: right;
+}
+
+.week-date {
+    width: 90px;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qweather-icons@1.1.0/font/qweather-icons.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="today-weather">
+            <div class="today-top">
+                <div class="text-center">
+                    <h1 class="city">南京</h1>
+                    <p class="realtime-tem">9°</p>
+                </div>
+
+                <div class="text-center">
+                    <p class="obs-time">2021-12-31T12:03+08:00</p>
+                    <em class="qi-101"></em>
+                    <p class="realtime-text">多云</p>
+                </div>
+            </div>
+
+
+
+            <div class="today-button">
+                <div>
+                    <p>3级</p>
+                    <p class="des">东南风</p>
+                </div>
+                <div>
+                    <p>28%</p>
+                    <p class="des">相对湿度</p>
+                </div>
+                <div>
+                    <p>0.0mm</p>
+                    <p class="des">降水量</p>
+                </div>
+                <div>
+                    <p>9km</p>
+                    <p class="des">能见度</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="days-weather">
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">今日</p>
+                    <p class="date">12月31日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">10°</p>
+                    <p class="days-text">多云</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-101 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-151 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">1°</p>
+                    <p class="days-text">多云</p>
+
+                </div>
+            </div>
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">周六</p>
+                    <p class="date">1月1日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">12°</p>
+                    <p class="days-text">多云</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-101 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-151 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">-1°</p>
+                    <p class="days-text">多云</p>
+
+                </div>
+            </div>
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">周日</p>
+                    <p class="date">1月2日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">11°</p>
+                    <p class="days-text">多云</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-101 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-151 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">0°</p>
+                    <p class="days-text">多云</p>
+
+                </div>
+            </div>
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">周一</p>
+                    <p class="date">1月3日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">13°</p>
+                    <p class="days-text">多云</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-101 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-151 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">1°</p>
+                    <p class="days-text">多云</p>
+
+                </div>
+            </div>
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">周二</p>
+                    <p class="date">1月4日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">11°</p>
+                    <p class="days-text">多云</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-101 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-305 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">5°</p>
+                    <p class="days-text">小雨</p>
+
+                </div>
+            </div>
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">周三</p>
+                    <p class="date">1月5日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">11°</p>
+                    <p class="days-text">小雨</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-305 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-151 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">7°</p>
+                    <p class="days-text">多云</p>
+
+                </div>
+            </div>
+            
+            <div class="days">
+                <!-- 1 -->
+                <div class="week-date">
+                    <p class="weeks">周四</p>
+                    <p class="date">1月6日</p>
+                </div>
+                <!-- 2 -->
+                <div class="tem-text">
+                    <p class="days-temp">11°</p>
+                    <p class="days-text">多云</p>
+                </div>
+                <!-- 3 -->
+                <div class="tem-line-box">
+
+                    <div class="days-icon">
+                        <div>
+                            <em class="qi-101 icon-size icon-day"></em>
+
+                        </div>
+                        <div class="icon-night">
+                            <em class="qi-305 icon-size icon-night"></em>
+                        </div>
+                    </div>
+
+                    <div class="tem-line-outbox">
+                        <div class="tem-line"></div>
+                    </div>
+
+                </div>
+                <!-- 4 -->
+                <div class="tem-text">
+                    <p class="days-temp">7°</p>
+                    <p class="days-text">小雨</p>
+
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    </div>
+</body>

@@ -1,12 +1,7 @@
-from logging import log
-from httpx import AsyncClient
-from re import findall
 from nonebot import on_command
 from nonebot.adapters.cqhttp import Bot, MessageEvent
 from nonebot.adapters.cqhttp.message import MessageSegment
-from nonebot.log import logger
-import base64
-import httpx
+from nonebot.plugin import require
 
 
 api_url = "http://www.tianque.top/d2api/today_report/"
