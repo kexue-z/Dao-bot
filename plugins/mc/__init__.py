@@ -183,3 +183,44 @@ async def mc_server_restart_done(bot: Bot, event: MessageEvent, state: T_State):
             await bot.send(event, message=f"已发送重启指令")
         else:
             await bot.send(event, message=f'错误: {res["error"]}')
+
+
+pz = on_command("pz", aliases={"毁灭工程", "僵毁", "僵尸毁灭工程"}, priority=1)
+
+
+@pz.handle()
+async def on_start(bot: Bot, event: MessageEvent, state: T_State):
+    if str(event.user_id) not in get_yaml_file():
+        await pz.finish("你没有权限")
+    msg = str(event.get_message())
+
+    if msg == "restart":
+        state["way"] = "restart"
+    elif msg == "start":
+        state["way"] = "start"
+    elif msg == "stop" in msg:
+        state["way"] = "stop"
+    else:
+        await pz.finish("指令不对 应该为 restart / start / stop")
+    code = str(randint(10, 99))
+    await bot.send(event, message=f"请输入验证码: {code}")
+    state["code"] = code
+
+
+@pz.got("user_code")
+async def pz_on_get_code(bot: Bot, event: MessageEvent, state: T_State):
+    from .pzserver import pz_server
+
+    if state["code"] == state["user_code"]:
+        res = await pz_server(str(state["way"]))
+        
+        if res.status_code == 204:
+            await pz.finish("指令已发送")
+        elif res.status_code == 304:
+            await pz.finish("服务器已在运行！")
+        else:
+            logger.error(res.status_code)
+            await pz.finish(f"error: {res.status_code}")
+
+    else:
+        await pz.finish("已取消")
