@@ -27,16 +27,17 @@ boto3 = "^1.18.59"
 brotlipy = "^0.7.0"
 nonebot2 = "2.0.0a16"
 pyzbar-x = "^0.2.1"
-# nonebot-plugin-gamedraw = {url = "https://files.pythonhosted.org/packages/b0/7a/cba0f97cbe64b5a6d2f4f585bfacf7587e0daca32f37016e45880294cd12/nonebot_plugin_gamedraw-0.1.8.9.4-py3-none-any.whl"}
 playwright = "^1.17.2"
 nonebot-bison = "^0.4.2"
 nonebot-plugin-tvseries = "^0.0.2"
 nonebot-plugin-trpglogger = "^0.3.1"
 nonebot-plugin-picsearcher = "^0.1.5"
 nonebot-plugin-nokia = "^0.0.3"
-nonebot-plugin-setu-now = "^0.0.4"
+nonebot-plugin-setu-now = "^0.0.4.2"
 nonebot-plugin-htmlrender = ">=0.0.3.1"
 nonebot-plugin-heweather = ">0.4.0"
+nonebot-plugin-gamedraw = "^0.2.0"
+
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
