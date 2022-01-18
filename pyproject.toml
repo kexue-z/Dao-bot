@@ -3,50 +3,60 @@ name = "aliyun"
 url = "https://mirrors.aliyun.com/pypi/simple/"
 
 [tool.poetry]
+authors = ["kexue <xana278@foxmail.com>"]
+description = ""
 name = "dao-Bot"
 version = "0.1.0"
-description = ""
-authors = ["kexue <xana278@foxmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-nonebot-plugin-status = "^0.2.1"
-nonebot-plugin-apscheduler = "^0.1.2"
-nonebot-plugin-cocdicer = "^0.2.4"
-nonebot-plugin-wordbank = "^1.0.2"
-nonebot-plugin-manager = "^0.5.3"
-ujson = "^4.0.2"
-bilibili-api = "^6.1.2"
-pillow = "^8.3.1"
-dnspython = "^2.1.0"
 aiofiles = "^0.7.0"
-pypinyin = "^0.42.0"
-matplotlib = "^3.4.2"
-wolframalpha = "^5.0.0"
+bilibili-api = "^6.1.2"
 boto3 = "^1.18.59"
 brotlipy = "^0.7.0"
-nonebot2 = "2.0.0a16"
-pyzbar-x = "^0.2.1"
-playwright = "^1.17.2"
+dnspython = "^2.1.0"
+matplotlib = "^3.4.2"
 nonebot-bison = "^0.4.2"
-nonebot-plugin-tvseries = "^0.0.2"
-nonebot-plugin-trpglogger = "^0.3.1"
-nonebot-plugin-picsearcher = "^0.1.5"
-nonebot-plugin-nokia = "^0.0.3"
-nonebot-plugin-setu-now = "^0.0.4.2"
-nonebot-plugin-htmlrender = ">=0.0.3.1"
-nonebot-plugin-heweather = ">0.4.0"
+nonebot-plugin-apscheduler = "^0.1.2"
+nonebot-plugin-cocdicer = "^0.2.4"
 nonebot-plugin-gamedraw = "^0.2.0"
-
+nonebot-plugin-heweather = ">0.4.0"
+nonebot-plugin-htmlrender = ">=0.0.3.1"
+nonebot-plugin-manager = "^0.5.3"
+nonebot-plugin-nokia = "^0.0.3"
+nonebot-plugin-picsearcher = "^0.1.5"
+nonebot-plugin-setu-now = "^0.0.4.2"
+nonebot-plugin-status = "^0.2.1"
+nonebot-plugin-trpglogger = "^0.3.1"
+nonebot-plugin-tvseries = "^0.0.2"
+nonebot-plugin-wordbank = "^1.0.2"
+nonebot2 = "2.0.0a16"
+pillow = "^8.3.1"
+playwright = "^1.17.2"
+pypinyin = "^0.42.0"
+python = "^3.9"
+pyzbar-x = "^0.2.1"
+ujson = "^4.0.2"
+wolframalpha = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
 
 [nonebot]
 [nonebot.plugins]
-plugins = []
-plugin_dirs = []
+plugin_dirs = ["plugins"]
+plugins = [
+  "nonebot_plugin_cocdicer",
+  "nonebot_plugin_manager",
+  "nonebot_bison",
+  "nonebot_plugin_tvseries",
+  "nonebot_plugin_heweather",
+  "nonebot_plugin_nokia",
+  "nonebot_plugin_setu_now",
+  "nonebot_plugin_picsearcher",
+  "nonebot_plugin_trpglogger",
+  "nonebot_plugin_status",
+]

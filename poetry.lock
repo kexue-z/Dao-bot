@@ -972,7 +972,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.4.1.1"
+version = "0.5"
 description = "Get Heweather information and convert to pictures"
 category = "main"
 optional = false
@@ -980,7 +980,7 @@ python-versions = ">=3.7.3,<4.0.0"
 
 [package.dependencies]
 httpx = ">=0.18.0,<1.0.0"
-nonebot-plugin-htmlrender = ">=0.0.4"
+nonebot-plugin-htmlrender = ">=0.0.4.1"
 
 [package.source]
 type = "legacy"
@@ -1072,6 +1072,11 @@ python-versions = ">=3.9,<4.0"
 httpx = ">=0.18.0,<1.0.0"
 nonebot-adapter-cqhttp = ">=2.0.0-alpha.16,<3.0.0"
 webdav4 = ">=0.9.3,<0.10.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-status"
@@ -2666,8 +2671,8 @@ nonebot-plugin-help = [
     {file = "nonebot_plugin_help-0.1.5-py3-none-any.whl", hash = "sha256:1c4bb626feb202515f47311e3ca9872ab6c0db5e935bc9561325fcc1a2591511"},
 ]
 nonebot-plugin-heweather = [
-    {file = "nonebot-plugin-heweather-0.4.1.1.tar.gz", hash = "sha256:d6e7049a861c995d4938b755c050f46da96cd699ed19bcd46804bfbca4a10e76"},
-    {file = "nonebot_plugin_heweather-0.4.1.1-py3-none-any.whl", hash = "sha256:7d4031290b0dd48f0569e7fb0f40b6b35b43764b889ac8881e40f6d7898111d0"},
+    {file = "nonebot-plugin-heweather-0.5.tar.gz", hash = "sha256:ca6cba05c22b7b7cd8d34e555ba91d9cc9da0de8957e7ba45bbda6bb7437761c"},
+    {file = "nonebot_plugin_heweather-0.5-py3-none-any.whl", hash = "sha256:cdb1588323f540d3a18a20d8cd74d2d2cbfd443374006632f94d3dbb1e041a56"},
 ]
 nonebot-plugin-htmlrender = [
     {file = "nonebot-plugin-htmlrender-0.0.4.1.tar.gz", hash = "sha256:993b2ba6571c4a4c50540d96c0a5ef8072c7c93682e8ea3d448ff74c3f6d0527"},
