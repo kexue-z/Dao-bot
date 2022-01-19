@@ -772,7 +772,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-setu-now"
-version = "0.0.4.2"
+version = "0.0.4.3b1"
 description = "另一个色图插件"
 category = "main"
 optional = false
@@ -780,13 +780,9 @@ python-versions = ">=3.9,<4.0"
 
 [package.dependencies]
 httpx = ">=0.18.0,<1.0.0"
-nonebot-adapter-cqhttp = ">=2.0.0-alpha.16,<3.0.0"
+nonebot-adapter-onebot = "2.0.0-beta.1"
+nonebot2 = "2.0.0-beta.1"
 webdav4 = ">=0.9.3,<0.10.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pypi/simple"
-reference = "aliyun"
 
 [[package]]
 name = "nonebot2"
@@ -1486,7 +1482,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "efe4d795f1151ae432f26e3dc244a4e288157d57cd7b6affecd81fc84c44f224"
+content-hash = "feca4166cb19af6c4e395f24d87c1a54d376af9b9414d4db467db76b9f9c50b1"
 
 [metadata.files]
 aiofiles = [
@@ -2051,8 +2047,8 @@ nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.3.tar.gz", hash = "sha256:22f963842e7a839274937a5e3fcce410cfb7863ee1bea2b6105eef1173aabc96"},
 ]
 nonebot-plugin-setu-now = [
-    {file = "nonebot-plugin-setu-now-0.0.4.2.tar.gz", hash = "sha256:fe780b62d9d5ced1f46166651938fb4c37c6beedd88468ab64a2d750b3bf2b33"},
-    {file = "nonebot_plugin_setu_now-0.0.4.2-py3-none-any.whl", hash = "sha256:ad3e9478a58164d0d941dc86b61da23fbf41d90f530a0e7408b5d999d550a4bf"},
+    {file = "nonebot-plugin-setu-now-0.0.4.3b1.tar.gz", hash = "sha256:cd1fe25bc9f194f45f392ea66769b019df5221d696c58749a3d51cb853e5bfef"},
+    {file = "nonebot_plugin_setu_now-0.0.4.3b1-py3-none-any.whl", hash = "sha256:d2bc73514993eecbb5ae848dc24a07202dff4d78b230559020657ba35f1df8c6"},
 ]
 nonebot2 = [
     {file = "nonebot2-2.0.0b1-py3-none-any.whl", hash = "sha256:76ee4271a0ba9b1fbdcb34c50a23df391bed00d5d32d63b7fd018685de8130a4"},
