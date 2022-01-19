@@ -1,6 +1,6 @@
 from nonebot import on_command
-from nonebot.adapters.cqhttp import Bot, MessageEvent
-from nonebot.adapters.cqhttp.message import MessageSegment
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent
+from nonebot.adapters.onebot.v11.message import MessageSegment
 from nonebot.plugin import require
 
 

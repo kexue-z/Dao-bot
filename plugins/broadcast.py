@@ -1,11 +1,11 @@
 from nonebot import on_command
-from nonebot.typing import T_State
+# from nonebot.typing import T_State
 from nonebot.adapters import Bot, Event
 from nonebot.permission import SUPERUSER
 import asyncio
 from utils.utils import get_message_text, get_message_imgs
 from nonebot.log import logger
-from nonebot.adapters.cqhttp.message import MessageSegment
+from nonebot.adapters.onebot.v11 import MessageSegment
 
 # from models.group_remind import GroupRemind
 from utils.message_builder import image
@@ -18,7 +18,7 @@ broadcast = on_command("广播-", priority=1, permission=SUPERUSER, block=True)
 
 
 @broadcast.handle()
-async def _(bot: Bot, event: Event, state: T_State):
+async def _(bot: Bot, event: Event):
     msg = get_message_text(event.json())
     imgs = get_message_imgs(event.json())
     rst = ""

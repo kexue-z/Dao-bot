@@ -2,7 +2,7 @@ import os
 import aiohttp
 import datetime
 from urllib.parse import quote
-from nonebot.adapters.cqhttp import Message, MessageSegment
+from nonebot.adapters.onebot.v11 import Message, MessageSegment
 
 
 async def get_bangumi_info(keyword):

@@ -1,8 +1,8 @@
 from nonebot import export, on_shell_command
 from nonebot.rule import ArgumentParser
 from nonebot.typing import T_State
-from nonebot.adapters.cqhttp import Bot, Event
-
+from nonebot.adapters.onebot.v11 import Bot, Event
+from nonebot.params import State
 from .data_source import search_song
 
 export = export()
@@ -21,7 +21,7 @@ sources = ["qq", "netease", "kugou", "migu", "bilibili"]
 
 
 @music.handle()
-async def _(bot: Bot, event: Event, state: T_State):
+async def _(bot: Bot, event: Event, state: T_State= State()):
     args = state["args"]
     if not hasattr(args, "song"):
         await music.finish(export.usage)

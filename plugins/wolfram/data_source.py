@@ -4,7 +4,7 @@ import itertools
 import urllib.parse
 import wolframalpha
 from nonebot import get_driver
-from nonebot.adapters.cqhttp import MessageSegment
+from nonebot.adapters.onebot.v11 import MessageSegment
 from nonebot.log import logger
 
 from .config import Config

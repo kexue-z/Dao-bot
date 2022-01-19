@@ -2,8 +2,8 @@ from time import sleep
 from nonebot import on_notice, get_driver
 from nonebot.typing import T_State
 from nonebot.matcher import Matcher
-from nonebot.adapters.cqhttp.bot import Bot
-from nonebot.adapters.cqhttp import GroupBanNoticeEvent, Event
+from nonebot.adapters.onebot.v11.bot import Bot
+from nonebot.adapters.onebot.v11 import GroupBanNoticeEvent, Event
 
 group_mute = on_notice(priority=10, block=True)
 

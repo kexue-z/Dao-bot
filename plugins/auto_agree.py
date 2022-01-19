@@ -1,14 +1,14 @@
 from nonebot import on_request, on_command
-from nonebot.adapters.cqhttp import Bot, MessageEvent, RequestEvent
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, RequestEvent
 from nonebot.permission import SUPERUSER
 from nonebot.typing import T_State
-from nonebot.adapters.cqhttp.permission import PRIVATE_FRIEND
+from nonebot.adapters.onebot.v11.permission import PRIVATE_FRIEND
 
 super_req = on_request(priority=5)
 
 
 @super_req.handle()
-async def add_superuser(bot: Bot, event: RequestEvent, state: T_State):
+async def add_superuser(bot: Bot, event: RequestEvent):
     admin = int(list(bot.config.superusers)[0])
 
     if str(event.user_id) in bot.config.superusers:

@@ -1,13 +1,12 @@
-from logging import log
-from httpx import AsyncClient
-from re import findall
-from nonebot import on_command
-from nonebot.adapters.cqhttp import Bot, MessageEvent
-from nonebot.adapters.cqhttp.message import MessageSegment
-from nonebot.log import logger
 import base64
-import httpx
 
+from re import findall
+
+import httpx
+from httpx import AsyncClient
+from nonebot import on_command
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
+from nonebot.log import logger
 
 __name__ = "news"
 api_url = "https://api.iyk0.com/60s/"

@@ -3,8 +3,10 @@ from .mcsm import *
 
 from nonebot import on_command
 from nonebot.typing import T_State
-from nonebot.adapters.cqhttp import Bot, MessageEvent, Message
-from nonebot.rule import to_me
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, Message
+
+# from nonebot.rule import to_me
+from nonebot.params import ArgPlainText, State
 from random import randint
 from nonebot.permission import SUPERUSER, USER, MESSAGE
 from nonebot.log import logger
@@ -15,7 +17,7 @@ mc_server = on_command("mc", priority=1)
 
 
 @mc_server.handle()
-async def mc_server(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server(bot: Bot, event: MessageEvent):
     msg = ""
     ip = str(event.get_message())
     mc_status = mcping(ip)
@@ -28,7 +30,7 @@ mc_server_on = on_command("mcon", aliases={"开服", "开启服务器"}, priorit
 
 
 @mc_server_on.handle()
-async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State = State()):
     if str(event.user_id) not in get_yaml_file():
         await mc_server_on.finish("你没有权限")
     res = await server_get(apikey)
@@ -49,19 +51,21 @@ async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State):
 
 
 @mc_server_on.got("server_id")
-async def mc_server_on_get_server_name(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_on_get_server_name(
+    bot: Bot, event: MessageEvent, state: T_State = State()
+):
     code = state["code"]
     await bot.send(event, message=f"请输入验证码: {code}")
 
 
 @mc_server_on.got("user_code")
-async def mc_server_on_got_code(bot: Bot, event: MessageEvent, state: dict):
+async def mc_server_on_got_code(bot: Bot, event: MessageEvent, state: dict = State()):
     if state["user_code"] == "0":
         await mc_server_on.finish()
 
 
 @mc_server_on.handle()
-async def mc_server_on_done(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_on_done(bot: Bot, event: MessageEvent, state: T_State = State()):
     id = state["server_id"]
     server_name = state["serverlist"][int(id) - 1]
     code = state["code"]
@@ -82,7 +86,7 @@ mc_server_off = on_command("mcoff", aliases={"关服", "关闭服务器"}, prior
 
 
 @mc_server_off.handle()
-async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State = State()):
     if str(event.user_id) not in get_yaml_file():
         await mc_server_on.finish("你没有权限")
     res = await server_get(apikey)
@@ -103,19 +107,23 @@ async def mc_server_on_frist(bot: Bot, event: MessageEvent, state: T_State):
 
 
 @mc_server_off.got("server_id")
-async def mc_server_off_get_server_name(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_off_get_server_name(
+    bot: Bot, event: MessageEvent, state: T_State = State()
+):
     code = state["code"]
     await bot.send(event, message=f"请输入验证码: {code}")
 
 
 @mc_server_off.got("user_code")
-async def mc_server_off_got_code(bot: Bot, event: MessageEvent, state: dict):
+async def mc_server_off_got_code(
+    bot: Bot, event: MessageEvent, state: T_State = State()
+):
     if state["user_code"] == "0":
         await mc_server_on.finish()
 
 
 @mc_server_off.handle()
-async def mc_server_off_done(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_off_done(bot: Bot, event: MessageEvent, state: T_State = State()):
     id = state["server_id"]
     server_name = state["serverlist"][int(id) - 1]
     code = state["code"]
@@ -136,7 +144,9 @@ mc_server_restart = on_command("mcrestart", aliases={"重启服", "重启服务�
 
 
 @mc_server_restart.handle()
-async def mc_server_restart_frist(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_restart_frist(
+    bot: Bot, event: MessageEvent, state: T_State = State()
+):
     if str(event.user_id) not in get_yaml_file():
         await mc_server_on.finish("你没有权限")
     res = await server_get(apikey)
@@ -158,20 +168,24 @@ async def mc_server_restart_frist(bot: Bot, event: MessageEvent, state: T_State)
 
 @mc_server_restart.got("server_id")
 async def mc_server_restart_get_server_name(
-    bot: Bot, event: MessageEvent, state: T_State
+    bot: Bot, event: MessageEvent, state: T_State = State()
 ):
     code = state["code"]
     await bot.send(event, message=f"请输入验证码: {code}")
 
 
 @mc_server_restart.got("user_code")
-async def mc_server_restart_got_code(bot: Bot, event: MessageEvent, state: dict):
+async def mc_server_restart_got_code(
+    bot: Bot, event: MessageEvent, state: T_State = State()
+):
     if state["user_code"] == "0":
         await mc_server_on.finish()
 
 
 @mc_server_restart.handle()
-async def mc_server_restart_done(bot: Bot, event: MessageEvent, state: T_State):
+async def mc_server_restart_done(
+    bot: Bot, event: MessageEvent, state: T_State = State()
+):
     id = state["server_id"]
     server_name = state["serverlist"][int(id) - 1]
     code = state["code"]
@@ -189,7 +203,7 @@ pz = on_command("pz", aliases={"毁灭工程", "僵毁", "僵尸毁灭工程"}, 
 
 
 @pz.handle()
-async def on_start(bot: Bot, event: MessageEvent, state: T_State):
+async def on_start(bot: Bot, event: MessageEvent, state: T_State = State()):
     if str(event.user_id) not in get_yaml_file():
         await pz.finish("你没有权限")
     msg = str(event.get_message())
@@ -208,12 +222,12 @@ async def on_start(bot: Bot, event: MessageEvent, state: T_State):
 
 
 @pz.got("user_code")
-async def pz_on_get_code(bot: Bot, event: MessageEvent, state: T_State):
+async def pz_on_get_code(bot: Bot, event: MessageEvent, state: T_State = State()):
     from .pzserver import pz_server
 
     if state["code"] == state["user_code"]:
         res = await pz_server(str(state["way"]))
-        
+
         if res.status_code == 204:
             await pz.finish("指令已发送")
         elif res.status_code == 304:

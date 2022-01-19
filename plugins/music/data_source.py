@@ -3,7 +3,7 @@ import aiohttp
 import traceback
 from http.cookies import SimpleCookie
 from nonebot.log import logger
-from nonebot.adapters.cqhttp import MessageSegment
+from nonebot.adapters.onebot.v11 import MessageSegment
 
 
 async def search_song(keyword, source="qq"):

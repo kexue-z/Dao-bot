@@ -1,8 +1,9 @@
 from nonebot import on_command
 from nonebot.log import logger
-from nonebot.adapters.cqhttp import Bot, MessageEvent, GroupMessageEvent
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, GroupMessageEvent
 from nonebot.typing import T_State
 import aiohttp
+from nonebot.params import State
 
 
 # __plugin_name__ = "语录"
@@ -15,7 +16,7 @@ url = "https://international.v1.hitokoto.cn/?c=a"
 
 
 @quotations.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _(bot: Bot, event: MessageEvent, state: T_State = State()):
     async with aiohttp.ClientSession() as session:
         async with session.get(url, timeout=5) as response:
             data = await response.json()

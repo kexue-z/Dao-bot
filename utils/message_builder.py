@@ -1,6 +1,6 @@
 IMAGE_PATH = "./data/image"
 VOICE_PATH = "./data/voice"
-from nonebot.adapters.cqhttp.message import MessageSegment
+from nonebot.adapters.onebot.v11 import MessageSegment
 from nonebot.log import logger
 from typing import Optional
 from pathlib import Path

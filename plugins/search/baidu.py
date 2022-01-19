@@ -1,5 +1,5 @@
 from nonebot import on_command
-from nonebot.adapters.cqhttp import Bot, MessageEvent, MessageSegment
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 from urllib.parse import quote
 
 baidu_url = "https://www.baidu.com/s?wd="

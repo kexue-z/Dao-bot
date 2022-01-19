@@ -1,8 +1,9 @@
 from nonebot import on_command
-from nonebot.adapters.cqhttp.bot import Bot
-from nonebot.adapters.cqhttp.event import GroupMessageEvent
+from nonebot.adapters.onebot.v11.bot import Bot
+from nonebot.adapters.onebot.v11.event import GroupMessageEvent
+from nonebot.adapters.onebot.v11.permission import GROUP_ADMIN, GROUP_OWNER
 from nonebot.permission import SUPERUSER
-from nonebot.adapters.cqhttp.permission import GROUP_OWNER, GROUP_ADMIN
+from nonebot.params import State
 
 mute_command = on_command(
     "mute",
@@ -13,7 +14,7 @@ mute_command = on_command(
 
 
 @mute_command.handle()
-async def handle_mute(bot: Bot, event: GroupMessageEvent, state: dict):
+async def handle_mute(bot: Bot, event: GroupMessageEvent, state: dict = State()):
     raw_args = str(event.get_message()).strip()
     if raw_args:
         arg_list = raw_args.split()

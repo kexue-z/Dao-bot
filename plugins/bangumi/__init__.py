@@ -1,8 +1,7 @@
 import re
 import datetime
 from nonebot import on_command, on_regex
-from nonebot.typing import T_State
-from nonebot.adapters.cqhttp import Bot, Event
+from nonebot.adapters.onebot.v11 import Bot, Event
 from nonebot.log import logger
 from .data_source import get_bangumi_info, get_new_bangumi
 
@@ -17,7 +16,7 @@ bangumi_new = on_regex(r".*?新番", priority=1)
 
 
 @bangumi.handle()
-async def _(bot: Bot, event: Event, state: T_State):
+async def _(bot: Bot, event: Event):
     keyword = str(event.get_message()).strip()
     if not keyword:
         await bangumi.finish(usage)
@@ -31,13 +30,12 @@ async def _(bot: Bot, event: Event, state: T_State):
 
 
 @bangumi_new.handle()
-async def _(bot: Bot, event: Event, state: T_State):
+async def _(bot: Bot, event: Event):
     keyword = str(event.get_plaintext()).strip().replace("新番", "")
     logger.info(keyword)
     if not keyword:
         await bangumi_new.finish(usage)
 
-    num = 1
     if keyword == "今日":
         day = 1
     elif keyword == "明日":

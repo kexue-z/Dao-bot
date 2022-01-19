@@ -1,6 +1,6 @@
 from nonebot import on_message, on_command
-from nonebot.typing import T_State
-from nonebot.adapters.cqhttp import (
+# from nonebot.typing import T_State
+from nonebot.adapters.onebot.v11 import (
     Bot,
     MessageEvent,
     Message,
@@ -26,7 +26,7 @@ reply = on_command("t", priority=1, permission=SUPERUSER, block=True)
 
 
 @dialogue.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _(bot: Bot, event: MessageEvent):
     uid = event.user_id
     coffee = int(list(bot.config.superusers)[0])
     text = get_message_text(event.json())
@@ -37,8 +37,8 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
     for img in get_message_imgs(event.json()):
         img_msg += image(img)
-    # if not text or text in ["帮助"]:
-    #     await dialogue.send("请发送[滴滴滴]+您要说的内容~", at_sender=True)
+    if not text or text in ["帮助"]:
+        await dialogue.send("请发送[滴滴滴]+您要说的内容~", at_sender=True)
     else:
         group_id = 0
         group_name = "None"
@@ -74,7 +74,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
 
 @reply.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _(bot: Bot, event: MessageEvent):
     msg = get_message_text(event.json())
     if msg in ["帮助"]:
         await reply.finish(

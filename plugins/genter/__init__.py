@@ -1,7 +1,7 @@
 from PIL import Image
 
 from nonebot import on_command
-from nonebot.adapters.cqhttp import Bot, MessageEvent, MessageSegment
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 from utils.img2b64 import *
 
 from .generator import genImage
