@@ -11,9 +11,9 @@ baidu = on_command("百度", aliases={"baidu"}, priority=1)
 async def _baidu(bot: Bot, event: MessageEvent):
     url = baidu_url + quote(str(event.message))
     # url.replace('&', '&amp;')
-    await baidu.send(
+    await baidu.finish(
         message=MessageSegment(
             type="share",
-            data={"url": url, "title": f"{str(event.message)}", "content": "你不会百度吗？？？"},
+            data={"url": url, "title": str(event.message), "content": "你不会百度吗？？？"},
         )
     )
