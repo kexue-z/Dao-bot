@@ -3,6 +3,7 @@ import os
 import re
 
 from typing import Optional, Union, List
+from nonebot.log import logger
 
 OPTIONS = ["congruence", "include", "regex"]
 
@@ -15,7 +16,7 @@ class WordBank(object):
         self.data_path = os.path.join(self.dir_path, "bank.json")
 
         if os.path.exists(self.data_path):
-            print("读取词库位于 " + self.data_path)
+            logger.info("读取词库位于 " + self.data_path)
             with open(self.data_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
             self.__data = {key: data.get(key) or {"0": {}} for key in NULL_BANK.keys()}

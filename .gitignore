@@ -4,6 +4,7 @@ data
 test
 .env*
 wb
+secrets.yaml
 *.ttf
 .vscode
 # Created by https://www.toptal.com/developers/gitignore/api/python

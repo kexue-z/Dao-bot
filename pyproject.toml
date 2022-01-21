@@ -48,7 +48,6 @@ plugins = [
   "nonebot_plugin_remake",
   "nonebot_plugin_setu_now",
   "nonebot_plugin_heweather",
-  "nonebot_bison",
   "nonebot_plugin_trpglogger",
   "nonebot_plugin_cocdicer",
 ]

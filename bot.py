@@ -3,8 +3,11 @@
 
 import nonebot
 from nonebot.adapters.onebot.v11 import Adapter
+from utils.yaml import Secrets, load_yaml
 
-nonebot.init()
+
+config = load_yaml("config/config.yaml", Secrets("config"))
+nonebot.init(**config)
 
 
 app = nonebot.get_asgi()
