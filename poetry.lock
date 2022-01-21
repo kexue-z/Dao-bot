@@ -157,6 +157,19 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "bidict"
+version = "0.21.4"
+description = "The bidirectional mapping library for Python."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "bilibili-api"
 version = "6.1.3"
 description = "哔哩哔哩的各种API调用便捷整合（视频、动态、直播等），另外附加一些常用的功能。"
@@ -260,6 +273,22 @@ python-versions = "*"
 
 [package.dependencies]
 cffi = ">=1.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "bs4"
+version = "0.0.1"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+beautifulsoup4 = "*"
 
 [package.source]
 type = "legacy"
@@ -375,6 +404,22 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "expiringdict"
+version = "1.2.1"
+description = "Dictionary with auto-expiring values for caching purposes"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+tests = ["dill", "coverage", "coveralls", "mock", "nose"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "fastapi"
 version = "0.70.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -391,6 +436,22 @@ all = ["requests (>=2.24.0,<3.0.0)", "jinja2 (>=2.11.2,<4.0.0)", "python-multipa
 dev = ["python-jose[cryptography] (>=3.3.0,<4.0.0)", "passlib[bcrypt] (>=1.7.2,<2.0.0)", "autoflake (>=1.4.0,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)", "uvicorn[standard] (>=0.12.0,<0.16.0)"]
 doc = ["mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=7.1.9,<8.0.0)", "mdx-include (>=1.4.1,<2.0.0)", "mkdocs-markdownextradata-plugin (>=0.1.7,<0.3.0)", "typer-cli (>=0.0.12,<0.0.13)", "pyyaml (>=5.3.1,<6.0.0)"]
 test = ["pytest (>=6.2.4,<7.0.0)", "pytest-cov (>=2.12.0,<4.0.0)", "mypy (==0.910)", "flake8 (>=3.8.3,<4.0.0)", "black (==21.9b0)", "isort (>=5.0.6,<6.0.0)", "requests (>=2.24.0,<3.0.0)", "httpx (>=0.14.0,<0.19.0)", "email_validator (>=1.1.1,<2.0.0)", "sqlalchemy (>=1.3.18,<1.5.0)", "peewee (>=3.13.3,<4.0.0)", "databases[sqlite] (>=0.3.2,<0.6.0)", "orjson (>=3.2.1,<4.0.0)", "ujson (>=4.0.1,<5.0.0)", "python-multipart (>=0.0.5,<0.0.6)", "flask (>=1.1.2,<3.0.0)", "anyio[trio] (>=3.2.1,<4.0.0)", "types-ujson (==0.1.1)", "types-orjson (==3.6.0)", "types-dataclasses (==0.1.7)"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "feedparser"
+version = "6.0.8"
+description = "Universal feed parser, handles RSS 0.9x, RSS 1.0, RSS 2.0, CDF, Atom 0.3, and Atom 1.0 feeds"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+sgmllib3k = "*"
 
 [package.source]
 type = "legacy"
@@ -714,6 +775,35 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "nonebot-bison"
+version = "0.4.3"
+description = "Subscribe message from social medias"
+category = "main"
+optional = false
+python-versions = ">=3.9,<4.0"
+
+[package.dependencies]
+aiofiles = ">=0.7.0,<0.8.0"
+apscheduler = ">=3.7.0,<4.0.0"
+bs4 = ">=0.0.1,<0.0.2"
+expiringdict = ">=1.2.1,<2.0.0"
+feedparser = ">=6.0.2,<7.0.0"
+httpx = ">=0.16.1,<1.0.0"
+nonebot-adapter-cqhttp = ">=2.0.0-alpha.15,<3.0.0"
+nonebot-plugin-help = ">=0.1.5,<0.2.0"
+nonebot2 = ">=2.0.0-alpha.15,<3.0.0"
+pillow = ">=8.1.0,<9.0.0"
+playwright = ">=1.17.2,<2.0.0"
+pyjwt = ">=2.1.0,<3.0.0"
+python-socketio = ">=5.4.0,<6.0.0"
+tinydb = ">=4.3.0,<5.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "nonebot-plugin-apscheduler"
 version = "0.1.2"
 description = "APScheduler Support for NoneBot2"
@@ -724,6 +814,56 @@ python-versions = ">=3.7,<4.0"
 [package.dependencies]
 apscheduler = ">=3.7.0,<4.0.0"
 nonebot2 = ">=2.0.0-alpha.8,<3.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "nonebot-plugin-cocdicer"
+version = "0.3.0"
+description = "A COC dice plugin for Nonebot2"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+nonebot2 = ">=2.0.0-beta.1,<3.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "nonebot-plugin-help"
+version = "0.1.5"
+description = "A general help lister for nonebot2 plugins"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+nonebot-adapter-cqhttp = ">=2.0.0a16,<3.0.0"
+nonebot2 = ">=2.0.0.a16,<3.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "nonebot-plugin-heweather"
+version = "0.5.0.2"
+description = "Get Heweather information and convert to pictures"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+httpx = ">=0.18.0,<1.0.0"
+nonebot-plugin-htmlrender = ">=0.0.4.1"
 
 [package.source]
 type = "legacy"
@@ -783,6 +923,29 @@ httpx = ">=0.18.0,<1.0.0"
 nonebot-adapter-onebot = "2.0.0-beta.1"
 nonebot2 = "2.0.0-beta.1"
 webdav4 = ">=0.9.3,<0.10.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "nonebot-plugin-trpglogger"
+version = "0.3.3"
+description = "a logger for TRPG"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+boto3 = ">=1.17.13,<2.0.0"
+nonebot-adapter-onebot = ">=2.0.0b1,<3.0.0"
+nonebot2 = ">=2.0.0b1,<3.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
 
 [[package]]
 name = "nonebot2"
@@ -965,6 +1128,25 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "pyjwt"
+version = "2.3.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+crypto = ["cryptography (>=3.3.1)"]
+dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "mypy", "pre-commit"]
+docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "pymdown-extensions"
 version = "9.1"
 description = "Extension pack for Python Markdown."
@@ -1026,6 +1208,23 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "python-engineio"
+version = "4.3.1"
+description = "Engine.IO server and client for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+asyncio_client = ["aiohttp (>=3.4)"]
+client = ["requests (>=2.21.0)", "websocket-client (>=0.54.0)"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "python-markdown-math"
 version = "0.8"
 description = "Math extension for Python-Markdown"
@@ -1035,6 +1234,27 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 Markdown = ">=3.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "python-socketio"
+version = "5.5.1"
+description = "Socket.IO server and client for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+bidict = ">=0.21.0"
+python-engineio = ">=4.3.0"
+
+[package.extras]
+asyncio_client = ["aiohttp (>=3.4)"]
+client = ["requests (>=2.21.0)", "websocket-client (>=0.54.0)"]
 
 [package.source]
 type = "legacy"
@@ -1135,6 +1355,19 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "sgmllib3k"
+version = "1.0.0"
+description = "Py3k port of sgmllib."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1186,6 +1419,19 @@ anyio = ">=3.0.0,<4"
 
 [package.extras]
 full = ["itsdangerous", "jinja2", "python-multipart", "pyyaml", "requests", "graphene"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "tinydb"
+version = "4.6.1"
+description = "TinyDB is a tiny, document oriented database optimized for your happiness :)"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
 
 [package.source]
 type = "legacy"
@@ -1482,7 +1728,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "feca4166cb19af6c4e395f24d87c1a54d376af9b9414d4db467db76b9f9c50b1"
+content-hash = "b547df4bbfbfc94d1e486166bd89a977282916a0bf38f59c06f1a4edae7bab92"
 
 [metadata.files]
 aiofiles = [
@@ -1553,6 +1799,10 @@ beautifulsoup4 = [
     {file = "beautifulsoup4-4.9.3-py3-none-any.whl", hash = "sha256:fff47e031e34ec82bf17e00da8f592fe7de69aeea38be00523c04623c04fb666"},
     {file = "beautifulsoup4-4.9.3.tar.gz", hash = "sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"},
 ]
+bidict = [
+    {file = "bidict-0.21.4-py3-none-any.whl", hash = "sha256:3ac67daa353ecf853a1df9d3e924f005e729227a60a8dbada31a4c31aba7f654"},
+    {file = "bidict-0.21.4.tar.gz", hash = "sha256:42c84ffbe6f8de898af6073b4be9ea7ccedcd78d3474aa844c54e49d5a079f6f"},
+]
 bilibili-api = [
     {file = "bilibili-api-6.1.3.tar.gz", hash = "sha256:54e33cff3c7affe37db7a31c25bc7bb2ca9b054b6a480cdffd7a6466ae7ce998"},
     {file = "bilibili_api-6.1.3-py3-none-any.whl", hash = "sha256:6dd19d5f3994719caaa15c3366d36f65df84e783c1309806193202c5fb73ca5f"},
@@ -1616,6 +1866,9 @@ brotlipy = [
     {file = "brotlipy-0.7.0-pp36-pypy36_pp73-manylinux1_x86_64.whl", hash = "sha256:890b973039ba26c3ad2e86e8908ab527ed64f9b1357f81a676604da8088e4bf9"},
     {file = "brotlipy-0.7.0-pp37-pypy37_pp73-manylinux1_x86_64.whl", hash = "sha256:4864ac52c116ea3e3a844248a9c9fbebb8797891cbca55484ecb6eed3ebeba24"},
     {file = "brotlipy-0.7.0.tar.gz", hash = "sha256:36def0b859beaf21910157b4c33eb3b06d8ce459c942102f16988cca6ea164df"},
+]
+bs4 = [
+    {file = "bs4-0.0.1.tar.gz", hash = "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
@@ -1693,9 +1946,16 @@ dnspython = [
     {file = "dnspython-2.2.0-py3-none-any.whl", hash = "sha256:081649da27ced5e75709a1ee542136eaba9842a0fe4c03da4fb0a3d3ed1f3c44"},
     {file = "dnspython-2.2.0.tar.gz", hash = "sha256:e79351e032d0b606b98d38a4b0e6e2275b31a5b85c873e587cc11b73aca026d6"},
 ]
+expiringdict = [
+    {file = "expiringdict-1.2.1.tar.gz", hash = "sha256:fe2ba427220425c3c8a3d29f6d2e2985bcee323f8bcd4021e68ebefbd90d8250"},
+]
 fastapi = [
     {file = "fastapi-0.70.1-py3-none-any.whl", hash = "sha256:5367226c7bcd7bfb2e17edaf225fd9a983095b1372281e9a3eb661336fb93748"},
     {file = "fastapi-0.70.1.tar.gz", hash = "sha256:21d03979b5336375c66fa5d1f3126c6beca650d5d2166fbb78345a30d33c8d06"},
+]
+feedparser = [
+    {file = "feedparser-6.0.8-py3-none-any.whl", hash = "sha256:1b7f57841d9cf85074deb316ed2c795091a238adb79846bc46dccdaf80f9c59a"},
+    {file = "feedparser-6.0.8.tar.gz", hash = "sha256:5ce0410a05ab248c8c7cfca3a0ea2203968ee9ff4486067379af4827a59f9661"},
 ]
 greenlet = [
     {file = "greenlet-1.1.2-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:58df5c2a0e293bf665a51f8a100d3e9956febfbf1d9aaf8c0677cf70218910c6"},
@@ -2034,9 +2294,25 @@ nonebot-adapter-onebot = [
     {file = "nonebot-adapter-onebot-2.0.0b1.tar.gz", hash = "sha256:9dad770371e577fead096ceacacc43b3ef304a8e238e8fff1163eefc4e947a75"},
     {file = "nonebot_adapter_onebot-2.0.0b1-py3-none-any.whl", hash = "sha256:ca1375de1dd503a5ab20440445026195b587e05a2b18ae8df9b6ab17c9e857b5"},
 ]
+nonebot-bison = [
+    {file = "nonebot-bison-0.4.3.tar.gz", hash = "sha256:f97279d375c6e4bdd824c2b37f7b07e46cd1c1f67fe881dc38beb8d2dc4e79d0"},
+    {file = "nonebot_bison-0.4.3-py3-none-any.whl", hash = "sha256:d1fab26fe1539cbfd2cba7106946be50d8abdebbfe8e33c747ba536c0dddc738"},
+]
 nonebot-plugin-apscheduler = [
     {file = "nonebot-plugin-apscheduler-0.1.2.tar.gz", hash = "sha256:1765336cd388dde15f723ed12dbca942b04e4c25d5d7786878e447b09e68b909"},
     {file = "nonebot_plugin_apscheduler-0.1.2-py3-none-any.whl", hash = "sha256:eed7b9e60d08826ae4919f82dc240fc7ec469185271c2271e14438a3e0ca7692"},
+]
+nonebot-plugin-cocdicer = [
+    {file = "nonebot_plugin_cocdicer-0.3.0-py3-none-any.whl", hash = "sha256:23dba9a7cbc7b73eec3155db7ebcf7011219d6f47094c1e65b0f8822410738ff"},
+    {file = "nonebot_plugin_cocdicer-0.3.0.tar.gz", hash = "sha256:01002745375ce0e8943b35100970c5f0cc63e675065039ccc351d19ac17b3453"},
+]
+nonebot-plugin-help = [
+    {file = "nonebot-plugin-help-0.1.5.tar.gz", hash = "sha256:2ef8c0f8b578c7941e364396532749cabb4d52872ddc4a0419db3cd103223e60"},
+    {file = "nonebot_plugin_help-0.1.5-py3-none-any.whl", hash = "sha256:1c4bb626feb202515f47311e3ca9872ab6c0db5e935bc9561325fcc1a2591511"},
+]
+nonebot-plugin-heweather = [
+    {file = "nonebot-plugin-heweather-0.5.0.2.tar.gz", hash = "sha256:b8f020d19349b1232082007d8da863c9b54083b23cc975378757d16c06c1edb3"},
+    {file = "nonebot_plugin_heweather-0.5.0.2-py3-none-any.whl", hash = "sha256:d2d97630153413c997619cd05b71b25d21db681386b24c982f1125abbc6af011"},
 ]
 nonebot-plugin-htmlrender = [
     {file = "nonebot-plugin-htmlrender-0.0.4.1.tar.gz", hash = "sha256:993b2ba6571c4a4c50540d96c0a5ef8072c7c93682e8ea3d448ff74c3f6d0527"},
@@ -2049,6 +2325,10 @@ nonebot-plugin-remake = [
 nonebot-plugin-setu-now = [
     {file = "nonebot-plugin-setu-now-0.0.4.3b1.tar.gz", hash = "sha256:cd1fe25bc9f194f45f392ea66769b019df5221d696c58749a3d51cb853e5bfef"},
     {file = "nonebot_plugin_setu_now-0.0.4.3b1-py3-none-any.whl", hash = "sha256:d2bc73514993eecbb5ae848dc24a07202dff4d78b230559020657ba35f1df8c6"},
+]
+nonebot-plugin-trpglogger = [
+    {file = "nonebot_plugin_trpglogger-0.3.3-py3-none-any.whl", hash = "sha256:35ee6c7db8994d9c39a81743a936b20e557901538788f852897d825037e8c78d"},
+    {file = "nonebot_plugin_trpglogger-0.3.3.tar.gz", hash = "sha256:a617355dfc2677f092a01c13eaebcad874868ed1a903f800eba72eb4868968cf"},
 ]
 nonebot2 = [
     {file = "nonebot2-2.0.0b1-py3-none-any.whl", hash = "sha256:76ee4271a0ba9b1fbdcb34c50a23df391bed00d5d32d63b7fd018685de8130a4"},
@@ -2190,6 +2470,10 @@ pygments = [
 pygtrie = [
     {file = "pygtrie-2.4.2.tar.gz", hash = "sha256:43205559d28863358dbbf25045029f58e2ab357317a59b11f11ade278ac64692"},
 ]
+pyjwt = [
+    {file = "PyJWT-2.3.0-py3-none-any.whl", hash = "sha256:e0c4bb8d9f0af0c7f5b1ec4c5036309617d03d56932877f2f7a0beeb5318322f"},
+    {file = "PyJWT-2.3.0.tar.gz", hash = "sha256:b888b4d56f06f6dcd777210c334e69c737be74755d3e5e9ee3fe67dc18a0ee41"},
+]
 pymdown-extensions = [
     {file = "pymdown-extensions-9.1.tar.gz", hash = "sha256:74247f2c80f1d9e3c7242abe1c16317da36c6f26c7ad4b8a7f457f0ec20f0365"},
     {file = "pymdown_extensions-9.1-py3-none-any.whl", hash = "sha256:b03e66f91f33af4a6e7a0e20c740313522995f69a03d86316b1449766c473d0e"},
@@ -2206,9 +2490,17 @@ python-dotenv = [
     {file = "python-dotenv-0.19.2.tar.gz", hash = "sha256:a5de49a31e953b45ff2d2fd434bbc2670e8db5273606c1e737cc6b93eff3655f"},
     {file = "python_dotenv-0.19.2-py2.py3-none-any.whl", hash = "sha256:32b2bdc1873fd3a3c346da1c6db83d0053c3c62f28f1f38516070c4c8971b1d3"},
 ]
+python-engineio = [
+    {file = "python-engineio-4.3.1.tar.gz", hash = "sha256:6e1d26977ffefe3b7da1b5df7a8750aedc7686da8201cd90daf36693db122489"},
+    {file = "python_engineio-4.3.1-py3-none-any.whl", hash = "sha256:85986067cb9f7695347954d4e03491f7d45152c5428c07109a9707e04e8942cb"},
+]
 python-markdown-math = [
     {file = "python-markdown-math-0.8.tar.gz", hash = "sha256:8564212af679fc18d53f38681f16080fcd3d186073f23825c7ce86fadd3e3635"},
     {file = "python_markdown_math-0.8-py3-none-any.whl", hash = "sha256:c685249d84b5b697e9114d7beb352bd8ca2e07fd268fd4057ffca888c14641e5"},
+]
+python-socketio = [
+    {file = "python-socketio-5.5.1.tar.gz", hash = "sha256:ac8e64d59a15d1c31a4fe8434f4ff16d0f640c824ba517dce7ca99e95f0cd36a"},
+    {file = "python_socketio-5.5.1-py3-none-any.whl", hash = "sha256:d0b98474064ac239a618649ca67f5288827705d36bd5f7615a473b37965baf61"},
 ]
 pytz = [
     {file = "pytz-2021.3-py2.py3-none-any.whl", hash = "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c"},
@@ -2262,6 +2554,9 @@ s3transfer = [
     {file = "s3transfer-0.5.0-py3-none-any.whl", hash = "sha256:9c1dc369814391a6bda20ebbf4b70a0f34630592c9aa520856bf384916af2803"},
     {file = "s3transfer-0.5.0.tar.gz", hash = "sha256:50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"},
 ]
+sgmllib3k = [
+    {file = "sgmllib3k-1.0.0.tar.gz", hash = "sha256:7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9"},
+]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
@@ -2277,6 +2572,10 @@ soupsieve = [
 starlette = [
     {file = "starlette-0.16.0-py3-none-any.whl", hash = "sha256:38eb24bf705a2c317e15868e384c1b8a12ca396e5a3c3a003db7e667c43f939f"},
     {file = "starlette-0.16.0.tar.gz", hash = "sha256:e1904b5d0007aee24bdd3c43994be9b3b729f4f58e740200de1d623f8c3a8870"},
+]
+tinydb = [
+    {file = "tinydb-4.6.1-py3-none-any.whl", hash = "sha256:ac1fdae2a7d5d7e2ca915d2666e685d63982991827c5dd097b6be4a3b5822dbc"},
+    {file = "tinydb-4.6.1.tar.gz", hash = "sha256:0d5400f5e5ae368a84d57cb234456f1cf70430fd39bcd77ccd568fea91ff2a4e"},
 ]
 tomli = [
     {file = "tomli-1.2.3-py3-none-any.whl", hash = "sha256:e3069e4be3ead9668e21cb9b074cd948f7b3113fd9c8bba083f48247aab8b11c"},
