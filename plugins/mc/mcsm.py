@@ -46,6 +46,13 @@ async def server_get(apikey: str):
         return res.json()
 
 
+async def call_server(type: str, server_name: str, apikey: str) -> dict:
+    async with AsyncClient() as client:
+        params = {"name": server_name, "apikey": apikey}
+        res = await client.get(server + type, params=params)
+    return res.json()
+
+
 if __name__ == "__main__":
     res = asyncio.run(server_command("13server", apikey, "list"))
     print(res)

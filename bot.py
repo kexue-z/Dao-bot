@@ -4,7 +4,9 @@
 import nonebot
 from nonebot.adapters.onebot.v11 import Adapter
 from utils.yaml import Secrets, load_yaml
+from nonebot.log import logger
 
+logger.add("data/log/nonebotlog.log",rotation="5 MB")
 
 config = load_yaml("config/config.yaml", Secrets("config"))
 nonebot.init(**config)
