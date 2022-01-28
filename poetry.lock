@@ -901,7 +901,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.5.0.2"
+version = "0.5.0.3"
 description = "Get Heweather information and convert to pictures"
 category = "main"
 optional = false
@@ -909,12 +909,8 @@ python-versions = ">=3.7.3,<4.0.0"
 
 [package.dependencies]
 httpx = ">=0.18.0,<1.0.0"
+nonebot-adapter-onebot = "2.0.0-beta.1"
 nonebot-plugin-htmlrender = ">=0.0.4.1"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pypi/simple"
-reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-htmlrender"
@@ -933,6 +929,23 @@ playwright = ">=1.17.2,<2.0.0"
 Pygments = ">=2.10.0,<3.0.0"
 pymdown-extensions = ">=9.1,<10.0"
 python-markdown-math = ">=0.8,<0.9"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "nonebot-plugin-picsearcher"
+version = "0.1.6rc1"
+description = "A picsearch plugin for nonebot2"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+aiohttp = "*"
+lxml = "*"
 
 [package.source]
 type = "legacy"
@@ -1810,7 +1823,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "99f83c7ee18da3d0015143393a447c7af15b88fe2caf145d0bafe4bb6c89fec3"
+content-hash = "d768723af06a3f4d24729fc1ba13af3afad4c357171d64cec5a9245551708661"
 
 [metadata.files]
 aiofiles = [
@@ -2403,12 +2416,16 @@ nonebot-plugin-help = [
     {file = "nonebot_plugin_help-0.1.5-py3-none-any.whl", hash = "sha256:1c4bb626feb202515f47311e3ca9872ab6c0db5e935bc9561325fcc1a2591511"},
 ]
 nonebot-plugin-heweather = [
-    {file = "nonebot-plugin-heweather-0.5.0.2.tar.gz", hash = "sha256:b8f020d19349b1232082007d8da863c9b54083b23cc975378757d16c06c1edb3"},
-    {file = "nonebot_plugin_heweather-0.5.0.2-py3-none-any.whl", hash = "sha256:d2d97630153413c997619cd05b71b25d21db681386b24c982f1125abbc6af011"},
+    {file = "nonebot-plugin-heweather-0.5.0.3.tar.gz", hash = "sha256:3725cd42bad11428be7c45562ac1df0b24c8b8b247d3f77fccb916677e48ea45"},
+    {file = "nonebot_plugin_heweather-0.5.0.3-py3-none-any.whl", hash = "sha256:8f4e0d3f48009c57b59dc61443230836ecfcd09137a4ac7e5f3c18816a1282fe"},
 ]
 nonebot-plugin-htmlrender = [
     {file = "nonebot-plugin-htmlrender-0.0.4.1.tar.gz", hash = "sha256:993b2ba6571c4a4c50540d96c0a5ef8072c7c93682e8ea3d448ff74c3f6d0527"},
     {file = "nonebot_plugin_htmlrender-0.0.4.1-py3-none-any.whl", hash = "sha256:349615f360d9687700956ff6985265055d714d1eec2fd2b6898e6c1464f00902"},
+]
+nonebot-plugin-picsearcher = [
+    {file = "nonebot-plugin-picsearcher-0.1.6rc1.tar.gz", hash = "sha256:8e372b2c7ffcface2b2ced6fdc6e7f3aaede04b58441470a96c1acb5236566ba"},
+    {file = "nonebot_plugin_picsearcher-0.1.6rc1-py3-none-any.whl", hash = "sha256:197321474989ad732de4309f8f2b15fbda08ce5fb85e94eb937de855b3c8ca19"},
 ]
 nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.3-py3-none-any.whl", hash = "sha256:b431dd98c6b768694670702e1b987937657cc5534dc4b16932ca9e1c2a07a2b4"},
