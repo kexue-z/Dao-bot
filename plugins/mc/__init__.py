@@ -1,12 +1,13 @@
 import re
 from random import randint
 
-from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Bot, Message, MessageEvent
+from nonebot import on_command, get_driver
+from nonebot.adapters.onebot.v11 import Message,  MessageEvent
 from nonebot.log import logger
-from nonebot.params import CommandArg, ArgPlainText, State
+from nonebot.params import CommandArg, State
 from nonebot.typing import T_State
-from nonebot.exception import ActionFailed
+
+
 from .mcping import mcping
 from .mcsm import *
 from .turstID import *
@@ -42,6 +43,7 @@ def server_todo(todo: str) -> str:
         return "restart_server"
 
 
+
 @mc_server.handle()
 async def mc_server_handle(arg: Message = CommandArg()):
     msg = ""
@@ -57,9 +59,13 @@ mcsm_ctl = on_command("mcsm")
 
 @mcsm_ctl.handle()
 async def mcsm_ctl_first_handle(
+    event: MessageEvent,
     state: T_State = State(),
     arg: Message = CommandArg(),
 ):
+    if event.user_id not in get_driver().config.mcserver_admin:
+        await mcsm_ctl.finish("你没有权限使用这个命令")
+        
     match = re.match(
         r"(on|start|开服|off|stop|关服|restart|重启)\s?(.*)", arg.extract_plain_text()
     )
@@ -114,4 +120,3 @@ async def mcsm_ctl_finally(state: T_State = State()):
         await mcsm_ctl.finish("MCSM API错误: " + str(e))
     except IndexError as e:
         await mcsm_ctl.finish(f"这个列表就那么一点，你输个了啥？{state['server_id']}？？？")
-
