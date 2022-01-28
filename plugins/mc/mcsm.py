@@ -48,8 +48,8 @@ async def server_get(apikey: str):
 
 async def call_server(type: str, server_name: str, apikey: str) -> dict:
     async with AsyncClient() as client:
-        params = {"name": server_name, "apikey": apikey}
-        res = await client.get(server + type, params=params)
+        params = {"apikey": apikey}
+        res = await client.get(f"{server}/{type}/{server_name}", params=params)
     return res.json()
 
 
