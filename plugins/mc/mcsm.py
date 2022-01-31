@@ -1,12 +1,18 @@
 import nonebot
-from httpx import AsyncClient, Response, HTTPStatusError
-from nonebot import logger
+from httpx import AsyncClient, Response
+from nonebot.log import logger
 
 server = nonebot.get_driver().config.mcserver
 apikey = nonebot.get_driver().config.mcserver_apikey
 
+
 class MCSMAPIError(Exception):
     ...
+
+
+class HTTPStatusError(Exception):
+    ...
+
 
 # 发送命令
 async def server_command(server_name: str, command: str, apikey: str = apikey):
@@ -38,8 +44,8 @@ def check(res: Response) -> int:
     logger.debug(res.url)
     if res.status_code != 200:
         raise HTTPStatusError("Error: " + str(res.status_code))
-    
+
     if res.json()["status"] != 200:
         raise MCSMAPIError(res.json()["error"])
-    
+
     return int(res.json()["status"])

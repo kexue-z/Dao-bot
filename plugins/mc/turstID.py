@@ -15,7 +15,7 @@ def get_yaml_file(FILE_DIR=FILE_DIR):
         FILE_DIR.mkdir()
         with open(FILE, "w+", encoding="utf-8") as f:
             yaml.dump(data, f)
-    
+
 
 if __name__ == "__main__":
     data = get_yaml_file(FILE_DIR)

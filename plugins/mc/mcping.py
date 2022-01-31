@@ -1,6 +1,7 @@
 # from PIL import Image
 # from io import BytesIO
 from .statusping import StatusPing
+
 # import base64
 import dns.resolver
 import json
@@ -34,12 +35,12 @@ def mcping(say):
     # print(get_status)
 
     # 服务器信息解析
-    favicon_path = f"mcstatus_temp.jpg"
+    # favicon_path = "mcstatus_temp.jpg"
     msg_send = []
 
     # 判断是否报错
     if get_status == "error":
-        msg_send = f"服务器信息获取失败"
+        msg_send = "服务器信息获取失败"
         return msg_send
 
     # 图标
@@ -54,20 +55,20 @@ def mcping(say):
     #     print("图标已生成")
 
     # 延迟
-    msg_send.append(f"延迟：" + str(get_status["ping"]) + "ms\n")
+    msg_send.append("延迟：" + str(get_status["ping"]) + "ms\n")
 
     # 描述
     if "text" in get_status["description"]:
         sMotd = get_status["description"]["text"]
-        msg_send.append(f"Motd：" + sMotd + "\n")
+        msg_send.append("Motd：" + sMotd + "\n")
     elif "extra" in get_status["description"]:
         sMotd = ""
         for extra in get_status["description"]["extra"]:
             sMotd = sMotd + extra["text"]
-        msg_send.append(f"描述：" + sMotd + "\n")
+        msg_send.append("描述：" + sMotd + "\n")
     elif "translate" in get_status["description"]:
         sMotd = get_status["description"]["translate"]
-        msg_send.append(f"描述：" + sMotd + "\n")
+        msg_send.append("描述：" + sMotd + "\n")
 
     # 服务端版本判断
     if "Requires" in get_status["version"]["name"]:
@@ -90,25 +91,25 @@ def mcping(say):
         str(get_status["players"]["online"]) + " / " + str(get_status["players"]["max"])
     )
 
-    msg_send.append(f"游戏版本：" + sVer + "\n")
-    msg_send.append(f"协议版本：" + sDevVer + "\n")
-    msg_send.append(f"服务端：" + sType + "\n")
+    msg_send.append("游戏版本：" + sVer + "\n")
+    msg_send.append("协议版本：" + sDevVer + "\n")
+    msg_send.append("服务端：" + sType + "\n")
 
     # 玩家数
-    msg_send.append(f"玩家数：" + sPlayer)
+    msg_send.append("玩家数：" + sPlayer)
 
     # 判断是否存在在线玩家
     if "sample" in get_status["players"] and get_status["players"]["sample"] != []:
         sOnlinePlayer = []
         for player in get_status["players"]["sample"]:
             sOnlinePlayer.append(player["name"])
-        msg_send.append(f"\n在线玩家：" + " | ".join(sOnlinePlayer))
+        msg_send.append("\n在线玩家：" + " | ".join(sOnlinePlayer))
 
     # 如果为原版 Forge
     if "modinfo" in get_status:
         if "FML" in get_status["modinfo"]["type"]:
             sModApi = "Forge"
-            msg_send.append(f"\n模组Api：" + sModApi)
+            msg_send.append("\n模组Api：" + sModApi)
 
     # Mod 列表
     if "modinfo" in get_status:
@@ -121,7 +122,7 @@ def mcping(say):
         #     if mod_num == 20:
         #         sMods.append("......（仅显示前 20 个 mod）")
         #         break
-        msg_send.append(f"\nMod数：" + sModsNum + " +")
+        msg_send.append("\nMod数：" + sModsNum + " +")
     elif "forgeData" in get_status:
         sModsNum = str(len(get_status["forgeData"]["mods"]))
         # sMods = []
@@ -132,6 +133,6 @@ def mcping(say):
         #     if mod_num == 20:
         #         sMods.append("......（仅显示前 20 个 mod）")
         #         break
-        msg_send.append(f"\nMod数：" + sModsNum + " +")
+        msg_send.append("\nMod数：" + sModsNum + " +")
 
     return msg_send
