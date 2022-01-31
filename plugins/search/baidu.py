@@ -1,6 +1,8 @@
-from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 from urllib.parse import quote
+
+from nonebot import on_command
+from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import Message, MessageSegment
 
 baidu_url = "https://www.baidu.com/s?wd="
 
@@ -8,12 +10,6 @@ baidu = on_command("百度", aliases={"baidu"}, priority=1)
 
 
 @baidu.handle()
-async def _baidu(bot: Bot, event: MessageEvent):
-    url = baidu_url + quote(str(event.message))
-    # url.replace('&', '&amp;')
-    await baidu.finish(
-        message=MessageSegment(
-            type="share",
-            data={"url": url, "title": str(event.message), "content": "你不会百度吗？？？"},
-        )
-    )
+async def _baidu(args: Message = CommandArg()):
+    url = baidu_url + quote(args.extract_plain_text())
+    await baidu.finish(message=MessageSegment.text(url))
