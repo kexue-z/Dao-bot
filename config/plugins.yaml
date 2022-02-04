@@ -1,11 +1,10 @@
-plugins: 
+plugins:
   - nonebot_plugin_heweather
   - nonebot_plugin_remake
   - nonebot_plugin_setu_now
   - nonebot_plugin_trpglogger
   - nonebot_plugin_cocdicer
-
-
+  - nonebot_plugin_what2eat
 
 plugin_dirs:
   - plugins
