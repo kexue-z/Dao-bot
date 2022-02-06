@@ -37,6 +37,7 @@ requests = "^2.27.1"
 ujson = ">=5.1.0,<6.0.0"
 wolframalpha = "^5.0.0"
 nonebot-plugin-what2eat = "^0.2.2"
+nonebot-plugin-word-bank2 = "^0.0.2"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
