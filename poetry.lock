@@ -940,7 +940,7 @@ ujson = ">=5.1.0,<6.0.0"
 
 [[package]]
 name = "nonebot-plugin-word-bank2"
-version = "0.0.2"
+version = "0.0.3"
 description = "无数据问答插件"
 category = "main"
 optional = false
@@ -1707,7 +1707,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "d77060e30a6b5a3f1133f47e3bf37d9fa477787d8890f6f3e718f77313e5275e"
+content-hash = "c45bd9cb432c93592d7e28f98ea308318c57b72358edfc467c96039d00baa7c2"
 
 [metadata.files]
 aiofiles = [
@@ -2305,8 +2305,8 @@ nonebot-plugin-what2eat = [
     {file = "nonebot_plugin_what2eat-0.2.2.tar.gz", hash = "sha256:f71ffd4d928f388e21464c323ddb82f74aad3df3e296e26fd01be9a08362a6d4"},
 ]
 nonebot-plugin-word-bank2 = [
-    {file = "nonebot-plugin-word-bank2-0.0.2.tar.gz", hash = "sha256:54b7f9239e903dd2f3bb44f02ab26c6e2d7c9f47f9d17a19b7bec1302e5a559f"},
-    {file = "nonebot_plugin_word_bank2-0.0.2-py3-none-any.whl", hash = "sha256:767208778ba2d4e5df88fccb7150fe6a33f6d7855596e5cbe3a30e7c9d7668fb"},
+    {file = "nonebot-plugin-word-bank2-0.0.3.tar.gz", hash = "sha256:17f0e8d958b92ddcf14e750f70f7dcddcf409551eb9d1dc7ea8d0e5b80def9fa"},
+    {file = "nonebot_plugin_word_bank2-0.0.3-py3-none-any.whl", hash = "sha256:1516d221ccb4ffed604cb9e5f873609f5aa52370f0e4ebc8d982306b698ddd12"},
 ]
 nonebot2 = [
     {file = "nonebot2-2.0.0b1-py3-none-any.whl", hash = "sha256:76ee4271a0ba9b1fbdcb34c50a23df391bed00d5d32d63b7fd018685de8130a4"},
