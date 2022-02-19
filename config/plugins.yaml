@@ -4,7 +4,8 @@ plugins:
   - nonebot_plugin_setu_now
   - nonebot_plugin_trpglogger
   - nonebot_plugin_cocdicer
-  - nonebot_plugin_what2eat
+  # - nonebot_plugin_what2eat
+  - nonebot_plugin_phlogo
   - nonebot_plugin_word_bank2
 
 plugin_dirs:
