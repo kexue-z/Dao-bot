@@ -85,11 +85,11 @@ async def get_setu(
         if msg[0].type == "image":
             await bot.send(event=event, message="正在处理图片")
             url = msg[0].data["url"]  # 图片链接
-            if not bot.config.risk_control or isinstance(
+            if not getattr(bot.config, "risk_control", None) or isinstance(
                 event, PrivateMessageEvent
             ):  # 安全模式
                 async for msg in limiter(
-                    get_des(url, mod), bot.config.search_limit or 2
+                    get_des(url, mod), getattr(bot.config, "search_limit", None) or 2
                 ):
                     await bot.send(event=event, message=msg)
             else:
@@ -137,7 +137,7 @@ async def check_pic(bot: Bot, event: MessageEvent, state: T_State = State()) -> 
         return False
 
 
-notice_pic = on_message(check_pic)
+notice_pic = on_message(check_pic, block=False, priority=90)
 
 
 @notice_pic.handle()
@@ -157,8 +157,10 @@ async def handle_previous(bot: Bot, event: GroupMessageEvent):
     await bot.send(event=event, message="processing...")
     try:
         url: str = pic_map[str(event.group_id)]
-        if not bot.config.risk_control:  # 安全模式
-            async for msg in limiter(get_des(url, "nao"), bot.config.search_limit or 2):
+        if not getattr(bot.config, "risk_control", None):  # 安全模式
+            async for msg in limiter(
+                get_des(url, "nao"), getattr(bot.config, "search_limit", None) or 2
+            ):
                 await bot.send(event=event, message=msg)
         else:
             msgs: Message = sum(

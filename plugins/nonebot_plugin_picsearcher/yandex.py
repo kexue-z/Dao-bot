@@ -11,27 +11,17 @@ http://yandex.com/clck/jsredir?from=yandex.com%3Bimages%2Fsearch%3Bimages%3B%3B&
 """
 
 driver = nonebot.get_driver()
-proxy: str = driver.config.proxy
+proxy: str = getattr(driver.config, "proxy", None)
 
 
 def parse_html(html: str):
     selector = fromstring(html)
     for item in selector.xpath('//li[@class="other-sites__item"]'):
-        pic_url = item.xpath('./a[@class="other-sites__preview-link"]/img/@src')[
-            0
-        ].lstrip(
-            "//"
-        )  # 图床
+        pic_url = item.xpath('./a[@class="other-sites__preview-link"]/img/@src')[0].lstrip("//")  # 图床
         des = item.xpath(
-            './div[@class="other-sites__snippet"]/div[@class="other-sites__snippet-title"]/a/text()'
-        )[
-            0
-        ]  # 简介
+            './div[@class="other-sites__snippet"]/div[@class="other-sites__snippet-title"]/a/text()')[0]  # 简介
         url = item.xpath(
-            './div[@class="other-sites__snippet"]/div[@class="other-sites__snippet-site"]/a/@href'
-        )[
-            0
-        ]  # 链接
+            './div[@class="other-sites__snippet"]/div[@class="other-sites__snippet-site"]/a/@href')[0]  # 链接
         yield pic_url, des, url
 
 

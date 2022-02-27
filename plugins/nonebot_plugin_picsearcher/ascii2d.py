@@ -11,18 +11,16 @@ from .proxy import proxy
 
 def parse_html(html: str):
     selector = fromstring(html)
-    for tag in selector.xpath(
-        '//div[@class="container"]/div[@class="row"]/div/div[@class="row item-box"]'
-    )[1:5]:
+    for tag in selector.xpath('//div[@class="container"]/div[@class="row"]/div/div[@class="row item-box"]')[1:5]:
         if pic_url := tag.xpath('./div/img[@loading="lazy"]/@src'):  # 缩略图url
             pic_url = urljoin("https://ascii2d.net/", pic_url[0])
-        if description := tag.xpath("./div/div/h6/a[1]/text()"):  # 名字
+        if description := tag.xpath('./div/div/h6/a[1]/text()'):  # 名字
             description = description[0]
-        if author := tag.xpath("./div/div/h6/a[2]/text()"):  # 作者
+        if author := tag.xpath('./div/div/h6/a[2]/text()'):  # 作者
             author = author[0]
-        if origin_url := tag.xpath("./div/div/h6/a[1]/@href"):  # 原图地址
+        if origin_url := tag.xpath('./div/div/h6/a[1]/@href'):  # 原图地址
             origin_url = origin_url[0]
-        if author_url := tag.xpath("./div/div/h6/a[2]/@href"):  # 作者地址
+        if author_url := tag.xpath('./div/div/h6/a[2]/@href'):  # 作者地址
             author_url = author_url[0]
         yield pic_url, description, author, origin_url, author_url
 

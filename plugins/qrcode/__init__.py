@@ -30,7 +30,7 @@ async def check_qrcode(bot: Bot, event: MessageEvent, state: T_State = State()) 
         return False
 
 
-notice_qrcode = on_message(check_qrcode)
+notice_qrcode = on_message(check_qrcode, block=False, priority=90)
 
 
 @notice_qrcode.handle()

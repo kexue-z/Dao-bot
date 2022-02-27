@@ -22,12 +22,11 @@ nonebot-plugin-apscheduler = "^0.1.2"
 nonebot-plugin-cocdicer = "^0.3.0"
 nonebot-plugin-heweather = "^0.5.1"
 nonebot-plugin-htmlrender = "^0.0.4"
-nonebot-plugin-picsearcher = "0.1.6rc1"
 nonebot-plugin-remake = "^0.2.3"
 nonebot-plugin-setu-now = "^0.0.4.3-beta.1"
 nonebot-plugin-trpglogger = {version = "^0.3.3", source = "aliyun"}
 nonebot-plugin-tvseries = "^0.0.2"
-nonebot-plugin-what2eat = "^0.2.2"
+nonebot-plugin-what2eat = "^0.2.3"
 nonebot-plugin-word-bank2 = "^0.0.3"
 nonebot2 = "^2.0.0-beta.1"
 numpy = "^1.22.1"
@@ -40,6 +39,7 @@ requests = "^2.27.1"
 ujson = ">=5.1.0,<6.0.0"
 wolframalpha = "^5.0.0"
 nonebot-plugin-phlogo = "^0.0.2"
+nonebot-plugin-petpet = {git = "https://hub.fastgit.xyz/MeetWq/nonebot-plugin-petpet.git"}
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
