@@ -62,7 +62,7 @@ async def get_Proxy_Selection(bot: Bot, state: T_State = State()):
 
 @get_Proxy.handle()
 async def get_Proxy_done(bot: Bot, state: T_State = State()):
-    user_Selection = int(state["Selection"]) - 1
+    user_Selection = int(state["Selection"].extract_plain_text()) - 1
     if user_Selection == -1:
         await get_Proxy.finish("已取消")
     Selection = state["proxies"][user_Selection]

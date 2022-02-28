@@ -9,7 +9,7 @@ from nonebot.adapters.onebot.v11 import Adapter
 
 from utils.yaml import Secrets, load_yaml
 
-logger.add("data/log/nonebotlog.log", rotation="5 MB")
+logger.add("data/log/{time:MM}-{time:DD}.log", rotation="1 day", compression="zip")
 
 config_json = load_yaml("config/config.yaml", Secrets(Path("config")))
 nonebot.init(**dict(config_json))
