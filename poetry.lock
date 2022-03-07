@@ -229,14 +229,14 @@ reference = "aliyun"
 
 [[package]]
 name = "boto3"
-version = "1.21.8"
+version = "1.21.13"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.24.8,<1.25.0"
+botocore = ">=1.24.13,<1.25.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -250,7 +250,7 @@ reference = "aliyun"
 
 [[package]]
 name = "botocore"
-version = "1.24.8"
+version = "1.24.13"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -420,7 +420,7 @@ reference = "aliyun"
 
 [[package]]
 name = "dnspython"
-version = "2.2.0"
+version = "2.2.1"
 description = "DNS toolkit"
 category = "main"
 optional = false
@@ -894,6 +894,11 @@ nonebot-plugin-htmlrender = ">=0.0.4.3"
 nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 pydantic = ">=1.5.0,<2.0.0"
 
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
 [[package]]
 name = "nonebot-plugin-htmlrender"
 version = "0.0.4.4"
@@ -920,7 +925,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.2.6.1"
+version = "0.2.7.1"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
@@ -977,7 +982,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-setu-now"
-version = "0.0.4.7"
+version = "0.0.5"
 description = "另一个色图插件"
 category = "main"
 optional = false
@@ -985,14 +990,10 @@ python-versions = ">=3.7.3,<4.0.0"
 
 [package.dependencies]
 httpx = ">=0.18.0,<1.0.0"
-nonebot-adapter-onebot = "2.0.0-beta.1"
-nonebot2 = "2.0.0-beta.1"
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
+nonebot2 = ">=2.0.0-beta.1,<3.0.0"
+pydantic = ">=1.5.0,<2.0.0"
 webdav4 = ">=0.9.3,<0.10.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pypi/simple"
-reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-trpglogger"
@@ -1053,7 +1054,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-word-bank2"
-version = "0.0.3"
+version = "0.1.3.2"
 description = "无数据问答插件"
 category = "main"
 optional = false
@@ -1062,8 +1063,8 @@ python-versions = ">=3.7.3,<4.0.0"
 [package.dependencies]
 aiofiles = ">=0.8.0,<0.9.0"
 httpx = ">=0.18.0,<1.0.0"
-nonebot-adapter-onebot = "2.0.0-beta.1"
-nonebot2 = "2.0.0-beta.1"
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<=2.0.0-beta.2"
+nonebot2 = ">=2.0.0-beta.1,<=2.0.0-beta.2"
 
 [package.source]
 type = "legacy"
@@ -1827,7 +1828,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "8ee3606a20676d2deae74e5f093fc55e5167b931d22b76c6d268e8829df04352"
+content-hash = "4ee15be5d4956832d64b206c178aa3e78f2ecb063ea40a638cadc3c62ee9cf56"
 
 [metadata.files]
 aiocache = [
@@ -1911,12 +1912,12 @@ black = [
     {file = "black-21.12b0.tar.gz", hash = "sha256:77b80f693a569e2e527958459634f18df9b0ba2625ba4e0c2d5da5be42e6f2b3"},
 ]
 boto3 = [
-    {file = "boto3-1.21.8-py3-none-any.whl", hash = "sha256:9b6903fe9cc92d2f6111db28675263f1ab45adbcf1483025c82a304ce7790b71"},
-    {file = "boto3-1.21.8.tar.gz", hash = "sha256:f2ce641957c1782e382548ced4a447189e45851bbe58c1f6752ff2b661527de7"},
+    {file = "boto3-1.21.13-py3-none-any.whl", hash = "sha256:e17d994d222162dac02ec32fde6ae910d819ebf239a94dddcee47def2c82b9c9"},
+    {file = "boto3-1.21.13.tar.gz", hash = "sha256:16fae86d0c4993fd5112128bb4622a879f02363bccd045153cc0bbd7722cc9a5"},
 ]
 botocore = [
-    {file = "botocore-1.24.8-py3-none-any.whl", hash = "sha256:9fbc5c57b31850c51c87abc3e166ed4e0f343665bec4e1a0ff814fbc9704642c"},
-    {file = "botocore-1.24.8.tar.gz", hash = "sha256:a5431d806dc75fb1844463d921759fcd8d387674443af8d7fd0867f296b02759"},
+    {file = "botocore-1.24.13-py3-none-any.whl", hash = "sha256:7b166096f9413b41caf7cc6f4edfd5b3c3ab9d7c61eb120a649e69485c98131a"},
+    {file = "botocore-1.24.13.tar.gz", hash = "sha256:46e51f56f1c5784e4245e036503635fa71b722775657b6e1acf21ec5b906974c"},
 ]
 brotlipy = [
     {file = "brotlipy-0.7.0-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:af65d2699cb9f13b26ec3ba09e75e80d31ff422c03675fcb36ee4dabe588fdc2"},
@@ -2049,8 +2050,8 @@ dicttoxml = [
     {file = "dicttoxml-1.7.4.tar.gz", hash = "sha256:ea44cc4ec6c0f85098c57a431a1ee891b3549347b07b7414c8a24611ecf37e45"},
 ]
 dnspython = [
-    {file = "dnspython-2.2.0-py3-none-any.whl", hash = "sha256:081649da27ced5e75709a1ee542136eaba9842a0fe4c03da4fb0a3d3ed1f3c44"},
-    {file = "dnspython-2.2.0.tar.gz", hash = "sha256:e79351e032d0b606b98d38a4b0e6e2275b31a5b85c873e587cc11b73aca026d6"},
+    {file = "dnspython-2.2.1-py3-none-any.whl", hash = "sha256:a851e51367fb93e9e1361732c1d60dab63eff98712e503ea7d92e6eccb109b4f"},
+    {file = "dnspython-2.2.1.tar.gz", hash = "sha256:0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e"},
 ]
 fastapi = [
     {file = "fastapi-0.70.1-py3-none-any.whl", hash = "sha256:5367226c7bcd7bfb2e17edaf225fd9a983095b1372281e9a3eb661336fb93748"},
@@ -2380,8 +2381,8 @@ nonebot-plugin-htmlrender = [
     {file = "nonebot_plugin_htmlrender-0.0.4.4-py3-none-any.whl", hash = "sha256:e3dbb2bb7afd529b3958aedefab42570a28e924ef7417f0e57c734037def37a4"},
 ]
 nonebot-plugin-petpet = [
-    {file = "nonebot_plugin_petpet-0.2.6.1-py3-none-any.whl", hash = "sha256:102bc830e9e56819bab8befcf09d4e8c6e4b1ffb1eace090079e84b58e820e4e"},
-    {file = "nonebot_plugin_petpet-0.2.6.1.tar.gz", hash = "sha256:e586a106936fee8ff1cb466f08223a47e9a683d3f899cf83c351766a67a7c5e6"},
+    {file = "nonebot_plugin_petpet-0.2.7.1-py3-none-any.whl", hash = "sha256:0b42b634974b8d2259426758657be3f0bdc5daf86aacc7fe77662457ea9c775e"},
+    {file = "nonebot_plugin_petpet-0.2.7.1.tar.gz", hash = "sha256:945b64880475e74f25ce6a8160efcf9a83a97ea1be58f89dcbc725fa0ee8dd26"},
 ]
 nonebot-plugin-phlogo = [
     {file = "nonebot-plugin-phlogo-0.0.2.1.tar.gz", hash = "sha256:c28a9d78d84d77b6dd8c26eb1191d2520fa11d4c7471d4f64785686c56fd60b0"},
@@ -2392,8 +2393,8 @@ nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.4.tar.gz", hash = "sha256:deefadebf16261cacde9197d782d71a2ebeea2bc1ccf89943f899c0c456959a3"},
 ]
 nonebot-plugin-setu-now = [
-    {file = "nonebot-plugin-setu-now-0.0.4.7.tar.gz", hash = "sha256:3a64617c28768036c32bb5aeb1738449f7c19920f08bd86ff517dea8e7a3fe38"},
-    {file = "nonebot_plugin_setu_now-0.0.4.7-py3-none-any.whl", hash = "sha256:b45b399eff90d79fa187eca37099c8e15a378befc4031906a56b6c4fd9f562a9"},
+    {file = "nonebot-plugin-setu-now-0.0.5.tar.gz", hash = "sha256:a9e551e2c9887c27078c5fca9acd7f7fb99d95dd207c5bdde80e328ec75f7d47"},
+    {file = "nonebot_plugin_setu_now-0.0.5-py3-none-any.whl", hash = "sha256:c885d86ced32c2ce9f54067c2d4966123ac8b3501b758b35846700b6fb5be882"},
 ]
 nonebot-plugin-trpglogger = [
     {file = "nonebot_plugin_trpglogger-0.3.3-py3-none-any.whl", hash = "sha256:35ee6c7db8994d9c39a81743a936b20e557901538788f852897d825037e8c78d"},
@@ -2408,8 +2409,8 @@ nonebot-plugin-what2eat = [
     {file = "nonebot_plugin_what2eat-0.2.5.tar.gz", hash = "sha256:f2be1ecef285a2bcca157517e49219cc0c77fc64738e8ca1e451e19859861c74"},
 ]
 nonebot-plugin-word-bank2 = [
-    {file = "nonebot-plugin-word-bank2-0.0.3.tar.gz", hash = "sha256:17f0e8d958b92ddcf14e750f70f7dcddcf409551eb9d1dc7ea8d0e5b80def9fa"},
-    {file = "nonebot_plugin_word_bank2-0.0.3-py3-none-any.whl", hash = "sha256:1516d221ccb4ffed604cb9e5f873609f5aa52370f0e4ebc8d982306b698ddd12"},
+    {file = "nonebot-plugin-word-bank2-0.1.3.2.tar.gz", hash = "sha256:82680821c69f6df0b4e3b12a985929f228599921449adebbab0d00fce5915c17"},
+    {file = "nonebot_plugin_word_bank2-0.1.3.2-py3-none-any.whl", hash = "sha256:ff1acf16c485a09dead0f0c65024fcf3be919d6d126a451d30af5e06d39704ee"},
 ]
 nonebot2 = [
     {file = "nonebot2-2.0.0b1-py3-none-any.whl", hash = "sha256:76ee4271a0ba9b1fbdcb34c50a23df391bed00d5d32d63b7fd018685de8130a4"},
