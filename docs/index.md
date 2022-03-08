@@ -10,13 +10,13 @@
 - 使用`[]` 为必须参数，使用`{}`为可选参数
 - 直接在顶部评论区或者在选中任意文本即可反馈
 - 其他问题联系 QQ`278220060`
-  > 部分指令需要添加指令头 `/ . 。! ！` 才能正确触发
-  > 某些特定指令不需要
-  > {.is-info}
+
+> 部分指令需要添加指令头 `/ . 。! ！` 才能正确触发
+> 某些特定指令不需要
 
 # 功能介绍
 
-## 插件管理器
+## 插件管理器(不可用)
 
 - 参考 [https://github.com/nonepkg/nonebot-plugin-manager](https://github.com/nonepkg/nonebot-plugin-manager)
 - 列出当前所有插件列表和启用情况
@@ -33,15 +33,15 @@
 - 例如： `/决定 睡大觉 玩游戏 学习` 返回`屑岛风bot认为你应该选择：睡大觉`
 - 当不输入内容时则会询问`[内容]` 此时可不输入`/决定` 作为指令头
 
-## MC 服务器状态查询和控制
+## MC 服务器状态查询和控制(不可用)
 
 - 指令：`/mc 服务器地址[:端口]`
   - 服务器地址可以是 ip 或域名，端口不填写则默认 25565
-- 指令: `/开服` | `/mcon` | `/打开服务器` + `[服务器ID]`
+- 指令: `/开服` / `/mcon` / `/打开服务器` + `[服务器ID]`
   - 需要验证码
-- 指令: `/关服` | `/mcoff` | `/关闭服务器` + `[服务器ID]`
+- 指令: `/关服` / `/mcoff` / `/关闭服务器` + `[服务器ID]`
   - 需要验证码
-- 指令: `/重启服` | `/mcrestart` | `/重启服务器` + `[服务器ID]`
+- 指令: `/重启服` / `/mcrestart` / `/重启服务器` + `[服务器ID]`
   - 需要验证码
 
 ## 禁言
@@ -50,7 +50,8 @@
 - 方便部分 QQ 版本没有禁言按钮的客户端使用
 - 需要 bot 为管理员身份
 - 私聊中不可用~~废话~~
-- 指令：`/m` | `/mute` | `/禁言` + `[at指定用户]` + `{时长}`
+- 指令：`/m` / `/mute` / `/禁言` + `[at指定用户]` + `{时长}`
+
   - 需要 at 而不是复制粘贴文本
   - 时长单位为分钟，默认为 10
 
@@ -60,8 +61,6 @@
 - 与禁言功能不会同时触发
 
 ## 色图（~~基础功能~~）
-
-{.is-warning}
 
 - 发送随机色图。可指定关键词标签
 - 标签为 Pixiv 作品下的标签
@@ -81,7 +80,7 @@
 
 ## 自动消息回复
 
-- 参考 [https://github.com/Joenothing-lst/word-bank](https://github.com/Joenothing-lst/word-bank)
+- 参考 [https://github.com/kexue-z/nonebot-plugin-word-bank2](https://github.com/kexue-z/nonebot-plugin-word-bank2)
 - 管理员可通过指令添加常见问题的回复
 - 增加词条
   - 全匹配问答
@@ -91,7 +90,7 @@
   - 模糊问答
     - 指令：`模糊问[问题]答[回答]`
     - 例子：`模糊问他不理答你被屏蔽了`
-    - 运行结果：`他不理` → `你被屏蔽了` | `他不理我` → `你被屏蔽了` | `他不理他` → `你被屏蔽了`
+    - 运行结果：`他不理` → `你被屏蔽了` / `他不理我` → `你被屏蔽了` / `他不理他` → `你被屏蔽了`
   - 回答部分格式
     - `/at` + `[QQ号]`
       - 当答句中包含 `/at` + `qq号`时将会被替换为@某人
@@ -111,7 +110,7 @@
       - 例子：`问你好答/ban30你将被禁言30秒`
       - 运行结果：`你好` → `你将被禁言30秒` `你已被管理员禁言30秒`
 - 删除词条
-  - 指令：`/删除词条`+`[问题]`
+  - 指令：`/删除词条` + `[问题]`
 - 删除词库
   - 指令：`/删除词库`
   - 仅限群主
@@ -228,7 +227,7 @@
 
 ## 通用订阅推送（香港记者）
 
-- 参考 [https://github.com/felinae98/nonebot-hk-reporter](https://github.com/felinae98/nonebot-hk-reporter)
+- 参考 [felinae98/nonebot-bison](https://github.com/felinae98/nonebot-bison)
 - 可订阅 bilibili 动态、微博动态
 - 可订阅 [https://docs.rsshub.app/](https://docs.rsshub.app/) 中的所有支持的 RSS 订阅源和其他源
 - 定期爬取指定网站内容并发布
@@ -249,13 +248,13 @@
 
 ## RSS 链接获取方式（RSS 阅读器通用）
 
-- 什么是 RSS → 百度
+- 什么是 RSS **你不会百度吗？**
 - 自建 RSS 服务器链接 `https://kexue.io:1200`
 - 部分需要配置的 RSS 源需要 @kexue 来进行配置
 
 1. 访问 [https://docs.rsshub.app/](https://docs.rsshub.app/)
    - 如果网站被墙建议 🪜
-   - 或者直接通过 GitHub 获取文档 [https://github.com/DIYgod/RSSHub/tree/master/docs](https://github.com/DIYgod/RSSHub/tree/master/docs)
+   - 或者直接通过 GitHub [获取文档](https://github.com/DIYgod/RSSHub/tree/master/docs)
 2. 找到相应分类
 3. 获取路由 并填写相应参数
    - 例如：`/36kr/news/:caty`
@@ -277,7 +276,7 @@
 
 ## 模拟抽卡
 
-- 参考 [https://github.com/HibiKier/nonebot_plugin_gamedraw](https://github.com/HibiKier/nonebot_plugin_gamedraw)
+- 参考 [HibiKier/nonebot_plugin_gamedraw](https://github.com/HibiKier/nonebot_plugin_gamedraw)
 - 支持的抽卡和指令
   - `原神[武器|角色] [1~10][抽|井]`
   - `方舟 [1~10][抽|井]`
@@ -311,7 +310,7 @@
 ## 你不会百度吗？？？
 
 - 帮你百度，喜欢吗？
-- 指令：`百度/baidu` + `关键词`
+- 指令：`/百度` / `/baidu` + `关键词`
 - 返回：**那肯定是百度啊???**
 
 ## WolframAlpha 搜索
@@ -363,7 +362,7 @@
 - 中二二次元语录，可给你前进的力量！！！
 - 指令： `/二次元｜/二次元语录｜/语录`
 
-## 广播
+## 广播(超级管理员only)
 
 - 指令 `/广播-[内容]`
 - 在群聊中发送广播
@@ -383,34 +382,34 @@
 
 - 参考[thereisnodice/TRPGLogger](https://github.com/thereisnodice/TRPGLogger)
 
-- 指令 `/log on` `/log off`
+- 指令 `/log on` / `/log off`
   - 记录聊天记录并上传
 
 ## 草图生成器
 
-- 指令 `/5kcy` | `/5000兆元` | `/5000兆円` | `/5000choyen` `[上联] | [下联]`
+- 指令 `/5kcy` / `/5000兆元` / `/5000兆円` / `/5000choyen` `[上联] | [下联]`
 - 生成草图 实例
   - <img width="250" src="./images/卡碧菊-牛头人.png"/>
-- 指令 `/phlogo`|`/pornhub`|`/ph图标` `[text1] [text2]`
+- 指令 `/phlogo` / `/pornhub` / `/ph图标` `[text1] [text2]`
 - 生成 ph 风格图标 实例
   - <img width="250" src="./images/屑岛风bot.png"/>
-- 指令 `/nka` | `/诺基亚` `[text]`
+- 指令 `/nka` / `/诺基亚` `[text]`
 - 生成诺基亚手机
   - <img width="250" src="./images/nka.png">
 
 ## 退群
 
 - 屑岛风 bot 要退群了吗？
-- 指令 `/dismiss` `/退群`
+- 指令 `/dismiss` / `/退群`
 - 仅群主或管理员才可使用
 
 ## 二维码识别和生成
 
 - 识别
   - 直接识别二维码中的信息，并转为文本发送
-  - 指令 `qr` | `二维码` | `qrcode` `{图片}`
+  - 指令 `/qr` / `/二维码` / `/qrcode` `{图片}`
     - 图片可在触发指令后下一条发送
-  - 指令 `pqr` | `前一二维码` | `pqrcode`
+  - 指令 `/pqr` / `/前一二维码` / `/pqrcode`
   - 识别上一条发送的图片中的二维码
   - TODO: ~~多个二维码识别~~ ，返回模板模板
 - 生成
@@ -420,7 +419,7 @@
 
 - 获取青年大学习答案
 - 参考[nonebot_plugin_youthstudy](https://github.com/ayanamiblhx/nonebot_plugin_youthstudy)
-- 指令 `/青年大学习` `/大学习`
+- 指令 `/青年大学习` / `/大学习`
 
 # 更新日志
 
