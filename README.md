@@ -2,9 +2,9 @@
 <h1>屑岛风Bot</h1>
 <img width="250" src="docs/image.png"/>
 
-[文档](https://wiki.kexue.io:3000/)
-</div> 
+[文档](https://kexue-z.github.io/Dao-bot/)
 
+</div>
 
 - 作为一个刚刚学会写代码的，仅作为学习使用。
 
@@ -16,17 +16,20 @@
 
 # 使用说明
 
-[文档](https://wiki.kexue.io:3000/)
+[文档](https://kexue-z.github.io/Dao-bot/)
 
 #
+
 想要尝试部署吗？
+
 ```
-pip3 install -U -i https://mirrors.aliyun.com/pypi/simple/ poetry 
+pip3 install -U -i https://mirrors.aliyun.com/pypi/simple/ poetry
 git clone git@github.com:kexue-z/Dao-bot.git
 cd Dao-bot
 poetry install
 poetry run python bot.py
 ```
 
-# 可以Pr吗？
+# 可以 Pr 吗？
+
 [![讷讷讷，prprprpr](https://kexue.io:5210/api/v3/file/get/583/1000.jpg?sign=1Xe2jcNTM7KYptV6DdBa99-sTJAg8lEL5Zf20edvaJ4%3D%3A0)](https://github.com/kexue-z/Dao-bot/pulls)
