@@ -12,7 +12,7 @@ sv = on_command("5000choyen", aliases={"5000兆元", "5000兆円", "5kcy"})
 async def gen_5000_pic(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
     keyword = arg.extract_plain_text()
     if not keyword:
-        await sv.finish(event, "请提供要生成的句子！")
+        await sv.finish("请提供要生成的句子！")
     if "｜" in keyword:
         keyword = keyword.replace("｜", "|")
     upper = keyword.split("|")[0]
