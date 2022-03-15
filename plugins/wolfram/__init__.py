@@ -1,9 +1,10 @@
 import re
 import subprocess
 from nonebot import export, on_command
+from nonebot.params import CommandArg
 from nonebot.typing import T_State
 from nonebot.rule import ArgumentParser
-from nonebot.adapters.onebot.v11 import Bot, Event
+from nonebot.adapters.onebot.v11 import Bot, Event, Message
 from nonebot.log import logger
 
 from .data_source import get_wolframalpha_simple, get_wolframalpha_text
@@ -24,8 +25,8 @@ wolfram = on_command("wolfram", aliases={"wolframalpha"}, priority=34)
 
 
 @wolfram.handle()
-async def _(bot: Bot, event: Event):
-    text = str(event.get_message()).strip()
+async def _(bot: Bot, event: Event, arg: Message = CommandArg()):
+    text = arg.extract_plain_text()
     logger.info(f"input={text}")
     # msg = await get_wolframalpha_simple(text)
     plaintext = False

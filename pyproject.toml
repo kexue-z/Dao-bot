@@ -40,6 +40,8 @@ pyzbar-x = "^0.2.1"
 requests = "^2.27.1"
 ujson = ">=5.1.0,<6.0.0"
 wolframalpha = "^5.0.0"
+nonebot-plugin-manager = "^0.5.9"
+nonebot-plugin-withdraw = "^0.2.0"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
