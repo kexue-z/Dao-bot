@@ -13,7 +13,7 @@ command_start:
 command_sep: 
     - "."
 apikey : "" 
-log_level: ERROR
+log_level: INFO
 
 
 # heweather 
