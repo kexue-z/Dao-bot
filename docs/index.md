@@ -364,7 +364,7 @@
 - 参考[nonebot_plugin_youthstudy](https://github.com/ayanamiblhx/nonebot_plugin_youthstudy)
 - 指令 `/青年大学习` / `/大学习`
 
-# \*土命笑话
+## \*土命笑话
 
 - 发送一个土命笑话
 - 模糊匹配 `命运笑话`, `土命笑话`, `D2笑话`, `d2笑话`
