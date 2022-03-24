@@ -22,7 +22,7 @@ driver.register_adapter(Adapter)
 
 
 all_plugins = load_yaml("config/plugins.yaml")
-nonebot.load_all_plugins(all_plugins["plugins"], all_plugins["plugin_dirs"])
+nonebot.load_all_plugins(all_plugins["plugins"], all_plugins["plugin_dirs"])  # type: ignore
 
 
 if __name__ == "__main__":

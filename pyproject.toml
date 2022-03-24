@@ -18,7 +18,6 @@ nonebot-plugin-cocdicer = "^0.3.1"
 nonebot-plugin-heweather = "^0.5.5"
 nonebot-plugin-manager = "^0.5.0"
 nonebot-plugin-petpet = "^0.2.11"
-nonebot-plugin-picsearcher = "^0.1.7"
 nonebot-plugin-remake = "^0.2.4"
 nonebot-plugin-setu-now = "^0.1.0"
 nonebot-plugin-trpglogger = "^0.4.0"
@@ -29,6 +28,7 @@ nonebot2 = "^2.0.0-beta.1"
 python = "^3.9"
 requests = "^2.27.1"
 wolframalpha = "^5.0.0"
+nonebot-plugin-hikarisearch = "^0.1.2"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}

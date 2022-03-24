@@ -6,7 +6,7 @@
 
 - 这是一个由 [Nonebot2](https://github.com/nonebot/nonebot2) 和 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 驱动的屑岛风 bot
 - 由 kexue 维护，作为一个业余练手的项目
-- 项目地址 💩 [https://github.com/kexue-z/Dao-bot](https://github.com/kexue-z/Dao-bot)
+- 项目地址 💩 [kexue-z/Dao-bot](https://github.com/kexue-z/Dao-bot)
 - 使用`[]` 为必须参数，使用`{}`为可选参数
 - 直接在顶部评论区或者在选中任意文本即可反馈
 - 其他问题联系 QQ`278220060`
@@ -18,7 +18,7 @@
 
 ## 插件管理器(不可用)
 
-- 参考 [https://github.com/nonepkg/nonebot-plugin-manager](https://github.com/nonepkg/nonebot-plugin-manager)
+- 参考 [nonepkg/nonebot-plugin-manager](https://github.com/nonepkg/nonebot-plugin-manager)
 - 列出当前所有插件列表和启用情况
 - 指令： `npm ls`
 - 禁用当前会话插件（需要权限）
@@ -80,7 +80,7 @@
 
 ## 自动消息回复
 
-- 参考 [https://github.com/kexue-z/nonebot-plugin-word-bank2](https://github.com/kexue-z/nonebot-plugin-word-bank2)
+- 参考 [kexue-z/nonebot-plugin-word-bank2](https://github.com/kexue-z/nonebot-plugin-word-bank2)
 - 管理员可通过指令添加常见问题的回复
 - 增加词条
   - 全匹配问答
@@ -117,19 +117,16 @@
 
 ## 以图搜源
 
+- 参考[MeetWq/nonebot-plugin-hikarisearch](https://github.com/MeetWq/nonebot-plugin-hikarisearch)
 - 适用于二次元图
-- 由于搜图结果较多，**建议私聊使用**
-- 可使用的搜图接口 `nao` `iqdb` `ascii2d` 可缩写为 `asc`
-- 指令：`/搜图`
-  - 群聊中使用需要 at bot 才能触发，私聊可直接发送
-- 指令：`/上一张` `/这是什么` `上一张图是什么`
-  - 将改用户发送的上一张图片直接进行搜图
-  - 不需要 at bot
-  - 默认搜图接口为 `nao`
+- `/搜图上一张`
+  - 将上一张图片直接进行搜图
+- ` /搜图``/saucenao搜图``/iqdb搜图``/ascii2d搜图``/ehentai搜图``/tracemoe搜图 ` + `[图片]`
+- 直接回复 + `/搜图` 同上
 
 ## COC 骰子娘
 
-- 参考 [https://github.com/abrahum/nonebot_plugin_cocdicer](https://github.com/abrahum/nonebot_plugin_cocdicer)
+- 参考 [abrahum/nonebot_plugin_cocdicer](https://github.com/abrahum/nonebot_plugin_cocdicer)
 - 输入 `.help` 获取帮助信息
 - 指令详解
 
@@ -362,7 +359,7 @@
 - 中二二次元语录，可给你前进的力量！！！
 - 指令： `/二次元｜/二次元语录｜/语录`
 
-## 广播(超级管理员only)
+## 广播(超级管理员 only)
 
 - 指令 `/广播-[内容]`
 - 在群聊中发送广播
@@ -425,7 +422,6 @@
 
 - 发送一个土命笑话
 - 模糊匹配 `命运笑话`, `土命笑话`, `D2笑话`, `d2笑话`
-
 
 # 更新日志
 
