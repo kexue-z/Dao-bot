@@ -391,6 +391,5 @@
 
 - 辛苦自己了
 - Nonebot 社区神一般的群友
-
 - [nonebot/nonebot2](https://github.com/nonebot/nonebot2/)：简单好用，扩展性极强的 Bot 框架
 - [Mrs4s/go-cqhttp](https://github.com/Mrs4s/go-cqhttp)：更新迭代快如疯狗的  [OneBot](https://github.com/howmanybots/onebot/blob/master/README.md) Golang 原生实现
