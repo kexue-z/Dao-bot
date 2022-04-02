@@ -22,7 +22,6 @@ qweather_apitype: 1
 # mcserver
 mcserver_apikey: !secret mcserver_apikey
 mcserver: !secret mcserver
-mcserver_admin: !secret mcserver_admin
 
 # wolframalpha
 wolframalpha_appid: !secret wolframalpha_appid

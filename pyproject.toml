@@ -1,7 +1,7 @@
-# [[tool.poetry.source]]
+[[tool.poetry.source]]
 # default = true
-# name = "aliyun"
-# url = "https://mirrors.aliyun.com/pypi/simple/"
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
 
 [tool.poetry]
 authors = ["kexue <xana278@foxmail.com>"]
@@ -16,6 +16,7 @@ nonebot-adapter-onebot = "^2.0.0-beta.1"
 nonebot-bison = "^0.5.0"
 nonebot-plugin-cocdicer = "^0.3.1"
 nonebot-plugin-heweather = "^0.5.5"
+nonebot-plugin-hikarisearch = "^0.1.2"
 nonebot-plugin-manager = "^0.5.0"
 nonebot-plugin-petpet = "^0.2.11"
 nonebot-plugin-remake = "^0.2.4"
@@ -23,12 +24,12 @@ nonebot-plugin-setu-now = "^0.1.0"
 nonebot-plugin-trpglogger = "^0.4.0"
 nonebot-plugin-withdraw = "^0.2.0"
 nonebot-plugin-word-bank2 = "^0.1.4"
-nonebot-plugin-youthstudy = "^1.0.4"
+nonebot-plugin-youthstudy = {version = "^1.0.7", source = "aliyun"}
 nonebot2 = "^2.0.0-beta.1"
 python = "^3.9"
 requests = "^2.27.1"
 wolframalpha = "^5.0.0"
-nonebot-plugin-hikarisearch = "^0.1.2"
+dnspython = "^2.2.1"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
