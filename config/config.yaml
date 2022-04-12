@@ -1,4 +1,4 @@
-host: 127.0.0.1
+host: 0.0.0.0
 port: 9901
 # debug:
 superusers: !secret superusers
@@ -12,7 +12,9 @@ command_start:
   - "！"
 command_sep:
   - "."
-apikey: ""
+# apikey: !secret apikey
+# onebot_access_token: !secret apikey
+# onebot_secret: !secret secret
 log_level: INFO
 
 # heweather
@@ -42,3 +44,6 @@ setu_withdraw: 120
 bison_use_pic: true
 bison_use_queue: true
 bison_to_me: false
+BISON_USE_PIC_MERGE: 1
+BISON_FILTER_LOG: true
+BISON_OUTER_URL: http://kexue.io:9901/bison

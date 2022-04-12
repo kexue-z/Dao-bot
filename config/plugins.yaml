@@ -1,4 +1,5 @@
 plugins:
+  - nonebot_plugin_htmlrender
   - nonebot_plugin_heweather
   - nonebot_plugin_remake
   - nonebot_plugin_setu_now
@@ -14,6 +15,8 @@ plugins:
   - nonebot_bison
   - nonebot_plugin_hikarisearch
   - nonebot_plugin_youthstudy
+  - nonebot_plugin_qrcode
+  - nonebot_plugin_minesweeper
 
 plugin_dirs:
   - plugins
