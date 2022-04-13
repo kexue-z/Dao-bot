@@ -134,3 +134,5 @@ async def mcsm_ctl_finally(state: T_State = State()):
         await mcsm_ctl.finish("MCSM API错误: " + str(e))
     except IndexError:
         await mcsm_ctl.finish(f"这个列表就那么一点，你输个了啥？{state['server_id']}？？？")
+    except KeyError:
+        await mcsm_ctl.finish("服务器不存在")
