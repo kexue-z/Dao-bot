@@ -74,9 +74,7 @@ mcsm_ctl = on_command("mcsm")
 
 @mcsm_ctl.handle()
 async def mcsm_ctl_first_handle(
-    event: MessageEvent,
-    state: T_State = State(),
-    arg: Message = CommandArg(),
+    event: MessageEvent, state: T_State = State(), arg: Message = CommandArg(),
 ):
     if str(event.user_id) not in get_yaml_file()["trust_id"]:
         await mcsm_ctl.finish("你没有权限使用这个命令")

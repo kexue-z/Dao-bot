@@ -171,9 +171,7 @@ def _include_yaml(loader: SafeLineLoader, node: yaml.nodes.Node) -> JSON_TYPE:
     try:
         return _add_reference(load_yaml(fname, loader.secrets), loader, node)
     except FileNotFoundError as exc:
-        raise Exception(
-            f"{node.start_mark}: Unable to read file {fname}."
-        ) from exc
+        raise Exception(f"{node.start_mark}: Unable to read file {fname}.") from exc
 
 
 def _is_file_valid(name: str) -> bool:

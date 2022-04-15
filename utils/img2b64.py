@@ -2,6 +2,7 @@ import base64
 from io import BytesIO
 from PIL import Image
 
+
 def img_to_b64(pic: Image.Image) -> str:
     buf = BytesIO()
     pic.save(buf, format="PNG")

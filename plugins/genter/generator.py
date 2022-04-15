@@ -10,7 +10,9 @@ _round = lambda f, r=ROUND_HALF_UP: int(
 rgb = lambda r, g, b: (r, g, b)
 
 upper_font_path = path.join(path.dirname(__file__), "resource/NotoSansCJKSC-Black.ttf")
-downer_font_path = path.join(path.dirname(__file__), "resource/NotoSerifCJKSC-Black.ttf")
+downer_font_path = path.join(
+    path.dirname(__file__), "resource/NotoSerifCJKSC-Black.ttf"
+)
 
 
 def get_gradient_2d(start, stop, width, height, is_horizontal=False):
