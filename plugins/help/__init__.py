@@ -1,8 +1,8 @@
 from nonebot import on_command, on_keyword
 from nonebot.rule import to_me
+from nonebot.matcher import Matcher
 
-# from nonebot.adapters.cqhttp.bot import Bot
-from nonebot.adapters.onebot.v11 import Bot, MessageEvent, Message
+from nonebot.adapters.onebot.v11 import Message
 
 message = "[CQ:share,url=https://kexue-z.github.io/Dao-bot/,title=屑岛风bot使用指南]"
 
@@ -13,5 +13,5 @@ help_msg = on_keyword({"帮助", "help", "机器人帮助", "机器人说明"}, 
 
 @help_msg.handle()
 @help_cmd.handle()
-async def _():
-    await help.send(message=Message(message))
+async def _(matcher: Matcher):
+    await matcher.finish(message=Message(message))
