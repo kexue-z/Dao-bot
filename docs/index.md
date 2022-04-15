@@ -373,19 +373,7 @@
   - 平台可选：`qq` | `netease` | `kugou` | `migu` | `bilibili`
   - 例如： `/点歌 -s netease Never Gonna Give You Up`
 
-## EPIC 喜加一
-
-- 参考 [monsterxcn/nonebot_plugin_epicfree](https://github.com/monsterxcn/nonebot_plugin_epicfree)
-- 获取 EPIC 免费游戏
-- 指令 `/epic喜加一`
-
-## 二次元语录
-
-- 参考 [HibiKier/zhenxun_bot](https://github.com/HibiKier/zhenxun_bot)
-- 中二二次元语录，可给你前进的力量！！！
-- 指令： `/二次元｜/二次元语录｜/语录`
-
-## bilibili 番剧查询
+## bilibili 番剧查询 (坏了)
 
 - 指令 `/番剧 + [内容]`
   - 查询 bilibili 番剧
@@ -407,10 +395,10 @@
 - 生成草图 实例
   - <img width="250" src="./images/卡碧菊-牛头人.png"/>
 - 指令 `/phlogo` / `/pornhub` / `/ph图标` `[text1] [text2]`
-- 生成 ph 风格图标 实例
+- 生成 ph 风格图标 实例 (坏了)
   - <img width="250" src="./images/屑岛风bot.png"/>
 - 指令 `/nka` / `/诺基亚` `[text]`
-- 生成诺基亚手机
+- 生成诺基亚手机 (坏了)
   - <img width="250" src="./images/nka.png">
 
 ## 退群

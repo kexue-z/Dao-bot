@@ -1102,7 +1102,7 @@ reference = "aliyun"
 
 [[package]]
 name = "nonebot-plugin-setu-now"
-version = "0.2.0"
+version = "0.2.1"
 description = "另一个色图插件"
 category = "main"
 optional = false
@@ -2600,8 +2600,8 @@ nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.4.tar.gz", hash = "sha256:deefadebf16261cacde9197d782d71a2ebeea2bc1ccf89943f899c0c456959a3"},
 ]
 nonebot-plugin-setu-now = [
-    {file = "nonebot-plugin-setu-now-0.2.0.tar.gz", hash = "sha256:54bf51b52685972e9b1bb5279d8fc0657423770a026c91d35a075de76e90ce96"},
-    {file = "nonebot_plugin_setu_now-0.2.0-py3-none-any.whl", hash = "sha256:8408a3b776c27e2e149d82e7da4e84a7c15ba19acc6943387e357c95ff4722c8"},
+    {file = "nonebot-plugin-setu-now-0.2.1.tar.gz", hash = "sha256:33c5bc7a0971f96a5a41447237f0d79cd4a68a4293f11b77e3d1a98304fd9caf"},
+    {file = "nonebot_plugin_setu_now-0.2.1-py3-none-any.whl", hash = "sha256:4a9aa701c84bff4c11fa4046b07420bf8c8833707fed76bd1bc710bf66843f8c"},
 ]
 nonebot-plugin-trpglogger = [
     {file = "nonebot_plugin_trpglogger-0.4.0-py3-none-any.whl", hash = "sha256:2e8c92921b0a191153e9db658e41589c3d6c79a9e4dca660746eb847c0b6ceda"},
