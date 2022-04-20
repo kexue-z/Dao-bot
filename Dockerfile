@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9-buster
 
 ENV TZ=Asia/Shanghai
 ENV LANG zh_CN.UTF-8
@@ -27,7 +27,7 @@ COPY  poetry.lock /
 RUN poetry export --without-hashes -f requirements.txt \
   | poetry run pip install -r /dev/stdin
 
-RUN playwright install chromium && playwright install-deps 
+# RUN playwright install chromium && playwright install-deps 
 
 
 WORKDIR /nonebot
