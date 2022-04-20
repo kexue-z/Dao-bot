@@ -22,13 +22,24 @@
 
 想要尝试部署吗？
 
+那就先装好 docker 然后
+
+下载 gocqhttp 到这个文件夹里 例如
+
+`/dao-bot/go-cqhttp/go-cqhttp`
+
+然后自己运行配置好 go-cqhttp 后保证能够登录 关闭 gocq
+
+最后按照下面的运行一下
+
 ```
-pip3 install -U -i https://mirrors.aliyun.com/pypi/simple/ poetry
-git clone git@github.com:kexue-z/Dao-bot.git
+git clone https://github.com/kexue-z/Dao-bot.git
 cd Dao-bot
-poetry install
-poetry run python bot.py
+chmod 755 run
+./run
 ```
+
+就好了
 
 # 可以 Pr 吗？
 
