@@ -6,10 +6,8 @@ services:
     container_name: nb
     network_mode: host
     volumes:
-      - "./test:/test"
       - "/etc/localtime:/etc/localtime"
       - "./:/nonebot"
-      - "./wb:/usr/local/lib/python3.9/site-packages/nonebot_plugin_wordbank/data/"
     environment:
       - TIME_ZONE=Asia/Shanghai
     command: sh -c "python bot.py"
@@ -23,7 +21,6 @@ services:
     volumes:
       - "/etc/localtime:/etc/localtime"
       - "./go-cqhttp:/go-cqhttp"
-      - "./test:/test"
     working_dir: /go-cqhttp
     command: sh -c "./go-cqhttp"
     restart: always

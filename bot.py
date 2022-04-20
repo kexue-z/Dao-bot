@@ -9,10 +9,15 @@ from nonebot.adapters.onebot.v11 import Adapter
 
 from utils.yaml import Secrets, load_yaml
 
-logger.add("data/log/{time:MM}-{time:DD}.log", level="WARNING", rotation="1 day", compression="zip")
+logger.add(
+    "data/log/{time:MM}-{time:DD}.log",
+    level="WARNING",
+    rotation="1 day",
+    compression="zip",
+)
 
 config_json = load_yaml("config/config.yaml", Secrets(Path("config")))
-nonebot.init(**dict(config_json))
+nonebot.init(**dict(config_json))  # type: ignore
 
 
 app = nonebot.get_asgi()

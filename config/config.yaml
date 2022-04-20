@@ -12,9 +12,7 @@ command_start:
   - "！"
 command_sep:
   - "."
-# apikey: !secret apikey
-# onebot_access_token: !secret apikey
-# onebot_secret: !secret secret
+
 log_level: INFO
 
 # heweather
@@ -35,10 +33,6 @@ proxy_url: http://192.168.0.49:9098/
 
 # setu
 setu_cd: 3600
-# setu_save: webdav
-# setu_dav_url: !secret setu_dav_url
-# setu_dav_username: !secret setu_dav_username
-# setu_dav_password: !secret setu_dav_password
 setu_withdraw: 120
 
 bison_use_pic: true
@@ -46,4 +40,3 @@ bison_use_queue: true
 bison_to_me: false
 BISON_USE_PIC_MERGE: 1
 BISON_FILTER_LOG: true
-BISON_OUTER_URL: http://kexue.io:9901/bison
