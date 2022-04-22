@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM docker.io/library/ubuntu:latest
 
 ENV TZ=Asia/Shanghai
 ENV LANG=zh_CN.UTF-8
