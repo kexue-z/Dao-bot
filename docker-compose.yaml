@@ -10,7 +10,7 @@ services:
       - "./:/nonebot"
     environment:
       - TIME_ZONE=Asia/Shanghai
-    command: sh -c "python bot.py"
+    command: sh -c "python3.9 bot.py"
     working_dir: /nonebot
     restart: always
 
