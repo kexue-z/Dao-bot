@@ -24,7 +24,7 @@ jobs:
 
       - name: Git Commit
         run: |
-          git config --local user.email "x@kexue.io"
+          git config --local user.email "bot@kexue.io"
           git config --local user.name "Bot"
           git add .
           git commit -m "auto update"
