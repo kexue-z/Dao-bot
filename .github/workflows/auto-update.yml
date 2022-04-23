@@ -3,6 +3,8 @@ name: Auto update CI
 on:
   schedule:
     - cron: "0 5 * * 2,4,6"
+  workflow_dispatch:
+
 jobs:
   update-and-push:
     runs-on: ubuntu-latest
@@ -20,10 +22,10 @@ jobs:
       - name: Update
         run: poetry update --lock
 
-      - name: Git push
+      - name: Git Commit
         run: |
           git config --local user.email "x@kexue.io"
-          git config --local  user.name "Bot"
+          git config --local user.name "Bot"
           git add .
           git commit -m "auto update"
 
