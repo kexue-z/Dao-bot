@@ -2,38 +2,37 @@ name: Auto update CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
-  
   workflow_dispatch:
 
-
 jobs:
-
   update-and-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
+      - name: Setup python3.10
+        uses: actions/setup-python@v2
+          with:
+            python-version: python3.10
+
       - name: Setup Poetry
         uses: Gr1N/setup-poetry@v7
 
-      - name: Run a one-line script
+      - name: Update
         run: poetry update
-        
-      - name: Run a multi-line script
+
+      - name: Git push
         run: |
           git config --user user.email "x@kexue.io"
           git config --user user.name "Bot"
           git add .
           git commit -m "auto update"
-          
+
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        
-      
-        
