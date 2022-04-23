@@ -3,10 +3,10 @@ FROM xana278/ubuntu-playwright-cn-python-docker-image
 COPY  pyproject.toml /
 COPY  poetry.lock /
 
-RUN python3.9 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple 
+RUN python3 -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple 
 
 RUN poetry config virtualenvs.create false \
     && poetry export --without-hashes -f requirements.txt \
-    | poetry run python3.9 -m pip install -r /dev/stdin
+    | poetry run python3 -m pip install -r /dev/stdin
 
 WORKDIR /nonebot

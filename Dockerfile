@@ -5,6 +5,6 @@ COPY  poetry.lock /
 
 RUN poetry config virtualenvs.create false \
   && poetry export --without-hashes -f requirements.txt \
-  | poetry run python3.9 -m pip install -r /dev/stdin
+  | poetry run python3 -m pip install -r /dev/stdin
 
 WORKDIR /nonebot
