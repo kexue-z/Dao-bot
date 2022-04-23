@@ -1,6 +1,8 @@
 name: Docker Image CI
 
 on:
+  schedule:
+    - cron: "0 8 * * 1"
   push:
     branches: [master]
   pull_request:
@@ -11,15 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        run: docker build . --file dockerfile --tag xana278/dao-bot
       - name: Docker Login
         uses: docker/login-action@v1.14.1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
+          # Password or personal access token used to log against the Docker registry
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build
-        run: docker build . --file Dockerfile --tag xana278:nonebot
-      - name: Login
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push image
-        run: docker push xana278:nonebot
+      - name: Publish
+        run: docker push xana278/dao-bot
