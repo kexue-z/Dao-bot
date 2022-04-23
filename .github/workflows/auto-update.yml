@@ -1,13 +1,8 @@
 name: Auto update CI
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
-  workflow_dispatch:
-
+  schedule:
+    - cron: "0 5 * * 2,4,6"
 jobs:
   update-and-push:
     runs-on: ubuntu-latest
