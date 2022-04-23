@@ -18,7 +18,7 @@ jobs:
         uses: Gr1N/setup-poetry@v7
 
       - name: Update
-        run: poetry update
+        run: poetry update --lock
 
       - name: Git push
         run: |
