@@ -1,0 +1,39 @@
+name: Auto update CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  
+  workflow_dispatch:
+
+
+jobs:
+
+  update-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Poetry
+        uses: Gr1N/setup-poetry@v7
+
+      - name: Run a one-line script
+        run: poetry update
+        
+      - name: Run a multi-line script
+        run: |
+          git config --user user.email "x@kexue.io"
+          git config --user user.name "Bot"
+          git add .
+          git commit -m "auto update"
+          
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        
+      
+        
