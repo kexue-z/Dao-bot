@@ -4,11 +4,7 @@ services:
     container_name: nb
     network_mode: host
     volumes:
-      - "/etc/localtime:/etc/localtime"
-      - /etc/timezone:/etc/timezone
       - "./:/nonebot"
-    environment:
-      - TIME_ZONE=Asia/Shanghai
     command: sh -c "python3 bot.py"
     working_dir: /nonebot
     restart: always
