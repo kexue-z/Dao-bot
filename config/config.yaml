@@ -15,6 +15,10 @@ command_sep:
 
 log_level: INFO
 
+# pushover
+pushover_token: !secret pushover_token
+pushover_user: !secret pushover_user
+
 # heweather
 qweather_apikey: !secret qweather_apikey
 qweather_apitype: 1

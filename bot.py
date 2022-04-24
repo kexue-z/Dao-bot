@@ -9,6 +9,7 @@ from nonebot.log import logger
 from nonebot.adapters.onebot.v11 import Adapter
 
 from utils.yaml import Secrets, load_yaml
+from utils.pushover import send_startup_message
 
 status = subprocess.run(["git", "pull", "github", "master"])
 
@@ -22,9 +23,9 @@ logger.add(
 )
 
 
-config_json = load_yaml("config/config.yaml", Secrets(Path("config")))
-nonebot.init(**dict(config_json))  # type: ignore
-
+config_json = dict(load_yaml("config/config.yaml", Secrets(Path("config"))))  # type: ignore
+nonebot.init(**config_json)
+send_startup_message(config_json["pushover_token"], config_json["pushover_user"])
 
 app = nonebot.get_asgi()
 
