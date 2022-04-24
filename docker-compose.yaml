@@ -1,6 +1,6 @@
 services:
   nonebot:
-    image: xana278/nonebot
+    image: xana278/dao-bot
     container_name: nb
     network_mode: host
     volumes:
