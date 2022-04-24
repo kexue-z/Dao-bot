@@ -11,10 +11,6 @@ from nonebot.adapters.onebot.v11 import Adapter
 from utils.yaml import Secrets, load_yaml
 from utils.pushover import send_startup_message
 
-status = subprocess.run(["git", "pull", "github", "master"])
-
-logger.info("git pull status: %s" % status)
-
 logger.add(
     "data/log/{time:MM}-{time:DD}.log",
     level="WARNING",

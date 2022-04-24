@@ -5,6 +5,7 @@ services:
     network_mode: host
     volumes:
       - "/etc/localtime:/etc/localtime"
+      - /etc/timezone:/etc/timezone
       - "./:/nonebot"
     environment:
       - TIME_ZONE=Asia/Shanghai
