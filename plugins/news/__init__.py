@@ -1,5 +1,4 @@
 import base64
-
 from re import findall
 
 import httpx

@@ -1,10 +1,9 @@
-from nonebot import on_command
-from nonebot.log import logger
-from nonebot.adapters.onebot.v11 import Bot, MessageEvent, GroupMessageEvent
-from nonebot.typing import T_State
 import aiohttp
+from nonebot import on_command
+from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, MessageEvent
+from nonebot.log import logger
 from nonebot.params import State
-
+from nonebot.typing import T_State
 
 # __plugin_name__ = "语录"
 # __plugin_usage__ = "用法： 二次元语录给你力量"

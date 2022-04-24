@@ -1,11 +1,12 @@
 import re
 import subprocess
+
 from nonebot import export, on_command
-from nonebot.params import CommandArg
-from nonebot.typing import T_State
-from nonebot.rule import ArgumentParser
 from nonebot.adapters.onebot.v11 import Bot, Event, Message
 from nonebot.log import logger
+from nonebot.params import CommandArg
+from nonebot.rule import ArgumentParser
+from nonebot.typing import T_State
 
 from .data_source import get_wolframalpha_simple, get_wolframalpha_text
 

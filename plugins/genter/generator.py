@@ -1,8 +1,9 @@
-from PIL import Image, ImageDraw, ImageFont
-import numpy as np
-from decimal import Decimal, ROUND_HALF_UP
-from math import radians, tan, cos, sin
+from decimal import ROUND_HALF_UP, Decimal
+from math import cos, radians, sin, tan
 from os import path
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
 
 _round = lambda f, r=ROUND_HALF_UP: int(
     Decimal(str(f)).quantize(Decimal("0"), rounding=r)

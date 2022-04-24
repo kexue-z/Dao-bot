@@ -1,20 +1,21 @@
 """Custom loader."""
 from __future__ import annotations
 
-from collections import OrderedDict
-from collections.abc import Iterator
 import fnmatch
 import logging
 import os
+from collections import OrderedDict
+from collections.abc import Iterator
 from pathlib import Path
 from typing import Any, TextIO, TypeVar, Union, overload
 
 import yaml
 
-# from homeassistant.exceptions import HomeAssistantError
-
 from .const import SECRET_YAML
 from .objects import Input, NodeListClass, NodeStrClass
+
+# from homeassistant.exceptions import HomeAssistantError
+
 
 # mypy: allow-untyped-calls, no-warn-return-any
 

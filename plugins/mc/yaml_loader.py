@@ -1,5 +1,6 @@
-import yaml
 from pathlib import Path
+
+import yaml
 
 FILE_DIR = Path() / "data" / "mc"
 

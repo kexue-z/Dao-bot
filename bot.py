@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import subprocess
 from pathlib import Path
 
 import nonebot
@@ -9,12 +10,17 @@ from nonebot.adapters.onebot.v11 import Adapter
 
 from utils.yaml import Secrets, load_yaml
 
+status = subprocess.run(["git", "pull", "github", "master"])
+
+logger.info("git pull status: %s" % status)
+
 logger.add(
     "data/log/{time:MM}-{time:DD}.log",
     level="WARNING",
     rotation="1 day",
     compression="zip",
 )
+
 
 config_json = load_yaml("config/config.yaml", Secrets(Path("config")))
 nonebot.init(**dict(config_json))  # type: ignore

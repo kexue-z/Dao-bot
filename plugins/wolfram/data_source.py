@@ -1,7 +1,8 @@
 import base64
-import aiohttp
 import itertools
 import urllib.parse
+
+import aiohttp
 import wolframalpha
 from nonebot import get_driver
 from nonebot.adapters.onebot.v11 import MessageSegment
@@ -14,7 +15,10 @@ wolframalpha_config = Config(**global_config.dict())
 
 
 async def get_wolframalpha_simple(input, params=(), **kwargs):
-    data = dict(input=input, appid=wolframalpha_config.wolframalpha_appid,)
+    data = dict(
+        input=input,
+        appid=wolframalpha_config.wolframalpha_appid,
+    )
     data = itertools.chain(params, data.items(), kwargs.items())
     query = urllib.parse.urlencode(tuple(data))
     url = "https://api.wolframalpha.com/v2/simple?" + query

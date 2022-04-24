@@ -62,5 +62,6 @@ yaml.SafeDumper.add_representer(
 )
 
 yaml.SafeDumper.add_representer(
-    Input, lambda dumper, value: dumper.represent_scalar("!input", value.name),
+    Input,
+    lambda dumper, value: dumper.represent_scalar("!input", value.name),
 )

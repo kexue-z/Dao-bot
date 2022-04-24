@@ -1,8 +1,7 @@
 from nonebot import on_command, on_keyword
-from nonebot.rule import to_me
-from nonebot.matcher import Matcher
-
 from nonebot.adapters.onebot.v11 import Message
+from nonebot.matcher import Matcher
+from nonebot.rule import to_me
 
 message = "[CQ:share,url=https://kexue-z.github.io/Dao-bot/,title=屑岛风bot使用指南]"
 

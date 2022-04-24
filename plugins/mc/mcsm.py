@@ -1,8 +1,9 @@
 import nonebot
 from httpx import AsyncClient, Response
-from nonebot.log import logger
-from .config import Config
 from nonebot import get_driver
+from nonebot.log import logger
+
+from .config import Config
 
 plugin_config = Config.parse_obj(get_driver().config.dict())
 server = plugin_config.mcserver

@@ -5,6 +5,7 @@ from nonebot.adapters.onebot.v11 import Bot, Event
 from nonebot.params import ArgPlainText, State
 from nonebot.permission import SUPERUSER
 from nonebot.typing import T_State
+
 from .data_source import *
 
 update_Porxy = on_command("更新订阅", permission=SUPERUSER)

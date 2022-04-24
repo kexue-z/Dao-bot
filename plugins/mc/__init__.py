@@ -5,12 +5,12 @@ from nonebot import on_command
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 from nonebot.log import logger
 from nonebot.params import CommandArg, State
+from nonebot.plugin import require
 from nonebot.typing import T_State
 
 from .mcping import ping
 from .mcsm import *
 from .yaml_loader import *
-from nonebot.plugin import require
 
 md_to_pic = require("nonebot_plugin_htmlrender").md_to_pic
 
@@ -74,7 +74,9 @@ mcsm_ctl = on_command("mcsm")
 
 @mcsm_ctl.handle()
 async def mcsm_ctl_first_handle(
-    event: MessageEvent, state: T_State = State(), arg: Message = CommandArg(),
+    event: MessageEvent,
+    state: T_State = State(),
+    arg: Message = CommandArg(),
 ):
     if str(event.user_id) not in get_yaml_file()["trust_id"]:
         await mcsm_ctl.finish("你没有权限使用这个命令")

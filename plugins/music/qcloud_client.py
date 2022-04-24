@@ -1,7 +1,7 @@
-from qcloud_cos import CosConfig, CosS3Client
-from qcloud_cos.cos_exception import CosException
 from nonebot import get_driver
 from nonebot.log import logger
+from qcloud_cos import CosConfig, CosS3Client
+from qcloud_cos.cos_exception import CosException
 
 from .config import Config
 

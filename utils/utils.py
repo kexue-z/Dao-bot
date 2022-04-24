@@ -3,6 +3,10 @@
 # from nonebot import require
 # from configs.path_config import TXT_PATH
 # from configs.config import SYSTEM_PROXY
+# try:
+#     import ujson as json
+# except ModuleNotFoundError:
+import json
 from typing import List
 
 # , Union
@@ -12,11 +16,6 @@ from typing import List
 # import pypinyin
 # import aiohttp
 # import time
-
-# try:
-#     import ujson as json
-# except ModuleNotFoundError:
-import json
 
 
 # scheduler = require("nonebot_plugin_apscheduler").scheduler

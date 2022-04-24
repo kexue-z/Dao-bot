@@ -1,14 +1,11 @@
 import re
 from typing import Dict
-from nonebot.typing import T_State
+
+from nonebot import get_driver, on_message
+from nonebot.adapters.onebot.v11 import (GroupMessageEvent, Message,
+                                         MessageSegment, unescape)
 from nonebot.params import EventMessage
-from nonebot import on_message, get_driver
-from nonebot.adapters.onebot.v11 import (
-    GroupMessageEvent,
-    Message,
-    MessageSegment,
-    unescape,
-)
+from nonebot.typing import T_State
 
 from .config import Config
 

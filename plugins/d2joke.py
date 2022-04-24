@@ -1,8 +1,9 @@
+from os import listdir
 from pathlib import Path
+from random import choice
+
 from anyio import open_file
 from nonebot import on_keyword
-from random import choice
-from os import listdir
 from nonebot.adapters.onebot.v11 import MessageSegment
 
 JOKE_PATH = Path("./data/d2joke").absolute()

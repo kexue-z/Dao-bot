@@ -2,8 +2,8 @@ import random
 
 from nonebot import on_command
 from nonebot.adapters.onebot.v11 import Bot, Message, MessageEvent
-from nonebot.params import CommandArg, State, ArgPlainText, Arg, EventMessage
 from nonebot.matcher import Matcher
+from nonebot.params import Arg, ArgPlainText, CommandArg, EventMessage, State
 
 jueding = on_command("选择", aliases={"决定"}, priority=1)
 
