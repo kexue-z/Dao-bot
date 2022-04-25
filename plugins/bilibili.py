@@ -2,12 +2,12 @@ import json
 import time
 
 import aiohttp
-from bilibili_api import video
 from nonebot import on_message
-from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, MessageSegment
+from nonebot.log import logger
+from bilibili_api import video
+from nonebot.adapters.onebot.v11 import Bot, MessageSegment, GroupMessageEvent
 from nonebot.adapters.onebot.v11.exception import ActionFailed
 from nonebot.adapters.onebot.v11.permission import GROUP
-from nonebot.log import logger
 
 # from nonebot.typing import T_State
 
@@ -27,7 +27,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
             ) as response:
                 url = str(response.url).split("?")[0]
                 bvid = url.split("/")[-1]
-                vd_info = await video.Video(bvid=bvid).get_info()
+                vd_info: dict = await video.Video(bvid=bvid).get_info()  # type: ignore
         # aid = vd_info["aid"]
         title = vd_info["title"]
         author = vd_info["owner"]["name"]
@@ -42,7 +42,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
             await parse_bilibili_json.send(
                 MessageSegment.image(vd_info["pic"])
                 + "\n"
-                + MessageSegment.at(event.user_id)
+                + MessageSegment.at(event.user_id)  # type: ignore
                 + f"发送了一个傻卵QQ小程序：\n"
                 f"标题：{title}\n"
                 f"UP：{author}\n"
@@ -61,9 +61,9 @@ async def _(bot: Bot, event: GroupMessageEvent):
 def get_message_json(data: str) -> dict:
     data = json.loads(data)
     try:
-        for msg in data["message"]:
-            if msg["type"] == "json":
-                return msg["data"]
+        for msg in data["message"]:  # type: ignore
+            if msg["type"] == "json":  # type: ignore
+                return msg["data"]  # type: ignore
         return {}
     except Exception:
         return {}

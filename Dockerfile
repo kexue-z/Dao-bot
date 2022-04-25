@@ -10,3 +10,5 @@ RUN poetry config virtualenvs.create false \
   | poetry run python3 -m pip install -r /dev/stdin
 
 WORKDIR /nonebot
+
+RUN git clone https://github.com/kexue-z/dao-bot.git .

@@ -4,7 +4,8 @@ services:
     container_name: nb
     network_mode: host
     volumes:
-      - "./:/nonebot"
+      - "./data:/nonebot/data"
+      - ".config:/nonebot/config"
     command: sh -c "python3 bot.py"
     working_dir: /nonebot
     restart: always

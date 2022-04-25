@@ -4,8 +4,8 @@ from re import findall
 import httpx
 from httpx import AsyncClient
 from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 from nonebot.log import logger
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 
 __name__ = "news"
 api_url = "https://api.iyk0.com/60s/"
@@ -15,16 +15,16 @@ news = on_command("news", aliases={"新闻"}, priority=1)
 
 
 @news.handle()
-async def _(bot: Bot, event: MessageEvent):
+async def _():
     async with AsyncClient() as client:
         try:
             res = await client.get(url=api_url, timeout=10)
             imageUrl = res.json()["imageUrl"]
             logger.debug(imageUrl)
-        except Exception as e:
+        except httpx.HTTPError as e:
             logger.warning(e)
             await news.finish(f"Error:{e}")
-        except httpx.HTTPError as e:
+        except Exception as e:
             logger.warning(e)
             await news.finish(f"Error:{e}")
 
@@ -36,11 +36,8 @@ async def _(bot: Bot, event: MessageEvent):
         }
         try:
             re = await client.get(url=imageUrl, headers=headers, timeout=10)
-            if re:
-                ba = str(base64.b64encode(re.content))
-                pic = findall(r"\'([^\"]*)\'", ba)[0].replace("'", "")
         except httpx.HTTPError as e:
             logger.warning(e)
             await news.finish(f"Error:{e}")
 
-    await news.finish(MessageSegment.image("base64://" + pic))
+    await news.finish(MessageSegment.image(re.content))
