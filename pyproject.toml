@@ -1,8 +1,3 @@
-[[tool.poetry.source]]
-# default = true
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-
 [tool.poetry]
 authors = ["kexue <xana278@foxmail.com>"]
 description = ""
@@ -27,7 +22,7 @@ nonebot-plugin-setu-now = "^0.2.0"
 nonebot-plugin-trpglogger = "^0.4.0"
 nonebot-plugin-withdraw = "^0.2.0"
 nonebot-plugin-word-bank2 = "^0.1.4"
-nonebot-plugin-youthstudy = {version = "^1.0.7", source = "aliyun"}
+nonebot-plugin-youthstudy = "^1.0.7"
 nonebot2 = "^2.0.0-beta.1"
 python = "^3.9"
 requests = "^2.27.1"
