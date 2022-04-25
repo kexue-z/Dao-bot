@@ -3,7 +3,7 @@ name: Deploy
 on:
   workflow_run:
     workflows:
-      - Docker Image CI
+      - Auto update CI
     types:
       - completed
 
