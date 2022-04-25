@@ -36,7 +36,7 @@ jobs:
             docker-compose up -d
 
       - name: update deployment status
-        uses: bobheadxi/deployments@v0.6
+        uses: bobheadxi/deployments@v1
         if: always()
         with:
           step: finish
