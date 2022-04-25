@@ -5,10 +5,14 @@ services:
     network_mode: host
     volumes:
       - "./data:/nonebot/data"
-      - ".config:/nonebot/config"
+      - "./config:/nonebot/config"
     command: sh -c "python3 bot.py"
     working_dir: /nonebot
     restart: always
+    environment:
+      - ENVIRONMENT=prod
+      - APP_MODULE=bot:app
+      - MAX_WORKERS=1
 
   go-cqhttp:
     image: alpine
