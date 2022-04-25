@@ -2,7 +2,8 @@ name: Docker Image CI
 
 on:
   push:
-
+    tags:
+      - "v*"
   workflow_run:
     workflows:
       - Auto update CI
