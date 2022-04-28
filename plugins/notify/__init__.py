@@ -1,6 +1,7 @@
-from typing import Optional
+from typing import List, Optional
 
 from nonebot import get_bot, get_driver
+from pydantic import BaseModel
 from nonebot.log import logger
 from nonebot.drivers.fastapi import Driver
 from nonebot.adapters.onebot.v11 import Bot, Message
@@ -8,26 +9,36 @@ from nonebot.adapters.onebot.v11 import Bot, Message
 URL_BASE = "/notify"
 
 
+class Notify(BaseModel):
+    msg: str
+    auth: str
+    to_group: Optional[int] = None
+    to_user: Optional[int] = None
+
+
+auth: List[str] = get_driver().config.auth
+
+
 def register_router_fastapi(driver: Driver):
     app = driver.server_app
 
-    @app.get(URL_BASE)
-    async def notify(
-        msg: str,
-        to_group: Optional[int] = None,
-        to_user: Optional[int] = None,
-    ):
+    @app.post(URL_BASE)
+    async def notify(notify: Notify):
+        logger.debug(f"Notify: {notify.dict()}")
+        if notify.auth not in auth:
+            return {"message": "Not Authorized"}
+
         bot: Bot = get_bot()  # type: ignore
 
-        if to_group:
+        if notify.to_group:
             return await bot.send_group_msg(
-                group_id=to_group,
-                message=Message(msg),
+                group_id=notify.to_group,
+                message=Message(notify.msg),
             )
-        elif to_user:
+        elif notify.to_user:
             return await bot.send_private_msg(
-                user_id=to_user,
-                message=Message(msg),
+                user_id=notify.to_user,
+                message=Message(notify.msg),
             )
 
 

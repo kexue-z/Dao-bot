@@ -45,3 +45,5 @@ BISON_USE_PIC_MERGE: 1
 BISON_FILTER_LOG: true
 
 repeat_count: 3
+
+auth: !secret auth
