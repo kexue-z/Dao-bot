@@ -359,7 +359,7 @@ pyflakes = ">=2.4.0,<2.5.0"
 
 [[package]]
 name = "fonttools"
-version = "4.33.2"
+version = "4.33.3"
 description = "Tools to manipulate font files"
 category = "main"
 optional = false
@@ -684,7 +684,7 @@ ujson = ">=4.0.0"
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.5.5"
+version = "0.5.6"
 description = "Get Heweather information and convert to pictures"
 category = "main"
 optional = false
@@ -1365,7 +1365,7 @@ anyio = ">=3.0.0,<4"
 
 [[package]]
 name = "webdav4"
-version = "0.9.5"
+version = "0.9.6"
 description = "WebDAV client library with an fsspec-based filesystem and a CLI"
 category = "main"
 optional = false
@@ -1377,12 +1377,12 @@ python-dateutil = ">=2.8.1"
 
 [package.extras]
 all = ["fsspec (>=2021.7.0)", "httpx[http2] (>=0.20.0,<1.0.0)"]
-dev = ["fsspec (>=2021.7.0)", "httpx[http2] (>=0.20.0,<1.0.0)", "pylint-pytest (==1.1.2)", "pylint (==2.12.2)", "mypy (==0.941)", "types-python-dateutil (==2.8.9)", "types-pkg-resources (==0.1.3)", "typing-extensions (==4.1.1)", "pytest (==7.1.0)", "pytest-cov (==3.0.0)", "cheroot (==8.6.0)", "WsgiDAV (==4.0.1)", "colorama (==0.4.4)", "Sphinx (==4.4.0)", "sphinx-copybutton (==0.5.0)", "myst-parser (==0.17.0)", "furo (==2022.3.4)"]
-docs = ["Sphinx (==4.4.0)", "sphinx-copybutton (==0.5.0)", "myst-parser (==0.17.0)", "furo (==2022.3.4)"]
+dev = ["fsspec (>=2021.7.0)", "httpx[http2] (>=0.20.0,<1.0.0)", "pylint-pytest (==1.1.2)", "pylint (==2.13.5)", "mypy (==0.942)", "types-python-dateutil (==2.8.11)", "types-pkg-resources (==0.1.3)", "typing-extensions (==4.2.0)", "pytest (==7.1.1)", "pytest-cov (==3.0.0)", "cheroot (==8.6.0)", "WsgiDAV (==4.0.1)", "colorama (==0.4.4)", "Sphinx (==4.5.0)", "sphinx-copybutton (==0.5.0)", "myst-parser (==0.17.2)", "furo (==2022.4.7)"]
+docs = ["Sphinx (==4.5.0)", "sphinx-copybutton (==0.5.0)", "myst-parser (==0.17.2)", "furo (==2022.4.7)"]
 fsspec = ["fsspec (>=2021.7.0)"]
 http2 = ["httpx[http2] (>=0.20.0,<1.0.0)"]
-qa = ["pylint-pytest (==1.1.2)", "pylint (==2.12.2)", "mypy (==0.941)", "types-python-dateutil (==2.8.9)", "types-pkg-resources (==0.1.3)"]
-tests = ["typing-extensions (==4.1.1)", "pytest (==7.1.0)", "pytest-cov (==3.0.0)", "cheroot (==8.6.0)", "WsgiDAV (==4.0.1)", "colorama (==0.4.4)"]
+qa = ["pylint-pytest (==1.1.2)", "pylint (==2.13.5)", "mypy (==0.942)", "types-python-dateutil (==2.8.11)", "types-pkg-resources (==0.1.3)"]
+tests = ["typing-extensions (==4.2.0)", "pytest (==7.1.1)", "pytest-cov (==3.0.0)", "cheroot (==8.6.0)", "WsgiDAV (==4.0.1)", "colorama (==0.4.4)"]
 
 [[package]]
 name = "websockets"
@@ -1665,8 +1665,8 @@ flake8 = [
     {file = "flake8-4.0.1.tar.gz", hash = "sha256:806e034dda44114815e23c16ef92f95c91e4c71100ff52813adf7132a6ad870d"},
 ]
 fonttools = [
-    {file = "fonttools-4.33.2-py3-none-any.whl", hash = "sha256:b4da40696829845ea8c1cb33ce51c552179754cbee7ab4e8b96a6bcf421f437a"},
-    {file = "fonttools-4.33.2.zip", hash = "sha256:696fe922a271584c3ec8325ba31d4001a4fd6c4953b22900b767f1cb53ce1044"},
+    {file = "fonttools-4.33.3-py3-none-any.whl", hash = "sha256:f829c579a8678fa939a1d9e9894d01941db869de44390adb49ce67055a06cc2a"},
+    {file = "fonttools-4.33.3.zip", hash = "sha256:c0fdcfa8ceebd7c1b2021240bd46ef77aa8e7408cf10434be55df52384865f8e"},
 ]
 greenlet = [
     {file = "greenlet-1.1.2-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:58df5c2a0e293bf665a51f8a100d3e9956febfbf1d9aaf8c0677cf70218910c6"},
@@ -1999,8 +1999,8 @@ nonebot-plugin-cocdicer = [
     {file = "nonebot_plugin_cocdicer-0.3.1.tar.gz", hash = "sha256:228cfb50695130bfacace2a2b06ab6871213d6721deb88be1884380b8961f065"},
 ]
 nonebot-plugin-heweather = [
-    {file = "nonebot-plugin-heweather-0.5.5.tar.gz", hash = "sha256:2a39a738c38f7b0da96406227238a5b4b0c3eba7002c5ae6d83d018d43875bee"},
-    {file = "nonebot_plugin_heweather-0.5.5-py3-none-any.whl", hash = "sha256:ce007b4306e1198383bf38111f1f96ea4c2b782b0547e7cbdbdac80b44a4f6d8"},
+    {file = "nonebot-plugin-heweather-0.5.6.tar.gz", hash = "sha256:f51cb1048691a0b608d9fe1c49afc607186a2b4f8327b9f7c723e8f8fbf1c516"},
+    {file = "nonebot_plugin_heweather-0.5.6-py3-none-any.whl", hash = "sha256:133f9b020ca1103527117666506ee6a18ea6cb601ef058aab2175bec31852f43"},
 ]
 nonebot-plugin-hikarisearch = [
     {file = "nonebot_plugin_hikarisearch-0.1.3-py3-none-any.whl", hash = "sha256:b0b8b870bd76330848c0c1ed7991c9278db16c522a1f04c00b8cb32c52ddaefa"},
@@ -2442,8 +2442,8 @@ watchgod = [
     {file = "watchgod-0.8.2.tar.gz", hash = "sha256:cb11ff66657befba94d828e3b622d5fb76f22fbda1376f355f3e6e51e97d9450"},
 ]
 webdav4 = [
-    {file = "webdav4-0.9.5-py3-none-any.whl", hash = "sha256:97c672e453d2b89c4b38dcc681ead8ea061da868ce45d915c5aff7deccec64c6"},
-    {file = "webdav4-0.9.5.tar.gz", hash = "sha256:8f17eaf7901c1a21fb787ac80e3b277de605793b248c2c6bed9bba77f4012c20"},
+    {file = "webdav4-0.9.6-py3-none-any.whl", hash = "sha256:c4fd3f7ca388274d95f89625cf80f5b453030d1641fd235246ef2026f0e46b79"},
+    {file = "webdav4-0.9.6.tar.gz", hash = "sha256:f890c2016cd5e7ded994fa21374b6f6db7ea653dd01a190ede9fc6ff74f5bf92"},
 ]
 websockets = [
     {file = "websockets-10.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:38db6e2163b021642d0a43200ee2dec8f4980bdbda96db54fde72b283b54cbfc"},
