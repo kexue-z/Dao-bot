@@ -15,6 +15,7 @@ plugins:
   - nonebot_plugin_qrcode
   - nonebot_plugin_minesweeper
   - nonebot_plugin_chess
+  - nonebot_plugin_cchess
 
 plugin_dirs:
   - plugins
