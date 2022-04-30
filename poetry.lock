@@ -670,6 +670,19 @@ apscheduler = ">=3.7.0,<4.0.0"
 nonebot2 = ">=2.0.0-alpha.8,<3.0.0"
 
 [[package]]
+name = "nonebot-plugin-chess"
+version = "0.1.3"
+description = "适用于 Nonebot2 的棋类游戏插件"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
+nonebot-plugin-htmlrender = ">=0.0.4"
+nonebot2 = ">=2.0.0-beta.1,<3.0.0"
+
+[[package]]
 name = "nonebot-plugin-cocdicer"
 version = "0.3.1"
 description = "A COC dice plugin for Nonebot2"
@@ -1455,7 +1468,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "1538a18bd7da229c7d0dc942b2454cdf2acda25852547029f08e4aa427f26b52"
+content-hash = "595dc7443c0e9dd564195c4c2fcbbfa96bfb5f9cc331bcd5b38fc1e88733a580"
 
 [metadata.files]
 aiocache = [
@@ -1993,6 +2006,10 @@ nonebot-bison = [
 nonebot-plugin-apscheduler = [
     {file = "nonebot-plugin-apscheduler-0.1.2.tar.gz", hash = "sha256:1765336cd388dde15f723ed12dbca942b04e4c25d5d7786878e447b09e68b909"},
     {file = "nonebot_plugin_apscheduler-0.1.2-py3-none-any.whl", hash = "sha256:eed7b9e60d08826ae4919f82dc240fc7ec469185271c2271e14438a3e0ca7692"},
+]
+nonebot-plugin-chess = [
+    {file = "nonebot_plugin_chess-0.1.3-py3-none-any.whl", hash = "sha256:5c26bcf48ddf36648c2cd339cbb0573579607cfed7e367b3cc2bebbb740b3fd3"},
+    {file = "nonebot_plugin_chess-0.1.3.tar.gz", hash = "sha256:be2316a32ea03145436365c7242b63152342cb0f3c2b274cf8cf16a51cbdc399"},
 ]
 nonebot-plugin-cocdicer = [
     {file = "nonebot_plugin_cocdicer-0.3.1-py3-none-any.whl", hash = "sha256:b2227d5e519c27260dc7480feaa048731ac7d3e5f57b7d710b43ed72c91a1e86"},

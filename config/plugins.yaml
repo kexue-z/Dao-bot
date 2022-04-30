@@ -14,6 +14,7 @@ plugins:
   - nonebot_plugin_youthstudy
   - nonebot_plugin_qrcode
   - nonebot_plugin_minesweeper
+  - nonebot_plugin_chess
 
 plugin_dirs:
   - plugins
