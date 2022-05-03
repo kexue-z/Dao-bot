@@ -84,7 +84,7 @@ zookeeper = ["kazoo"]
 
 [[package]]
 name = "asgiref"
-version = "3.5.0"
+version = "3.5.1"
 description = "ASGI specs, helper code, and adapters"
 category = "main"
 optional = false
@@ -237,7 +237,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "click"
-version = "8.1.2"
+version = "8.1.3"
 description = "Composable command line interface toolkit"
 category = "main"
 optional = false
@@ -466,7 +466,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "imageio"
-version = "2.18.0"
+version = "2.19.0"
 description = "Library for reading and writing a wide range of image, video, scientific, and volumetric data formats."
 category = "main"
 optional = false
@@ -477,17 +477,18 @@ numpy = "*"
 pillow = ">=8.3.2"
 
 [package.extras]
-all-plugins = ["astropy", "av", "imageio-ffmpeg", "psutil", "tifffile"]
+all-plugins = ["astropy", "av", "imageio-ffmpeg", "opencv-python", "psutil", "tifffile"]
 all-plugins-pypy = ["av", "imageio-ffmpeg", "psutil", "tifffile"]
 build = ["wheel"]
 dev = ["invoke", "pytest", "pytest-cov", "fsspec", "black", "flake8"]
 docs = ["sphinx", "numpydoc", "pydata-sphinx-theme"]
 ffmpeg = ["imageio-ffmpeg", "psutil"]
 fits = ["astropy"]
-full = ["astropy", "av", "black", "flake8", "fsspec", "gdal", "imageio-ffmpeg", "invoke", "itk", "numpydoc", "psutil", "pydata-sphinx-theme", "pytest", "pytest-cov", "sphinx", "tifffile", "wheel"]
+full = ["astropy", "av", "black", "flake8", "fsspec", "gdal", "imageio-ffmpeg", "invoke", "itk", "numpydoc", "opencv-python", "psutil", "pydata-sphinx-theme", "pytest", "pytest-cov", "sphinx", "tifffile", "wheel"]
 gdal = ["gdal"]
 itk = ["itk"]
 linting = ["black", "flake8"]
+opencv = ["opencv-python"]
 pyav = ["av"]
 test = ["invoke", "pytest", "pytest-cov", "fsspec"]
 tifffile = ["tifffile"]
@@ -536,7 +537,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 
 [[package]]
 name = "jinja2"
-version = "3.1.1"
+version = "3.1.2"
 description = "A very fast and expressive template engine."
 category = "main"
 optional = false
@@ -644,7 +645,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-bison"
-version = "0.5.1"
+version = "0.5.2"
 description = "Subscribe message from social medias"
 category = "main"
 optional = false
@@ -692,7 +693,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-cchess"
-version = "0.1.0"
+version = "0.1.2"
 description = "Nonebot2 象棋插件"
 category = "main"
 optional = false
@@ -1413,7 +1414,7 @@ anyio = ">=3.0.0,<4"
 
 [[package]]
 name = "webdav4"
-version = "0.9.6"
+version = "0.9.7"
 description = "WebDAV client library with an fsspec-based filesystem and a CLI"
 category = "main"
 optional = false
@@ -1562,8 +1563,8 @@ apscheduler = [
     {file = "APScheduler-3.9.1.tar.gz", hash = "sha256:65e6574b6395498d371d045f2a8a7e4f7d50c6ad21ef7313d15b1c7cf20df1e3"},
 ]
 asgiref = [
-    {file = "asgiref-3.5.0-py3-none-any.whl", hash = "sha256:88d59c13d634dcffe0510be048210188edd79aeccb6a6c9028cdad6f31d730a9"},
-    {file = "asgiref-3.5.0.tar.gz", hash = "sha256:2f8abc20f7248433085eda803936d98992f1343ddb022065779f37c5da0181d0"},
+    {file = "asgiref-3.5.1-py3-none-any.whl", hash = "sha256:45a429524fba18aba9d512498b19d220c4d628e75b40cf5c627524dbaebc5cc1"},
+    {file = "asgiref-3.5.1.tar.gz", hash = "sha256:fddeea3c53fa99d0cdb613c3941cc6e52d822491fc2753fba25768fb5bf4e865"},
 ]
 async-timeout = [
     {file = "async-timeout-3.0.1.tar.gz", hash = "sha256:0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"},
@@ -1674,8 +1675,8 @@ chess = [
     {file = "chess-1.9.0.tar.gz", hash = "sha256:7791833312ca930821a415d01e5b743e99fb540d65cae6cca0e02ba6a352a452"},
 ]
 click = [
-    {file = "click-8.1.2-py3-none-any.whl", hash = "sha256:24e1a4a9ec5bf6299411369b208c1df2188d9eb8d916302fe6bf03faed227f1e"},
-    {file = "click-8.1.2.tar.gz", hash = "sha256:479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"},
+    {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
+    {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
 ]
 colorama = [
     {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
@@ -1830,8 +1831,8 @@ idna = [
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
 imageio = [
-    {file = "imageio-2.18.0-py3-none-any.whl", hash = "sha256:a922cb37011d69702edbb4f68b0475d8f7242337e7995a42b7c32ec9931ddd46"},
-    {file = "imageio-2.18.0.tar.gz", hash = "sha256:090898c48532631ab11c74ae743e64c24dabda45c16db46f7e3bec9e2d8f422f"},
+    {file = "imageio-2.19.0-py3-none-any.whl", hash = "sha256:7e803cd50a6b271e96e18f14767f8c2e01f27b84f93768cf9f08ad5277e9d030"},
+    {file = "imageio-2.19.0.tar.gz", hash = "sha256:cd8c946ecdf71f2fc74419b2e3c97a46104e91c2d2c4288d3217eae366778638"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-4.11.3-py3-none-any.whl", hash = "sha256:1208431ca90a8cca1a6b8af391bb53c1a2db74e5d1cef6ddced95d4b2062edc6"},
@@ -1846,8 +1847,8 @@ isort = [
     {file = "jaraco.context-4.1.1.tar.gz", hash = "sha256:f0d4d82ffbbbff680384eba48a32a3167f12a91a30a7db56fd97b87e73a87241"},
 ]
 jinja2 = [
-    {file = "Jinja2-3.1.1-py3-none-any.whl", hash = "sha256:539835f51a74a69f41b848a9645dbdc35b4f20a3b601e2d9a7e22947b15ff119"},
-    {file = "Jinja2-3.1.1.tar.gz", hash = "sha256:640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"},
+    {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
+    {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
 ]
 loguru = [
     {file = "loguru-0.6.0-py3-none-any.whl", hash = "sha256:4e2414d534a2ab57573365b3e6d0234dfb1d84b68b7f3b948e6fb743860a77c3"},
@@ -2039,8 +2040,8 @@ nonebot-adapter-onebot = [
     {file = "nonebot_adapter_onebot-2.0.0b1-py3-none-any.whl", hash = "sha256:ca1375de1dd503a5ab20440445026195b587e05a2b18ae8df9b6ab17c9e857b5"},
 ]
 nonebot-bison = [
-    {file = "nonebot-bison-0.5.1.tar.gz", hash = "sha256:d459ac9ffe373492b17874e11e3dd555026ed7aebd14e3736744b43cdf2147bf"},
-    {file = "nonebot_bison-0.5.1-py3-none-any.whl", hash = "sha256:2af325207604f94d140e393a0f6643f5de445c019a58442b0096a8650b53e025"},
+    {file = "nonebot-bison-0.5.2.tar.gz", hash = "sha256:a365c3cf2cad13f2e5aecf9176547912794deb08f06f81b8082be10dd7c9d813"},
+    {file = "nonebot_bison-0.5.2-py3-none-any.whl", hash = "sha256:db9cdc01e284170db4251aea0a9eb7bb6bf52fea6b52ec4c9c9d0156887fc015"},
 ]
 nonebot-plugin-apscheduler = [
     {file = "nonebot-plugin-apscheduler-0.1.2.tar.gz", hash = "sha256:1765336cd388dde15f723ed12dbca942b04e4c25d5d7786878e447b09e68b909"},
@@ -2051,8 +2052,8 @@ nonebot-plugin-boardgame = [
     {file = "nonebot_plugin_boardgame-0.1.1.tar.gz", hash = "sha256:df901f61c30b8747fc1dc1e13e2097e08ada9f8ebca9729252dd430aa77b4895"},
 ]
 nonebot-plugin-cchess = [
-    {file = "nonebot_plugin-cchess-0.1.0.tar.gz", hash = "sha256:a6cad5bac12122290ec389b10c3717d3c9b340559c0291b3be48a780e2320cd8"},
-    {file = "nonebot_plugin_cchess-0.1.0-py3-none-any.whl", hash = "sha256:6ceab5ba26e9811b5f15e70fa698519491e0009d78763226dc85d8de4debd1b1"},
+    {file = "nonebot_plugin_cchess-0.1.2-py3-none-any.whl", hash = "sha256:969c20c7c7ba68f7a1448586cea8fcc93f04ad24216c16ad9b2e60fbe8042ae8"},
+    {file = "nonebot_plugin_cchess-0.1.2.tar.gz", hash = "sha256:794840b963a9e0a5f1040e6ee5538d0f475bfd01020699b915aff6ae5f3886c1"},
 ]
 nonebot-plugin-chess = [
     {file = "nonebot_plugin_chess-0.2.0-py3-none-any.whl", hash = "sha256:c3d01f6e7d54d245fdb51b878d71c905c6758973b2560bd68a3f903f27c5bc66"},
@@ -2506,8 +2507,8 @@ watchgod = [
     {file = "watchgod-0.8.2.tar.gz", hash = "sha256:cb11ff66657befba94d828e3b622d5fb76f22fbda1376f355f3e6e51e97d9450"},
 ]
 webdav4 = [
-    {file = "webdav4-0.9.6-py3-none-any.whl", hash = "sha256:c4fd3f7ca388274d95f89625cf80f5b453030d1641fd235246ef2026f0e46b79"},
-    {file = "webdav4-0.9.6.tar.gz", hash = "sha256:f890c2016cd5e7ded994fa21374b6f6db7ea653dd01a190ede9fc6ff74f5bf92"},
+    {file = "webdav4-0.9.7-py3-none-any.whl", hash = "sha256:3cd3b4d115d746815a46c7a5ab4ab99d1ffedc19869068e7d42b028d530537d0"},
+    {file = "webdav4-0.9.7.tar.gz", hash = "sha256:352db25e62d82c30bb3e71fdc2e932b2f8394fadb5f7405140aecda4c47c22ee"},
 ]
 websockets = [
     {file = "websockets-10.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:38db6e2163b021642d0a43200ee2dec8f4980bdbda96db54fde72b283b54cbfc"},
