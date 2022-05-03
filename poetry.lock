@@ -693,7 +693,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-cchess"
-version = "0.1.2"
+version = "0.1.2.1"
 description = "Nonebot2 象棋插件"
 category = "main"
 optional = false
@@ -2052,8 +2052,8 @@ nonebot-plugin-boardgame = [
     {file = "nonebot_plugin_boardgame-0.1.1.tar.gz", hash = "sha256:df901f61c30b8747fc1dc1e13e2097e08ada9f8ebca9729252dd430aa77b4895"},
 ]
 nonebot-plugin-cchess = [
-    {file = "nonebot_plugin_cchess-0.1.2-py3-none-any.whl", hash = "sha256:969c20c7c7ba68f7a1448586cea8fcc93f04ad24216c16ad9b2e60fbe8042ae8"},
-    {file = "nonebot_plugin_cchess-0.1.2.tar.gz", hash = "sha256:794840b963a9e0a5f1040e6ee5538d0f475bfd01020699b915aff6ae5f3886c1"},
+    {file = "nonebot_plugin_cchess-0.1.2.1-py3-none-any.whl", hash = "sha256:a06fee3e959633b7fc4fcb75fc8b183a5ac1e1e06464995431c574fd1ce39acd"},
+    {file = "nonebot_plugin_cchess-0.1.2.1.tar.gz", hash = "sha256:1821e00c7a0c2fe4e95abca86088397ca4c043e3d3108ee9959d61c778db6b4b"},
 ]
 nonebot-plugin-chess = [
     {file = "nonebot_plugin_chess-0.2.0-py3-none-any.whl", hash = "sha256:c3d01f6e7d54d245fdb51b878d71c905c6758973b2560bd68a3f903f27c5bc66"},
