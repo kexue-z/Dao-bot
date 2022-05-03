@@ -28,6 +28,129 @@
 - 启用当前会话插件（需要权限）
   - 指令：`/npm unblock [plugin] ...`
 
+## 中国象棋
+
+- [来源](https://github.com/noneplugin/nonebot-plugin-cchess)
+- 指令 `/象棋人机` `/象棋对战`
+
+可使用`lv1~8`指定 AI 等级，如`/象棋人机 lv5`，默认为`lv4`；
+
+发送 中文纵线格式如`炮二平五` 或 起始坐标格式如`h2e2`下棋；
+
+发送`/结束下棋`结束当前棋局；
+
+发送`/显示棋盘`显示当前棋局；
+
+发送`/悔棋`可进行悔棋（人机模式可无限悔棋；对战模式只能撤销自己上一手下的棋）；
+
+或者使用 `/cchess` 指令：
+
+可用选项：
+
+- `-e`, `--stop`, `--end`: 停止下棋
+- `-v`, `--show`, `--view`: 显示棋盘
+- `--repent`: 悔棋
+- `--battle`: 对战模式，默认为人机模式
+- `--black`: 执黑，即后手
+- `-l <LEVEL>`, `--level <LEVEL>`: 人机等级，可选 1~8，默认为 4
+
+## 国际象棋
+
+- [来源](https://github.com/noneplugin/nonebot-plugin-chess)
+
+- 指令 `/国际象棋对战` `/国际象棋人机`
+
+可使用`lv1~8`指定 AI 等级，如`/国际象棋人机 lv5`，默认为`lv4`；
+
+发送 起始坐标格式，如`e2e4`下棋；
+
+在坐标后加棋子字母表示升变，如`e7e8q`表示升变为后；
+
+对应的字母：K：王，Q：后，B：象，N：马，R：车，P：兵
+
+发送`/结束下棋`结束当前棋局；
+
+发送`/显示棋盘`显示当前棋局；
+
+发送`悔棋`可进行悔棋（人机模式可无限悔棋；对战模式只能撤销自己上一手下的棋）；
+
+或者使用 `chess` 指令：
+
+可用选项：
+
+- `-e`, `--stop`, `--end`: 停止下棋
+- `-v`, `--show`, `--view`: 显示棋盘
+- `--repent`: 悔棋
+- `--battle`: 对战模式，默认为人机模式
+- `--black`: 执黑，即后手
+- `-l <LEVEL>`, `--level <LEVEL>`: 人机等级，可选 1~8，默认为 4
+
+## 扫雷
+
+- [来源](https://github.com/noneplugin/nonebot-plugin-minesweeper)
+
+发送 `/扫雷` / `/扫雷初级` / `/扫雷中级` / `/扫雷高级`
+
+可使用 `-r/--row ROW` 、`-c/--col COL` 、`-n/--num NUM` 自定义行列数和雷数；
+
+可使用 `-s/--skin SKIN` 指定皮肤，默认为 `winxp`；
+
+当前支持的皮肤：`narkomania`, `mine`, `ocean`, `scratch`, `predator`, `clone`, `winxp`, `hibbeler`, `symbol`, `pacman`, `win98`, `winbw`, `maviz`, `colorsonly`, `icicle`, `mario`, `unknown`, `vista`
+
+使用 `挖开/open + 位置` 来挖开方块，可同时指定多个位置；
+
+使用 `标记/mark + 位置` 来标记方块，可同时指定多个位置；
+
+位置为` 字母+数字` 的组合，如 `A1`
+
+或使用 `minesweeper` 指令：
+
+```
+minesweeper [-r --row ROW] [-c --col COL] [-n --num NUM] [-s --skin SKIN] [--show] [--stop] [--open POSITIONS] [--mark POSITIONS]
+```
+
+## 其他 棋类游戏
+
+- [来源](https://github.com/noneplugin/nonebot-plugin-boardgame)
+
+目前支持的规则有：
+
+- 五子棋
+- 围棋（禁全同，暂时不支持点目）
+- 黑白棋
+
+**以下命令需要加[命令前缀](https://v2.nonebot.dev/docs/api/config#Config-command_start) (默认为`/`)，可自行设置为空**
+
+#### 开始和停止棋局
+
+@机器人 发送 “围棋” 或 “五子棋” 或 “黑白棋” 开始一个对应的棋局，一个群组内同时只能有一个棋局。
+
+或者使用 `/boardgame` 指令：
+
+```
+boardgame --rule <rule> [--size <size>]
+```
+
+|     快捷名      | 规则名  | 默认大小 |
+| :-------------: | :-----: | :------: |
+|      围棋       |   go    |    19    |
+|     五子棋      | gomoku  |    15    |
+| 黑白棋 / 奥赛罗 | othello |    8     |
+
+输入 `停止下棋` 或者 `boardgame --stop` 可以停止一个正在进行的棋局。
+
+#### 落子，悔棋和跳过
+
+输入 `落子 position` 如 `落子 A1` 或者 `boardgame position` 进行下棋。
+
+当棋局开始时，第一个落子的人为先手，第二个落子的人为后手，此时棋局正式形成，其他人无法继续加入游戏。而参与游戏的两人可以依次使用“落子”指令进行游戏。
+
+输入 `悔棋` 或者 `boardgame --repent` 进行悔棋，游戏会向前倒退一步。
+
+输入 `跳过回合` 或者 `boardgame --skip` 可以跳过一个回合。
+
+输入 `查看棋局` 或者 `boardgame --view` 可以查看当前棋局。
+
 ## 决定
 
 - 输入一系列内容，并返回一个随机结果
@@ -292,7 +415,7 @@
 - 各平台 UID
   - weibo
     - 对于一般用户主页`https://weibo.com/u/6441489862?xxxxxxxxxxxxxxx`，`/u/`后面的数字即为`uid`
-    - 对于有个性域名的用户如：`https://weibo.com/arknights`，需要点击左侧信息标签下“更多”，链接为`https://weibo.com/6279793937/about`，其中中间数字即为`uid`
+    - 对于有个性域名的用户如：`https://weibo.com/arknights`，需要点击左侧信息标签下`更多`，链接为`https://weibo.com/6279793937/about`，其中中间数字即为`uid`
   - Bilibili
     - 主页链接一般为`https://space.bilibili.com/161775300?xxxxxxxxxx`，数字即为 uid
   - RSS
