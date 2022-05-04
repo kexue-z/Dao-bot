@@ -897,7 +897,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-word-bank2"
-version = "0.1.4.2"
+version = "0.1.4.3"
 description = "无数据问答插件"
 category = "main"
 optional = false
@@ -2108,8 +2108,8 @@ nonebot-plugin-withdraw = [
     {file = "nonebot_plugin_withdraw-0.2.1.tar.gz", hash = "sha256:c7b0637441691835432a5c7411fd17f1a66d5217a922f14874ec1c5401d911dc"},
 ]
 nonebot-plugin-word-bank2 = [
-    {file = "nonebot-plugin-word-bank2-0.1.4.2.tar.gz", hash = "sha256:bcda81d2471167713ce0443d5e871e458ca9d72fa2219a3cce3995dce32c67ac"},
-    {file = "nonebot_plugin_word_bank2-0.1.4.2-py3-none-any.whl", hash = "sha256:050031633dc1b4f108476e9b07e908427d61e4027a4f91449dde9553476b9835"},
+    {file = "nonebot-plugin-word-bank2-0.1.4.3.tar.gz", hash = "sha256:c2ff9b790dd9914533ba01fa41cd64c2482b2afe875fc366b041ab016a03e15d"},
+    {file = "nonebot_plugin_word_bank2-0.1.4.3-py3-none-any.whl", hash = "sha256:e70c211fa37fa46e53c8c429a68fafac985c59803eb205efd982ebecfe927602"},
 ]
 nonebot-plugin-youthstudy = [
     {file = "nonebot_plugin_youthstudy-1.0.7-py3-none-any.whl", hash = "sha256:edee4c39058f55b4488b679f25eda125469e9c3a46c8954ea2afc9be4f8e743f"},
