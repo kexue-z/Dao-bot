@@ -580,7 +580,7 @@ source = ["Cython (>=0.29.7)"]
 
 [[package]]
 name = "markdown"
-version = "3.3.6"
+version = "3.3.7"
 description = "Python implementation of Markdown."
 category = "main"
 optional = false
@@ -793,7 +793,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-minesweeper"
-version = "0.1.3"
+version = "0.1.4"
 description = "Nonebot2 扫雷插件"
 category = "main"
 optional = false
@@ -1917,8 +1917,8 @@ lxml = [
     {file = "lxml-4.6.5.tar.gz", hash = "sha256:6e84edecc3a82f90d44ddee2ee2a2630d4994b8471816e226d2b771cda7ac4ca"},
 ]
 markdown = [
-    {file = "Markdown-3.3.6-py3-none-any.whl", hash = "sha256:9923332318f843411e9932237530df53162e29dc7a4e2b91e35764583c46c9a3"},
-    {file = "Markdown-3.3.6.tar.gz", hash = "sha256:76df8ae32294ec39dcf89340382882dfa12975f87f45c3ed1ecdb1e8cefc7006"},
+    {file = "Markdown-3.3.7-py3-none-any.whl", hash = "sha256:f5da449a6e1c989a4cea2631aa8ee67caa5a2ef855d551c88f9e309f4634c621"},
+    {file = "Markdown-3.3.7.tar.gz", hash = "sha256:cbb516f16218e643d8e0a95b309f77eb118cb138d39a4f27851e6a63581db874"},
 ]
 markupsafe = [
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:86b1f75c4e7c2ac2ccdaec2b9022845dbb81880ca318bb7a0a01fbf7813e3812"},
@@ -2080,8 +2080,8 @@ nonebot-plugin-manager = [
     {file = "nonebot_plugin_manager-0.5.7.tar.gz", hash = "sha256:a0e14644ccab4c8a3139feaab8c6432a64795bdd8009a93117fbe097e79f32d3"},
 ]
 nonebot-plugin-minesweeper = [
-    {file = "nonebot_plugin_minesweeper-0.1.3-py3-none-any.whl", hash = "sha256:f65c36d0a438661d4e84c75e58289bfc2b4251194bafc57df36b01bd1f199079"},
-    {file = "nonebot_plugin_minesweeper-0.1.3.tar.gz", hash = "sha256:75404a63dfd16554e4d4732cce1813a11986c418b6bc3e3c8406e0f33f6d83a9"},
+    {file = "nonebot_plugin_minesweeper-0.1.4-py3-none-any.whl", hash = "sha256:cced35c5ce9f1dee79f28c01ea98f5765514b4e9e9a68a39349dc979680fe905"},
+    {file = "nonebot_plugin_minesweeper-0.1.4.tar.gz", hash = "sha256:6b041de5ceaea0f0caca8c786fea0049468d8df9e655a154e4628b98f644bade"},
 ]
 nonebot-plugin-petpet = [
     {file = "nonebot_plugin_petpet-0.2.15-py3-none-any.whl", hash = "sha256:b0a804ed934a47cdda47c61fd03196fd60704efe34ade3ba4b7e757bee23bd8f"},
