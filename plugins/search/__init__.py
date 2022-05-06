@@ -1,3 +1,4 @@
+from .geng import *
 from .baidu import *
 
 # from nonebot import on_command
