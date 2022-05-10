@@ -506,7 +506,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "imageio"
-version = "2.19.0"
+version = "2.19.1"
 description = "Library for reading and writing a wide range of image, video, scientific, and volumetric data formats."
 category = "main"
 optional = false
@@ -873,7 +873,7 @@ Pillow = ">=8.0.0"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.2.15"
+version = "0.2.16"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
@@ -1595,11 +1595,11 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 
 [[package]]
 name = "xmltodict"
-version = "0.12.0"
+version = "0.13.0"
 description = "Makes working with XML feel like you are working with JSON"
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = ">=3.4"
 
 [[package]]
 name = "yarl"
@@ -1971,8 +1971,8 @@ idna = [
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
 imageio = [
-    {file = "imageio-2.19.0-py3-none-any.whl", hash = "sha256:7e803cd50a6b271e96e18f14767f8c2e01f27b84f93768cf9f08ad5277e9d030"},
-    {file = "imageio-2.19.0.tar.gz", hash = "sha256:cd8c946ecdf71f2fc74419b2e3c97a46104e91c2d2c4288d3217eae366778638"},
+    {file = "imageio-2.19.1-py3-none-any.whl", hash = "sha256:cd5b6ac2f4111c76f08d33b86a4cb987520f1d6ec2183e8a2656ace8d026a38e"},
+    {file = "imageio-2.19.1.tar.gz", hash = "sha256:d63600626b80ebe1ec9614c33434879c754dea328717f4e2cebe88f156fa1a9c"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-4.11.3-py3-none-any.whl", hash = "sha256:1208431ca90a8cca1a6b8af391bb53c1a2db74e5d1cef6ddced95d4b2062edc6"},
@@ -2232,8 +2232,8 @@ nonebot-plugin-minesweeper = [
     {file = "nonebot_plugin_minesweeper-0.1.4.tar.gz", hash = "sha256:6b041de5ceaea0f0caca8c786fea0049468d8df9e655a154e4628b98f644bade"},
 ]
 nonebot-plugin-petpet = [
-    {file = "nonebot_plugin_petpet-0.2.15-py3-none-any.whl", hash = "sha256:b0a804ed934a47cdda47c61fd03196fd60704efe34ade3ba4b7e757bee23bd8f"},
-    {file = "nonebot_plugin_petpet-0.2.15.tar.gz", hash = "sha256:d344ec4b22e8ae3ae5fe75ec5373b892e3805d29a1b5dc3e4d082cc327d4d8ca"},
+    {file = "nonebot_plugin_petpet-0.2.16-py3-none-any.whl", hash = "sha256:5707c23c5087bb0c2b3ef6750dd1a9ecd15eb62712c41788d22bf7d4b1ced9f6"},
+    {file = "nonebot_plugin_petpet-0.2.16.tar.gz", hash = "sha256:0a1788f07b2b6589eb5d39e8d937247cf6ad5a188f0131855fb7506c642f3a68"},
 ]
 nonebot-plugin-qrcode = [
     {file = "nonebot-plugin-qrcode-0.0.2.tar.gz", hash = "sha256:144eb676a981ed8aca5a3ed35493bd6f3deb06b30c713173e8783829a5234ad2"},
@@ -2763,8 +2763,8 @@ wolframalpha = [
     {file = "wolframalpha-5.0.0.tar.gz", hash = "sha256:38bf27654039ec85cc62c199dd319b6a4d6a7badfed7af1cd161f081afdb57c0"},
 ]
 xmltodict = [
-    {file = "xmltodict-0.12.0-py2.py3-none-any.whl", hash = "sha256:8bbcb45cc982f48b2ca8fe7e7827c5d792f217ecf1792626f808bf41c3b86051"},
-    {file = "xmltodict-0.12.0.tar.gz", hash = "sha256:50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"},
+    {file = "xmltodict-0.13.0-py2.py3-none-any.whl", hash = "sha256:aa89e8fd76320154a40d19a0df04a4695fb9dc5ba977cbb68ab3e4eb225e7852"},
+    {file = "xmltodict-0.13.0.tar.gz", hash = "sha256:341595a488e3e01a85a9d8911d8912fd922ede5fecc4dce437eb4b6c8d037e56"},
 ]
 yarl = [
     {file = "yarl-1.7.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:f2a8508f7350512434e41065684076f640ecce176d262a7d54f0da41d99c5a95"},
