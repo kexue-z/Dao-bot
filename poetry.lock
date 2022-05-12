@@ -964,7 +964,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-word-bank2"
-version = "0.1.4.3"
+version = "0.1.4.4"
 description = "无数据问答插件"
 category = "main"
 optional = false
@@ -1141,7 +1141,7 @@ python-versions = "*"
 
 [[package]]
 name = "pyjwt"
-version = "2.3.0"
+version = "2.4.0"
 description = "JSON Web Token implementation in Python"
 category = "main"
 optional = false
@@ -2256,8 +2256,8 @@ nonebot-plugin-withdraw = [
     {file = "nonebot_plugin_withdraw-0.2.1.tar.gz", hash = "sha256:c7b0637441691835432a5c7411fd17f1a66d5217a922f14874ec1c5401d911dc"},
 ]
 nonebot-plugin-word-bank2 = [
-    {file = "nonebot-plugin-word-bank2-0.1.4.3.tar.gz", hash = "sha256:c2ff9b790dd9914533ba01fa41cd64c2482b2afe875fc366b041ab016a03e15d"},
-    {file = "nonebot_plugin_word_bank2-0.1.4.3-py3-none-any.whl", hash = "sha256:e70c211fa37fa46e53c8c429a68fafac985c59803eb205efd982ebecfe927602"},
+    {file = "nonebot-plugin-word-bank2-0.1.4.4.tar.gz", hash = "sha256:f86e007d1ca09cd834d7a80aacc36f4c29396ff40d14ddafb5dbadbd78a33399"},
+    {file = "nonebot_plugin_word_bank2-0.1.4.4-py3-none-any.whl", hash = "sha256:941b25efeb2c8d75039b37287d2e175465f4b5e609d8e9b34fdc7857f0daee4e"},
 ]
 nonebot-plugin-youthstudy = [
     {file = "nonebot_plugin_youthstudy-1.0.7-py3-none-any.whl", hash = "sha256:edee4c39058f55b4488b679f25eda125469e9c3a46c8954ea2afc9be4f8e743f"},
@@ -2447,8 +2447,8 @@ pygtrie = [
     {file = "pygtrie-2.4.2.tar.gz", hash = "sha256:43205559d28863358dbbf25045029f58e2ab357317a59b11f11ade278ac64692"},
 ]
 pyjwt = [
-    {file = "PyJWT-2.3.0-py3-none-any.whl", hash = "sha256:e0c4bb8d9f0af0c7f5b1ec4c5036309617d03d56932877f2f7a0beeb5318322f"},
-    {file = "PyJWT-2.3.0.tar.gz", hash = "sha256:b888b4d56f06f6dcd777210c334e69c737be74755d3e5e9ee3fe67dc18a0ee41"},
+    {file = "PyJWT-2.4.0-py3-none-any.whl", hash = "sha256:72d1d253f32dbd4f5c88eaf1fdc62f3a19f676ccbadb9dbc5d07e951b2b26daf"},
+    {file = "PyJWT-2.4.0.tar.gz", hash = "sha256:d42908208c699b3b973cbeb01a969ba6a96c821eefb1c5bfe4c390c01d67abba"},
 ]
 pymdown-extensions = [
     {file = "pymdown_extensions-9.4-py3-none-any.whl", hash = "sha256:5b7432456bf555ce2b0ab3c2439401084cda8110f24f6b3ecef952b8313dfa1b"},
