@@ -788,6 +788,36 @@ nonebot2 = {version = ">=2.0.0-beta.1,<3.0.0", extras = ["httpx"]}
 sqlmodel = ">=0.0.6,<0.0.7"
 
 [[package]]
+name = "nonebot-plugin-ddcheck"
+version = "0.1.3"
+description = "Nonebot2 成分姬插件"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+httpx = ">=0.19.0"
+Jinja2 = ">=3.0.0,<4.0.0"
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
+nonebot-plugin-apscheduler = ">=0.1.2,<0.2.0"
+nonebot-plugin-htmlrender = ">=0.0.4"
+nonebot2 = ">=2.0.0-beta.1,<3.0.0"
+
+[[package]]
+name = "nonebot-plugin-emojimix"
+version = "0.1.5"
+description = "Nonebot2 plugin for emojimix"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+emoji = ">=1.7.0,<2.0.0"
+httpx = ">=0.19.0"
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
+nonebot2 = ">=2.0.0-beta.1,<3.0.0"
+
+[[package]]
 name = "nonebot-plugin-heweather"
 version = "0.5.6"
 description = "Get Heweather information and convert to pictures"
@@ -935,6 +965,24 @@ nonebot-plugin-apscheduler = ">=0.1.2,<0.2.0"
 nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 pydantic = ">=1.5.0,<2.0.0"
 webdav4 = ">=0.9.3,<0.10.0"
+
+[[package]]
+name = "nonebot-plugin-shindan"
+version = "0.2.2"
+description = "Nonebot2 plugin for using ShindanMaker"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.0.0,<5.0.0"
+httpx = ">=0.19.0"
+Jinja2 = ">=3.0.0,<4.0.0"
+lxml = ">=4.6.5,<5.0.0"
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
+nonebot-plugin-htmlrender = ">=0.0.1"
+nonebot2 = ">=2.0.0-beta.1,<3.0.0"
+playwright = ">=1.9.2,<2.0.0"
 
 [[package]]
 name = "nonebot-plugin-trpglogger"
@@ -1628,7 +1676,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "4f34b0b08ed9f7e14b93c7cea6170acd56d5a84335dab8fe7cc188f87e14ca67"
+content-hash = "44fab4ef224b9ed9fa287005948fd818f10ec4f6e402c5f17a70993e5477f6f2"
 
 [metadata.files]
 aiocache = [
@@ -2207,6 +2255,14 @@ nonebot-plugin-datastore = [
     {file = "nonebot-plugin-datastore-0.3.0.tar.gz", hash = "sha256:5ec19151774ae9fc78451633a7620b4529d703e3b3c2a45dd0ed757e00ddc64b"},
     {file = "nonebot_plugin_datastore-0.3.0-py3-none-any.whl", hash = "sha256:fe423c0c0edfc9a8cdfd84b1ae037e9fa7e3266e9286dd81d18c3d2e9c6cf41a"},
 ]
+nonebot-plugin-ddcheck = [
+    {file = "nonebot_plugin_ddcheck-0.1.3-py3-none-any.whl", hash = "sha256:5605d5f38e7dd2a3831275ba06644dad90b481ea241ddd3faf2adf6d6441d455"},
+    {file = "nonebot_plugin_ddcheck-0.1.3.tar.gz", hash = "sha256:47ce1767d2c63064f8f893b1f6b49428a6e2611f66ae7df73a561031121122dd"},
+]
+nonebot-plugin-emojimix = [
+    {file = "nonebot_plugin_emojimix-0.1.5-py3-none-any.whl", hash = "sha256:0ae02b660353e64ad4a159223ba8eddaa50f58e3cb5b7cae2e1bae9da1a4a813"},
+    {file = "nonebot_plugin_emojimix-0.1.5.tar.gz", hash = "sha256:acac9030161a3bf0a0432a41faf3566fa85dc6076d008ad4ced4e81ec2c4aed5"},
+]
 nonebot-plugin-heweather = [
     {file = "nonebot-plugin-heweather-0.5.6.tar.gz", hash = "sha256:f51cb1048691a0b608d9fe1c49afc607186a2b4f8327b9f7c723e8f8fbf1c516"},
     {file = "nonebot_plugin_heweather-0.5.6-py3-none-any.whl", hash = "sha256:133f9b020ca1103527117666506ee6a18ea6cb601ef058aab2175bec31852f43"},
@@ -2246,6 +2302,10 @@ nonebot-plugin-remake = [
 nonebot-plugin-setu-now = [
     {file = "nonebot-plugin-setu-now-0.2.4.tar.gz", hash = "sha256:85722d58f8acffb44951638ae59e93100ee95d1b05be7cfb1b4050c03ad7bddf"},
     {file = "nonebot_plugin_setu_now-0.2.4-py3-none-any.whl", hash = "sha256:3fb02a22569d0b7a972452d398ff6b5ef603496bcb062ffece26ec09fe70165a"},
+]
+nonebot-plugin-shindan = [
+    {file = "nonebot_plugin_shindan-0.2.2-py3-none-any.whl", hash = "sha256:182e5303be60633d450fb53ff63090fb8f88e9df8c6c11c8d51793e764b73035"},
+    {file = "nonebot_plugin_shindan-0.2.2.tar.gz", hash = "sha256:9e5d3ac354de730a14939db5068788aceb859319cbe111f9d96f8090b1902fb0"},
 ]
 nonebot-plugin-trpglogger = [
     {file = "nonebot_plugin_trpglogger-0.4.0-py3-none-any.whl", hash = "sha256:2e8c92921b0a191153e9db658e41589c3d6c79a9e4dca660746eb847c0b6ceda"},

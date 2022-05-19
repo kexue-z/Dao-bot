@@ -16,6 +16,9 @@ plugins:
   - nonebot_plugin_minesweeper
   - nonebot_plugin_chess
   - nonebot_plugin_cchess
+  - nonebot_plugin_emojimix
+  - nonebot_plugin_shindan
+  - nonebot_plugin_ddcheck
 
 plugin_dirs:
   - plugins
