@@ -30,6 +30,7 @@ wolframalpha = "^5.0.0"
 nonebot-plugin-chess = "^0.2.0"
 nonebot-plugin-cchess = "^0.1.0"
 nonebot-plugin-boardgame = "^0.1.1"
+databases = {extras = ["postgresql"], version = "^0.5.5"}
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.10b0", allow-prereleases = true}
