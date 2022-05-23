@@ -51,3 +51,5 @@ auth: !secret auth
 cchess_engine_path: "/tmp/fairy-stockfish"
 
 github_api_key: !secret github_api_key
+
+db_url: sqlite:///nonebot/data/db.sqlite

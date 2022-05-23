@@ -19,6 +19,7 @@ plugins:
   - nonebot_plugin_emojimix
   - nonebot_plugin_shindan
   - nonebot_plugin_ddcheck
+  - nonebot_plugin_dailysign
 
 plugin_dirs:
   - plugins
