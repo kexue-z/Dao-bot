@@ -878,7 +878,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.5.6"
+version = "0.5.7"
 description = "Get Heweather information and convert to pictures"
 category = "main"
 optional = false
@@ -2408,8 +2408,8 @@ nonebot-plugin-emojimix = [
     {file = "nonebot_plugin_emojimix-0.1.5.tar.gz", hash = "sha256:acac9030161a3bf0a0432a41faf3566fa85dc6076d008ad4ced4e81ec2c4aed5"},
 ]
 nonebot-plugin-heweather = [
-    {file = "nonebot-plugin-heweather-0.5.6.tar.gz", hash = "sha256:f51cb1048691a0b608d9fe1c49afc607186a2b4f8327b9f7c723e8f8fbf1c516"},
-    {file = "nonebot_plugin_heweather-0.5.6-py3-none-any.whl", hash = "sha256:133f9b020ca1103527117666506ee6a18ea6cb601ef058aab2175bec31852f43"},
+    {file = "nonebot-plugin-heweather-0.5.7.tar.gz", hash = "sha256:ef921246306c3947a1467778b25dd0b071b23f747de9d51766e370371d56a9d8"},
+    {file = "nonebot_plugin_heweather-0.5.7-py3-none-any.whl", hash = "sha256:5f3f8272e84db7bdd2c88b94aa590318666f9d6a9641c57afbec8f482ef42df8"},
 ]
 nonebot-plugin-hikarisearch = [
     {file = "nonebot_plugin_hikarisearch-0.1.4-py3-none-any.whl", hash = "sha256:55315287fe1926985e4e56efbfccf4da8aa4c14264f6bcbf88d35f2654db8b73"},
