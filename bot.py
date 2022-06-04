@@ -5,11 +5,11 @@ import subprocess
 from pathlib import Path
 
 import nonebot
-from nonebot.log import logger
 from nonebot.adapters.onebot.v11 import Adapter
+from nonebot.log import logger
 
-from utils.yaml import Secrets, load_yaml
 from utils.pushover import send_startup_message
+from utils.yaml import Secrets, load_yaml
 
 logger.add(
     "data/log/{time:MM}-{time:DD}.log",

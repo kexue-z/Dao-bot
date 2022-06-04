@@ -2,12 +2,12 @@ import json
 import time
 
 import aiohttp
-from nonebot import on_message
-from nonebot.log import logger
 from bilibili_api import video
-from nonebot.adapters.onebot.v11 import Bot, MessageSegment, GroupMessageEvent
+from nonebot import on_message
+from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, MessageSegment
 from nonebot.adapters.onebot.v11.exception import ActionFailed
 from nonebot.adapters.onebot.v11.permission import GROUP
+from nonebot.log import logger
 
 # from nonebot.typing import T_State
 

@@ -5,15 +5,12 @@ from nonebot import on_command
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 from nonebot.log import logger
 from nonebot.params import CommandArg, State
-from nonebot.plugin import require
 from nonebot.typing import T_State
+from nonebot_plugin_htmlrender import md_to_pic
 
 from .mcping import ping
 from .mcsm import *
 from .yaml_loader import *
-
-md_to_pic = require("nonebot_plugin_htmlrender").md_to_pic
-
 
 # from .config import Config
 
