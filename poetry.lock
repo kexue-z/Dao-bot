@@ -759,7 +759,7 @@ nonebot2 = ">=2.0.0-beta.3,<3.0.0"
 
 [[package]]
 name = "nonebot-bison"
-version = "0.5.3"
+version = "0.5.4"
 description = "Subscribe message from social medias"
 category = "main"
 optional = false
@@ -774,7 +774,7 @@ feedparser = ">=6.0.2,<7.0.0"
 httpx = ">=0.16.1"
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
 nonebot-plugin-htmlrender = ">=0.0.4,<0.0.5"
-nonebot2 = ">=2.0.0-beta.2,<3.0.0"
+nonebot2 = ">=2.0.0-beta.2"
 pillow = ">=8.1,<10.0"
 pyjwt = ">=2.1.0,<3.0.0"
 python-socketio = ">=5.4.0,<6.0.0"
@@ -782,11 +782,11 @@ tinydb = ">=4.3.0,<5.0.0"
 
 [[package]]
 name = "nonebot-plugin-apscheduler"
-version = "0.1.2"
+version = "0.1.3"
 description = "APScheduler Support for NoneBot2"
 category = "main"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.7.3,<4.0.0"
 
 [package.dependencies]
 apscheduler = ">=3.7.0,<4.0.0"
@@ -954,7 +954,7 @@ uvicorn = ">=0.17.6,<0.18.0"
 
 [[package]]
 name = "nonebot-plugin-imageutils"
-version = "0.1.6"
+version = "0.1.6.3"
 description = "Nonebot2 PIL工具插件"
 category = "main"
 optional = false
@@ -2525,12 +2525,12 @@ nonebot-adapter-onebot = [
     {file = "nonebot_adapter_onebot-2.1.0-py3-none-any.whl", hash = "sha256:c1b4efd6a7ec22430897ba0e0698d58a95b2e28fe39c37271131c796ca366186"},
 ]
 nonebot-bison = [
-    {file = "nonebot-bison-0.5.3.tar.gz", hash = "sha256:4bff8886c99d719ca01b6559de43eed084075eb3044af6c4e742cd5d7f2a6d30"},
-    {file = "nonebot_bison-0.5.3-py3-none-any.whl", hash = "sha256:d8c61d83ab14b4818be44630da392cec3073b2b2ac8735214aea152b2b0deb2a"},
+    {file = "nonebot-bison-0.5.4.tar.gz", hash = "sha256:301e34305e5e6658db93ce29c1d64df4fc4a4e88d3639c356781cdb3154309a4"},
+    {file = "nonebot_bison-0.5.4-py3-none-any.whl", hash = "sha256:f4b54c6978ea8b733afe7a95638347f8e7568ca6845b3a93bb65f95971ade950"},
 ]
 nonebot-plugin-apscheduler = [
-    {file = "nonebot-plugin-apscheduler-0.1.2.tar.gz", hash = "sha256:1765336cd388dde15f723ed12dbca942b04e4c25d5d7786878e447b09e68b909"},
-    {file = "nonebot_plugin_apscheduler-0.1.2-py3-none-any.whl", hash = "sha256:eed7b9e60d08826ae4919f82dc240fc7ec469185271c2271e14438a3e0ca7692"},
+    {file = "nonebot-plugin-apscheduler-0.1.3.tar.gz", hash = "sha256:fe11e0fbde56cde12a6f1a50997803a422ea2f085c4e9d496210b03ef9cca585"},
+    {file = "nonebot_plugin_apscheduler-0.1.3-py3-none-any.whl", hash = "sha256:76456f625089045c9f2f8943e90c009841afd461b9dc51e9de21169bbd1b2677"},
 ]
 nonebot-plugin-boardgame = [
     {file = "nonebot_plugin_boardgame-0.1.1-py3-none-any.whl", hash = "sha256:2114275d35fb2e187450de83de2145054d8752075f47c076797e3ea127aec02e"},
@@ -2577,8 +2577,8 @@ nonebot-plugin-htmlrender = [
     {file = "nonebot_plugin_htmlrender-0.0.4.8-py3-none-any.whl", hash = "sha256:4ed625be82dfdf469864b32a6e129e43b91e863f25b1fdbc8c936418dbd6126e"},
 ]
 nonebot-plugin-imageutils = [
-    {file = "nonebot_plugin_imageutils-0.1.6-py3-none-any.whl", hash = "sha256:8a87f6c33b127616265aba69be58d672e5029ee88812500ead606d1847fec21e"},
-    {file = "nonebot_plugin_imageutils-0.1.6.tar.gz", hash = "sha256:68f4b600d65e73d648171f70aab6bf8cae225de1bfc0c1873b095bb910c2a63c"},
+    {file = "nonebot_plugin_imageutils-0.1.6.3-py3-none-any.whl", hash = "sha256:7e5ad97d148a19843334673d540b4a89e23d5edd7a955492c32875632933e4eb"},
+    {file = "nonebot_plugin_imageutils-0.1.6.3.tar.gz", hash = "sha256:99a91f28051df0a5a12b8a141ba722c61554b643c7a1871271e106e94691c6e6"},
 ]
 nonebot-plugin-localstore = [
     {file = "nonebot-plugin-localstore-0.1.0.tar.gz", hash = "sha256:6d264cf8adcc4a470b496a78384eafd6ffd13bb8b7e14125e38e641748d2ee79"},
