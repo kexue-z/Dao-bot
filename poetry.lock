@@ -262,7 +262,7 @@ unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "chess"
-version = "1.9.1"
+version = "1.9.2"
 description = "A chess library with move generation and validation, Polyglot opening book probing, PGN reading and writing, Gaviota tablebase probing, Syzygy tablebase probing, and XBoard/UCI engine communication."
 category = "main"
 optional = false
@@ -747,7 +747,7 @@ python-versions = "*"
 
 [[package]]
 name = "nonebot-adapter-onebot"
-version = "2.1.0"
+version = "2.1.1"
 description = "OneBot(CQHTTP) adapter for nonebot2"
 category = "main"
 optional = false
@@ -1037,7 +1037,7 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-shindan"
-version = "0.2.2"
+version = "0.2.4"
 description = "Nonebot2 plugin for using ShindanMaker"
 category = "main"
 optional = false
@@ -1047,11 +1047,10 @@ python-versions = ">=3.7.3,<4.0.0"
 beautifulsoup4 = ">=4.0.0,<5.0.0"
 httpx = ">=0.19.0"
 Jinja2 = ">=3.0.0,<4.0.0"
-lxml = ">=4.6.5,<5.0.0"
+lxml = ">=4.0.0,<5.0.0"
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
-nonebot-plugin-htmlrender = ">=0.0.1"
+nonebot-plugin-htmlrender = ">=0.0.4"
 nonebot2 = ">=2.0.0-beta.1,<3.0.0"
-playwright = ">=1.9.2,<2.0.0"
 
 [[package]]
 name = "nonebot-plugin-tortoise-orm"
@@ -2001,8 +2000,8 @@ charset-normalizer = [
     {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
 ]
 chess = [
-    {file = "chess-1.9.1-py3-none-any.whl", hash = "sha256:dc967ec4a13fc255a73450416d03403e71f6b6dd867e7b94c0ddce941104d8c1"},
-    {file = "chess-1.9.1.tar.gz", hash = "sha256:621c6c11a42bd5ccf1fd6c922ce87997e1a8fa87f5921101d118742019f640d6"},
+    {file = "chess-1.9.2-py3-none-any.whl", hash = "sha256:62453c6fd86ab10463ee54f829b1f13c29aa017a5404eeb7afa7f7d423f1f2a7"},
+    {file = "chess-1.9.2.tar.gz", hash = "sha256:7d8540cbca3dc06308d5a12480d1775c9507a02723ecbf7edb2348b2cd431aaf"},
 ]
 click = [
     {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
@@ -2522,8 +2521,8 @@ mypy-extensions = [
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
 ]
 nonebot-adapter-onebot = [
-    {file = "nonebot-adapter-onebot-2.1.0.tar.gz", hash = "sha256:b3696235581a25f52dec8744b82102bf138637845d1bbaaf305b9e89423a562f"},
-    {file = "nonebot_adapter_onebot-2.1.0-py3-none-any.whl", hash = "sha256:c1b4efd6a7ec22430897ba0e0698d58a95b2e28fe39c37271131c796ca366186"},
+    {file = "nonebot-adapter-onebot-2.1.1.tar.gz", hash = "sha256:d00036883dd8b8685f0eea68b7ada9c3b1ba9de8b39f5c33e81d36a444afe02a"},
+    {file = "nonebot_adapter_onebot-2.1.1-py3-none-any.whl", hash = "sha256:1a825b21fc7315c11d335276a932811352ac70e7031e86b5595121185c951c77"},
 ]
 nonebot-bison = [
     {file = "nonebot-bison-0.5.4.tar.gz", hash = "sha256:301e34305e5e6658db93ce29c1d64df4fc4a4e88d3639c356781cdb3154309a4"},
@@ -2602,8 +2601,8 @@ nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.4.tar.gz", hash = "sha256:deefadebf16261cacde9197d782d71a2ebeea2bc1ccf89943f899c0c456959a3"},
 ]
 nonebot-plugin-shindan = [
-    {file = "nonebot_plugin_shindan-0.2.2-py3-none-any.whl", hash = "sha256:182e5303be60633d450fb53ff63090fb8f88e9df8c6c11c8d51793e764b73035"},
-    {file = "nonebot_plugin_shindan-0.2.2.tar.gz", hash = "sha256:9e5d3ac354de730a14939db5068788aceb859319cbe111f9d96f8090b1902fb0"},
+    {file = "nonebot_plugin_shindan-0.2.4-py3-none-any.whl", hash = "sha256:5e723292d435da5f82a720914013139b1b246df8dd371d0135aea3bf6d6d285e"},
+    {file = "nonebot_plugin_shindan-0.2.4.tar.gz", hash = "sha256:340197c969df2a25bb68616a1bd282342c294acdfb85f9692d9718fd74c32885"},
 ]
 nonebot-plugin-tortoise-orm = [
     {file = "nonebot-plugin-tortoise-orm-0.0.1a3.tar.gz", hash = "sha256:79c0cf30e7e5291089d034d561ad53744963de629b49737332467f3eaefa10e3"},
