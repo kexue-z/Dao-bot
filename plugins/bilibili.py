@@ -2,12 +2,11 @@ import json
 import time
 
 import aiohttp
-from bilibili_api import video
 from nonebot import on_message
-from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, MessageSegment
-from nonebot.adapters.onebot.v11.exception import ActionFailed
-from nonebot.adapters.onebot.v11.permission import GROUP
 from nonebot.log import logger
+from bilibili_api import video
+from nonebot.adapters.onebot.v11 import Bot, MessageSegment, GroupMessageEvent
+from nonebot.adapters.onebot.v11.permission import GROUP
 
 # from nonebot.typing import T_State
 
@@ -50,7 +49,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
                 f"点赞：{like}，回复：{reply}，收藏：{favorite}，投币：{coin}\n"
                 f"{url}"
             )
-        except ActionFailed:
+        except Exception:
             pass
         try:
             await bot.delete_msg(message_id=event.message_id)
