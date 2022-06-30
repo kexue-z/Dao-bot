@@ -1095,7 +1095,7 @@ nonebot2 = ">=2.0.0-beta.4,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-word-bank2"
-version = "0.1.5.5"
+version = "0.1.5.6"
 description = "无数据问答插件"
 category = "main"
 optional = false
@@ -1463,7 +1463,7 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "setuptools-scm"
-version = "7.0.2"
+version = "7.0.3"
 description = "the blessed package to manage your versions by scm tags"
 category = "main"
 optional = false
@@ -2619,8 +2619,8 @@ nonebot-plugin-withdraw = [
     {file = "nonebot_plugin_withdraw-0.2.3.tar.gz", hash = "sha256:cdfee9e90bd31596f34da9d60c9949dbc958803005e161cd3edbcc8c5c88091f"},
 ]
 nonebot-plugin-word-bank2 = [
-    {file = "nonebot-plugin-word-bank2-0.1.5.5.tar.gz", hash = "sha256:1fe48658bee57586b056e385a715a97f317c38d5c1ee858eb1163443c1e59b34"},
-    {file = "nonebot_plugin_word_bank2-0.1.5.5-py3-none-any.whl", hash = "sha256:78f8b8a0a3c9a958958a319cc977491ebd483f16d8243f70d3a6125788914f77"},
+    {file = "nonebot-plugin-word-bank2-0.1.5.6.tar.gz", hash = "sha256:f3fcc4532944fc68450341437bb14516c5f90f5dac4400d82e97ba51fbc8a79a"},
+    {file = "nonebot_plugin_word_bank2-0.1.5.6-py3-none-any.whl", hash = "sha256:95208c313d9ef751693f075fd0383523d42adcbbc899d28a55792697c92bdfef"},
 ]
 nonebot-plugin-youthstudy = [
     {file = "nonebot_plugin_youthstudy-1.0.7-py3-none-any.whl", hash = "sha256:edee4c39058f55b4488b679f25eda125469e9c3a46c8954ea2afc9be4f8e743f"},
@@ -2900,8 +2900,8 @@ rfc3986 = [
     {file = "rfc3986-1.5.0.tar.gz", hash = "sha256:270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835"},
 ]
 setuptools-scm = [
-    {file = "setuptools_scm-7.0.2-py3-none-any.whl", hash = "sha256:ec120c99027a785c7a349667480a5b2100dfc7d5063e545c93f3735508945aef"},
-    {file = "setuptools_scm-7.0.2.tar.gz", hash = "sha256:53afbaa882f43e5ec8e14f2d93b9c268dc62eb3f6cc8b2790f8cb97903e53c02"},
+    {file = "setuptools_scm-7.0.3-py3-none-any.whl", hash = "sha256:7934c856b042199eb44e1523b46abb881726b7d61b3c9b41a756e4ffb4adf73b"},
+    {file = "setuptools_scm-7.0.3.tar.gz", hash = "sha256:cf8ab8e235bed840cd4559b658af0d8e8a70896a191bbc510ee914ec5325332d"},
 ]
 sgmllib3k = [
     {file = "sgmllib3k-1.0.0.tar.gz", hash = "sha256:7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9"},
