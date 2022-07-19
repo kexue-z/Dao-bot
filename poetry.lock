@@ -537,7 +537,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "imageio"
-version = "2.19.3"
+version = "2.19.5"
 description = "Library for reading and writing a wide range of image, video, scientific, and volumetric data formats."
 category = "main"
 optional = false
@@ -879,7 +879,7 @@ sqlmodel = ">=0.0.6,<0.0.7"
 
 [[package]]
 name = "nonebot-plugin-ddcheck"
-version = "0.1.10"
+version = "0.1.11"
 description = "Nonebot2 成分姬插件"
 category = "main"
 optional = false
@@ -2178,8 +2178,8 @@ idna = [
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
 imageio = [
-    {file = "imageio-2.19.3-py3-none-any.whl", hash = "sha256:d36ab8616175a093676693a4dbc85c6cc767f981c9ce93041422569c76d06347"},
-    {file = "imageio-2.19.3.tar.gz", hash = "sha256:0c9df80e42f2ee68bea92001e7fcf612aa149910efe040eb757f5ce323250ae1"},
+    {file = "imageio-2.19.5-py3-none-any.whl", hash = "sha256:49991206a92955ef5d3a7686e9733cfe3b37c08972375929da3c042de1e6785b"},
+    {file = "imageio-2.19.5.tar.gz", hash = "sha256:eb3cd70de8be87b72ea85716b7363c700b91144589ee6b5d7b49d42998b7d185"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-4.12.0-py3-none-any.whl", hash = "sha256:7401a975809ea1fdc658c3aa4f78cc2195a0e019c5cbc4c06122884e9ae80c23"},
@@ -2559,8 +2559,8 @@ nonebot-plugin-datastore = [
     {file = "nonebot_plugin_datastore-0.3.1-py3-none-any.whl", hash = "sha256:7fc251ef9a8336a19710a9f20e26d777ed12256cf3d37de3c0692c9a3f85a8a2"},
 ]
 nonebot-plugin-ddcheck = [
-    {file = "nonebot_plugin_ddcheck-0.1.10-py3-none-any.whl", hash = "sha256:91f282da7e08bd2726af6b1c1ff72f1537eb3c2937d9ed5c789a4c88b22e043b"},
-    {file = "nonebot_plugin_ddcheck-0.1.10.tar.gz", hash = "sha256:16146af779b0260997a76e73341cca5f1b7e8f3c1c1e79a6b3d88c7c2492e1dc"},
+    {file = "nonebot_plugin_ddcheck-0.1.11-py3-none-any.whl", hash = "sha256:e8d57fe39f2977e12d41ce2870f23c5bb0efd5b04e9591e7e957ec28644fb81e"},
+    {file = "nonebot_plugin_ddcheck-0.1.11.tar.gz", hash = "sha256:f937d0c5d7ad299f65d9d9e10d37e2d46bd6e65542ffae6a82939202c17090ed"},
 ]
 nonebot-plugin-emojimix = [
     {file = "nonebot_plugin_emojimix-0.1.7-py3-none-any.whl", hash = "sha256:2a192142911d08d5f05be6b593d4396faa3c53419ddaeefccafe90d2d26bdd64"},
