@@ -1010,7 +1010,7 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.3.6"
+version = "0.3.8"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
@@ -2595,8 +2595,8 @@ nonebot-plugin-minesweeper = [
     {file = "nonebot_plugin_minesweeper-0.1.7.tar.gz", hash = "sha256:6fb61317b4891a3477d8d26f026df3fece48baffa6034402d2ed9fbad73d3f73"},
 ]
 nonebot-plugin-petpet = [
-    {file = "nonebot_plugin_petpet-0.3.6-py3-none-any.whl", hash = "sha256:cd8343719126f29b8538b2dc6cae830f0c7b30bafac3951e957b416b87b18d2b"},
-    {file = "nonebot_plugin_petpet-0.3.6.tar.gz", hash = "sha256:20e093f905a9d6c800435f2e0a72121655fe122d2673d79016a1ac0ab2acba35"},
+    {file = "nonebot_plugin_petpet-0.3.8-py3-none-any.whl", hash = "sha256:6960de170540f08837b40e5745e72e3cccaa579f1611486e3d080c2b963eb5e6"},
+    {file = "nonebot_plugin_petpet-0.3.8.tar.gz", hash = "sha256:527115fd181a006dfabeba9749a00f9a56376c9f031ea5a427b18b2326709933"},
 ]
 nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.6-py3-none-any.whl", hash = "sha256:168578c9c0ebb822caa166c800863040e3189d3bf5e5d84a345315c5d04543dd"},
