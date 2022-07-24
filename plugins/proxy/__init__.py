@@ -1,10 +1,11 @@
 import nonebot
 from httpx import AsyncClient
-from nonebot import logger, on_command
-from nonebot.adapters.onebot.v11 import Bot, Event
-from nonebot.params import ArgPlainText, State
-from nonebot.permission import SUPERUSER
+from nonebot import on_command
+from nonebot.log import logger
+from nonebot.params import State
 from nonebot.typing import T_State
+from nonebot.permission import SUPERUSER
+from nonebot.adapters.onebot.v11 import Bot, Event
 
 from .data_source import *
 
@@ -41,7 +42,7 @@ async def get_Proxy_list(bot: Bot, event: Event, state: T_State = State()):
 
     proxies = await get_Proxies(proxy_url)
     state["proxies"] = proxies
-
+    msg = ""
     if "ping" in args:
         await get_Proxy.send("正在获取延迟...")
         delay_list = await get_Proxies_delay(proxies, proxy_url, 2000)
