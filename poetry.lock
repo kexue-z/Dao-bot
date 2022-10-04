@@ -545,7 +545,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "imageio"
-version = "2.22.0"
+version = "2.22.1"
 description = "Library for reading and writing a wide range of image, video, scientific, and volumetric data formats."
 category = "main"
 optional = false
@@ -574,7 +574,7 @@ tifffile = ["tifffile"]
 
 [[package]]
 name = "importlib-metadata"
-version = "4.13.0"
+version = "5.0.0"
 description = "Read metadata from Python packages"
 category = "main"
 optional = false
@@ -818,11 +818,11 @@ nonebot2 = ">=2.0.0-beta.4,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-cchess"
-version = "0.1.9"
+version = "0.1.10"
 description = "Nonebot2 象棋插件"
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0.0"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
@@ -832,11 +832,11 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-chess"
-version = "0.2.6"
+version = "0.2.7"
 description = "Nonebot2 国际象棋插件"
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0.0"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 chess = ">=1.9.0,<2.0.0"
@@ -932,7 +932,7 @@ pydantic = ">=1.5.0,<2.0.0"
 
 [[package]]
 name = "nonebot-plugin-hikarisearch"
-version = "0.1.6"
+version = "0.1.7"
 description = "基于 HikariSearch 的又一个 Nonebot2 搜图插件"
 category = "main"
 optional = false
@@ -1005,11 +1005,11 @@ nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-minesweeper"
-version = "0.1.7"
+version = "0.1.8"
 description = "Nonebot2 扫雷插件"
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0.0"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
@@ -1018,7 +1018,7 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.3.11"
+version = "0.3.12"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
@@ -1034,11 +1034,11 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-remake"
-version = "0.2.6"
+version = "0.2.7"
 description = "适用于 Nonebot2 的人生重开模拟器插件"
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0.0"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
@@ -1046,7 +1046,7 @@ nonebot2 = ">=2.0.0-beta.4,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-shindan"
-version = "0.2.8"
+version = "0.2.9"
 description = "Nonebot2 plugin for using ShindanMaker"
 category = "main"
 optional = false
@@ -1125,11 +1125,11 @@ python-versions = "*"
 
 [[package]]
 name = "nonebot2"
-version = "2.0.0b5"
+version = "2.0.0rc1"
 description = "An asynchronous python bot framework."
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0.0"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 fastapi = ">=0.79.0,<0.80.0"
@@ -1415,7 +1415,7 @@ client = ["requests (>=2.21.0)", "websocket-client (>=0.54.0)"]
 
 [[package]]
 name = "pytz"
-version = "2022.2.1"
+version = "2022.4"
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
@@ -2272,12 +2272,12 @@ idna = [
     {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
 ]
 imageio = [
-    {file = "imageio-2.22.0-py3-none-any.whl", hash = "sha256:aff0e9b5faf4936728f982a1ab63797b1339847a4533c3e4c8343635149dfbfc"},
-    {file = "imageio-2.22.0.tar.gz", hash = "sha256:a332d127ec387b2d3dca967fd065a90f1c1a4ba2343570b03fe2cebb6ed064ea"},
+    {file = "imageio-2.22.1-py3-none-any.whl", hash = "sha256:a8e7be75ebc3920e8c9a7dcc8e47b54331125fc0932d050df4af9a6f5904d472"},
+    {file = "imageio-2.22.1.tar.gz", hash = "sha256:465ec35f919d538906d3023b61ccec766d8e7575fe55fcbd7669ece55afb97ca"},
 ]
 importlib-metadata = [
-    {file = "importlib_metadata-4.13.0-py3-none-any.whl", hash = "sha256:8a8a81bcf996e74fee46f0d16bd3eaa382a7eb20fd82445c3ad11f4090334116"},
-    {file = "importlib_metadata-4.13.0.tar.gz", hash = "sha256:dd0173e8f150d6815e098fd354f6414b0f079af4644ddfe90c71e2fc6174346d"},
+    {file = "importlib_metadata-5.0.0-py3-none-any.whl", hash = "sha256:ddb0e35065e8938f867ed4928d0ae5bf2a53b7773871bfe6bcc7e4fcdc7dea43"},
+    {file = "importlib_metadata-5.0.0.tar.gz", hash = "sha256:da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"},
 ]
 iso8601 = [
     {file = "iso8601-1.1.0-py3-none-any.whl", hash = "sha256:8400e90141bf792bce2634df533dc57e3bee19ea120a87bebcd3da89a58ad73f"},
@@ -2664,12 +2664,12 @@ nonebot-plugin-boardgame = [
     {file = "nonebot_plugin_boardgame-0.1.7.tar.gz", hash = "sha256:cbe0bbed1c6e34d6decd61b42ffff3f61664a736c8204a7f9499882482207f8d"},
 ]
 nonebot-plugin-cchess = [
-    {file = "nonebot_plugin_cchess-0.1.9-py3-none-any.whl", hash = "sha256:551f9e47deff7d063d655d7b059c64d0a905f95ab0e63da00d323359419d8904"},
-    {file = "nonebot_plugin_cchess-0.1.9.tar.gz", hash = "sha256:d436f0e4d8f6541f01714b70c3fbd7bd1e1f4b232957255d2855fe47e979d1c2"},
+    {file = "nonebot_plugin_cchess-0.1.10-py3-none-any.whl", hash = "sha256:288d12931f88e6d9dcb4d2e5e6badc20dc6de177ef973b0d95ec2b6fe12c258f"},
+    {file = "nonebot_plugin_cchess-0.1.10.tar.gz", hash = "sha256:3391f143a3a42b407ceb42560623286c9a3f2b99a372f55e36165e3fe5a5451b"},
 ]
 nonebot-plugin-chess = [
-    {file = "nonebot_plugin_chess-0.2.6-py3-none-any.whl", hash = "sha256:ba30eacef45fd0c39a3d1a75cbd5c0ad3aea06b0e5979e2e0a6bfe967d9a6c81"},
-    {file = "nonebot_plugin_chess-0.2.6.tar.gz", hash = "sha256:b2c92155baa8209b578ae3deb984a1a4f69d0edbddd7b6df0f30a27050c54b51"},
+    {file = "nonebot_plugin_chess-0.2.7-py3-none-any.whl", hash = "sha256:37dc589548b38f5d2b36e3e4806528434351dc3ccf3acb8b7168778bf762b672"},
+    {file = "nonebot_plugin_chess-0.2.7.tar.gz", hash = "sha256:5de974a8d8a4d79d40e81abd9d4770c7fff074241b949c29de06ecce48c8c088"},
 ]
 nonebot-plugin-cocdicer = [
     {file = "nonebot_plugin_cocdicer-0.3.1-py3-none-any.whl", hash = "sha256:b2227d5e519c27260dc7480feaa048731ac7d3e5f57b7d710b43ed72c91a1e86"},
@@ -2696,8 +2696,8 @@ nonebot-plugin-heweather = [
     {file = "nonebot_plugin_heweather-0.5.8-py3-none-any.whl", hash = "sha256:5d7ee58e81cb01588e370a13de96da8f81924cc68d3df29eaa1f8329e27ab4c1"},
 ]
 nonebot-plugin-hikarisearch = [
-    {file = "nonebot_plugin_hikarisearch-0.1.6-py3-none-any.whl", hash = "sha256:b3acace1ccfcee2aeb321703665b0c3e6189d6ee2cb8523141083b4772ff92d9"},
-    {file = "nonebot_plugin_hikarisearch-0.1.6.tar.gz", hash = "sha256:3a5950ede6f5e18a24c13341d1ad8d3a0e19354a07cf0f5023809ad9744fa398"},
+    {file = "nonebot_plugin_hikarisearch-0.1.7-py3-none-any.whl", hash = "sha256:7242bcf71dac3a8341fa2bc409c884291140b0ade74d65d9ab842cc43c0a3af7"},
+    {file = "nonebot_plugin_hikarisearch-0.1.7.tar.gz", hash = "sha256:abcae504c19d30952236ff963bc7dbd35bd777dd560be03299856bf552da7c40"},
 ]
 nonebot-plugin-htmlrender = [
     {file = "nonebot-plugin-htmlrender-0.0.4.4.tar.gz", hash = "sha256:da278a9a0dfb6b268083c3223e385d153d34c933cbf21e3c4948724d5c28d8ff"},
@@ -2716,20 +2716,20 @@ nonebot-plugin-manager = [
     {file = "nonebot_plugin_manager-0.5.7.tar.gz", hash = "sha256:a0e14644ccab4c8a3139feaab8c6432a64795bdd8009a93117fbe097e79f32d3"},
 ]
 nonebot-plugin-minesweeper = [
-    {file = "nonebot_plugin_minesweeper-0.1.7-py3-none-any.whl", hash = "sha256:7a502ea44464d90fb416e51b4b9a9e9c7e29141ae00c2555d25ceded8e3866ac"},
-    {file = "nonebot_plugin_minesweeper-0.1.7.tar.gz", hash = "sha256:6fb61317b4891a3477d8d26f026df3fece48baffa6034402d2ed9fbad73d3f73"},
+    {file = "nonebot_plugin_minesweeper-0.1.8-py3-none-any.whl", hash = "sha256:26d0463d5a247b4fb28aa407e41b89e9cd580e0626c636e0158b7355742170a9"},
+    {file = "nonebot_plugin_minesweeper-0.1.8.tar.gz", hash = "sha256:e4a9ab81bb20da2fe65634d9ddebfd1d87ae000e04ba7241dab09321e0a8edff"},
 ]
 nonebot-plugin-petpet = [
-    {file = "nonebot_plugin_petpet-0.3.11-py3-none-any.whl", hash = "sha256:0ec5d10b3bea38399439f20e681099a72026d1831de5e7ac9d14013366bfd1f3"},
-    {file = "nonebot_plugin_petpet-0.3.11.tar.gz", hash = "sha256:f7d236073d1eb50708128dc93a314ff97ef5aa1dd1abc10ce2f142486e64435d"},
+    {file = "nonebot_plugin_petpet-0.3.12-py3-none-any.whl", hash = "sha256:c9669c53e19baf6b4f66baf188f81d007e8464228228cbe9ac8b32f4c67774b1"},
+    {file = "nonebot_plugin_petpet-0.3.12.tar.gz", hash = "sha256:58f086be19fe69ab89e6f37997e275333685b458ab2cb9cc5bcf831250def59d"},
 ]
 nonebot-plugin-remake = [
-    {file = "nonebot_plugin_remake-0.2.6-py3-none-any.whl", hash = "sha256:168578c9c0ebb822caa166c800863040e3189d3bf5e5d84a345315c5d04543dd"},
-    {file = "nonebot_plugin_remake-0.2.6.tar.gz", hash = "sha256:f3afd8e26c8329ed4c94891dd44d4cf425a6570734a590fa1826a102ce181732"},
+    {file = "nonebot_plugin_remake-0.2.7-py3-none-any.whl", hash = "sha256:7a1c24f06b7bcf0e0d71ae3565aa9f9c1e1c985bd31208b4061cae83e93b3952"},
+    {file = "nonebot_plugin_remake-0.2.7.tar.gz", hash = "sha256:85f28a38cb8f52ff38fd0ba7b47b302535fe8796e5207cfc8dc4ffe13f1abc8b"},
 ]
 nonebot-plugin-shindan = [
-    {file = "nonebot_plugin_shindan-0.2.8-py3-none-any.whl", hash = "sha256:f0ced9f2a7a9ae8885cf7cf2598a0923ad6a9031cab87caeae6bc4390c29fa99"},
-    {file = "nonebot_plugin_shindan-0.2.8.tar.gz", hash = "sha256:72ad3bfe7f3bf17f144fc588e3a5d69ac684f1e4b646b6a1826a3fd2aba4ce98"},
+    {file = "nonebot_plugin_shindan-0.2.9-py3-none-any.whl", hash = "sha256:82558bc40bf388b863b4eef33dcf9bd2c9d6bd5cac2e2fe18445cae4490de692"},
+    {file = "nonebot_plugin_shindan-0.2.9.tar.gz", hash = "sha256:cb68f0a7c85e9326ef944b2ddc217185b487f8cb22e5acc2f1e28868e2ac271c"},
 ]
 nonebot-plugin-tortoise-orm = [
     {file = "nonebot-plugin-tortoise-orm-0.0.1a3.tar.gz", hash = "sha256:79c0cf30e7e5291089d034d561ad53744963de629b49737332467f3eaefa10e3"},
@@ -2752,8 +2752,8 @@ nonebot-plugin-youthstudy = [
     {file = "nonebot_plugin_youthstudy-1.0.7.tar.gz", hash = "sha256:fa1ccd45da257a6d255b91dab6dbe9804325a817d23f1902ad1c545edbd356c3"},
 ]
 nonebot2 = [
-    {file = "nonebot2-2.0.0b5-py3-none-any.whl", hash = "sha256:5cfbfcd62ffcf55f884f9fb750a71cd92c97e347c99e891ef617da4d445a1f22"},
-    {file = "nonebot2-2.0.0b5.tar.gz", hash = "sha256:fccb5af749cceb289d756901b7abc7a679e5952dbe88c8b6ad8b2d906715c3ee"},
+    {file = "nonebot2-2.0.0rc1-py3-none-any.whl", hash = "sha256:99c70300b9d0755bba6ed50b7399f44f6213e119157bc026b960b3e157a38416"},
+    {file = "nonebot2-2.0.0rc1.tar.gz", hash = "sha256:6e5a0abf24086d05d5c2a56c971a551ece2a343ff29f83b76b398bf717b92e16"},
 ]
 numpy = [
     {file = "numpy-1.23.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c9f707b5bb73bf277d812ded9896f9512a43edff72712f31667d0a8c2f8e71ee"},
@@ -3005,8 +3005,8 @@ python-socketio = [
     {file = "python_socketio-5.7.1-py3-none-any.whl", hash = "sha256:86ee93591c1e781d339d9a61940e62fd6cbc838390653b52a7bcc4f7ce89fe47"},
 ]
 pytz = [
-    {file = "pytz-2022.2.1-py2.py3-none-any.whl", hash = "sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197"},
-    {file = "pytz-2022.2.1.tar.gz", hash = "sha256:cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5"},
+    {file = "pytz-2022.4-py2.py3-none-any.whl", hash = "sha256:2c0784747071402c6e99f0bafdb7da0fa22645f06554c7ae06bf6358897e9c91"},
+    {file = "pytz-2022.4.tar.gz", hash = "sha256:48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174"},
 ]
 pytz-deprecation-shim = [
     {file = "pytz_deprecation_shim-0.1.0.post0-py2.py3-none-any.whl", hash = "sha256:8314c9692a636c8eb3bda879b9f119e350e93223ae83e70e80c31675a0fdc1a6"},
