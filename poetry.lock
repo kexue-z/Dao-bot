@@ -757,11 +757,11 @@ python-versions = "*"
 
 [[package]]
 name = "nonebot-adapter-onebot"
-version = "2.1.3"
+version = "2.1.4"
 description = "OneBot(CQHTTP) adapter for nonebot2"
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0.0"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 msgpack = ">=1.0.3,<2.0.0"
@@ -1018,7 +1018,7 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.3.14"
+version = "0.3.15"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
@@ -1472,7 +1472,7 @@ idna2008 = ["idna"]
 
 [[package]]
 name = "setuptools"
-version = "65.4.1"
+version = "65.5.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "main"
 optional = false
@@ -2646,8 +2646,8 @@ mypy-extensions = [
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
 ]
 nonebot-adapter-onebot = [
-    {file = "nonebot-adapter-onebot-2.1.3.tar.gz", hash = "sha256:2090847c58d0058604077b9404be78e6bee225d4972ab59f7223685f79bd5a86"},
-    {file = "nonebot_adapter_onebot-2.1.3-py3-none-any.whl", hash = "sha256:d44eb7b119fdcc3f7936c77e2c0922728c959ad6d6b36ebd004e94856d9ccf49"},
+    {file = "nonebot_adapter_onebot-2.1.4-py3-none-any.whl", hash = "sha256:c49cb5fc8f046a99467873dcd5883486eb36c80c62c3379f5446a1c41a348e23"},
+    {file = "nonebot_adapter_onebot-2.1.4.tar.gz", hash = "sha256:09f910db7e51c362ae06dc75c04776a06650a043dc87aaa72af839cb489d4994"},
 ]
 nonebot-bison = [
     {file = "nonebot-bison-0.5.5.tar.gz", hash = "sha256:2be57e1b86e9e84e49699ee4a2dd8a709928d82bdf2d4ff1a36572a100e418ae"},
@@ -2718,8 +2718,8 @@ nonebot-plugin-minesweeper = [
     {file = "nonebot_plugin_minesweeper-0.1.8.tar.gz", hash = "sha256:e4a9ab81bb20da2fe65634d9ddebfd1d87ae000e04ba7241dab09321e0a8edff"},
 ]
 nonebot-plugin-petpet = [
-    {file = "nonebot_plugin_petpet-0.3.14-py3-none-any.whl", hash = "sha256:be9f655d9a5d46ad512f5600a76cd579e826e69556e3038df85b6a46b9739e80"},
-    {file = "nonebot_plugin_petpet-0.3.14.tar.gz", hash = "sha256:8c61926a61c8989db44bf4820a564fe8fdba1afd5e4cd19d5ddc044739452fa7"},
+    {file = "nonebot_plugin_petpet-0.3.15-py3-none-any.whl", hash = "sha256:9868f81e89682e043dc88511d6cf6a6cc107fa5a466ec9a91d7d8b0fa6f3b954"},
+    {file = "nonebot_plugin_petpet-0.3.15.tar.gz", hash = "sha256:dd745700bb428c7d3e06e8e0c647728f5fc9be83941569653db75415460c1c24"},
 ]
 nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.7-py3-none-any.whl", hash = "sha256:7a1c24f06b7bcf0e0d71ae3565aa9f9c1e1c985bd31208b4061cae83e93b3952"},
@@ -3050,8 +3050,8 @@ rfc3986 = [
     {file = "rfc3986-1.5.0.tar.gz", hash = "sha256:270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835"},
 ]
 setuptools = [
-    {file = "setuptools-65.4.1-py3-none-any.whl", hash = "sha256:1b6bdc6161661409c5f21508763dc63ab20a9ac2f8ba20029aaaa7fdb9118012"},
-    {file = "setuptools-65.4.1.tar.gz", hash = "sha256:3050e338e5871e70c72983072fe34f6032ae1cdeeeb67338199c2f74e083a80e"},
+    {file = "setuptools-65.5.0-py3-none-any.whl", hash = "sha256:f62ea9da9ed6289bfe868cd6845968a2c854d1427f8548d52cae02a42b4f0356"},
+    {file = "setuptools-65.5.0.tar.gz", hash = "sha256:512e5536220e38146176efb833d4a62aa726b7bbff82cfbc8ba9eaa3996e0b17"},
 ]
 setuptools-scm = [
     {file = "setuptools_scm-7.0.5-py3-none-any.whl", hash = "sha256:7930f720905e03ccd1e1d821db521bff7ec2ac9cf0ceb6552dd73d24a45d3b02"},
