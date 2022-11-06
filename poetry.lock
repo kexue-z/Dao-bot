@@ -52,6 +52,21 @@ python-versions = ">=3.6"
 typing_extensions = ">=3.7.2"
 
 [[package]]
+name = "alembic"
+version = "1.8.1"
+description = "A database migration tool for SQLAlchemy."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Mako = "*"
+SQLAlchemy = ">=1.3.0"
+
+[package.extras]
+tz = ["python-dateutil"]
+
+[[package]]
 name = "anyio"
 version = "3.6.2"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
@@ -225,11 +240,11 @@ beautifulsoup4 = "*"
 
 [[package]]
 name = "certifi"
-version = "2021.10.8"
+version = "2022.9.24"
 description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [[package]]
 name = "chardet"
@@ -241,11 +256,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "charset-normalizer"
-version = "2.0.12"
+version = "2.1.1"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 category = "main"
 optional = false
-python-versions = ">=3.5.0"
+python-versions = ">=3.6.0"
 
 [package.extras]
 unicode-backport = ["unicodedata2"]
@@ -297,18 +312,17 @@ test-no-codebase = ["Pillow", "matplotlib", "pytest"]
 
 [[package]]
 name = "cos-python-sdk-v5"
-version = "1.9.20"
+version = "1.9.19"
 description = "cos-python-sdk-v5"
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-certifi = "<=2021.10.8"
 crcmod = "*"
 dicttoxml = "*"
 pycryptodome = "*"
-requests = ">=2.8,<=2.27.1"
+requests = ">=2.8"
 six = "*"
 
 [[package]]
@@ -520,6 +534,7 @@ h2 = {version = ">=3,<5", optional = true, markers = "extra == \"http2\""}
 httpcore = ">=0.14.5,<0.15.0"
 rfc3986 = {version = ">=1.3,<2", extras = ["idna2008"]}
 sniffio = "*"
+socksio = {version = ">=1.0.0,<2.0.0", optional = true, markers = "extra == \"socks\""}
 
 [package.extras]
 brotli = ["brotli", "brotlicffi"]
@@ -571,22 +586,6 @@ opencv = ["opencv-python"]
 pyav = ["av (!=10.0.0)"]
 test = ["fsspec[github]", "invoke", "pytest", "pytest-cov"]
 tifffile = ["tifffile"]
-
-[[package]]
-name = "importlib-metadata"
-version = "5.0.0"
-description = "Read metadata from Python packages"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.dependencies]
-zipp = ">=0.5"
-
-[package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
-perf = ["ipython"]
-testing = ["flake8 (<5)", "flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf (>=0.9.2)"]
 
 [[package]]
 name = "iso8601"
@@ -674,15 +673,28 @@ htmlsoup = ["BeautifulSoup4"]
 source = ["Cython (>=0.29.7)"]
 
 [[package]]
+name = "mako"
+version = "1.2.3"
+description = "A super-fast templating language that borrows the best ideas from the existing templating languages."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+MarkupSafe = ">=0.9.2"
+
+[package.extras]
+babel = ["Babel"]
+lingua = ["lingua"]
+testing = ["pytest"]
+
+[[package]]
 name = "markdown"
 version = "3.4.1"
 description = "Python implementation of Markdown."
 category = "main"
 optional = false
 python-versions = ">=3.7"
-
-[package.dependencies]
-importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
 
 [package.extras]
 testing = ["coverage", "pyyaml"]
@@ -769,22 +781,24 @@ nonebot2 = ">=2.0.0-beta.3,<3.0.0"
 
 [[package]]
 name = "nonebot-bison"
-version = "0.5.5"
+version = "0.6.1"
 description = "Subscribe message from social medias"
 category = "main"
 optional = false
-python-versions = ">=3.9,<4.0"
+python-versions = ">=3.10,<4.0.0"
 
 [package.dependencies]
 aiofiles = ">=0.8.0,<0.9.0"
+alembic = ">=1.7.6,<2.0.0"
 apscheduler = ">=3.7.0,<4.0.0"
 bs4 = ">=0.0.1,<0.0.2"
 expiringdict = ">=1.2.1,<2.0.0"
 feedparser = ">=6.0.2,<7.0.0"
 httpx = ">=0.16.1"
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
-nonebot-plugin-htmlrender = ">=0.0.4,<0.0.5"
-nonebot2 = ">=2.0.0-beta.2"
+nonebot-plugin-datastore = ">=0.4.0,<0.5.0"
+nonebot-plugin-htmlrender = ">=0.1.1,<0.2.0"
+nonebot2 = ">=2.0.0-rc.1,<3.0.0"
 pillow = ">=8.1,<10.0"
 pyjwt = ">=2.1.0,<3.0.0"
 python-socketio = ">=5.4.0,<6.0.0"
@@ -945,17 +959,16 @@ nonebot2 = ">=2.0.0-beta.4,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-htmlrender"
-version = "0.0.4.4"
+version = "0.1.1"
 description = "通过浏览器渲染图片"
 category = "main"
 optional = false
-python-versions = ">=3.7.3,<4.0"
+python-versions = ">=3.7.3,<4.0.0"
 
 [package.dependencies]
 aiofiles = ">=0.8.0,<0.9.0"
 jinja2 = ">=3.0.3,<4.0.0"
 markdown = ">=3.3.6,<4.0.0"
-nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
 nonebot2 = ">=2.0.0-beta.1,<3.0.0"
 playwright = ">=1.17.2,<2.0.0"
 Pygments = ">=2.10.0,<3.0.0"
@@ -1044,6 +1057,22 @@ python-versions = ">=3.8,<4.0"
 [package.dependencies]
 nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
 nonebot2 = ">=2.0.0-beta.4,<3.0.0"
+
+[[package]]
+name = "nonebot-plugin-setu-now"
+version = "0.3.2"
+description = "另一个色图插件"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+httpx = ">=0.18.0,<1.0.0"
+nonebot-adapter-onebot = ">=2.0.0-beta.1,<3.0.0"
+nonebot-plugin-apscheduler = ">=0.2.0,<0.3.0"
+nonebot2 = ">=2.0.0-beta.4"
+pydantic = ">=1.5.0,<2.0.0"
+webdav4 = ">=0.9.3,<0.10.0"
 
 [[package]]
 name = "nonebot-plugin-shindan"
@@ -1441,21 +1470,21 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
 [[package]]
 name = "requests"
-version = "2.27.1"
+version = "2.28.1"
 description = "Python HTTP for Humans."
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+python-versions = ">=3.7, <4"
 
 [package.dependencies]
 certifi = ">=2017.4.17"
-charset-normalizer = {version = ">=2.0.0,<2.1.0", markers = "python_version >= \"3\""}
-idna = {version = ">=2.5,<4", markers = "python_version >= \"3\""}
+charset-normalizer = ">=2,<3"
+idna = ">=2.5,<4"
 urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
-socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
-use-chardet-on-py3 = ["chardet (>=3.0.2,<5)"]
+socks = ["PySocks (>=1.5.6,!=1.5.7)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "rfc3986"
@@ -1525,6 +1554,14 @@ description = "Sniff out which async library your code is running under"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "socksio"
+version = "1.0.0"
+description = "Sans-I/O implementation of SOCKS4, SOCKS4A, and SOCKS5."
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "soupsieve"
@@ -1600,7 +1637,6 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 anyio = ">=3.4.0,<5"
-typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 full = ["itsdangerous", "jinja2", "python-multipart", "pyyaml", "requests"]
@@ -1752,6 +1788,27 @@ python-versions = ">=3.7"
 anyio = ">=3.0.0,<4"
 
 [[package]]
+name = "webdav4"
+version = "0.9.8"
+description = "WebDAV client library with an fsspec-based filesystem and a CLI"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+httpx = ">=0.20,<1.0.0"
+python-dateutil = ">=2.8.1"
+
+[package.extras]
+all = ["webdav4[fsspec,http2]"]
+dev = ["webdav4[docs,fsspec,http2,qa,tests]"]
+docs = ["furo (==2022.9.29)", "myst-parser (==0.18.1)", "sphinx (==5.3)", "sphinx-copybutton (==0.5)"]
+fsspec = ["fsspec (>=2021.7)"]
+http2 = ["httpx[http2] (>=0.20,<1.0.0)"]
+qa = ["mypy (==0.982)", "pre-commit", "pylint (==2.15.5)", "pylint-pytest (==1.1.2)", "types-pkg-resources", "types-python-dateutil"]
+tests = ["cheroot", "colorama", "pytest", "pytest-cov", "pytest-xdist", "typing-extensions", "wsgidav"]
+
+[[package]]
 name = "websockets"
 version = "10.4"
 description = "An implementation of the WebSocket Protocol (RFC 6455 & 7692)"
@@ -1807,22 +1864,10 @@ python-versions = ">=3.7"
 idna = ">=2.0"
 multidict = ">=4.0"
 
-[[package]]
-name = "zipp"
-version = "3.10.0"
-description = "Backport of pathlib-compatible object wrapper for zip files"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
-testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools", "more-itertools", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
-
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "c216154cf5723f653e8a0810bf0a3df73a7f9adc0315948d1edafb9c835133d9"
+python-versions = ">=3.10,<4.0"
+content-hash = "13437a3202cf47c88b4d497e1cf076b9f769717c2efd20d27a5b26bcb6096cfd"
 
 [metadata.files]
 aiofiles = [
@@ -1875,6 +1920,10 @@ aiomysql = [
 aiosqlite = [
     {file = "aiosqlite-0.17.0-py3-none-any.whl", hash = "sha256:6c49dc6d3405929b1d08eeccc72306d3677503cc5e5e43771efc1e00232e8231"},
     {file = "aiosqlite-0.17.0.tar.gz", hash = "sha256:f0e6acc24bc4864149267ac82fb46dfb3be4455f99fe21df82609cc6e6baee51"},
+]
+alembic = [
+    {file = "alembic-1.8.1-py3-none-any.whl", hash = "sha256:0a024d7f2de88d738d7395ff866997314c837be6104e90c5724350313dee4da4"},
+    {file = "alembic-1.8.1.tar.gz", hash = "sha256:cd0b5e45b14b706426b833f06369b9a6d5ee03f826ec3238723ce8caaf6e5ffa"},
 ]
 anyio = [
     {file = "anyio-3.6.2-py3-none-any.whl", hash = "sha256:fbbe32bd270d2a2ef3ed1c5d45041250284e31fc0a4df4a5a6071842051a51e3"},
@@ -2019,16 +2068,16 @@ bs4 = [
     {file = "bs4-0.0.1.tar.gz", hash = "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"},
 ]
 certifi = [
-    {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
-    {file = "certifi-2021.10.8.tar.gz", hash = "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"},
+    {file = "certifi-2022.9.24-py3-none-any.whl", hash = "sha256:90c1a32f1d68f940488354e36370f6cca89f0f106db09518524c88d6ed83f382"},
+    {file = "certifi-2022.9.24.tar.gz", hash = "sha256:0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"},
 ]
 chardet = [
     {file = "chardet-4.0.0-py2.py3-none-any.whl", hash = "sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"},
     {file = "chardet-4.0.0.tar.gz", hash = "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"},
 ]
 charset-normalizer = [
-    {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
-    {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
+    {file = "charset-normalizer-2.1.1.tar.gz", hash = "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"},
+    {file = "charset_normalizer-2.1.1-py3-none-any.whl", hash = "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"},
 ]
 chess = [
     {file = "chess-1.9.3-py3-none-any.whl", hash = "sha256:a27c45707671d413d045ab2ee8b765c98bfb1bf7ba093a704cfed7e4f758fd58"},
@@ -2114,7 +2163,8 @@ contourpy = [
     {file = "contourpy-1.0.6.tar.gz", hash = "sha256:6e459ebb8bb5ee4c22c19cc000174f8059981971a33ce11e17dddf6aca97a142"},
 ]
 cos-python-sdk-v5 = [
-    {file = "cos-python-sdk-v5-1.9.20.tar.gz", hash = "sha256:ee2f2aefd04ac768d20cbdce6c2bcd6ec8abb94378e4193e36f0590d8afb8903"},
+    {file = "cos-python-sdk-v5-1.9.19.tar.gz", hash = "sha256:0c483f1a016ca9fe99012e6f4415cf29488936f87c599d6d96d18bca5a3334a4"},
+    {file = "cos_python_sdk_v5-1.9.19-py3-none-any.whl", hash = "sha256:150d916cb5f0d7f3b7ab9b0eccb21ea9a251b971b1fbc671131a8b0604312bd4"},
 ]
 crcmod = [
     {file = "crcmod-1.7.tar.gz", hash = "sha256:dc7051a0db5f2bd48665a990d3ec1cc305a466a77358ca4492826f41f283601e"},
@@ -2284,10 +2334,6 @@ imageio = [
     {file = "imageio-2.22.3-py3-none-any.whl", hash = "sha256:a4b88f9f3d428b8c0ceeb7e297df8c346a642bb7e3111743eb85717d60b26f6f"},
     {file = "imageio-2.22.3.tar.gz", hash = "sha256:63f007b7f2a082306e36922b3fd529a7aa305d2b78f46195bab8e22bbfe866e9"},
 ]
-importlib-metadata = [
-    {file = "importlib_metadata-5.0.0-py3-none-any.whl", hash = "sha256:ddb0e35065e8938f867ed4928d0ae5bf2a53b7773871bfe6bcc7e4fcdc7dea43"},
-    {file = "importlib_metadata-5.0.0.tar.gz", hash = "sha256:da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"},
-]
 iso8601 = [
     {file = "iso8601-1.1.0-py3-none-any.whl", hash = "sha256:8400e90141bf792bce2634df533dc57e3bee19ea120a87bebcd3da89a58ad73f"},
     {file = "iso8601-1.1.0.tar.gz", hash = "sha256:32811e7b81deee2063ea6d2e94f8819a86d1f3811e49d23623a41fa832bef03f"},
@@ -2439,6 +2485,10 @@ lxml = [
     {file = "lxml-4.6.5-pp38-pypy38_pp73-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_24_i686.whl", hash = "sha256:ff44de36772b05c2eb74f2b4b6d1ae29b8f41ed5506310ce1258d44826ee38c1"},
     {file = "lxml-4.6.5-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:5d5254c815c186744c8f922e2ce861a2bdeabc06520b4b30b2f7d9767791ce6e"},
     {file = "lxml-4.6.5.tar.gz", hash = "sha256:6e84edecc3a82f90d44ddee2ee2a2630d4994b8471816e226d2b771cda7ac4ca"},
+]
+mako = [
+    {file = "Mako-1.2.3-py3-none-any.whl", hash = "sha256:c413a086e38cd885088d5e165305ee8eed04e8b3f8f62df343480da0a385735f"},
+    {file = "Mako-1.2.3.tar.gz", hash = "sha256:7fde96466fcfeedb0eed94f187f20b23d85e4cb41444be0e542e2c8c65c396cd"},
 ]
 markdown = [
     {file = "Markdown-3.4.1-py3-none-any.whl", hash = "sha256:08fb8465cffd03d10b9dd34a5c3fea908e20391a2a90b88d66362cb05beed186"},
@@ -2661,8 +2711,8 @@ nonebot-adapter-onebot = [
     {file = "nonebot_adapter_onebot-2.1.5.tar.gz", hash = "sha256:e740422cceebc1f0379da788ccddaa7937f7d88c140e2a5ea9ba0e91ddee867e"},
 ]
 nonebot-bison = [
-    {file = "nonebot-bison-0.5.5.tar.gz", hash = "sha256:2be57e1b86e9e84e49699ee4a2dd8a709928d82bdf2d4ff1a36572a100e418ae"},
-    {file = "nonebot_bison-0.5.5-py3-none-any.whl", hash = "sha256:5f946317108cc7cf4fb43d4a03081d54611cc7d0a4e18f4091713512cd93f65c"},
+    {file = "nonebot-bison-0.6.1.tar.gz", hash = "sha256:05eaab2f193851323297eec7e77a03a39a82321bb985b743e06a5d3ed6cb2ba6"},
+    {file = "nonebot_bison-0.6.1-py3-none-any.whl", hash = "sha256:f48f88af310c7b3bf45921d7b4bd964cc6401089128925428b3e98cfa06a86ee"},
 ]
 nonebot-plugin-apscheduler = [
     {file = "nonebot-plugin-apscheduler-0.2.0.tar.gz", hash = "sha256:7b63e99a611b657533b48fcf1f8c6627c18c2eb3fa820a906cd4ec4666c0ceb0"},
@@ -2709,8 +2759,8 @@ nonebot-plugin-hikarisearch = [
     {file = "nonebot_plugin_hikarisearch-0.1.7.tar.gz", hash = "sha256:abcae504c19d30952236ff963bc7dbd35bd777dd560be03299856bf552da7c40"},
 ]
 nonebot-plugin-htmlrender = [
-    {file = "nonebot-plugin-htmlrender-0.0.4.4.tar.gz", hash = "sha256:da278a9a0dfb6b268083c3223e385d153d34c933cbf21e3c4948724d5c28d8ff"},
-    {file = "nonebot_plugin_htmlrender-0.0.4.4-py3-none-any.whl", hash = "sha256:e3dbb2bb7afd529b3958aedefab42570a28e924ef7417f0e57c734037def37a4"},
+    {file = "nonebot-plugin-htmlrender-0.1.1.tar.gz", hash = "sha256:509bc2906936e71f57f20023ac658d3639898724d0a472b0c65a9c6c6bd571ff"},
+    {file = "nonebot_plugin_htmlrender-0.1.1-py3-none-any.whl", hash = "sha256:107f0726e93e94ab5fe86090226a8b7b8a39c73098da406373b8b34408985bd9"},
 ]
 nonebot-plugin-imageutils = [
     {file = "nonebot_plugin_imageutils-0.1.13.2-py3-none-any.whl", hash = "sha256:146207e7dbffee60c7156089953ac33f7ea0e77d7054dec2b67a13eb60913c73"},
@@ -2735,6 +2785,10 @@ nonebot-plugin-petpet = [
 nonebot-plugin-remake = [
     {file = "nonebot_plugin_remake-0.2.7-py3-none-any.whl", hash = "sha256:7a1c24f06b7bcf0e0d71ae3565aa9f9c1e1c985bd31208b4061cae83e93b3952"},
     {file = "nonebot_plugin_remake-0.2.7.tar.gz", hash = "sha256:85f28a38cb8f52ff38fd0ba7b47b302535fe8796e5207cfc8dc4ffe13f1abc8b"},
+]
+nonebot-plugin-setu-now = [
+    {file = "nonebot_plugin_setu_now-0.3.2-py3-none-any.whl", hash = "sha256:e88d038dc5cdca2f7d962c62eb7484f3cdc94fca69da336c0e4f70ab3699a094"},
+    {file = "nonebot_plugin_setu_now-0.3.2.tar.gz", hash = "sha256:31cb3d56ff83a4faa9456dcd76220f1e32b68a84df890643a8ba9e6fafebce00"},
 ]
 nonebot-plugin-shindan = [
     {file = "nonebot_plugin_shindan-0.2.10-py3-none-any.whl", hash = "sha256:13c8bc0c4290932d89bc4d852036091ab0b6f7d77e44b8f301d5f4bddb783df1"},
@@ -3056,8 +3110,8 @@ pyyaml = [
     {file = "PyYAML-5.4.1.tar.gz", hash = "sha256:607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"},
 ]
 requests = [
-    {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
-    {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
+    {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
+    {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
 ]
 rfc3986 = [
     {file = "rfc3986-1.5.0-py2.py3-none-any.whl", hash = "sha256:a86d6e1f5b1dc238b218b012df0aa79409667bb209e58da56d0b94704e712a97"},
@@ -3081,6 +3135,10 @@ six = [
 sniffio = [
     {file = "sniffio-1.3.0-py3-none-any.whl", hash = "sha256:eecefdce1e5bbfb7ad2eeaabf7c1eeb404d7757c379bd1f7e5cce9d8bf425384"},
     {file = "sniffio-1.3.0.tar.gz", hash = "sha256:e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"},
+]
+socksio = [
+    {file = "socksio-1.0.0-py3-none-any.whl", hash = "sha256:95dc1f15f9b34e8d7b16f06d74b8ccf48f609af32ab33c608d08761c5dcbb1f3"},
+    {file = "socksio-1.0.0.tar.gz", hash = "sha256:f88beb3da5b5c38b9890469de67d0cb0f9d494b78b106ca1845f96c10b91c4ac"},
 ]
 soupsieve = [
     {file = "soupsieve-2.3.2.post1-py3-none-any.whl", hash = "sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759"},
@@ -3296,6 +3354,10 @@ watchfiles = [
     {file = "watchfiles-0.18.0-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9e611a90482ac14ef3ec234c1604ed921d1b0c68970eba82f1cf0d59a3e4eb76"},
     {file = "watchfiles-0.18.0.tar.gz", hash = "sha256:bbe10d134eef1666451382015e48f092c941a6d4562a98ffa1a288f79a897c46"},
 ]
+webdav4 = [
+    {file = "webdav4-0.9.8-py3-none-any.whl", hash = "sha256:3ad1d5912401861d9ca3f03600b79ad35a135ff15a707ccf6df78db6d369ad0a"},
+    {file = "webdav4-0.9.8.tar.gz", hash = "sha256:fc7748df33a375de13ddb5f4594f5799f9f3dc13c005b7b9c45c120aad745694"},
+]
 websockets = [
     {file = "websockets-10.4-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:d58804e996d7d2307173d56c297cf7bc132c52df27a3efaac5e8d43e36c21c48"},
     {file = "websockets-10.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:bc0b82d728fe21a0d03e65f81980abbbcb13b5387f733a1a870672c5be26edab"},
@@ -3439,8 +3501,4 @@ yarl = [
     {file = "yarl-1.8.1-cp39-cp39-win32.whl", hash = "sha256:8b0af1cf36b93cee99a31a545fe91d08223e64390c5ecc5e94c39511832a4bb6"},
     {file = "yarl-1.8.1-cp39-cp39-win_amd64.whl", hash = "sha256:de49d77e968de6626ba7ef4472323f9d2e5a56c1d85b7c0e2a190b2173d3b9be"},
     {file = "yarl-1.8.1.tar.gz", hash = "sha256:af887845b8c2e060eb5605ff72b6f2dd2aab7a761379373fd89d314f4752abbf"},
-]
-zipp = [
-    {file = "zipp-3.10.0-py3-none-any.whl", hash = "sha256:4fcb6f278987a6605757302a6e40e896257570d11c51628968ccb2a47e80c6c1"},
-    {file = "zipp-3.10.0.tar.gz", hash = "sha256:7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"},
 ]

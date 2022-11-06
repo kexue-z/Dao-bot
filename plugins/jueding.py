@@ -3,15 +3,13 @@ import random
 from nonebot import on_command
 from nonebot.adapters.onebot.v11 import Bot, Message, MessageEvent
 from nonebot.matcher import Matcher
-from nonebot.params import Arg, ArgPlainText, CommandArg, EventMessage, State
+from nonebot.params import Arg, ArgPlainText, CommandArg, EventMessage
 
 jueding = on_command("选择", aliases={"决定"}, priority=1)
 
 
 @jueding.handle()
-async def handle_first_receive(
-    matcher: Matcher, state: dict = State(), arg: Message = CommandArg()
-):
+async def handle_first_receive(matcher: Matcher, state, arg: Message = CommandArg()):
     args = arg
     # await jueding.send(f"args = {args}")
     if args:

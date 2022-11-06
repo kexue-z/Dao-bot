@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import subprocess
 from pathlib import Path
 
 import nonebot
-from nonebot.adapters.onebot.v11 import Adapter
 from nonebot.log import logger
+from nonebot.adapters.onebot.v11 import Adapter
 
-from utils.pushover import send_startup_message
 from utils.yaml import Secrets, load_yaml
+from utils.pushover import send_startup_message
 
 logger.add(
     "data/log/{time:MM}-{time:DD}.log",
@@ -21,7 +20,7 @@ logger.add(
 
 config_json = dict(load_yaml("config/config.yaml", Secrets(Path("config"))))  # type: ignore
 nonebot.init(**config_json)
-send_startup_message(config_json["pushover_token"], config_json["pushover_user"])
+# send_startup_message(config_json["pushover_token"], config_json["pushover_user"])
 
 app = nonebot.get_asgi()
 

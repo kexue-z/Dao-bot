@@ -4,7 +4,6 @@ from nonebot import get_driver, on_notice
 from nonebot.adapters.onebot.v11 import Event, GroupBanNoticeEvent
 from nonebot.adapters.onebot.v11.bot import Bot
 from nonebot.matcher import Matcher
-from nonebot.typing import T_State
 
 group_mute = on_notice(priority=10, block=True)
 

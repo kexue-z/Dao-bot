@@ -2,12 +2,11 @@ import nonebot
 from httpx import AsyncClient
 from nonebot import on_command
 from nonebot.log import logger
-from nonebot.params import State
 from nonebot.typing import T_State
 from nonebot.permission import SUPERUSER
 from nonebot.adapters.onebot.v11 import Bot, Event
 
-from .data_source import *
+from plugins.proxy.data_source import *
 
 update_Porxy = on_command("更新订阅", permission=SUPERUSER)
 
@@ -37,7 +36,7 @@ get_Proxy = on_command("订阅选择", permission=SUPERUSER)
 
 
 @get_Proxy.handle()
-async def get_Proxy_list(bot: Bot, event: Event, state: T_State = State()):
+async def get_Proxy_list(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).split()
 
     proxies = await get_Proxies(proxy_url)
@@ -58,12 +57,12 @@ async def get_Proxy_list(bot: Bot, event: Event, state: T_State = State()):
 
 
 @get_Proxy.got("Selection")
-async def get_Proxy_Selection(bot: Bot, state: T_State = State()):
+async def get_Proxy_Selection(bot: Bot, state: T_State):
     pass
 
 
 @get_Proxy.handle()
-async def get_Proxy_done(bot: Bot, state: T_State = State()):
+async def get_Proxy_done(bot: Bot, state: T_State):
     user_Selection = int(state["Selection"].extract_plain_text()) - 1
     if user_Selection == -1:
         await get_Proxy.finish("已取消")

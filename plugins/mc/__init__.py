@@ -4,7 +4,7 @@ from random import randint
 from nonebot import on_command
 from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 from nonebot.log import logger
-from nonebot.params import CommandArg, State
+from nonebot.params import CommandArg
 from nonebot.typing import T_State
 from nonebot_plugin_htmlrender import md_to_pic
 
@@ -72,7 +72,7 @@ mcsm_ctl = on_command("mcsm")
 @mcsm_ctl.handle()
 async def mcsm_ctl_first_handle(
     event: MessageEvent,
-    state: T_State = State(),
+    state: T_State,
     arg: Message = CommandArg(),
 ):
     if str(event.user_id) not in get_yaml_file()["trust_id"]:
@@ -102,7 +102,7 @@ async def mcsm_ctl_first_handle(
 
 
 @mcsm_ctl.got("server_id", prompt=Message.template("请输入对应服务器ID:\n{list_msg}"))
-async def mcsm_ctl_got_server_id(state: T_State = State()):
+async def mcsm_ctl_got_server_id(state: T_State):
     logger.debug(f"server_id = {state['server_id']}")
     if str(state["server_id"]) == "0":
         await mcsm_ctl.finish("已取消")
@@ -110,13 +110,13 @@ async def mcsm_ctl_got_server_id(state: T_State = State()):
 
 
 @mcsm_ctl.got("user_code", prompt=Message.template("请输入验证码: {code}"))
-async def mcsm_ctl_got_user_code(state: T_State = State()):
+async def mcsm_ctl_got_user_code(state: T_State):
     if str(state["user_code"]) != state["code"]:
         await mcsm_ctl.finish("已取消")
 
 
 @mcsm_ctl.handle()
-async def mcsm_ctl_finally(state: T_State = State()):
+async def mcsm_ctl_finally(state: T_State):
     try:
         if not state["server_name"]:
             server_name = state["server_list"][int(str(state["server_id"])) - 1]

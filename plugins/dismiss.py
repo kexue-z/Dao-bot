@@ -1,11 +1,10 @@
 from random import randint
 
 from nonebot import on_command
+from nonebot.log import logger
+from nonebot.permission import SUPERUSER
 from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent
 from nonebot.adapters.onebot.v11.permission import GROUP_ADMIN, GROUP_OWNER
-from nonebot.log import logger
-from nonebot.params import State
-from nonebot.permission import SUPERUSER
 
 dismiss = on_command(
     "dismiss",
@@ -16,7 +15,7 @@ dismiss = on_command(
 
 
 @dismiss.handle()
-async def d1(bot: Bot, event: GroupMessageEvent, state: dict = State()):
+async def d1(bot: Bot, event: GroupMessageEvent, state):
     code = str(randint(10, 99))
     state["code"] = code
     logger.info(f"群:{str(event.group_id)}，请求退群，验证码{code}")
@@ -24,7 +23,7 @@ async def d1(bot: Bot, event: GroupMessageEvent, state: dict = State()):
 
 
 @dismiss.got("user_code")
-async def d2(bot: Bot, event: GroupMessageEvent, state: dict = State()):
+async def d2(bot: Bot, event: GroupMessageEvent, state):
     user_code = state["user_code"]
     logger.info(f"验证码:{user_code}")
     if user_code == "0":

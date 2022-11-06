@@ -1,22 +1,22 @@
 import re
 import subprocess
 
-from nonebot import export, on_command
-from nonebot.adapters.onebot.v11 import Bot, Event, Message
+from nonebot import on_command
 from nonebot.log import logger
-from nonebot.params import CommandArg
 from nonebot.rule import ArgumentParser
-from nonebot.typing import T_State
+from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import Bot, Event, Message
 
-from .data_source import get_wolframalpha_simple, get_wolframalpha_text
+from plugins.wolfram.data_source import (get_wolframalpha_text,
+                                         get_wolframalpha_simple)
 
 __name__ = "wolfram"
 
-export = export()
-export.description = "WolframAlpha计算知识引擎"
-export.usage = "Usage:\n  wolfram {text}"
-export.options = "Options:\n  -p, --plaintext 纯文本结果"
-export.help = export.description + "\n" + export.usage + "\n" + export.options
+
+description = "WolframAlpha计算知识引擎"
+usage = "Usage:\n  wolfram {text}"
+options = "Options:\n  -p, --plaintext 纯文本结果"
+help = description + "\n" + usage + "\n" + options
 
 wolfram_parser = ArgumentParser()
 wolfram_parser.add_argument("-p", "--plaintext", type=int, default=2)
@@ -38,7 +38,7 @@ async def _(bot: Bot, event: Event, arg: Message = CommandArg()):
             break
     text = text.replace("-p", "").replace("--plaintext", "").strip()
     if not text:
-        await wolfram.finish(export.usage)
+        await wolfram.finish(usage)
 
     if not re.fullmatch(r"[\x00-\x7F]+", text):
         # TODO 翻译功能无法实现
