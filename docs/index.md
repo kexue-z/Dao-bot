@@ -203,7 +203,7 @@ boardgame --rule <rule> [--size <size>]
 - 发送消息来提示禁言和解除禁言事件
 - 与禁言功能不会同时触发
 
-## \*色图（~~基础功能~~）
+## \*色图（~~基础功能~~）\*不给你用哦
 
 如果你能读懂正则就不用看了
 
@@ -430,10 +430,6 @@ boardgame --rule <rule> [--size <size>]
   - xxx：其他任意技能名
   - 以上指令支持多个混合使用，多个参数使用空格隔开
 
-## \*Bilibili QQ 小程序转换为链接
-
-- 为了照顾某些特殊客户端，将 QQ 小程序转为链接
-- 无指令，发送 B 站视频小程序即可
 
 ## 通用订阅推送 RSS
 
@@ -501,19 +497,6 @@ boardgame --rule <rule> [--size <size>]
 - 每月限制调用次数`2000`
   - 希望你能问一下高级的问题
 
-## 新闻
-
-- 获取每日新闻
-- 指令： `/新闻` `/news`
-
-## 点歌
-
-- 参考 [MeetWq/mybot](https://github.com/MeetWq/mybot)
-- 点歌
-- 指令`/点歌` `/music` `{-s 平台} [关键词]`
-  - 平台可选：`qq` | `netease` | `kugou` | `migu` | `bilibili`
-  - 例如： `/点歌 -s netease Never Gonna Give You Up`
-
 ## bilibili 番剧查询 (坏了)
 
 - 指令 `/番剧 + [内容]`
@@ -540,17 +523,6 @@ boardgame --rule <rule> [--size <size>]
 - 指令 `/dismiss` / `/退群`
 - 仅群主或管理员才可使用
 
-## 二维码识别和生成
-
-- 识别
-  - 直接识别二维码中的信息，并转为文本发送
-  - 指令 `/qr` / `/二维码` / `/qrcode` `{图片}`
-    - 图片可在触发指令后下一条发送
-  - 指令 `/pqr` / `/前一二维码` / `/pqrcode`
-  - 识别上一条发送的图片中的二维码
-  - 多个二维码识别
-- 生成
-  - `/gqr`
 
 ## 青年大学习
 
@@ -594,6 +566,12 @@ boardgame --rule <rule> [--size <size>]
 
 - 随机猫猫 GIF
 - 指令 `/猫` `/来个猫猫` `/猫猫` `/猫图`
+
+## 头像表情包
+
+- 来源 [nonebot-plugin-petpet](https://github.com/noneplugin/nonebot-plugin-petpet)
+- 发送`/头像表情包` 来查看所有
+- 每个指令前需要添加 `/`
 
 # TODO
 
