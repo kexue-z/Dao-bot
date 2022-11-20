@@ -1,6 +1,7 @@
 FROM xana278/ubuntu-playwright-cn-python-docker-image
 
-RUN apt update && apt install -y libzbar0 git wget
+# RUN apt update && apt install -y libzbar0 git wget
+RUN apt update && apt install -y git wget
 
 COPY ./pyproject.toml ./poetry.lock* /
 
