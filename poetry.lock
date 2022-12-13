@@ -1059,14 +1059,14 @@ files = [
 
 [[package]]
 name = "isort"
-version = "5.10.1"
+version = "5.11.2"
 description = "A Python utility / library to sort Python imports."
 category = "dev"
 optional = false
-python-versions = ">=3.6.1,<4.0"
+python-versions = ">=3.7.0"
 files = [
-    {file = "isort-5.10.1-py3-none-any.whl", hash = "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7"},
-    {file = "isort-5.10.1.tar.gz", hash = "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"},
+    {file = "isort-5.11.2-py3-none-any.whl", hash = "sha256:e486966fba83f25b8045f8dd7455b0a0d1e4de481e1d7ce4669902d9fb85e622"},
+    {file = "isort-5.11.2.tar.gz", hash = "sha256:dd8bbc5c0990f2a095d754e50360915f73b4c26fc82733eb5bfc6b48396af4d2"},
 ]
 
 [package.extras]
@@ -1781,14 +1781,14 @@ sqlmodel = ">=0.0.8,<0.1.0"
 
 [[package]]
 name = "nonebot-plugin-ddcheck"
-version = "0.1.14"
+version = "0.1.15"
 description = "Nonebot2 成分姬插件"
 category = "main"
 optional = false
 python-versions = ">=3.7.3,<4.0.0"
 files = [
-    {file = "nonebot_plugin_ddcheck-0.1.14-py3-none-any.whl", hash = "sha256:9e63d1e3a6ae4d84330ded4c96c2827d2679147c0c1600a7d8936d367178e9a0"},
-    {file = "nonebot_plugin_ddcheck-0.1.14.tar.gz", hash = "sha256:2aa5c47b16290125da15eb6a1bdf7a14bb52015e48a103ba10b373fd17a810a4"},
+    {file = "nonebot_plugin_ddcheck-0.1.15-py3-none-any.whl", hash = "sha256:714894b751aeed5d21d30e98531fa48724b88ce672886d44d3332b4f051e3350"},
+    {file = "nonebot_plugin_ddcheck-0.1.15.tar.gz", hash = "sha256:4ddd1b63084b2d5d9af24d782fbbd053051122705671b14e199c11db5bb9e603"},
 ]
 
 [package.dependencies]
