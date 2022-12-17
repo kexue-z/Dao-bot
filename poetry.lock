@@ -1059,14 +1059,14 @@ files = [
 
 [[package]]
 name = "isort"
-version = "5.11.2"
+version = "5.11.3"
 description = "A Python utility / library to sort Python imports."
 category = "dev"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "isort-5.11.2-py3-none-any.whl", hash = "sha256:e486966fba83f25b8045f8dd7455b0a0d1e4de481e1d7ce4669902d9fb85e622"},
-    {file = "isort-5.11.2.tar.gz", hash = "sha256:dd8bbc5c0990f2a095d754e50360915f73b4c26fc82733eb5bfc6b48396af4d2"},
+    {file = "isort-5.11.3-py3-none-any.whl", hash = "sha256:83155ffa936239d986b0f190347a3f2285f42a9b9e1725c89d865b27dd0627e5"},
+    {file = "isort-5.11.3.tar.gz", hash = "sha256:a8ca25fbfad0f7d5d8447a4314837298d9f6b23aed8618584c894574f626b64b"},
 ]
 
 [package.extras]
@@ -1948,14 +1948,14 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.3.17.1"
+version = "0.3.18"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "nonebot_plugin_petpet-0.3.17.1-py3-none-any.whl", hash = "sha256:33462910bb81bc159fdd72c1aae5c99502f23dc9cb17a2137334b14591e8f0b8"},
-    {file = "nonebot_plugin_petpet-0.3.17.1.tar.gz", hash = "sha256:ae27ada67e1ad5cc71bfec330be663573f00d90303bace40b72555a7b2e0a139"},
+    {file = "nonebot_plugin_petpet-0.3.18-py3-none-any.whl", hash = "sha256:b0b3fcf29bc3be79c886c3534fd1cfc62915daf1b87ec46b7282d6a5bb46fd7b"},
+    {file = "nonebot_plugin_petpet-0.3.18.tar.gz", hash = "sha256:c03c7298e1cfb73a049b463be72c541d792ea62e18c7a1e2a30bec3c81ca91fd"},
 ]
 
 [package.dependencies]
@@ -1983,14 +1983,14 @@ nonebot2 = ">=2.0.0-beta.4,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-setu-now"
-version = "0.4.1"
+version = "0.4.3"
 description = "另一个色图插件"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "nonebot_plugin_setu_now-0.4.1-py3-none-any.whl", hash = "sha256:1bbf717eb5004b099963f564a5bf5fc82eb382ec0e99b5de77080a0712358c6a"},
-    {file = "nonebot_plugin_setu_now-0.4.1.tar.gz", hash = "sha256:31bc17ab3693546f10e5bf9842cbda77025d0a37c83c752c06f68953d47a9b85"},
+    {file = "nonebot_plugin_setu_now-0.4.3-py3-none-any.whl", hash = "sha256:7745edddf90fd09807b19b2e4e4903a1d9309ba2aebda271f24f437d9468b5e8"},
+    {file = "nonebot_plugin_setu_now-0.4.3.tar.gz", hash = "sha256:0e4f09898176e2576298497fe92e53e4903a89e8ec592e39c55146b7bb5a0258"},
 ]
 
 [package.dependencies]
