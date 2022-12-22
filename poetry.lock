@@ -240,21 +240,22 @@ test = ["flake8 (>=5.0.4,<5.1.0)", "uvloop (>=0.15.3)"]
 
 [[package]]
 name = "attrs"
-version = "22.1.0"
+version = "22.2.0"
 description = "Classes Without Boilerplate"
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 files = [
-    {file = "attrs-22.1.0-py2.py3-none-any.whl", hash = "sha256:86efa402f67bf2df34f51a335487cf46b1ec130d02b8d39fd248abfd30da551c"},
-    {file = "attrs-22.1.0.tar.gz", hash = "sha256:29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"},
+    {file = "attrs-22.2.0-py3-none-any.whl", hash = "sha256:29e95c7f6778868dbd49170f98f8818f78f3dc5e0e37c0b1f474e3561b240836"},
+    {file = "attrs-22.2.0.tar.gz", hash = "sha256:c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"},
 ]
 
 [package.extras]
-dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
-docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
-tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
-tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
+cov = ["attrs[tests]", "coverage-enable-subprocess", "coverage[toml] (>=5.3)"]
+dev = ["attrs[docs,tests]"]
+docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier", "zope.interface"]
+tests = ["attrs[tests-no-zope]", "zope.interface"]
+tests-no-zope = ["cloudpickle", "cloudpickle", "hypothesis", "hypothesis", "mypy (>=0.971,<0.990)", "mypy (>=0.971,<0.990)", "pympler", "pympler", "pytest (>=4.3.0)", "pytest (>=4.3.0)", "pytest-mypy-plugins", "pytest-mypy-plugins", "pytest-xdist[psutil]", "pytest-xdist[psutil]"]
 
 [[package]]
 name = "bbcode"
@@ -495,14 +496,14 @@ unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "chess"
-version = "1.9.3"
+version = "1.9.4"
 description = "A chess library with move generation and validation, Polyglot opening book probing, PGN reading and writing, Gaviota tablebase probing, Syzygy tablebase probing, and XBoard/UCI engine communication."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "chess-1.9.3-py3-none-any.whl", hash = "sha256:a27c45707671d413d045ab2ee8b765c98bfb1bf7ba093a704cfed7e4f758fd58"},
-    {file = "chess-1.9.3.tar.gz", hash = "sha256:6a430cd4666ad6c757d62576fb3ae2112502620922fd904df1af680dfcd07692"},
+    {file = "chess-1.9.4-py3-none-any.whl", hash = "sha256:44d471b1ba71a4287c1bb9af3d6b472df37f07686ec52d5d5feb982b0fcfad34"},
+    {file = "chess-1.9.4.tar.gz", hash = "sha256:7f42d664f8975abe46e34bd7d131efd2bba65dc78bd1c226f554eb6ca4a9b381"},
 ]
 
 [[package]]
@@ -1046,14 +1047,14 @@ files = [
 
 [[package]]
 name = "isort"
-version = "5.11.3"
+version = "5.11.4"
 description = "A Python utility / library to sort Python imports."
 category = "dev"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "isort-5.11.3-py3-none-any.whl", hash = "sha256:83155ffa936239d986b0f190347a3f2285f42a9b9e1725c89d865b27dd0627e5"},
-    {file = "isort-5.11.3.tar.gz", hash = "sha256:a8ca25fbfad0f7d5d8447a4314837298d9f6b23aed8618584c894574f626b64b"},
+    {file = "isort-5.11.4-py3-none-any.whl", hash = "sha256:c033fd0edb91000a7f09527fe5c75321878f98322a77ddcc81adbd83724afb7b"},
+    {file = "isort-5.11.4.tar.gz", hash = "sha256:6db30c5ded9815d813932c04c2f85a360bcdd35fed496f4d8f35495ef0a261b6"},
 ]
 
 [package.extras]
@@ -2301,19 +2302,19 @@ test = ["appdirs (==1.4.4)", "pytest (>=7.2)", "pytest-cov (>=4)", "pytest-mock 
 
 [[package]]
 name = "playwright"
-version = "1.28.0"
+version = "1.29.0"
 description = "A high-level API to automate web browsers"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "playwright-1.28.0-py3-none-macosx_10_13_x86_64.whl", hash = "sha256:2e101b17e4d5252ef96c9dc8b2ac17f2980dde0420728c1c96a77eeaf6f9b11f"},
-    {file = "playwright-1.28.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:265f47aaa42c7986316100f5f468f8654e9a1609c2a2578743e25d058bddc1e6"},
-    {file = "playwright-1.28.0-py3-none-macosx_11_0_universal2.whl", hash = "sha256:a21ddd7b6f6afd434a73471f7cd39673286f0ca88b62b756d90264eb7b5a7daf"},
-    {file = "playwright-1.28.0-py3-none-manylinux1_x86_64.whl", hash = "sha256:96a2d63954098233bbfc48b874f2a8e7cf0c64d7fcae24469571b0fb90ebe00f"},
-    {file = "playwright-1.28.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:074f73c17971f233903949492f31113bfbc2f1e2e85da7c1c03a15e5008b529f"},
-    {file = "playwright-1.28.0-py3-none-win32.whl", hash = "sha256:8557d92718ce45814aff017fa1774ab92089e40b6c16a8073d5a7c4d583d4aed"},
-    {file = "playwright-1.28.0-py3-none-win_amd64.whl", hash = "sha256:794b9da616c03354a12e48ddf060a9e776ab59b90662b0131ff74ec1b25739f4"},
+    {file = "playwright-1.29.0-py3-none-macosx_10_13_x86_64.whl", hash = "sha256:c7a4fc12f15fb24fdb810503a6e08db81d38805f739b252645c3eede357e9918"},
+    {file = "playwright-1.29.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:b8c2317789ae2cbca1e345f421dfa6082dac0910a4d0f57f345a395cb9e57197"},
+    {file = "playwright-1.29.0-py3-none-macosx_11_0_universal2.whl", hash = "sha256:84ae9f999d57463d6450fd4fb3e9e70695fb2b87c4ca76f4459f054ab6fa6583"},
+    {file = "playwright-1.29.0-py3-none-manylinux1_x86_64.whl", hash = "sha256:f9849cb83041a8bff69c7899ab1aef8066e3eb422b437c9c7a3772c22f432323"},
+    {file = "playwright-1.29.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2ef51608b56fe7699b7e1e3b7e8484d3677e2bc9054afc78d28489e060300e2b"},
+    {file = "playwright-1.29.0-py3-none-win32.whl", hash = "sha256:9203d2977ec9e6716ff5611eb786e838c15742cca1dea4cc1d85de3e699ad25a"},
+    {file = "playwright-1.29.0-py3-none-win_amd64.whl", hash = "sha256:8a283d52d1d10a636ba7ce4f90d0d6fd611ee45c8c8f3eaae03b27596439c7fd"},
 ]
 
 [package.dependencies]
@@ -2892,14 +2893,14 @@ sqlcipher = ["sqlcipher3-binary"]
 
 [[package]]
 name = "sqlalchemy2-stubs"
-version = "0.0.2a30"
+version = "0.0.2a31"
 description = "Typing Stubs for SQLAlchemy 1.4"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "sqlalchemy2-stubs-0.0.2a30.tar.gz", hash = "sha256:a6e7606741cbe471215ff5121ceb3b46e52eca829efad1e12c316d1c269a2562"},
-    {file = "sqlalchemy2_stubs-0.0.2a30-py3-none-any.whl", hash = "sha256:44fa604e4bf8108e931a629fc72df2a95dbe0b2c1bd16f3f4f735c7aabc2f9e3"},
+    {file = "sqlalchemy2-stubs-0.0.2a31.tar.gz", hash = "sha256:18e70515eec96c48825f3e1da0c60b04e155593213e25eb28c4cee994a315e4d"},
+    {file = "sqlalchemy2_stubs-0.0.2a31-py3-none-any.whl", hash = "sha256:515a97fbe4b7cd299b43166c51ce6f356f1222128bf2ba57b0619ce8d89dfab4"},
 ]
 
 [package.dependencies]
