@@ -719,14 +719,14 @@ tests = ["coverage", "coveralls", "dill", "mock", "nose"]
 
 [[package]]
 name = "fastapi"
-version = "0.89.0"
+version = "0.89.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "fastapi-0.89.0-py3-none-any.whl", hash = "sha256:34990132751324c988db7bd15bf43a86f5c8580e58a4438e14b12d72fb0ae1d1"},
-    {file = "fastapi-0.89.0.tar.gz", hash = "sha256:d8cafbd223b5a3c010119ba61fb246d5fd3b8f4766cfa93f922a416650797976"},
+    {file = "fastapi-0.89.1-py3-none-any.whl", hash = "sha256:f9773ea22290635b2f48b4275b2bf69a8fa721fda2e38228bed47139839dc877"},
+    {file = "fastapi-0.89.1.tar.gz", hash = "sha256:15d9271ee52b572a015ca2ae5c72e1ce4241dd8532a534ad4f7ec70c376a580f"},
 ]
 
 [package.dependencies]
@@ -1941,14 +1941,14 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-petpet"
-version = "0.3.18"
+version = "0.3.19"
 description = "Nonebot2 plugin for making fun pictures"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "nonebot_plugin_petpet-0.3.18-py3-none-any.whl", hash = "sha256:b0b3fcf29bc3be79c886c3534fd1cfc62915daf1b87ec46b7282d6a5bb46fd7b"},
-    {file = "nonebot_plugin_petpet-0.3.18.tar.gz", hash = "sha256:c03c7298e1cfb73a049b463be72c541d792ea62e18c7a1e2a30bec3c81ca91fd"},
+    {file = "nonebot_plugin_petpet-0.3.19-py3-none-any.whl", hash = "sha256:cfd033f8c9840ca6f989d08756ed14fbb765d71080d84ce96e5ed30b6114314a"},
+    {file = "nonebot_plugin_petpet-0.3.19.tar.gz", hash = "sha256:8795a938d4980f6b8934253a7e4af24bff2fc2a2555160e89054c450c13d2988"},
 ]
 
 [package.dependencies]
@@ -2193,14 +2193,14 @@ numpy = [
 
 [[package]]
 name = "packaging"
-version = "22.0"
+version = "23.0"
 description = "Core utilities for Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "packaging-22.0-py3-none-any.whl", hash = "sha256:957e2148ba0e1a3b282772e791ef1d8083648bc131c8ab0c1feba110ce1146c3"},
-    {file = "packaging-22.0.tar.gz", hash = "sha256:2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"},
+    {file = "packaging-23.0-py3-none-any.whl", hash = "sha256:714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2"},
+    {file = "packaging-23.0.tar.gz", hash = "sha256:b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"},
 ]
 
 [[package]]
