@@ -1,25 +1,28 @@
 plugins:
+  - nonebot_plugin_apscheduler
+  - nonebot_plugin_datastore
   - nonebot_plugin_htmlrender
   - nonebot_plugin_heweather
-  - nonebot_plugin_remake
-  - nonebot_plugin_setu_now
-  - nonebot_plugin_trpglogger
-  - nonebot_plugin_cocdicer
+  # - nonebot_plugin_remake
+  # - nonebot_plugin_setu_now
+  # - nonebot_plugin_trpglogger
+  # - nonebot_plugin_cocdicer
   - nonebot_plugin_word_bank2
   - nonebot_plugin_petpet
   - nonebot_plugin_manager
   - nonebot_plugin_withdraw
   - nonebot_bison
-  - nonebot_plugin_hikarisearch
-  - nonebot_plugin_youthstudy
-  # - nonebot_plugin_qrcode
-  - nonebot_plugin_minesweeper
-  - nonebot_plugin_chess
-  - nonebot_plugin_cchess
-  - nonebot_plugin_emojimix
-  - nonebot_plugin_shindan
-  - nonebot_plugin_ddcheck
-  - nonebot_plugin_dailysign
+  # - nonebot_plugin_hikarisearch
+  # - nonebot_plugin_youthstudy
+  # - nonebot_plugin_minesweeper
+  # - nonebot_plugin_cchess
+  # - nonebot_plugin_chess
+  # - nonebot_plugin_boardgame
+  # - nonebot_plugin_ddcheck
+  # - nonebot_plugin_shindan
+  # - nonebot_plugin_emojimix
+  # - nonebot_plugin_dailysign
+  # - nonebot_plugin_antiflash
 
 plugin_dirs:
   - plugins
