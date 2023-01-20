@@ -30,7 +30,6 @@ driver.register_adapter(Adapter)
 
 all_plugins = load_yaml("config/plugins.yaml")
 nonebot.load_all_plugins(all_plugins["plugins"], all_plugins["plugin_dirs"])  # type: ignore
-nonebot.load_plugin(Path("./plugins/nonebot_plugin_novelai/nonebot_plugin_novelai"))
 
 
 if __name__ == "__main__":

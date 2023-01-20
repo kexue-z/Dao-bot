@@ -64,7 +64,10 @@ datastore_config_dir: /nonebot/data/datastore/config
 datastore_data_dir: /nonebot/data/datastore/data
 # datastore_database_url: sqlite+aiosqlite:///nonebot/data/data.db
 
-NOVELAI_MODE: sd
-NOVELAI_SITE: 192.168.0.29:7860
-NOVELAI_SAVE: 0
-NOVELAI_PURE: true
+novelai_mode: sd
+novelai_site: 192.168.0.29:7860
+novelai_save: 1
+novelai_pure: true
+novelai_cd: 10
+novelai_h: true
+novelai_paid: 3
