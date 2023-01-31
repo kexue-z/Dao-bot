@@ -201,14 +201,14 @@ files = [
 
 [[package]]
 name = "beautifulsoup4"
-version = "4.11.1"
+version = "4.11.2"
 description = "Screen-scraping library"
 category = "main"
 optional = false
 python-versions = ">=3.6.0"
 files = [
-    {file = "beautifulsoup4-4.11.1-py3-none-any.whl", hash = "sha256:58d5c3d29f5a36ffeb94f02f0d786cd53014cf9b3b3951d42e0080d8a9498d30"},
-    {file = "beautifulsoup4-4.11.1.tar.gz", hash = "sha256:ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"},
+    {file = "beautifulsoup4-4.11.2-py3-none-any.whl", hash = "sha256:0e79446b10b3ecb499c1556f7e228a53e64a2bfcebd455f370d8927cb5b59e39"},
+    {file = "beautifulsoup4-4.11.2.tar.gz", hash = "sha256:bc4bdda6717de5a2987436fb8d72f45dc90dd856bdfd512a1314ce90349a0106"},
 ]
 
 [package.dependencies]
@@ -559,12 +559,18 @@ python-versions = "*"
 files = [
     {file = "diro_py-0.1.1-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:62d5d89150e65178dc06e0da7c9367582fbba6e17bdcb23d27b36688858513f6"},
     {file = "diro_py-0.1.1-cp310-none-win_amd64.whl", hash = "sha256:6d974420a88c8e119d919b5839aed825d5a59f0e438c312ab2b464a36d745430"},
+    {file = "diro_py-0.1.1-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ee021619d93d276e6e74ed3e113be9b6d4cb5050848e2c0780302c1e8435da4d"},
+    {file = "diro_py-0.1.1-cp37-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:33d0f7423895a820d8814c402cb569a5eef8a66cf41b5350fb462dd9b2a0153e"},
+    {file = "diro_py-0.1.1-cp37-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f304f3a5c488ac3c866a367ec124cc00e207737926a71f8f6e3560eded5fcbb9"},
+    {file = "diro_py-0.1.1-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:06f08bcd522005832d51755e6aa91a26c4a2f25f90b0315685a6e447b9a7fa0a"},
+    {file = "diro_py-0.1.1-cp37-abi3-win_amd64.whl", hash = "sha256:21744ed1490bf521de5a041c8363050e302a70acc3269779e13772c9a8154514"},
     {file = "diro_py-0.1.1-cp37-cp37m-manylinux_2_28_x86_64.whl", hash = "sha256:23195138167fbd58aea49b35a57b674fb59436d6344d0c3ed559fd8ba8d284a3"},
     {file = "diro_py-0.1.1-cp37-none-win_amd64.whl", hash = "sha256:c43bc10a2498b44c4ad0b3509a52825c8bc83fba439f3b17f1b9b67cecd0927c"},
     {file = "diro_py-0.1.1-cp38-cp38-manylinux_2_28_x86_64.whl", hash = "sha256:699e7d2d2673a41d1cdbcbdaf25196ea8850d7e1a2934bc7efed92e66440460f"},
     {file = "diro_py-0.1.1-cp38-none-win_amd64.whl", hash = "sha256:5ecfd9b110158316179ff254c5044349001ac50fae753a20e688d0ec5d48efb4"},
     {file = "diro_py-0.1.1-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:f20aca59ff76c15f053e6a105ebab64bb787d40485d9332937b67786ad4be410"},
     {file = "diro_py-0.1.1-cp39-none-win_amd64.whl", hash = "sha256:b769e3683b35b23a65c3f84947cb0298f3b787f93099cdf72656688b7e0de409"},
+    {file = "diro_py-0.1.1.tar.gz", hash = "sha256:30c6fa683f29ae411319ef083d9ee203bad79f72bafb62154622d5bd59e2c03c"},
 ]
 
 [[package]]
@@ -1639,25 +1645,25 @@ nonebot2 = ">=2.0.0-beta.4,<3.0.0"
 
 [[package]]
 name = "nonebot-plugin-htmlrender"
-version = "0.2.0.1"
+version = "0.2.0.3"
 description = "通过浏览器渲染图片"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "nonebot-plugin-htmlrender-0.2.0.1.tar.gz", hash = "sha256:a6eb0b22dc66040c215cf60961bc1aec3d1670a4ba70a40b3c0590718a9525ba"},
-    {file = "nonebot_plugin_htmlrender-0.2.0.1-py3-none-any.whl", hash = "sha256:ba3d03688c1b680bc44e87aa60f5adcf5bab0421458a31ed7a3aa7cfd8fca42b"},
+    {file = "nonebot_plugin_htmlrender-0.2.0.3-py3-none-any.whl", hash = "sha256:2a45d811513bd03dfe6825f6229f50f1e65a390d4ae9c5413184d6de42147147"},
+    {file = "nonebot_plugin_htmlrender-0.2.0.3.tar.gz", hash = "sha256:d7e0432ebb78abbc7d934141902722d36334ef12921f640da4c90dedb62452fb"},
 ]
 
 [package.dependencies]
-aiofiles = ">=0.8.0,<0.9.0"
-jinja2 = ">=3.0.3,<4.0.0"
-markdown = ">=3.3.6,<4.0.0"
-nonebot2 = ">=2.0.0-beta.1,<3.0.0"
-playwright = ">=1.17.2,<2.0.0"
-Pygments = ">=2.10.0,<3.0.0"
-pymdown-extensions = ">=9.1,<10.0"
-python-markdown-math = ">=0.8,<0.9"
+aiofiles = ">=0.8.0"
+jinja2 = ">=3.0.3"
+markdown = ">=3.3.6"
+nonebot2 = ">=2.0.0-beta.1"
+playwright = ">=1.17.2"
+Pygments = ">=2.10.0"
+pymdown-extensions = ">=9.1"
+python-markdown-math = ">=0.8"
 
 [[package]]
 name = "nonebot-plugin-imageutils"
