@@ -1738,20 +1738,20 @@ ujson = ">=4.0.0"
 
 [[package]]
 name = "nonebot-plugin-datastore"
-version = "0.5.8"
+version = "0.5.9"
 description = "适用于 Nonebot2 的数据存储插件"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "nonebot_plugin_datastore-0.5.8-py3-none-any.whl", hash = "sha256:4a5635d2b5e6fc9646602b165f18661d4cb8b53e465b76fa30ed96a516cf4bf9"},
-    {file = "nonebot_plugin_datastore-0.5.8.tar.gz", hash = "sha256:f71c1c185012c0ba0f2a3b3fd13f5814c84f8a08aaf81691ec550862d1d118d7"},
+    {file = "nonebot_plugin_datastore-0.5.9-py3-none-any.whl", hash = "sha256:fe23c791133eba59bb1f7aaa382841fa621687563dda2bfbf67f51fc0f010d7c"},
+    {file = "nonebot_plugin_datastore-0.5.9.tar.gz", hash = "sha256:1093929fe87ae386a2fab58d0e095d3b5bef049e8bbf63b9d28d4b0ae587804b"},
 ]
 
 [package.dependencies]
 aiosqlite = ">=0.17,<0.19"
 alembic = ">=1.9.1,<2.0.0"
-nonebot-plugin-localstore = ">=0.2.0,<0.3.0 || >0.3.0,<0.4.0"
+nonebot-plugin-localstore = ">=0.2.0,<0.3.0 || >0.3.0,<0.4.0 || >0.4.0,<0.5.0"
 nonebot2 = {version = ">=2.0.0-rc.1,<3.0.0", extras = ["httpx"]}
 sqlmodel = ">=0.0.8,<0.1.0"
 
@@ -1841,18 +1841,19 @@ Pillow = ">=9.0.0,<10.0.0"
 
 [[package]]
 name = "nonebot-plugin-localstore"
-version = "0.3.1"
+version = "0.4.1"
 description = "Local Storage Support for NoneBot2"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "nonebot_plugin_localstore-0.3.1-py3-none-any.whl", hash = "sha256:5a03e731a354105741852121fa6fa30508ad9c1b93eb9f42f8ba02924128a985"},
-    {file = "nonebot_plugin_localstore-0.3.1.tar.gz", hash = "sha256:fa332f5b887d8a77aaffc48a30e8f57a8c668bb761b678822f64075eec3dfa4e"},
+    {file = "nonebot_plugin_localstore-0.4.1-py3-none-any.whl", hash = "sha256:dea442fcf8baa5898c15ccea761703cdde46e6fc6bb1c886261b0ab793db8193"},
+    {file = "nonebot_plugin_localstore-0.4.1.tar.gz", hash = "sha256:9b6dcb98f6a4e48c5c80b2319acc2e1c424462261a210491d437f5b96abb5d67"},
 ]
 
 [package.dependencies]
 nonebot2 = ">=2.0.0-rc.1,<3.0.0"
+typing-extensions = ">=4.0.0"
 
 [[package]]
 name = "nonebot-plugin-manager"
@@ -2478,14 +2479,14 @@ six = ">=1.5"
 
 [[package]]
 name = "python-dotenv"
-version = "0.21.1"
+version = "1.0.0"
 description = "Read key-value pairs from a .env file and set them as environment variables"
 category = "main"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "python-dotenv-0.21.1.tar.gz", hash = "sha256:1c93de8f636cde3ce377292818d0e440b6e45a82f215c3744979151fa8151c49"},
-    {file = "python_dotenv-0.21.1-py3-none-any.whl", hash = "sha256:41e12e0318bebc859fcc4d97d4db8d20ad21721a6aa5047dd59f090391cb549a"},
+    {file = "python-dotenv-1.0.0.tar.gz", hash = "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba"},
+    {file = "python_dotenv-1.0.0-py3-none-any.whl", hash = "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"},
 ]
 
 [package.extras]
