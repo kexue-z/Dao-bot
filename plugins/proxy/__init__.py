@@ -19,7 +19,7 @@ clash_url = nonebot.get_driver().config.clash_url
 async def _(bot: Bot, event: Event):
     async with AsyncClient() as client:
         res = await client.get(clash_url)
-        with open("./data/clash/config.yaml", "wb") as f:
+        with open("./data/clash/config.yaml", "wb+") as f:
             f.write(res.content)
     await update_Porxy.send("已保存config.yaml")
 
