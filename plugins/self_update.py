@@ -1,8 +1,8 @@
 from httpx import AsyncClient
-from nonebot import get_driver, on_command
 from nonebot.log import logger
+from pydantic import Extra, BaseModel
 from nonebot.permission import SUPERUSER
-from pydantic import BaseModel, Extra
+from nonebot import get_driver, on_command
 
 
 class Config(BaseModel, extra=Extra.ignore):

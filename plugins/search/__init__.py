@@ -1,5 +1,5 @@
-from .baidu import *
 from .geng import *
+from .baidu import *
 
 # from nonebot import on_command
 # from nonebot.adapters.cqhttp import Bot, MessageEvent, MessageSegment

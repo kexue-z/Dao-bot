@@ -4,8 +4,8 @@ from re import findall
 import httpx
 from httpx import AsyncClient
 from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 from nonebot.log import logger
+from nonebot.adapters.onebot.v11 import Bot, MessageEvent, MessageSegment
 
 __name__ = "news"
 api_url = "https://api.iyk0.com/60s/"

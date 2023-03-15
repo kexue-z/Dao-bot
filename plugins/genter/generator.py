@@ -1,6 +1,6 @@
-from decimal import ROUND_HALF_UP, Decimal
-from math import cos, radians, sin, tan
 from os import path
+from math import cos, sin, tan, radians
+from decimal import ROUND_HALF_UP, Decimal
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -69,7 +69,6 @@ def createLinearGradient(steps, width, height, size=1, center=0.5):
 
 
 def genBaseImage(width=1500, height=500):
-
     k = 0.63  # 渐变色缩放系数，不应大于1
     c = 0.53  # 渐变色中心位置
 

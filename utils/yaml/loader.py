@@ -1,18 +1,18 @@
 """Custom loader."""
 from __future__ import annotations
 
+import os
 import fnmatch
 import logging
-import os
+from pathlib import Path
 from collections import OrderedDict
 from collections.abc import Iterator
-from pathlib import Path
-from typing import Any, TextIO, TypeVar, Union, overload
+from typing import Any, Union, TextIO, TypeVar, overload
 
 import yaml
 
 from .const import SECRET_YAML
-from .objects import Input, NodeListClass, NodeStrClass
+from .objects import Input, NodeStrClass, NodeListClass
 
 # from homeassistant.exceptions import HomeAssistantError
 

@@ -1,10 +1,10 @@
-from http.cookies import SimpleCookie
 from typing import Union
+from http.cookies import SimpleCookie
 
 import httpx
 import requests
-from nonebot.adapters.onebot.v11 import MessageSegment
 from nonebot.log import logger
+from nonebot.adapters.onebot.v11 import MessageSegment
 
 from .qcloud_client import QCloudClient
 

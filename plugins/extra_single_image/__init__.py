@@ -1,7 +1,7 @@
 import base64
 
-from httpx import HTTPError, AsyncClient
 from nonebot import on_command
+from httpx import HTTPError, AsyncClient
 from nonebot.adapters.onebot.v11 import MessageEvent, MessageSegment
 
 url = "http://192.168.0.29:7860/sdapi/v1/extra-single-image"

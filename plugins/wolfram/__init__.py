@@ -3,12 +3,11 @@ import subprocess
 
 from nonebot import on_command
 from nonebot.log import logger
-from nonebot.rule import ArgumentParser
 from nonebot.params import CommandArg
+from nonebot.rule import ArgumentParser
 from nonebot.adapters.onebot.v11 import Bot, Event, Message
 
-from plugins.wolfram.data_source import (get_wolframalpha_text,
-                                         get_wolframalpha_simple)
+from plugins.wolfram.data_source import get_wolframalpha_text, get_wolframalpha_simple
 
 __name__ = "wolfram"
 

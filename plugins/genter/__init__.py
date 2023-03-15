@@ -1,6 +1,6 @@
 from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Bot, Message, MessageEvent, MessageSegment
 from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import Bot, Message, MessageEvent, MessageSegment
 
 from utils.img2b64 import *
 

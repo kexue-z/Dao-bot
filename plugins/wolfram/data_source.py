@@ -5,8 +5,8 @@ import urllib.parse
 import aiohttp
 import wolframalpha
 from nonebot import get_driver
-from nonebot.adapters.onebot.v11 import MessageSegment
 from nonebot.log import logger
+from nonebot.adapters.onebot.v11 import MessageSegment
 
 from .config import Config
 

@@ -1,8 +1,8 @@
 from urllib.parse import quote
 
 from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Message, MessageSegment
 from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import Message, MessageSegment
 
 baidu_url = "https://www.baidu.com/s?wd="
 

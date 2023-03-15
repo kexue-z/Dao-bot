@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import json
+import time
 import socket
 import struct
-import time
 
 import dns.resolver
 

@@ -1,6 +1,6 @@
-from nonebot import on_command, on_keyword
-from nonebot.matcher import Matcher
 from nonebot.rule import to_me
+from nonebot.matcher import Matcher
+from nonebot import on_command, on_keyword
 
 message = "https://kexue-z.github.io/Dao-bot/"
 

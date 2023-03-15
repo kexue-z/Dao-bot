@@ -1,10 +1,10 @@
 from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Message
 from nonebot.matcher import Matcher
-from nonebot.params import CommandArg
 from nonebot.typing import T_Handler
+from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import Message
 
-from .data_source import search_song, sources
+from .data_source import sources, search_song
 
 __des__ = "点歌"
 __cmd__ = """

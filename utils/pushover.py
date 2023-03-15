@@ -1,7 +1,7 @@
 import time
 from typing import Optional
 
-from httpx import AsyncClient, Response, post
+from httpx import Response, AsyncClient, post
 
 url = "https://api.pushover.net/1/messages.json"
 

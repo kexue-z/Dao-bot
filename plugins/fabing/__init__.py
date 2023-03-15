@@ -1,11 +1,11 @@
 from json import loads
 from random import choice
-from time import localtime, strftime
+from time import strftime, localtime
 
 from anyio import open_file
 from nonebot import on_command
-from nonebot.adapters.onebot.v11 import Message, MessageSegment, escape
 from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import Message, MessageSegment, escape
 
 # from nonebot.utils import unescape
 fabing = on_command("fabing", aliases={"发病"})
