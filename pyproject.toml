@@ -29,7 +29,8 @@ nonebot-plugin-setu-now = ">=0.4.0"
 nonebot-bison = ">=0.6"
 aiohttp = ">=0.0.1"
 # nonebot-plugin-cocdicer = ">=0.0.1"
-nonebot-plugin-chatgpt-turbo = "^0.2.3"
+nonebot-plugin-chatgpt-turbo = ">=0.2.3"
+nonebot-plugin-dailysign = "^0.0.2"
 
 [tool.poetry.dev-dependencies]
 black = { version = ">=21.10b0", allow-prereleases = true }
