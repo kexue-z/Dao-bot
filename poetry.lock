@@ -766,14 +766,14 @@ pyflakes = ">=3.0.0,<3.1.0"
 
 [[package]]
 name = "fonttools"
-version = "4.39.0"
+version = "4.39.2"
 description = "Tools to manipulate font files"
 category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fonttools-4.39.0-py3-none-any.whl", hash = "sha256:f5e764e1fd6ad54dfc201ff32af0ba111bcfbe0d05b24540af74c63db4ed6390"},
-    {file = "fonttools-4.39.0.zip", hash = "sha256:909c104558835eac27faeb56be5a4c32694192dca123d073bf746ce9254054af"},
+    {file = "fonttools-4.39.2-py3-none-any.whl", hash = "sha256:85245aa2fd4cf502a643c9a9a2b5a393703e150a6eaacc3e0e84bb448053f061"},
+    {file = "fonttools-4.39.2.zip", hash = "sha256:e2d9f10337c9e3b17f9bce17a60a16a885a7d23b59b7f45ce07ea643e5580439"},
 ]
 
 [package.extras]
@@ -2642,14 +2642,14 @@ cli = ["click (>=5.0)"]
 
 [[package]]
 name = "python-engineio"
-version = "4.3.4"
+version = "4.4.0"
 description = "Engine.IO server and client for Python"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "python-engineio-4.3.4.tar.gz", hash = "sha256:d8d8b072799c36cadcdcc2b40d2a560ce09797ab3d2d596b2ad519a5e4df19ae"},
-    {file = "python_engineio-4.3.4-py3-none-any.whl", hash = "sha256:7454314a529bba20e745928601ffeaf101c1b5aca9a6c4e48ad397803d10ea0c"},
+    {file = "python-engineio-4.4.0.tar.gz", hash = "sha256:bcc035c70ecc30acc3cfd49ef19aca6c51fa6caaadd0fa58c2d7480f50d04cf2"},
+    {file = "python_engineio-4.4.0-py3-none-any.whl", hash = "sha256:11f9c35b775fe70e0a25f67b16d5b69fbfafc368cdd87eeb6f4135a475c88e50"},
 ]
 
 [package.extras]
@@ -3156,14 +3156,14 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "uvicorn"
-version = "0.21.0"
+version = "0.21.1"
 description = "The lightning-fast ASGI server."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "uvicorn-0.21.0-py3-none-any.whl", hash = "sha256:e69e955cb621ae7b75f5590a814a4fcbfb14cb8f44a36dfe3c5c75ab8aee3ad5"},
-    {file = "uvicorn-0.21.0.tar.gz", hash = "sha256:8635a388062222082f4b06225b867b74a7e4ef942124453d4d1d1a5cb3750932"},
+    {file = "uvicorn-0.21.1-py3-none-any.whl", hash = "sha256:e47cac98a6da10cd41e6fd036d472c6f58ede6c5dbee3dbee3ef7a100ed97742"},
+    {file = "uvicorn-0.21.1.tar.gz", hash = "sha256:0fac9cb342ba099e0d582966005f3fdba5b0290579fed4a6266dc702ca7bb032"},
 ]
 
 [package.dependencies]
