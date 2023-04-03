@@ -1,6 +1,6 @@
 host: 0.0.0.0
 port: 9901
-# debug:
+
 superusers: !secret superusers
 nickname:
   - 屑岛风
@@ -30,7 +30,7 @@ wolframalpha_appid: !secret wolframalpha_appid
 # proxy
 clash_url: !secret clash_url
 docker_url: http://192.168.0.49:2350/
-proxy_url: http://192.168.0.49:9091/
+proxy_url: http://192.168.0.49:7890/
 
 # setu
 setu_cd: 300
@@ -71,3 +71,5 @@ novelai_pure: true
 novelai_cd: 10
 novelai_h: true
 novelai_paid: 3
+
+aidraw_api: http://192.168.0.29:7860

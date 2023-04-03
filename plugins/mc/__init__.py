@@ -42,12 +42,14 @@ def generate_server_list() -> dict:
 
 
 def server_todo(todo: str) -> str:
-    if todo in ("on", "start", "开服"):
+    if todo in ("on", "start", "开服", "open"):
         return "open"
-    elif todo in ("off", "stop", "关服"):
+    elif todo in ("off", "stop", "关服", "stop"):
         return "stop"
     elif todo in ("restart", "重启"):
         return "restart"
+    elif todo in ("kill", "终止", "强关"):
+        return "kill"
     return ""
 
 

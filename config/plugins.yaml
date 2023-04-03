@@ -1,14 +1,19 @@
 plugins:
-  - nonebot_plugin_apscheduler
-  - nonebot_plugin_datastore
-  - nonebot_plugin_htmlrender
+  # - nonebot_plugin_apscheduler
+  # - nonebot_plugin_datastore
+  # - nonebot_plugin_htmlrender
+  # - nonebot_plugin_localstore
   - nonebot_plugin_heweather
   - nonebot_plugin_word_bank2
-  - nonebot_plugin_petpet
+  # - nonebot_plugin_petpet
   - nonebot_plugin_manager
   - nonebot_plugin_withdraw
   - nonebot_bison
-  - nonebot-plugin-cocdicer
+  # - nonebot_plugin_cocdicer
+  # - nonebot_plugin_novelai
+  # - nonebot_plugin_chatgpt_turbo
+  - nonebot_plugin_setu_now
+  # - nonebot_plugin_novelai
 
 plugin_dirs:
   - plugins
