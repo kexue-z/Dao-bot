@@ -29,8 +29,8 @@ wolframalpha_appid: !secret wolframalpha_appid
 
 # proxy
 clash_url: !secret clash_url
-docker_url: http://192.168.0.49:2350/
-proxy_url: http://192.168.0.49:7890/
+docker_url: http://192.168.0.78:2375/
+proxy_url: http://192.168.0.78:9091/
 
 # setu
 setu_cd: 300
