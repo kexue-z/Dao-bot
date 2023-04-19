@@ -5,24 +5,23 @@ from nonebot.log import logger
 from nonebot.typing import T_State
 from nonebot.params import CommandArg
 from nonebot import require, on_command
+from nonebot.permission import SUPERUSER
 from nonebot.adapters.onebot.v11 import (
+    Bot,
+    Event,
     Message,
     MessageEvent,
     MessageSegment,
-    Bot,
-    Event,
 )
-from nonebot.permission import SUPERUSER, SuperUser
 
-from .models import MCTrustIDs, MCServers
 from .mcsm import *
 from .mcping import ping
-
+from .models import MCServers, MCTrustIDs
 
 require("nonebot_plugin_tortoise_orm")
 require("nonebot_plugin_htmlrender")
-from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
 from nonebot_plugin_htmlrender import md_to_pic  # noqa: E402
+from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
 
 add_model("plugins.mc.models")
 
@@ -70,23 +69,21 @@ mc_server = on_command("mc", priority=1)
 
 
 @mc_server.handle()
-async def mc_server_handle(arg: Message = CommandArg()):
+async def mc_server_handle(args: Message = CommandArg()):
     msg = ""
-    ip = arg.extract_plain_text()
-    if ip == "":
-        # data = get_yaml_file()["server"]
-        # for i in data.keys():
-        # msg += f"{i}: {get_yaml_file()['server'][i]}\n"
-        # servers = await
-        servers = await MCServers.get_all_servers_ip()
-        for server in servers:
+    # data = get_yaml_file()["server"]
+    # for i in data.keys():
+    # msg += f"{i}: {get_yaml_file()['server'][i]}\n"
+    # servers = await
+    servers = await MCServers.get_all_servers_ip()
+    for server in servers:
 
-            mc_status = ping(server[1])
-            # msg += "# " + i + "\n"
-            msg += f"# {server[0]} {server[1]}\n"
-            for line in mc_status:
-                msg += line + "\n"
-            msg += "\n"
+        mc_status = ping(server[1])
+        # msg += "# " + i + "\n"
+        msg += f"# {server[0]} {server[1]}\n"
+        for line in mc_status:
+            msg += line + "\n"
+        msg += "\n"
     await mc_server.finish(MessageSegment.image(await md_to_pic(msg)))
 
 
@@ -94,10 +91,10 @@ mcadd = on_command("mcadd", permission=SUPERUSER)
 
 
 @mcadd.handle()
-async def _(state: T_State, arg: Message = CommandArg()):
-    state["name"], name = arg.extract_plain_text()
-    if name.strip() == "":
-        await mcadd.finish("????")
+async def _(state: T_State, args: Message = CommandArg()):
+
+    if name := args.extract_plain_text():
+        state["name"] = name
     if await MCServers.exists(name=name):
         await mcadd.finish("名称 {name} 已存在, 换一个别的或者删除它")
 
@@ -131,15 +128,14 @@ async def _(state: T_State):
 
 
 def check_superuser(bot: Bot, event: Event):
-    try:
-        user_id = event.get_user_id()
-    except Exception:
+    from nonebot import get_driver
+
+    config = get_driver().config.superusers
+
+    if event.get_user_id() in config:
+        return True
+    else:
         return False
-    return (
-        f"{bot.adapter.get_name().split(maxsplit=1)[0].lower()}:{user_id}"
-        in bot.config.superusers
-        or user_id in bot.config.superusers  # 兼容旧配置
-    )
 
 
 mcsm_add = on_command("mcsmadd")
@@ -162,7 +158,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
         if not await MCTrustIDs.exists(user_id=user_id):
             await MCTrustIDs.add_id(user_id=user_id)
             await mcsm_add.finish(
-                Message.template("已添加 {}".format(MessageSegment.at(user_id)))
+                Message.template("已添加 {}").format(MessageSegment.at(user_id))
             )
 
     await mcsm_add.finish(Message("添加失败, 或已经存在"))
