@@ -1,80 +1,48 @@
 import re
 from random import randint
 
+from dateutil import tz
 from nonebot.log import logger
 from nonebot.typing import T_State
 from nonebot.params import CommandArg
-from nonebot import require, on_command
 from nonebot.permission import SUPERUSER
+from nonebot import require, get_driver, on_command
 from nonebot.adapters.onebot.v11 import (
     Bot,
     Event,
     Message,
     MessageEvent,
     MessageSegment,
+    GroupMessageEvent,
 )
 
 from .mcsm import *
 from .mcping import ping
-from .models import MCServers, MCTrustIDs
+from .data_source import server_todo, generate_server_list
+from .models import MCServers, MCTrustIDs, ServerCommandHistory
 
 require("nonebot_plugin_tortoise_orm")
 require("nonebot_plugin_htmlrender")
-from nonebot_plugin_htmlrender import md_to_pic  # noqa: E402
+
 from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
+from nonebot_plugin_htmlrender import md_to_pic, text_to_pic  # noqa: E402
 
 add_model("plugins.mc.models")
 
-# from .config import Config
 
-# plugin_config = Config.parse_obj(get_driver().config.dict())
+TEXT_TEMPLATE = """# OUTPUT
 
-__name__ = "mc"
-
-
-async def generate_server_list() -> dict:
-    """返回服务器列表
-
-    Args:
-        res (list): 服务器列表响应
-
-    Returns:
-        dict: {"list_msg": list_msg, "server_list": server_id}
-    """
-    # res = get_yaml_file()
-    # server_list_all: dict = res["server"]
-    servers = await MCServers.get_all_servers_ip()
-    # server_id = []
-    # for servers in server_list_all.keys():
-    #     server_id.append(servers)
-    # server_id = server_list_all.keys()
-    server_id = [server[0] for server in servers]
-    list_msg = "\n".join([f"{i}: {line}" for i, line in enumerate(server_id, start=1)])
-    return {"list_msg": list_msg, "server_list": server_id}
-
-
-def server_todo(todo: str) -> str:
-    if todo in ("on", "start", "开服", "open"):
-        return "open"
-    elif todo in ("off", "stop", "关服", "stop"):
-        return "stop"
-    elif todo in ("restart", "重启"):
-        return "restart"
-    elif todo in ("kill", "终止", "强关"):
-        return "kill"
-    return ""
-
+```
+{output}
+```"""
 
 mc_server = on_command("mc", priority=1)
 
 
 @mc_server.handle()
-async def mc_server_handle(args: Message = CommandArg()):
+async def mc_server_handle():
     msg = ""
-    # data = get_yaml_file()["server"]
-    # for i in data.keys():
-    # msg += f"{i}: {get_yaml_file()['server'][i]}\n"
-    # servers = await
+
     servers = await MCServers.get_all_servers_ip()
     for server in servers:
 
@@ -92,10 +60,14 @@ mcadd = on_command("mcadd", permission=SUPERUSER)
 
 @mcadd.handle()
 async def _(state: T_State, args: Message = CommandArg()):
-
-    if name := args.extract_plain_text():
+    name = args.extract_plain_text()
+    if name.strip() != "":
         state["name"] = name
-    if await MCServers.exists(name=name):
+
+
+@mcadd.got("name", prompt="请输入名称")
+async def _(state: T_State, args: Message = CommandArg()):
+    if await MCServers.exists(name=state["name"]):
         await mcadd.finish("名称 {name} 已存在, 换一个别的或者删除它")
 
 
@@ -127,9 +99,32 @@ async def _(state: T_State):
         await mcadd.finish(f'服务器已添加 {state["name"]}: {state["ip"]}')
 
 
-def check_superuser(bot: Bot, event: Event):
-    from nonebot import get_driver
+mcdel = on_command("mcdel", permission=SUPERUSER)
 
+
+@mcdel.handle()
+async def _(state: T_State):
+    res = await generate_server_list()
+    state["list_msg"] = res["list_msg"]
+    state["server_list"] = res["server_list"]
+
+
+@mcdel.got("server_id", prompt=Message.template("请输入对应服务器ID:\n{list_msg}"))
+async def _(state: T_State):
+    logger.debug(f"server_id = {state['server_id']}")
+    if str(state["server_id"]) == "0":
+        await mcdel.finish("已取消")
+
+
+@mcdel.handle()
+async def _(state: T_State):
+    server_name = state["server_list"][int(str(state["server_id"])) - 1]
+    res = await MCServers.delete_server(server_name)
+    if res:
+        await mcdel.finish(f"已删除 {server_name}")
+
+
+def check_superuser(event: Event):
     config = get_driver().config.superusers
 
     if event.get_user_id() in config:
@@ -142,11 +137,11 @@ mcsm_add = on_command("mcsmadd")
 
 
 @mcsm_add.handle()
-async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
+async def _(event: MessageEvent, arg: Message = CommandArg()):
     user_id = 0
     if not (
         event.user_id in await MCTrustIDs.get_all_enabled_ids()
-        or check_superuser(bot, event)
+        or check_superuser(event)
     ):
         await mcsm_add.finish("你没有权限使用这个命令")
     for a in arg:
@@ -188,13 +183,11 @@ async def mcsm_ctl_first_handle(
             state["server_id"] = "99"
             logger.debug(f"{state['server_name']}")
 
-            # await mcsm_ctl.send("请输入验证码: " + state["code"])
         else:
             state["server_name"] = None
             res = await generate_server_list()
             state["list_msg"] = res["list_msg"]
             state["server_list"] = res["server_list"]
-            # await mcsm_ctl.send("请输入对应服务器ID:\n" + res["list_msg"])
     else:
         await mcsm_ctl.finish("使用 mcsm on|off|restart 开启|关闭|重启")
 
@@ -204,7 +197,6 @@ async def mcsm_ctl_got_server_id(state: T_State):
     logger.debug(f"server_id = {state['server_id']}")
     if str(state["server_id"]) == "0":
         await mcsm_ctl.finish("已取消")
-    # await mcsm_ctl.send(f"请输入验证码: {state['code']}")
 
 
 @mcsm_ctl.got("user_code", prompt=Message.template("请输入验证码: {code}"))
@@ -220,14 +212,144 @@ async def mcsm_ctl_finally(state: T_State):
             server_name = state["server_list"][int(str(state["server_id"])) - 1]
         else:
             server_name = state["server_name"]
+
         res = await MCServers.get_server_data(server_name)
         await call_server(state["type"], **res)
         await mcsm_ctl.finish(f'已发送 {state["type"]} 指令')
+
     except HTTPStatusError as e:
         await mcsm_ctl.finish("HTTP错误: " + str(e))
+
     except MCSMAPIError as e:
         await mcsm_ctl.finish("MCSM API错误: " + str(e))
+
     except IndexError:
         await mcsm_ctl.finish(f"这个列表就那么一点，你输个了啥？{state['server_id']}？？？")
+
     except KeyError:
         await mcsm_ctl.finish("服务器不存在")
+
+
+mcsm_command = on_command("mcc")
+
+
+@mcsm_command.handle()
+async def _(
+    event: MessageEvent,
+    state: T_State,
+    args: Message = CommandArg(),
+):
+    if event.user_id not in await MCTrustIDs.get_all_enabled_ids():
+        await mcsm_command.finish("你没有权限使用这个命令")
+    for i in args:
+        if i.type != "text":
+            await mcsm_command.finish("指令中不能包含除文本以外的内容哦~")
+
+    command = args.extract_plain_text()
+    if command.strip() != "":
+        state["command"] = command
+
+    if command.startswith("/"):
+        await mcsm_command.finish("不需要 / , 重新执行指令")
+
+    # 生成列表
+    res = await generate_server_list()
+    state["list_msg"] = res["list_msg"]
+    state["server_list"] = res["server_list"]
+
+    # 生成验证码
+    state["code"] = str(randint(10, 99))
+
+
+@mcsm_command.got("command", prompt="请输出你要执行的指令, 不需要 /")
+async def _():
+    pass
+
+
+@mcsm_command.got("server_id", prompt=Message.template("请输入对应服务器ID:\n{list_msg}"))
+async def _(state: T_State):
+    if str(state["server_id"]) == "0":
+        await mcsm_command.finish("已取消")
+
+
+@mcsm_command.got("user_code", prompt=Message.template("请输入验证码: {code}"))
+async def _(state: T_State):
+    if str(state["user_code"]) != state["code"]:
+        await mcsm_command.finish("已取消")
+
+
+@mcsm_command.handle()
+async def _(state: T_State, event: MessageEvent):
+    logger.debug(state)
+    try:
+        server_name = state["server_list"][int(str(state["server_id"])) - 1]
+
+        server_data = await MCServers.get_server_data(server_name)
+
+        await call_command(command=state["command"], **server_data)
+
+        await ServerCommandHistory.add_command_record(
+            command=state["command"],
+            user_id=event.user_id,
+            target_instance_uuid=server_data["instance_uuid"],
+            target_remote_uuid=server_data["remote_uuid"],
+            is_success=True,
+        )
+
+        # output = await get_output(**server_data)
+        # logger.debug(output)
+
+        # await mcsm_command.finish(
+        #     MessageSegment.image(
+        #         await md_to_pic(TEXT_TEMPLATE.format(output=output), width=1200)
+        #     )
+        # )
+
+        await mcsm_command.finish("执行成功")
+
+    except HTTPStatusError as e:
+        await mcsm_command.finish("HTTP错误: " + str(e))
+
+    except MCSMAPIError as e:
+        await mcsm_command.finish("MCSM API错误: " + str(e))
+
+    except IndexError:
+        await mcsm_command.finish(f"这个列表就那么一点，你输个了啥？{state['server_id']}？？？")
+
+    except KeyError:
+        await mcsm_command.finish("服务器不存在")
+
+
+mcsm_command_history = on_command("命令历史")
+
+
+@mcsm_command_history.handle()
+async def _(
+    bot: Bot, event: GroupMessageEvent | MessageEvent, args: Message = CommandArg()
+):
+
+    user_id = None
+
+    if isinstance(event, GroupMessageEvent):
+        for a in args:
+            if a.type == "at":
+                user_id = int(a.data["qq"])
+                break
+
+    res = await ServerCommandHistory.get_recent_history(user_id=user_id)
+
+    text = "# 命令执行历史\n\n"
+
+    for i in res:
+        user_info = await bot.get_stranger_info(user_id=i.user_id)
+        nickname = "{}({})".format(user_info["nickname"], user_info["user_id"])
+        # nickname = "123"
+        server_name = await MCServers.get_server_name_by_uuid(i.target_instance_uuid)
+        text += (
+            f"- {nickname}\n"
+            f"\t - 目标服务器: `{server_name}`\n"
+            f"\t - 指令: `{i.command.strip()}`\n"
+            f"\t - 时间: `{i.time.astimezone(tz.tzlocal()).strftime('%m/%d, %H:%M:%S')}`\n"
+        )
+
+    await mcsm_command_history.finish(MessageSegment.image(await md_to_pic(text)))

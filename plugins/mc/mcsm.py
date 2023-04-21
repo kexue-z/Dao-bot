@@ -1,4 +1,6 @@
-import nonebot
+import re
+import codecs
+
 from nonebot import get_driver
 from nonebot.log import logger
 from httpx import Response, AsyncClient
@@ -29,6 +31,61 @@ async def call_server(
         }
         res = await client.get(f"{server}/api/protected_instance/{type}", params=params)
     return check(res)
+
+
+async def call_command(
+    command: str, instance_uuid: str, remote_uuid: str, apikey: str = apikey
+) -> int:
+    async with AsyncClient(follow_redirects=True) as client:
+        params = {
+            "command": command,
+            "apikey": apikey,
+            "remote_uuid": remote_uuid,
+            "uuid": instance_uuid,
+        }
+        res = await client.get(
+            f"{server}/api/protected_instance/command", params=params
+        )
+    return check(res)
+
+
+async def get_output(instance_uuid: str, remote_uuid: str, apikey: str = apikey):
+    async with AsyncClient(follow_redirects=True) as client:
+        params = {
+            "apikey": apikey,
+            "remote_uuid": remote_uuid,
+            "uuid": instance_uuid,
+        }
+        res = await client.get(
+            f"{server}/api/protected_instance/outputlog", params=params
+        )
+    check(res)
+    data: str = res.json()["data"]
+    data = data[len(data) // 512 :]
+    return normalize_text(data)
+
+
+def normalize_text(text):
+    """Removes escape sequences, color codes and prompts.
+    Replaces Windows-style line endings with Unix-style."""
+
+    # Remove escape characters
+    text = codecs.decode(text, "unicode_escape")
+
+    # Remove color codes
+    ansi_escape = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
+    text = ansi_escape.sub("", text)
+
+    # Remove prompts
+    lines = text.split("\n")
+    lines = [line.lstrip(">") for line in lines]
+    text = "\n".join(lines)
+    text = text.replace("\n ", "")
+
+    # Replace Windows-style line endings with Unix-style
+    text = text.replace("\r\n", "\n")
+
+    return text
 
 
 def check(res: Response) -> int:

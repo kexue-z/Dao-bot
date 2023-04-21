@@ -1,5 +1,11 @@
+from uuid import uuid4
+from typing import List
+from datetime import datetime, timedelta
+
+from dateutil import tz
 from tortoise import fields
 from tortoise.models import Model
+from tortoise.expressions import Q
 
 
 class MCTrustIDs(Model):
@@ -83,3 +89,59 @@ class MCServers(Model):
         res = await MCServers.get(name=server_name)
         await res.delete()
         return True
+
+    @staticmethod
+    async def get_server_name_by_uuid(instance_uuid: str) -> str:
+
+        res = await MCServers.get_or_none(instance_uuid=instance_uuid)
+        if res:
+            return res.name
+        return "**已删除**"
+
+
+class ServerCommandHistory(Model):
+    id = fields.IntField(pk=True, unique=True, generated=True)
+    time = fields.DatetimeField(auto_now_add=True)
+    user_id = fields.IntField()
+    command = fields.TextField()
+    target_instance_uuid = fields.CharField(max_length=32)
+    target_remote_uuid = fields.CharField(max_length=32)
+    is_success = fields.BooleanField(default=False)
+
+    class Meta:
+        table = "server_command_history"
+
+    @staticmethod
+    async def add_command_record(
+        user_id: int,
+        command: str,
+        target_instance_uuid: str,
+        target_remote_uuid: str,
+        is_success: bool,
+    ) -> bool:
+        res = await ServerCommandHistory.create(
+            user_id=user_id,
+            command=command,
+            target_instance_uuid=target_instance_uuid,
+            target_remote_uuid=target_remote_uuid,
+            is_success=is_success,
+        )
+
+        if res:
+            return True
+        return False
+
+    @staticmethod
+    async def get_recent_history(
+        time_start: datetime = datetime.now(tz=tz.tzlocal()) - timedelta(days=1),
+        time_end: datetime = datetime.now(
+            tz=tz.tzlocal(),
+        ),
+        user_id: int | None = None,
+    ) -> List["ServerCommandHistory"]:
+        query = Q(time__gte=time_start) & Q(time__lte=time_end)
+        if user_id:
+            query &= Q(user_id=user_id)
+        return (
+            await ServerCommandHistory.filter(query).order_by("-time").all().limit(10)
+        )
