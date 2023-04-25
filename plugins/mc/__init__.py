@@ -25,16 +25,10 @@ require("nonebot_plugin_tortoise_orm")
 require("nonebot_plugin_htmlrender")
 
 from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
-from nonebot_plugin_htmlrender import md_to_pic, text_to_pic  # noqa: E402
+from nonebot_plugin_htmlrender import md_to_pic  # noqa: E402
 
 add_model("plugins.mc.models")
 
-
-TEXT_TEMPLATE = """# OUTPUT
-
-```
-{output}
-```"""
 
 mc_server = on_command("mc", priority=1)
 
@@ -189,7 +183,7 @@ async def mcsm_ctl_first_handle(
             state["list_msg"] = res["list_msg"]
             state["server_list"] = res["server_list"]
     else:
-        await mcsm_ctl.finish("使用 mcsm on|off|restart 开启|关闭|重启")
+        await mcsm_ctl.finish("使用 mcsm on|off|restart|kill 开启|关闭|重启|强关")
 
 
 @mcsm_ctl.got("server_id", prompt=Message.template("请输入对应服务器ID:\n{list_msg}"))
@@ -206,7 +200,7 @@ async def mcsm_ctl_got_user_code(state: T_State):
 
 
 @mcsm_ctl.handle()
-async def mcsm_ctl_finally(state: T_State):
+async def mcsm_ctl_finally(state: T_State, event: Event):
     try:
         if not state["server_name"]:
             server_name = state["server_list"][int(str(state["server_id"])) - 1]
@@ -215,6 +209,13 @@ async def mcsm_ctl_finally(state: T_State):
 
         res = await MCServers.get_server_data(server_name)
         await call_server(state["type"], **res)
+        await ServerCommandHistory.add_command_record(
+            user_id=int(event.get_user_id()),
+            command=state["type"],
+            target_instance_uuid=res["instance_uuid"],
+            target_remote_uuid=res["remote_uuid"],
+            is_success=True,
+        )
         await mcsm_ctl.finish(f'已发送 {state["type"]} 指令')
 
     except HTTPStatusError as e:
