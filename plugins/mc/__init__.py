@@ -166,7 +166,7 @@ async def mcsm_ctl_first_handle(
         await mcsm_ctl.finish("你没有权限使用这个命令")
 
     match = re.match(
-        r"(on|start|开服|off|stop|关服|restart|重启)\s?(.*)", arg.extract_plain_text()
+        r"(on|start|开服|open|off|stop|kill|关服|close|restart|重启|强关|终止)\s?(.*)", arg.extract_plain_text()
     )
     if match:
         state["type"] = server_todo(match.group(1))
