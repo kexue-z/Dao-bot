@@ -139,9 +139,8 @@ class ServerCommandHistory(Model):
         ),
         user_id: int | None = None,
     ) -> List["ServerCommandHistory"]:
-        query = Q(time__gte=time_start) & Q(time__lte=time_end)
         if user_id:
-            query &= Q(user_id=user_id)
-        return (
-            await ServerCommandHistory.filter(query).order_by("-time").all().limit(10)
-        )
+            return (
+                await ServerCommandHistory.filter(user_id=user_id).order_by("-id").all().limit(10)
+            )
+        return await ServerCommandHistory.all().order_by('-id').limit(10)
