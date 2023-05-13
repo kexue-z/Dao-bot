@@ -1992,14 +1992,14 @@ yaml = ["pyyaml (>=6.0,<7.0)"]
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.6.4"
+version = "0.6.5"
 description = "Get Heweather information and convert to pictures"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0.0"
 files = [
-    {file = "nonebot_plugin_heweather-0.6.4-py3-none-any.whl", hash = "sha256:3fbcdc64d0bd9fd068248ad30fb2ea638db8225f3a04c9beb821e723d8a3a35c"},
-    {file = "nonebot_plugin_heweather-0.6.4.tar.gz", hash = "sha256:31adce40960ead97d37e2fda0f4cc6a13a431dc409cf973da881aef6835d1aac"},
+    {file = "nonebot_plugin_heweather-0.6.5-py3-none-any.whl", hash = "sha256:916ca6f8ce8bedbcd7e54eb59d7b2c2f9acc0d85a69d117d0493f8e93125cf47"},
+    {file = "nonebot_plugin_heweather-0.6.5.tar.gz", hash = "sha256:8645f9b86d372874f61731d054a8f4efefd8f9ddd52b948170f31f70e0756b6d"},
 ]
 
 [package.dependencies]
