@@ -7,30 +7,18 @@ authors = [
     {name = "kexue", email = "xana278@foxmail.com"},
 ]
 dependencies = [
-    # "dnspython>=2.2.1",
-    # "wolframalpha>=5.0.0",
-    # "nonebot-adapter-onebot>=2.2.3",
-    # "nonebot-plugin-heweather>=0.6.9",
-    # "nonebot-plugin-manager>=0.5.16",
-    # "nonebot-plugin-withdraw>=0.2.3",
-    # "nonebot-plugin-word-bank2>=0.1.8",
-    # "nonebot-plugin-setu-now>=0.4.4",
-    # "nonebot-bison>=0.7.3",
-    # "nonebot-plugin-dailysign>=0.0.2",
-    "nonebot2[fastapi]>=2.0.0",
     "nonebot-adapter-onebot>=2.2.3",
-    "httpx[socks]>=0.24.1",
+    "nonebot2[fastapi]==2.0.0",
     "aiohttp>=3.8.4",
-    "nonebot-bison>=0.7.3",
     "nonebot-plugin-word-bank2>=0.1.8",
     "nonebot-plugin-heweather>=0.6.9",
     "nonebot-plugin-manager>=0.5.16",
     "wolframalpha>=5.0.0",
     "nonebot-plugin-withdraw>=0.2.3",
-    "nonebot-plugin-setu-now>=0.4.4",
+    "nonebot-plugin-setu-now>=0.6.2",
     "dnspython>=2.3.0",
-    "nonebot-plugin-dailysign>=0.0.2",
-    "nonebot-plugin-eitherchoice>=0.1.0.post1",
+    "nonebot-plugin-dailysign>=0.1.0.1",
+    "python-dateutil>=2.8.2",
 ]
 requires-python = ">=3.10,<4.0"
 readme = "README.md"
@@ -38,12 +26,6 @@ license = {file = "LICENSE"}
 
 
 [tool.pdm]
-[tool.pdm.dev-dependencies]
-dev = [
-    "black>=21.10b0",
-    "flake8>=4.0.1",
-    "isort>=5.10.1",
-]
 
 [tool.pdm.build]
 includes = []
