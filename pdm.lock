@@ -141,6 +141,16 @@ version = "1.2.2"
 summary = "Dictionary with auto-expiring values for caching purposes"
 
 [[package]]
+name = "fastapi"
+version = "0.98.0"
+requires_python = ">=3.7"
+summary = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+dependencies = [
+    "pydantic!=1.8,!=1.8.1,<2.0.0,>=1.7.4",
+    "starlette<0.28.0,>=0.27.0",
+]
+
+[[package]]
 name = "feedparser"
 version = "6.0.10"
 requires_python = ">=3.6"
@@ -741,6 +751,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "starlette"
+version = "0.27.0"
+requires_python = ">=3.7"
+summary = "The little ASGI library that shines."
+dependencies = [
+    "anyio<5,>=3.4.0",
+]
+
+[[package]]
 name = "tinydb"
 version = "4.8.0"
 requires_python = ">=3.7,<4.0"
@@ -843,7 +862,7 @@ dependencies = [
 lock_version = "4.2"
 cross_platform = true
 groups = ["default", "dev"]
-content_hash = "sha256:8927af91af0250d7b1646e05089ed840a24b2a5ee7a9b02f303696bfaa710850"
+content_hash = "sha256:c7f7bde9d14b014034c992d51ecf73b360e49c57fce5826aa55ebb04141890c3"
 
 [metadata.files]
 "aiofiles 23.1.0" = [
@@ -969,6 +988,10 @@ content_hash = "sha256:8927af91af0250d7b1646e05089ed840a24b2a5ee7a9b02f303696bfa
 "expiringdict 1.2.2" = [
     {url = "https://files.pythonhosted.org/packages/cb/84/a04c59324445f4bcc98dc05b39a1cd07c242dde643c1a3c21e4f7beaf2f2/expiringdict-1.2.2-py3-none-any.whl", hash = "sha256:09a5d20bc361163e6432a874edd3179676e935eb81b925eccef48d409a8a45e8"},
     {url = "https://files.pythonhosted.org/packages/fc/62/c2af4ebce24c379b949de69d49e3ba97c7e9c9775dc74d18307afa8618b7/expiringdict-1.2.2.tar.gz", hash = "sha256:300fb92a7e98f15b05cf9a856c1415b3bc4f2e132be07daa326da6414c23ee09"},
+]
+"fastapi 0.98.0" = [
+    {url = "https://files.pythonhosted.org/packages/50/2c/6b94f191519dcc8190e78aff7bcb12c58329d1ab4c8aa11f2def9c214599/fastapi-0.98.0-py3-none-any.whl", hash = "sha256:f4165fb1fe3610c52cb1b8282c1480de9c34bc270f56a965aa93a884c350d605"},
+    {url = "https://files.pythonhosted.org/packages/eb/e4/35797cc07d279206e6b61ff77333b4a50637204c77141f89c829d7318fac/fastapi-0.98.0.tar.gz", hash = "sha256:0d3c18886f652038262b5898fec6b09f4ca92ee23e9d9b1d1d24e429f84bf27b"},
 ]
 "feedparser 6.0.10" = [
     {url = "https://files.pythonhosted.org/packages/63/9a/824e3c036dec4f0adb4e7c36dcf4cbffc9ee317a4985218cb1663c7ab4ad/feedparser-6.0.10.tar.gz", hash = "sha256:27da485f4637ce7163cdeab13a80312b93b7d0c1b775bef4a47629a3110bca51"},
@@ -1647,6 +1670,10 @@ content_hash = "sha256:8927af91af0250d7b1646e05089ed840a24b2a5ee7a9b02f303696bfa
     {url = "https://files.pythonhosted.org/packages/e5/fa/046aee69e7f47d0574459f8152383e20d79fe0a88e0842163e13a6786e22/SQLAlchemy-2.0.17-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:2c6ff5767d954f6091113fedcaaf49cdec2197ae4c5301fe83d5ae4393c82f33"},
     {url = "https://files.pythonhosted.org/packages/f0/8f/00ad59af15206a446f0c78e6d68fe4ae31f0637aa6de7a723f650533050d/SQLAlchemy-2.0.17-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:f593170fc09c5abb1205a738290b39532f7380094dc151805009a07ae0e85330"},
     {url = "https://files.pythonhosted.org/packages/f5/7d/e54c806c0201722ec51b9782fcda4c4f90ea22c22b31052ef16383047546/SQLAlchemy-2.0.17-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b114a16bc03dfe20b625062e456affd7b9938286e05a3f904a025b9aacc29dd4"},
+]
+"starlette 0.27.0" = [
+    {url = "https://files.pythonhosted.org/packages/06/68/559bed5484e746f1ab2ebbe22312f2c25ec62e4b534916d41a8c21147bf8/starlette-0.27.0.tar.gz", hash = "sha256:6a6b0d042acb8d469a01eba54e9cda6cbd24ac602c4cd016723117d6a7e73b75"},
+    {url = "https://files.pythonhosted.org/packages/58/f8/e2cca22387965584a409795913b774235752be4176d276714e15e1a58884/starlette-0.27.0-py3-none-any.whl", hash = "sha256:918416370e846586541235ccd38a474c08b80443ed31c578a418e2209b3eef91"},
 ]
 "tinydb 4.8.0" = [
     {url = "https://files.pythonhosted.org/packages/1c/c4/9a1721139a6087ab3df4ba99ac82da5d88f92b1ea5027b0c411ce09b1d70/tinydb-4.8.0-py3-none-any.whl", hash = "sha256:30c06d12383d7c332e404ca6a6103fb2b32cbf25712689648c39d9a6bd34bd3d"},

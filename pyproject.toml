@@ -17,6 +17,7 @@ dependencies = [
     "nonebot-plugin-setu-now>=0.4.4",
     "nonebot-bison>=0.7.3",
     "nonebot-plugin-dailysign>=0.0.2",
+    "fastapi>=0.98.0",
 ]
 requires-python = ">=3.10,<4.0"
 readme = "README.md"
