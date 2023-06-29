@@ -2,10 +2,9 @@ go-cqhttp
 data
 res
 docs
-plugins
-utils
 .git
 .github
 .gitlab
 .vscode
 .pdm-build
+.venv

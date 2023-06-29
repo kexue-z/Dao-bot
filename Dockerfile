@@ -8,7 +8,7 @@ ENV PATH="${PATH}:/root/.local/bin"
 
 COPY ./pyproject.toml ./pdm.lock* /tmp/
 
-RUN pdm export -f requirements --output requirements.txt --without-hashes --with deploy
+RUN pdm export -f requirements --output requirements.txt --without-hashes
 
 FROM python:3.11-bullseye as build-stage
 
@@ -70,4 +70,4 @@ RUN playwright install --with-deps chromium
 
 # WORKDIR /nonebot
 
-RUN git clone https://github.com/kexue-z/dao-bot.git .
+COPY plugins/ utils/ bot.py /nonebot/
