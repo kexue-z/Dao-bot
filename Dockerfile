@@ -8,7 +8,7 @@ FROM python:3.11
 #     DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y --fix-missing \
-    locales locales-all fonts-noto language-pack-zh-hans git
+    locales locales-all fonts-noto libnss3-dev libxss1 libasound2 libxrandr2 libatk1.0-0 libgtk-3-0 libgbm-dev libxshmfence1 git
 
 RUN apt install -y tzdata \
     && ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
