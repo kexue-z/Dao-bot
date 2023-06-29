@@ -172,7 +172,6 @@
 ## RSS 链接获取方式（RSS 阅读器通用）
 
 - 什么是 RSS **你不会百度吗？**
-- 自建 RSS 服务器链接 `https://kexue.io:1200`
 - 部分需要配置的 RSS 源需要 @kexue 来进行配置
 
 1. 访问 [https://docs.rsshub.app/](https://docs.rsshub.app/)
@@ -184,18 +183,9 @@
    - 将 `:caty` 替换为文档中的参数 `latest`
    - 结果是 `/36kr/news/latest`
 4. 组合链接
-   - 最终组合结果为 `https://kexue.io:1200/36kr/news/latest`
+   - 最终组合结果为 `https://abc/36kr/news/latest`
    - 将上述结果通过发送到群聊中即可添加
    - 该链接对于 RSS 阅读器同样有效
-
-- 部分 RSS 链接
-
-  ```
-  https://kexue.io:1200/cneb/yjxx 预警信息_国家应急广播网
-  https://kexue.io:1200/anigamer/new_anime 番剧更新
-  https://kexue.io:1200/36kr/news/latest 36氪最新新闻
-  https://kexue.io:1200/3dm/news 3DM新闻中心
-  ```
 
 ## WolframAlpha 搜索
 
