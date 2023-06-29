@@ -8,7 +8,7 @@ ENV PATH="${PATH}:/root/.local/bin"
 
 COPY ./pyproject.toml ./pdm.lock* /tmp/
 
-RUN poetry export -f requirements --output requirements.txt --without-hashes --with deploy
+RUN pdm export -f requirements --output requirements.txt --without-hashes --with deploy
 
 FROM python:3.11-bullseye as build-stage
 
