@@ -49,7 +49,7 @@ RUN playwright install --with-deps chromium
 # RUN apt install -y tzdata \
 #     && ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
 #     && echo ${TZ} > /etc/timezone \
-#     && dpkg-reconfigure -f noninteractive tzdata 
+#     && dpkg-reconfigure -f noninteractive tzdata
 
 # # RUN python3 -m pip install playwright \
 # #     && playwright install chromium \
@@ -70,4 +70,6 @@ RUN playwright install --with-deps chromium
 
 # WORKDIR /nonebot
 
-COPY plugins/ utils/ bot.py /nonebot/
+COPY ./plugins/ /nonebot/plugins/
+COPY ./utils/ /nonebot/utils/
+COPY ./bot.py /nonebot/bot.py
