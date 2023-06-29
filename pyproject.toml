@@ -7,7 +7,6 @@ authors = [
     {name = "kexue", email = "xana278@foxmail.com"},
 ]
 dependencies = [
-    "cos-python-sdk-v5>=1.9.15",
     "dnspython>=2.2.1",
     "nonebot-adapter-onebot>=2.0.0",
     "nonebot-plugin-heweather>=0.5.5",
@@ -19,7 +18,6 @@ dependencies = [
     "httpx[socks]>=0.22.0",
     "nonebot-plugin-setu-now>=0.4.0",
     "nonebot-bison>=0.6",
-    "aiohttp>=0.0.1",
     "nonebot-plugin-dailysign>=0.1.0.1",
     "nb-cli>=1.0.5",
 ]
