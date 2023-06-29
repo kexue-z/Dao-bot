@@ -5,6 +5,7 @@ plugins:
   - nonebot_plugin_withdraw
   - nonebot_bison
   - nonebot_plugin_setu_now
+  - nonebot_plugin_eitherchoice
 
 plugin_dirs:
   - plugins
