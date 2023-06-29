@@ -1,46 +1,46 @@
-[tool.poetry]
-authors = ["kexue <xana278@foxmail.com>"]
-description = ""
+
+[project]
 name = "dao-Bot"
 version = "0.1.0"
+description = ""
+authors = [
+    {name = "kexue", email = "xana278@foxmail.com"},
+]
+dependencies = [
+    "cos-python-sdk-v5>=1.9.15",
+    "dnspython>=2.2.1",
+    "nonebot-adapter-onebot>=2.0.0",
+    "nonebot-plugin-heweather>=0.5.5",
+    "nonebot-plugin-manager>=0.5.0",
+    "nonebot-plugin-withdraw>=0.2.0",
+    "nonebot-plugin-word-bank2>=0.1.4",
+    "nonebot2>=2.0.0",
+    "wolframalpha>=5.0.0",
+    "httpx[socks]>=0.22.0",
+    "nonebot-plugin-setu-now>=0.4.0",
+    "nonebot-bison>=0.6",
+    "aiohttp>=0.0.1",
+    "nonebot-plugin-dailysign>=0.1.0.1",
+    "nb-cli>=1.0.5",
+]
+requires-python = ">=3.10,<4.0"
+readme = "README.md"
+license = {file = "LICENSE"}
 
-[tool.poetry.dependencies]
-cos-python-sdk-v5 = ">=1.9.15"
-dnspython = ">=2.2.1"
-nonebot-adapter-onebot = ">=2.0.0-beta.1"
-# nonebot-plugin-cocdicer = ">=0.3.1"
-nonebot-plugin-heweather = ">=0.5.5"
-nonebot-plugin-hikarisearch = ">=0.1.2"
-nonebot-plugin-manager = ">=0.5.0"
-# nonebot-plugin-minesweeper = ">=0.1.1"
-nonebot-plugin-remake = ">=0.2.4"
-# nonebot-plugin-setu-now = ">=0.2.0"
-nonebot-plugin-withdraw = ">=0.2.0"
-nonebot-plugin-word-bank2 = ">=0.1.4"
-nonebot-plugin-youthstudy = ">=1.0.7"
-nonebot2 = ">=2.0.0-beta.1"
-python = ">=3.10,<4.0"
-requests = ">=2.27.1"
-wolframalpha = ">=5.0.0"
-nonebot-plugin-shindan = ">=0.2.2"
-nonebot-plugin-petpet = ">=0.3.4"
-httpx = { version = ">=0.22.0", extras = ["socks"] }
-nonebot-plugin-setu-now = ">=0.4.0"
-nonebot-bison = ">=0.6"
-aiohttp = ">=0.0.1"
-# nonebot-plugin-cocdicer = ">=0.0.1"
-nonebot-plugin-chatgpt-turbo = ">=0.2.3"
-nonebot-plugin-dailysign = ">=0.0.2"
-nb-cli = ">=1.0.5"
 
-[tool.poetry.dev-dependencies]
-black = { version = ">=21.10b0", allow-prereleases = true }
-flake8 = ">=4.0.1"
-isort = ">=5.10.1"
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=21.10b0",
+    "flake8>=4.0.1",
+    "isort>=5.10.1",
+]
 
+[tool.pdm.build]
+includes = []
 [build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [tool.isort]
 profile = "black"
