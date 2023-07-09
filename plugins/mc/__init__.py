@@ -6,9 +6,11 @@ from nonebot.log import logger
 from nonebot.typing import T_State
 from nonebot.params import CommandArg
 from nonebot.permission import SUPERUSER
+from nonebot.internal.adapter.bot import Bot
 from nonebot import require, get_driver, on_command
+from nonebot.adapters.kaiheila import Event as KHLEvent
+from nonebot_plugin_saa import Text, Image, MessageFactory
 from nonebot.adapters.onebot.v11 import (
-    Bot,
     Event,
     Message,
     MessageEvent,
@@ -24,8 +26,8 @@ from .models import MCServers, MCTrustIDs, ServerCommandHistory
 require("nonebot_plugin_tortoise_orm")
 require("nonebot_plugin_htmlrender")
 
-from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
 from nonebot_plugin_htmlrender import md_to_pic  # noqa: E402
+from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
 
 add_model("plugins.mc.models")
 
@@ -34,19 +36,22 @@ mc_server = on_command("mc", priority=1)
 
 
 @mc_server.handle()
-async def mc_server_handle():
+async def mc_server_handle(bot: Bot, event: MessageEvent | KHLEvent):
     msg = ""
 
     servers = await MCServers.get_all_servers_ip()
     for server in servers:
-
         mc_status = ping(server[1])
         # msg += "# " + i + "\n"
         msg += f"# {server[0]} {server[1]}\n"
         for line in mc_status:
             msg += line + "\n"
         msg += "\n"
-    await mc_server.finish(MessageSegment.image(await md_to_pic(msg)))
+
+    msg = MessageFactory(Image(await md_to_pic(msg)))
+    await msg.send()
+    await mc_server.finish()
+    # await mc_server.finish(MessageSegment.image(await md_to_pic(msg)))
 
 
 mcadd = on_command("mcadd", permission=SUPERUSER)
@@ -166,7 +171,8 @@ async def mcsm_ctl_first_handle(
         await mcsm_ctl.finish("你没有权限使用这个命令")
 
     match = re.match(
-        r"(on|start|开服|open|off|stop|kill|关服|close|restart|重启|强关|终止)\s?(.*)", arg.extract_plain_text()
+        r"(on|start|开服|open|off|stop|kill|关服|close|restart|重启|强关|终止)\s?(.*)",
+        arg.extract_plain_text(),
     )
     if match:
         state["type"] = server_todo(match.group(1))
@@ -328,7 +334,6 @@ mcsm_command_history = on_command("命令历史")
 async def _(
     bot: Bot, event: GroupMessageEvent | MessageEvent, args: Message = CommandArg()
 ):
-
     user_id = None
 
     if isinstance(event, GroupMessageEvent):

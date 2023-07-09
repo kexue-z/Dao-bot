@@ -1,5 +1,6 @@
 host: 0.0.0.0
 port: 9901
+driver: "~httpx+~websockets"
 
 superusers: !secret superusers
 nickname:
@@ -9,8 +10,8 @@ command_start:
 command_sep:
   - "."
 
-log_level: INFO
-# log_level: DEBUG
+# log_level: INFO
+log_level: DEBUG
 
 # pushover
 pushover_token: !secret pushover_token
@@ -35,7 +36,7 @@ proxy_url: http://192.168.0.78:9091/
 # setu
 setu_cd: 300
 setu_add_randon_effect: true
-# setu_reverse_proxy: 
+# setu_reverse_proxy:
 
 # BISON_CONFIG_PATH: /nonebot/data/bison/
 BISON_USE_PIC: true
@@ -58,7 +59,6 @@ db_url: sqlite:///nonebot/data/db.sqlite
 
 ANTI_FLASH_ON: true
 
-
 datastore_cache_dir: /nonebot/data/datastore/cache
 datastore_config_dir: /nonebot/data/datastore/config
 datastore_data_dir: /nonebot/data/datastore/data
@@ -73,3 +73,5 @@ novelai_h: true
 novelai_paid: 3
 
 aidraw_api: http://192.168.0.29:7860
+
+kaiheila_bots: !secret kaiheila_bots
