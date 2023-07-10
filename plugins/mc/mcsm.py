@@ -1,5 +1,7 @@
 import re
 import codecs
+from typing import List
+from json.decoder import JSONDecodeError
 
 from nonebot import get_driver
 from nonebot.log import logger
@@ -92,12 +94,34 @@ def check(res: Response) -> int:
     logger.debug(res.status_code)
     logger.debug(res.text)
     logger.debug(res.url)
-    from json.decoder import JSONDecodeError
 
     try:
         if res.json()["status"] != 200:
             raise MCSMAPIError(res.json()["data"])
 
         return int(res.json()["status"])
+    except JSONDecodeError:
+        raise HTTPStatusError("服务器连接失败？")
+
+
+async def search_remote_services(
+    remote_uuid: str, page: int = 1, page_size=10, apikey: str = apikey
+) -> List:
+    async with AsyncClient(follow_redirects=True) as client:
+        params = {
+            "apikey": apikey,
+            "remote_uuid": remote_uuid,
+            "page_size": page_size,
+            "page": page,
+        }
+        res = await client.get(
+            f"{server}/api/service/remote_service_instances", params=params
+        )
+    try:
+        if res.json()["status"] != 200:
+            raise MCSMAPIError(res.json()["data"])
+
+        return res.json()["data"]
+
     except JSONDecodeError:
         raise HTTPStatusError("服务器连接失败？")

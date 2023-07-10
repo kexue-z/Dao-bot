@@ -226,6 +226,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "kaiheilacardbuilder"
+version = "1.3.0"
+requires_python = ">=3.10"
+git = "https://github.com/kexue-z/KaiheilaCardBuilder.git"
+revision = "8bc6eca6d362844b798093bc44f7677ed163752b"
+summary = "一个构建开黑啦卡片的工具"
+
+[[package]]
 name = "loguru"
 version = "0.7.0"
 requires_python = ">=3.5"
@@ -447,17 +455,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "nonebot2"
-version = "2.0.0"
-extras = ["websockets"]
-requires_python = ">=3.8,<4.0"
-summary = "An asynchronous python bot framework."
-dependencies = [
-    "nonebot2==2.0.0",
-    "websockets>=10.0",
-]
-
-[[package]]
 name = "pillow"
 version = "9.5.0"
 requires_python = ">=3.7"
@@ -672,7 +669,7 @@ dependencies = [
 lock_version = "4.2"
 cross_platform = true
 groups = ["default"]
-content_hash = "sha256:d098742124bcf9212b0a28e883b95d6839706af7717e34da63e916fa91aa9705"
+content_hash = "sha256:e2ecb39450690d3cfa0a3c86ef60dfeb666bda6780524e8257f23554d78b5486"
 
 [metadata.files]
 "aiofiles 23.1.0" = [

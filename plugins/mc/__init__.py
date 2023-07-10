@@ -1,3 +1,14 @@
+from nonebot import require
+
+require("nonebot_plugin_tortoise_orm")
+require("nonebot_plugin_htmlrender")
+
+from nonebot_plugin_htmlrender import md_to_pic
+from nonebot_plugin_tortoise_orm import add_model
+
+add_model("plugins.mc.models")
+
+
 import re
 from random import randint
 
@@ -7,9 +18,12 @@ from nonebot.typing import T_State
 from nonebot.params import CommandArg
 from nonebot.permission import SUPERUSER
 from nonebot.internal.adapter.bot import Bot
-from nonebot import require, get_driver, on_command
+from nonebot import on_notice, get_driver, on_command
+from nonebot.adapters.kaiheila import Event as KEvent
 from nonebot.adapters.kaiheila import Event as KHLEvent
+from nonebot.adapters.kaiheila import Message as KMessage
 from nonebot_plugin_saa import Text, Image, MessageFactory
+from nonebot.adapters.kaiheila import MessageSegment as KMS
 from nonebot.adapters.onebot.v11 import (
     Event,
     Message,
@@ -20,17 +34,9 @@ from nonebot.adapters.onebot.v11 import (
 
 from .mcsm import *
 from .mcping import ping
+from .kook.data_source import get_server_status
 from .data_source import server_todo, generate_server_list
 from .models import MCServers, MCTrustIDs, ServerCommandHistory
-
-require("nonebot_plugin_tortoise_orm")
-require("nonebot_plugin_htmlrender")
-
-from nonebot_plugin_htmlrender import md_to_pic  # noqa: E402
-from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
-
-add_model("plugins.mc.models")
-
 
 mc_server = on_command("mc", priority=1)
 
@@ -359,3 +365,20 @@ async def _(
         )
 
     await mcsm_command_history.finish(MessageSegment.image(await md_to_pic(text)))
+
+
+kmcsm = on_command("mcsm", priority=1, block=True)
+
+
+@kmcsm.handle()
+async def _(event: KEvent):
+    logger.debug("KOOK!")
+    card = await get_server_status()
+    await kmcsm.finish(KMessage(KMS.Card(card)))
+
+
+kmcsm_button = on_notice()
+
+
+async def _(event: KEvent):
+    logger.debug(event)
