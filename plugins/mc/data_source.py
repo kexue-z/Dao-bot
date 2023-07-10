@@ -1,4 +1,4 @@
-from .models import MCServers
+from models.mc import MCServers
 
 
 async def generate_server_list() -> dict:

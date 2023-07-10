@@ -1,10 +1,10 @@
 from typing import List
 
 from nonebot.log import logger
+from models.mc import MCServers
 
 from .utils import make_card
 from .typing_models import ServerInfo
-from .. import MCServers, search_remote_services
 
 
 async def get_server_status():

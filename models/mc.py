@@ -1,11 +1,9 @@
-from uuid import uuid4
 from typing import List
 from datetime import datetime, timedelta
 
 from dateutil import tz
 from tortoise import fields
 from tortoise.models import Model
-from tortoise.expressions import Q
 
 
 class MCTrustIDs(Model):
@@ -92,7 +90,6 @@ class MCServers(Model):
 
     @staticmethod
     async def get_server_name_by_uuid(instance_uuid: str) -> str:
-
         res = await MCServers.get_or_none(instance_uuid=instance_uuid)
         if res:
             return res.name
@@ -141,6 +138,9 @@ class ServerCommandHistory(Model):
     ) -> List["ServerCommandHistory"]:
         if user_id:
             return (
-                await ServerCommandHistory.filter(user_id=user_id).order_by("-id").all().limit(10)
+                await ServerCommandHistory.filter(user_id=user_id)
+                .order_by("-id")
+                .all()
+                .limit(10)
             )
-        return await ServerCommandHistory.all().order_by('-id').limit(10)
+        return await ServerCommandHistory.all().order_by("-id").limit(10)

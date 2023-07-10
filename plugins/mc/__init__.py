@@ -6,7 +6,7 @@ require("nonebot_plugin_htmlrender")
 from nonebot_plugin_htmlrender import md_to_pic
 from nonebot_plugin_tortoise_orm import add_model
 
-add_model("plugins.mc.models")
+add_model("models.mc")
 
 
 import re
@@ -24,6 +24,7 @@ from nonebot.adapters.kaiheila import Event as KHLEvent
 from nonebot.adapters.kaiheila import Message as KMessage
 from nonebot_plugin_saa import Text, Image, MessageFactory
 from nonebot.adapters.kaiheila import MessageSegment as KMS
+from models.mc import MCServers, MCTrustIDs, ServerCommandHistory
 from nonebot.adapters.onebot.v11 import (
     Event,
     Message,
@@ -36,7 +37,6 @@ from .mcsm import *
 from .mcping import ping
 from .kook.data_source import get_server_status
 from .data_source import server_todo, generate_server_list
-from .models import MCServers, MCTrustIDs, ServerCommandHistory
 
 mc_server = on_command("mc", priority=1)
 
@@ -164,7 +164,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
     await mcsm_add.finish(Message("添加失败, 或已经存在"))
 
 
-mcsm_ctl = on_command("mcsm")
+mcsm_ctl = on_command("mcsm", priority=5)
 
 
 @mcsm_ctl.handle()
