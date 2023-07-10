@@ -20,11 +20,11 @@ from nonebot.permission import SUPERUSER
 from nonebot.internal.adapter.bot import Bot
 from nonebot import on_notice, get_driver, on_command
 from nonebot.adapters.kaiheila import Event as KEvent
-from nonebot.adapters.kaiheila import Event as KHLEvent
 from nonebot.adapters.kaiheila import Message as KMessage
 from nonebot_plugin_saa import Text, Image, MessageFactory
 from nonebot.adapters.kaiheila import MessageSegment as KMS
 from models.mc import MCServers, MCTrustIDs, ServerCommandHistory
+from nonebot.adapters.kaiheila.event import CartBtnClickNoticeEvent
 from nonebot.adapters.onebot.v11 import (
     Event,
     Message,
@@ -42,7 +42,7 @@ mc_server = on_command("mc", priority=1)
 
 
 @mc_server.handle()
-async def mc_server_handle(bot: Bot, event: MessageEvent | KHLEvent):
+async def mc_server_handle(bot: Bot, event: MessageEvent | KEvent):
     msg = ""
 
     servers = await MCServers.get_all_servers_ip()
@@ -380,5 +380,11 @@ async def _(event: KEvent):
 kmcsm_button = on_notice()
 
 
+@kmcsm_button.handle()
 async def _(event: KEvent):
-    logger.debug(event)
+    if isinstance(event, CartBtnClickNoticeEvent):
+        data = event.extra
+        if data.body:
+            value = data.body.get("value")
+            logger.critical(value)
+            # TODO
