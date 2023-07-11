@@ -266,7 +266,7 @@ summary = "multidict implementation"
 
 [[package]]
 name = "nonebot-adapter-kaiheila"
-version = "0.2.6"
+version = "0.2.7"
 requires_python = ">=3.9,<4.0"
 summary = "kaiheila adapter for nonebot2"
 dependencies = [
@@ -442,17 +442,6 @@ requires_python = ">=3.8,<4.0"
 summary = "An asynchronous python bot framework."
 dependencies = [
     "httpx[http2]<1.0.0,>=0.20.0",
-    "nonebot2==2.0.0",
-    "websockets>=10.0",
-]
-
-[[package]]
-name = "nonebot2"
-version = "2.0.0"
-extras = ["websockets"]
-requires_python = ">=3.8,<4.0"
-summary = "An asynchronous python bot framework."
-dependencies = [
     "nonebot2==2.0.0",
     "websockets>=10.0",
 ]
@@ -1369,9 +1358,9 @@ content_hash = "sha256:d098742124bcf9212b0a28e883b95d6839706af7717e34da63e916fa9
     {url = "https://files.pythonhosted.org/packages/fc/5b/0a4205a1248fb152f596a03c971c6ef1585d0c98e56b6886dc35d084e366/multidict-6.0.4-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7d18748f2d30f94f498e852c67d61261c643b349b9d2a581131725595c45ec6c"},
     {url = "https://files.pythonhosted.org/packages/fe/0c/8469202f8f4b0e65816f91c3febc4bda7316c995b59ecdf3b15c574f7a24/multidict-6.0.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cc8e1d0c705233c5dd0c5e6460fbad7827d5d36f310a0fadfd45cc3029762258"},
 ]
-"nonebot-adapter-kaiheila 0.2.6" = [
-    {url = "https://files.pythonhosted.org/packages/4c/c2/c2f6b81ad3df1238b91caf05156945be0f9d3e54b856918c4203c3eac6f6/nonebot_adapter_kaiheila-0.2.6.tar.gz", hash = "sha256:d57ce3821c32ab5ccf6036751bd541b42455ade19c89404677768d06d27bda34"},
-    {url = "https://files.pythonhosted.org/packages/8e/67/255a940b69197fab3b044e2cf01ef7a52735a6cf59d3e60be472ce157eea/nonebot_adapter_kaiheila-0.2.6-py3-none-any.whl", hash = "sha256:1a8cfd757b487e69e3ae9b129e641e28182678c0feaf68faee2f895f2e03869f"},
+"nonebot-adapter-kaiheila 0.2.7" = [
+    {url = "https://files.pythonhosted.org/packages/0d/99/23794adb06f1476e4ee330f9628827d2098e7387d697865ebcb980c3658b/nonebot_adapter_kaiheila-0.2.7-py3-none-any.whl", hash = "sha256:0f0648386d7df54b28906cc5093cba31aa5851b394c144abf51f933af9e1775b"},
+    {url = "https://files.pythonhosted.org/packages/73/04/8d704f27f6aad641e8c0232a7f676601f8ba4346aa9e819223d58591f715/nonebot_adapter_kaiheila-0.2.7.tar.gz", hash = "sha256:0758239ea51c6509a5c02bb332e47205a585b687e909d512045f9c50a9456124"},
 ]
 "nonebot-adapter-onebot 2.2.3" = [
     {url = "https://files.pythonhosted.org/packages/60/12/253510c7c117cad35d3c5edc50b6e85898ee7dbf7b25850f9787229e59c0/nonebot_adapter_onebot-2.2.3.tar.gz", hash = "sha256:e0ac165536a24f7c5e620092ab596022e8f85d462c17ec8d7a17b191093b4859"},
