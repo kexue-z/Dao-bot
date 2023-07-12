@@ -30,19 +30,19 @@ def make_server_card(card: CardBuilder, server: ServerInfo):
                 Button(
                     PlainText(":heavy_check_mark: 开启", emoji=True),
                     theme=ThemeTypes.PRIMARY,
-                    value=f"{server.instance_uuid}:ON",
+                    value=f"{server.instance_uuid}:open",
                     click="return-val",
                 ),
                 Button(
                     PlainText(":x: 关闭", emoji=True),
                     theme=ThemeTypes.WARNING,
-                    value=f"{server.instance_uuid}:OFF",
+                    value=f"{server.instance_uuid}:stop",
                     click="return-val",
                 ),
                 Button(
                     PlainText(":recycle: 重启", emoji=True),
                     theme=ThemeTypes.INFO,
-                    value=f"{server.instance_uuid}:RESTART",
+                    value=f"{server.instance_uuid}:restart",
                     click="return-val",
                 ),
             )

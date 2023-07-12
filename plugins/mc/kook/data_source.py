@@ -5,6 +5,7 @@ from models.mc import MCServers
 
 from .utils import make_card
 from .typing_models import ServerInfo
+from ..mcsm import search_remote_services
 
 
 async def get_server_status():
@@ -15,7 +16,9 @@ async def get_server_status():
 
     # 逐个获取守护进程内的实例
     for remote in remote_uuids:
-        # services = await search_remote_services(remote)
+        # for remote in ["remote1", "remote2", "remote3", "remote4"]:
+        services = await search_remote_services(remote)
+        # TODO
         services = [
             ServerInfo(
                 name="name",
@@ -40,9 +43,7 @@ async def get_server_status():
         if service.instance_uuid in usable:
             _all_services.append(service)
 
-    return make_card(_all_services)
-    # for server in all_server:
-    #     logger.debug(server.remote_uuid)
-    #     logger.debug(server.instance_uuid)
-
-    #
+    # return make_card(all_services)
+    if _all_services:
+        return make_card(_all_services)
+    return None

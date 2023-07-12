@@ -144,3 +144,10 @@ class ServerCommandHistory(Model):
                 .limit(10)
             )
         return await ServerCommandHistory.all().order_by("-id").limit(10)
+
+
+# TODO
+class KookMsg(Model):
+    msg_id = fields.CharField(max_length=36, pk=True)
+    user_id = fields.CharField(max_length=12)
+    expeire_time = fields.DatetimeField()

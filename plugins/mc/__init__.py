@@ -374,7 +374,9 @@ kmcsm = on_command("mcsm", priority=1, block=True)
 async def _(event: KEvent):
     logger.debug("KOOK!")
     card = await get_server_status()
-    await kmcsm.finish(KMessage(KMS.Card(card)))
+    if card:
+        await kmcsm.finish(KMessage(KMS.Card(card)))
+    await kmcsm.finish(KMessage("无可用服务器"))
 
 
 kmcsm_button = on_notice()
@@ -385,6 +387,14 @@ async def _(event: KEvent):
     if isinstance(event, CartBtnClickNoticeEvent):
         data = event.extra
         if data.body:
-            value = data.body.get("value")
-            logger.critical(value)
+            value: str = data.body.get("value")  # type: ignore
+            msg_id: str = data.body.get("msg_id")  # type: ignore
+            user_id: str = data.body.get("user_id")  # type: ignore
+
+            instance_id = value.split(":", 1)[0]
+            funcs = value.split(":", 1)[1]
+
+            logger.debug(
+                f"Got value: {value} msg_id: {msg_id} user_id: {user_id} instance_id: {instance_id} funcs: {funcs}"
+            )
             # TODO
