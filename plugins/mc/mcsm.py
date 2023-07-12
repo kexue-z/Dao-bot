@@ -8,6 +8,7 @@ from nonebot.log import logger
 from httpx import Response, AsyncClient
 
 from .config import Config
+from .data_models.remote_services_api import RemoteServicesApi
 
 plugin_config = Config.parse_obj(get_driver().config.dict())
 server = plugin_config.mcserver
@@ -106,22 +107,25 @@ def check(res: Response) -> int:
 
 async def search_remote_services(
     remote_uuid: str, page: int = 1, page_size=10, apikey: str = apikey
-) -> List:
+) -> RemoteServicesApi:
+    # TODO: 大混乱！
     async with AsyncClient(follow_redirects=True) as client:
         params = {
             "apikey": apikey,
             "remote_uuid": remote_uuid,
             "page_size": page_size,
             "page": page,
+            "instance_name": "",
         }
         res = await client.get(
             f"{server}/api/service/remote_service_instances", params=params
         )
+
     try:
         if res.json()["status"] != 200:
             raise MCSMAPIError(res.json()["data"])
 
-        return res.json()["data"]
+        return RemoteServicesApi(**res.json())
 
     except JSONDecodeError:
         raise HTTPStatusError("服务器连接失败？")

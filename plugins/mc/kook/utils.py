@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Any, Dict, List
 
 from khl_card.card import Card
@@ -15,6 +16,7 @@ def make_server_card(card: CardBuilder, server: ServerInfo):
     status_dict = {
         -1: KMD.color("状态未知", color=KMDC.INFO),
         0: KMD.color("已停止", color=KMDC.WARNING),
+        1: KMD.color("正在停止", color=KMDC.WARNING),
         2: KMD.color("正在启动", color=KMDC.SECONDARY),
         3: KMD.color("正在运行", color=KMDC.PRIMARY),
     }
@@ -51,8 +53,19 @@ def make_server_card(card: CardBuilder, server: ServerInfo):
     )
 
 
-def make_card(server_list: List[ServerInfo]) -> List[Dict[Any, Any]]:
-    cb = CardBuilder().header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
+def make_card(
+    server_list: List[ServerInfo], expeire_time: datetime
+) -> List[Dict[Any, Any]]:
+    time_format = r"%Y-%m-%d %H:%M:%S"
+    cb = (
+        CardBuilder()
+        .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
+        .divider()
+        .second_countdown(
+            end_time=expeire_time.strftime(time_format),
+            start_time=datetime.now().strftime(time_format),
+        )
+    )
 
     servers_card = Card()
 
@@ -60,3 +73,29 @@ def make_card(server_list: List[ServerInfo]) -> List[Dict[Any, Any]]:
         servers_card = make_server_card(cb, s)
 
     return CardMessageBuilder().card(servers_card).build().build()
+
+
+def make_done_card():
+    msg = KMD.strikethrough("该卡片已被使用")
+
+    cb = (
+        CardBuilder()
+        .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
+        .divider()
+        .context(Context(msg))
+    ).build()
+
+    return CardMessageBuilder().card(cb).build().build()
+
+
+def make_outdate_card():
+    msg = KMD.strikethrough("该卡片已过期")
+
+    cb = (
+        CardBuilder()
+        .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
+        .divider()
+        .context(Context(msg))
+    ).build()
+
+    return CardMessageBuilder().card(cb).build().build()

@@ -1,4 +1,5 @@
 from typing import List
+from enum import IntEnum
 from datetime import datetime, timedelta
 
 from dateutil import tz
@@ -6,18 +7,27 @@ from tortoise import fields
 from tortoise.models import Model
 
 
+class UserFrom(IntEnum):
+    QQ = 1
+    Kook = 2
+
+
 class MCTrustIDs(Model):
-    user_id = fields.IntField(pk=True, unique=True)
+    id = fields.IntField(pk=True, generated=True)
+    user_id = fields.IntField()
     """用户ID"""
     enabled = fields.BooleanField(default=False)
     """是否启用"""
+    user_from = fields.IntEnumField(UserFrom)
 
     class Meta:
         table = "mc_trust_ids"
 
     @staticmethod
-    async def add_id(user_id: int, enabled=True) -> bool:
-        _, status = await MCTrustIDs.get_or_create(user_id=user_id, enabled=enabled)
+    async def add_id(user_id: int, user_from: UserFrom, enabled=True) -> bool:
+        _, status = await MCTrustIDs.get_or_create(
+            user_id=user_id, enabled=enabled, user_from=user_from
+        )
         if status:
             return True
         return False
@@ -29,8 +39,8 @@ class MCTrustIDs(Model):
         return True
 
     @staticmethod
-    async def get_all_enabled_ids() -> list[int]:
-        res = await MCTrustIDs.filter(enabled=True).all()
+    async def get_all_enabled_ids(user_from: UserFrom) -> list[int]:
+        res = await MCTrustIDs.filter(enabled=True, user_from=user_from).all()
         ids: list[int] = []
         for i in res:
             ids.append(i.user_id)
@@ -151,3 +161,18 @@ class KookMsg(Model):
     msg_id = fields.CharField(max_length=36, pk=True)
     user_id = fields.CharField(max_length=12)
     expeire_time = fields.DatetimeField()
+
+    class Meta:
+        table = "kook_msg"
+
+    @staticmethod
+    async def validation(
+        input_msg_id: str,
+        input_user_id: str,
+        current_time: datetime,
+    ):
+        if record := await KookMsg.get_or_none(msg_id=input_msg_id):
+            if record.user_id == input_user_id and record.expeire_time >= current_time:
+                return True
+
+        return False
