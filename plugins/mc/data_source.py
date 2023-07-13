@@ -36,6 +36,7 @@ def server_todo(todo: str) -> str:
 
 from re import findall
 from typing import List
+from socket import gaierror
 
 from mcstatus import JavaServer
 
@@ -50,7 +51,24 @@ async def mcping():
 
     for s in servers:
         js = await JavaServer.async_lookup(s.ip, timeout=5)
-        status = js.status()
+
+        try:
+            status = js.status()
+        except gaierror:
+            mcpings.append(
+                MCPing(
+                    name=s.name,
+                    ip=s.ip,
+                    version="Err",
+                    player_online=-1,
+                    max_online=-1,
+                    player_list=[" "],
+                    latency=-1,
+                    motd="Err",
+                    mcsm_status=s.status,
+                )
+            )
+            continue
 
         motd = status.motd.to_plain()
         version_list = findall(r"\d+\.\d+(?:\.[\dxX]+)?", status.version.name)
