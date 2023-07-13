@@ -72,4 +72,5 @@ RUN playwright install --with-deps chromium
 
 COPY ./plugins/ /nonebot/plugins/
 COPY ./utils/ /nonebot/utils/
+COPY ./models /nonebot/models/
 COPY ./bot.py /nonebot/bot.py
