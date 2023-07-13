@@ -34,12 +34,15 @@ async def get_server_status():
 
         for service in services.data.data:
             if service.instanceUuid in usable:
+                s = await MCServers.get(instance_uuid=service.instanceUuid)
+
                 all_services.append(
                     ServerInfo(
                         name=service.config.nickname,
                         instance_uuid=service.instanceUuid,
                         remote_uuid=remote,
                         status=service.status,
+                        ip=s.ip,
                     )
                 )
 
@@ -47,13 +50,13 @@ async def get_server_status():
 
 
 async def make_control_card(expeire_time: datetime) -> List:
-    # res = await get_server_status()
+    res = await get_server_status()
 
-    res = [
-        ServerInfo(
-            name="test", instance_uuid="instance", remote_uuid="remote", status=1
-        )
-    ]
+    # res = [
+    #     ServerInfo(
+    #         name="test", instance_uuid="instance", remote_uuid="remote", status=1
+    #     )
+    # ]
 
     return make_card(res, expeire_time)
 

@@ -57,14 +57,14 @@ cchess_engine_path: "/tmp/fairy-stockfish"
 
 github_api_key: !secret github_api_key
 
-# db_url: sqlite:///nonebot/data/db.sqlite
+# db_url: !secret db_url
 
 ANTI_FLASH_ON: true
 
 datastore_cache_dir: /nonebot/data/datastore/cache
 datastore_config_dir: /nonebot/data/datastore/config
 datastore_data_dir: /nonebot/data/datastore/data
-# datastore_database_url: sqlite+aiosqlite:///nonebot/data/data.db
+# datastore_database_url: !secret datastore_database_url
 
 novelai_mode: sd
 novelai_site: 192.168.0.29:7860

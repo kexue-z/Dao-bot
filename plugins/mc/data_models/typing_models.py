@@ -6,4 +6,4 @@ class ServerInfo(BaseModel):
     instance_uuid: str
     remote_uuid: str
     status: int
-    ip: str | None = None
+    ip: str

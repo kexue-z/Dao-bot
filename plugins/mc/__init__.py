@@ -35,8 +35,8 @@ from nonebot.adapters.onebot.v11 import (
     GroupMessageEvent,
 )
 
-from .data_source import server_todo, mc_ping_kook, generate_server_list
 from .mcsm import MCSMAPIError, HTTPStatusError, call_server, call_command
+from .data_source import mc_ping_qq, server_todo, mc_ping_kook, generate_server_list
 from .kook.data_source import (
     button_event,
     make_control_card,
@@ -53,7 +53,9 @@ async def mc_server_handle(bot: Bot, event: MessageEvent | KEvent):
         await mc_server.send(KMessage(KMS.Card(card)))
 
     elif isinstance(event, MessageEvent):
-        await mc_server.send("施工中...")
+        msg = await mc_ping_qq()
+        pic = await md_to_pic(msg)
+        await mc_server.send(MessageSegment.image(pic))
 
     await mc_server.finish()
 

@@ -98,3 +98,27 @@ from .kook.utils import make_ping_card
 async def mc_ping_kook():
     mcpings = await mcping()
     return make_ping_card(mcpings)
+
+
+async def mc_ping_qq():
+    mcpings = await mcping()
+    STATUS_DICT = {
+        -1: "状态未知",
+        0: "已停止",
+        1: "正在停止",
+        2: "正在启动",
+        3: "正在运行",
+    }
+    msg = ""
+    for p in mcpings:
+        msg += (
+            f"# {p.name} {p.ip}\n"
+            f"延迟: **{p.latency}ms**\n"
+            f"MOTD: **{p.motd}**\n"
+            f"游戏版本: **{p.version}**"
+            f"玩家数: **{p.player_online}/{p.max_online}**"
+            f"在线玩家: **{','.join([_p for _p in p.player_list])}**"
+            f"MCSM 状态: **{STATUS_DICT[p.mcsm_status]}**"
+        )
+
+    return msg

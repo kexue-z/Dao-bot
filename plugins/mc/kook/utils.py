@@ -26,7 +26,7 @@ def make_server_card(card: CardBuilder, server: ServerInfo):
     return (
         card.divider()
         .header(server.name)
-        .context(Context(msg))
+        .section(msg)
         .action_group(
             ActionGroup(
                 Button(
@@ -76,13 +76,13 @@ def make_card(
 
 
 def make_done_card(server_name: str, funcs: str):
-    msg = KMD(f"~~该卡片已被使用~~\n **{server_name}:**已发送指令 `{funcs}`")
+    msg = KMD(f"~~该卡片已被使用~~\n**{server_name}: **已发送指令 `{funcs}`")
 
     cb = (
         CardBuilder()
         .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
         .divider()
-        .context(Context(msg))
+        .section(msg)
     ).build()
 
     return CardMessageBuilder().card(cb).build().build()
@@ -95,7 +95,7 @@ def make_outdate_card():
         CardBuilder()
         .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
         .divider()
-        .context(Context(msg))
+        .section(msg)
     ).build()
 
     return CardMessageBuilder().card(cb).build().build()
@@ -109,7 +109,7 @@ def make_error_card(err: str):
             CardBuilder()
             .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
             .divider()
-            .context(Context(msg))
+            .section(msg)
         )
         .build()
         .set_theme(ThemeTypes.WARNING)
@@ -141,13 +141,14 @@ def ping_card(p: MCPing) -> Card:
         CardBuilder()
         .header(f"{p.name} {p.ip}")
         .divider()
-        .context(
-            Context(
-                KMD(f"延迟: **{p.latency}ms**\n"),
-                KMD(f"MOTD: **{p.motd}**\n"),
-                KMD(f"游戏版本: **{p.version}**"),
-                KMD(f"玩家数: **{p.player_online}/{p.max_online}**"),
-                KMD(f"在线玩家: **{','.join([_p for _p in p.player_list])}**"),
+        .section(
+            KMD(
+                f"延迟: **{p.latency}ms**\n"
+                f"MOTD: **{p.motd}**\n"
+                f"游戏版本: **{p.version}**\n"
+                f"玩家数: **{p.player_online}/{p.max_online}**\n"
+                f"在线玩家: **{','.join([_p for _p in p.player_list])}**\n"
+                f"MCSM 状态: **{STATUS_DICT[p.mcsm_status]}**"
             )
         )
         .build()

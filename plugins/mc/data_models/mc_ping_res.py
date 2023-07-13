@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class MCPing(BaseModel):
     name: str
-    ip: str | None
+    ip: str
     version: str
     player_online: int
     max_online: int
