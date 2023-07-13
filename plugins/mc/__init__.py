@@ -2,6 +2,7 @@ from nonebot import require
 
 require("nonebot_plugin_tortoise_orm")
 require("nonebot_plugin_htmlrender")
+require("nonebot_plugin_apscheduler")
 
 from nonebot_plugin_htmlrender import md_to_pic
 from nonebot_plugin_tortoise_orm import add_model
@@ -9,7 +10,6 @@ from nonebot_plugin_tortoise_orm import add_model
 add_model("models.mc")
 
 import re
-from json import dumps
 from random import randint
 from datetime import datetime, timedelta
 
@@ -26,7 +26,6 @@ from nonebot.adapters.kaiheila.bot import Bot as KBot
 from nonebot.adapters.kaiheila import Message as KMessage
 from nonebot.adapters.kaiheila import MessageSegment as KMS
 from nonebot.adapters.kaiheila.api import MessageCreateReturn
-from nonebot.adapters.kaiheila.event import CartBtnClickNoticeEvent
 from models.mc import KookMsg, UserFrom, MCServers, MCTrustIDs, ServerCommandHistory
 from nonebot.adapters.onebot.v11 import (
     Event,
@@ -37,10 +36,13 @@ from nonebot.adapters.onebot.v11 import (
 )
 
 from .mcping import ping
-from .kook.data_source import get_server_status
-from .kook.utils import make_done_card, make_outdate_card
 from .data_source import server_todo, generate_server_list
 from .mcsm import MCSMAPIError, HTTPStatusError, call_server, call_command
+from .kook.data_source import (
+    button_event,
+    make_control_card,
+    set_outdate_card_scheduler,
+)
 
 mc_server = on_command("mc", priority=1)
 
@@ -375,7 +377,7 @@ kmcsm = on_command("mcsm", priority=1, block=True)
 
 
 @kmcsm.handle()
-async def _(event: KEvent):
+async def _(bot: KBot, event: KEvent):
     if int(event.user_id) not in await MCTrustIDs.get_all_enabled_ids(
         user_from=UserFrom.Kook
     ):
@@ -383,7 +385,7 @@ async def _(event: KEvent):
 
     expeire_time = datetime.now() + timedelta(minutes=1)
 
-    if card := await get_server_status(expeire_time=expeire_time):
+    if card := await make_control_card(expeire_time=expeire_time):
         msg: MessageCreateReturn = await kmcsm.send(KMessage(KMS.Card(card)))
         if msg.msg_id:
             record = await KookMsg.create(
@@ -392,6 +394,8 @@ async def _(event: KEvent):
                 expeire_time=expeire_time,
             )
             await record.save()
+
+            set_outdate_card_scheduler(bot, msg.msg_id, expeire_time)
 
     else:
         msg = await kmcsm.send("无可用服务器")
@@ -404,37 +408,5 @@ kmcsm_button = on_notice()
 
 @kmcsm_button.handle()
 async def _(bot: KBot, event: KEvent):
-    if isinstance(event, CartBtnClickNoticeEvent):
-        data = event.extra
-        if data.body:
-            value: str = data.body.get("value")  # type: ignore
-            msg_id: str = data.body.get("msg_id")  # type: ignore
-            user_id: str = data.body.get("user_id")  # type: ignore
-
-            instance_uuid = value.split(":", 1)[0]
-            funcs = value.split(":", 1)[1]
-
-            logger.debug(
-                f"Got value: {value} msg_id: {msg_id} user_id: {user_id} instance_id: {instance_uuid} funcs: {funcs}"
-            )
-
-            record = await KookMsg.get(msg_id=msg_id)
-
-            if not (
-                user_id == user_id
-                and record.expeire_time.astimezone(tz.tzlocal())
-                >= datetime.now(tz=tz.tzlocal())
-            ):
-                await kmcsm.finish()
-
-            server = await MCServers.get(instance_uuid=instance_uuid)
-
-            res = await call_server(
-                type=funcs, instance_uuid=instance_uuid, remote_uuid=server.remote_uuid
-            )
-
-            assert res == 200
-
-            await bot.message_update(
-                msg_id=msg_id, content=dumps(make_done_card(), ensure_ascii=False)
-            )
+    await button_event(bot, event)
+    await kmcsm_button.finish()

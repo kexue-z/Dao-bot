@@ -22,6 +22,7 @@ dependencies = [
     "nonebot-adapter-kaiheila>=0.2.6",
     "nonebot-plugin-send-anything-anywhere>=0.2.7",
     "KaiheilaCardBuilder @ git+https://github.com/kexue-z/KaiheilaCardBuilder.git",
+    "nonebot-plugin-apscheduler>=0.3.0",
 ]
 requires-python = ">=3.10,<4.0"
 readme = "README.md"

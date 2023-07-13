@@ -75,8 +75,8 @@ def make_card(
     return CardMessageBuilder().card(servers_card).build().build()
 
 
-def make_done_card():
-    msg = KMD.strikethrough("该卡片已被使用")
+def make_done_card(server_name: str, funcs: str):
+    msg = KMD(f"~~该卡片已被使用~~\n **{server_name}:**已发送指令 `{funcs}`")
 
     cb = (
         CardBuilder()
@@ -97,5 +97,22 @@ def make_outdate_card():
         .divider()
         .context(Context(msg))
     ).build()
+
+    return CardMessageBuilder().card(cb).build().build()
+
+
+def make_error_card(err: str):
+    msg = KMD(err)
+
+    cb = (
+        (
+            CardBuilder()
+            .header(PlainText(":rocket:MCSM 服务器管理", emoji=True))
+            .divider()
+            .context(Context(msg))
+        )
+        .build()
+        .set_theme(ThemeTypes.WARNING)
+    )
 
     return CardMessageBuilder().card(cb).build().build()
