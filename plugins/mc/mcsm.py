@@ -1,11 +1,14 @@
 import re
 import codecs
+from typing import List
+from json.decoder import JSONDecodeError
 
 from nonebot import get_driver
 from nonebot.log import logger
 from httpx import Response, AsyncClient
 
 from .config import Config
+from .data_models.remote_services_api import RemoteServicesApi
 
 plugin_config = Config.parse_obj(get_driver().config.dict())
 server = plugin_config.mcserver
@@ -92,12 +95,37 @@ def check(res: Response) -> int:
     logger.debug(res.status_code)
     logger.debug(res.text)
     logger.debug(res.url)
-    from json.decoder import JSONDecodeError
 
     try:
         if res.json()["status"] != 200:
             raise MCSMAPIError(res.json()["data"])
 
         return int(res.json()["status"])
+    except JSONDecodeError:
+        raise HTTPStatusError("服务器连接失败？")
+
+
+async def search_remote_services(
+    remote_uuid: str, page: int = 1, page_size=10, apikey: str = apikey
+) -> RemoteServicesApi:
+    # TODO: 大混乱！
+    async with AsyncClient(follow_redirects=True) as client:
+        params = {
+            "apikey": apikey,
+            "remote_uuid": remote_uuid,
+            "page_size": page_size,
+            "page": page,
+            "instance_name": "",
+        }
+        res = await client.get(
+            f"{server}/api/service/remote_service_instances", params=params
+        )
+
+    try:
+        if res.json()["status"] != 200:
+            raise MCSMAPIError(res.json()["data"])
+
+        return RemoteServicesApi(**res.json())
+
     except JSONDecodeError:
         raise HTTPStatusError("服务器连接失败？")

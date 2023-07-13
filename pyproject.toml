@@ -21,6 +21,9 @@ dependencies = [
     "python-dateutil>=2.8.2",
     "nonebot-adapter-kaiheila>=0.2.6",
     "nonebot-plugin-send-anything-anywhere>=0.2.7",
+    "KaiheilaCardBuilder @ git+https://github.com/kexue-z/KaiheilaCardBuilder.git",
+    "nonebot-plugin-apscheduler>=0.3.0",
+    "mcstatus>=10.0.0",
     "nonebot-plugin-wordcloud>=0.4.9",
 ]
 requires-python = ">=3.10,<4.0"

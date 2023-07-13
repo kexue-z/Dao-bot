@@ -1,5 +1,17 @@
+from nonebot import require
+
+require("nonebot_plugin_tortoise_orm")
+require("nonebot_plugin_htmlrender")
+require("nonebot_plugin_apscheduler")
+
+from nonebot_plugin_htmlrender import md_to_pic
+from nonebot_plugin_tortoise_orm import add_model
+
+add_model("models.mc")
+
 import re
 from random import randint
+from datetime import datetime, timedelta
 
 from dateutil import tz
 from nonebot.log import logger
@@ -7,9 +19,14 @@ from nonebot.typing import T_State
 from nonebot.params import CommandArg
 from nonebot.permission import SUPERUSER
 from nonebot.internal.adapter.bot import Bot
-from nonebot import require, get_driver, on_command
-from nonebot.adapters.kaiheila import Event as KHLEvent
-from nonebot_plugin_saa import Text, Image, MessageFactory
+from nonebot import on_notice, get_driver, on_command
+from nonebot.adapters.kaiheila import Event as KEvent
+from nonebot.adapters.kaiheila.bot import Bot as KBot
+from nonebot.internal.adapter import Message as _Message
+from nonebot.adapters.kaiheila import Message as KMessage
+from nonebot.adapters.kaiheila import MessageSegment as KMS
+from nonebot.adapters.kaiheila.api import MessageCreateReturn
+from models.mc import KookMsg, UserFrom, MCServers, MCTrustIDs, ServerCommandHistory
 from nonebot.adapters.onebot.v11 import (
     Event,
     Message,
@@ -18,40 +35,29 @@ from nonebot.adapters.onebot.v11 import (
     GroupMessageEvent,
 )
 
-from .mcsm import *
-from .mcping import ping
-from .data_source import server_todo, generate_server_list
-from .models import MCServers, MCTrustIDs, ServerCommandHistory
-
-require("nonebot_plugin_tortoise_orm")
-require("nonebot_plugin_htmlrender")
-
-from nonebot_plugin_htmlrender import md_to_pic  # noqa: E402
-from nonebot_plugin_tortoise_orm import add_model  # noqa: E402
-
-add_model("plugins.mc.models")
-
+from .mcsm import MCSMAPIError, HTTPStatusError, call_server, call_command
+from .data_source import mc_ping_qq, server_todo, mc_ping_kook, generate_server_list
+from .kook.data_source import (
+    button_event,
+    make_control_card,
+    set_outdate_card_scheduler,
+)
 
 mc_server = on_command("mc", priority=1)
 
 
 @mc_server.handle()
-async def mc_server_handle(bot: Bot, event: MessageEvent | KHLEvent):
-    msg = ""
+async def mc_server_handle(bot: Bot, event: MessageEvent | KEvent):
+    if isinstance(event, KEvent):
+        card = await mc_ping_kook()
+        await mc_server.send(KMessage(KMS.Card(card)))
 
-    servers = await MCServers.get_all_servers_ip()
-    for server in servers:
-        mc_status = ping(server[1])
-        # msg += "# " + i + "\n"
-        msg += f"# {server[0]} {server[1]}\n"
-        for line in mc_status:
-            msg += line + "\n"
-        msg += "\n"
+    elif isinstance(event, MessageEvent):
+        msg = await mc_ping_qq()
+        pic = await md_to_pic(msg)
+        await mc_server.send(MessageSegment.image(pic))
 
-    msg = MessageFactory(Image(await md_to_pic(msg)))
-    await msg.send()
     await mc_server.finish()
-    # await mc_server.finish(MessageSegment.image(await md_to_pic(msg)))
 
 
 mcadd = on_command("mcadd", permission=SUPERUSER)
@@ -123,7 +129,7 @@ async def _(state: T_State):
         await mcdel.finish(f"已删除 {server_name}")
 
 
-def check_superuser(event: Event):
+def check_superuser(event: Event | KEvent):
     config = get_driver().config.superusers
 
     if event.get_user_id() in config:
@@ -136,29 +142,39 @@ mcsm_add = on_command("mcsmadd")
 
 
 @mcsm_add.handle()
-async def _(event: MessageEvent, arg: Message = CommandArg()):
-    user_id = 0
-    if not (
-        event.user_id in await MCTrustIDs.get_all_enabled_ids()
-        or check_superuser(event)
-    ):
-        await mcsm_add.finish("你没有权限使用这个命令")
-    for a in arg:
-        if a.type == "at":
-            user_id: int = int(a.data["qq"])
-            break
+async def mcsm_add_1(
+    event: MessageEvent | KEvent, arg: Message | KMessage = CommandArg()
+):
+    # TODO
+    pass
+    # user_id = 0
 
-    if user_id:
-        if not await MCTrustIDs.exists(user_id=user_id):
-            await MCTrustIDs.add_id(user_id=user_id)
-            await mcsm_add.finish(
-                Message.template("已添加 {}").format(MessageSegment.at(user_id))
-            )
+    # if isinstance(event, KEvent) and isinstance(arg, KMessage):
+    #     user_from = UserFrom.Kook
+    #     user_id = arg
 
-    await mcsm_add.finish(Message("添加失败, 或已经存在"))
+    # else:
+    #     user_from = UserFrom.QQ
+
+    # if not (
+    #     event.user_id in await MCTrustIDs.get_all_enabled_ids(user_from=user_from)
+    #     or check_superuser(event)
+    # ):
+    #     await mcsm_add.finish("你没有权限使用这个命令")
+    # for a in arg:
+    #     user_id: int = int(a.data["qq"])
+
+    # if user_id:
+    #     if not await MCTrustIDs.exists(user_id=user_id):
+    #         await MCTrustIDs.add_id(user_id=user_id, user_from=user_from)
+    #         await mcsm_add.finish(
+    #             Message.template("已添加 {}").format(MessageSegment.at(user_id))
+    #         )
+
+    # await mcsm_add.finish(Message("添加失败, 或已经存在"))
 
 
-mcsm_ctl = on_command("mcsm")
+mcsm_ctl = on_command("mcsm", priority=5)
 
 
 @mcsm_ctl.handle()
@@ -167,7 +183,7 @@ async def mcsm_ctl_first_handle(
     state: T_State,
     arg: Message = CommandArg(),
 ):
-    if event.user_id not in await MCTrustIDs.get_all_enabled_ids():
+    if event.user_id not in await MCTrustIDs.get_all_enabled_ids(user_from=UserFrom.QQ):
         await mcsm_ctl.finish("你没有权限使用这个命令")
 
     match = re.match(
@@ -246,7 +262,7 @@ async def _(
     state: T_State,
     args: Message = CommandArg(),
 ):
-    if event.user_id not in await MCTrustIDs.get_all_enabled_ids():
+    if event.user_id not in await MCTrustIDs.get_all_enabled_ids(user_from=UserFrom.QQ):
         await mcsm_command.finish("你没有权限使用这个命令")
     for i in args:
         if i.type != "text":
@@ -359,3 +375,42 @@ async def _(
         )
 
     await mcsm_command_history.finish(MessageSegment.image(await md_to_pic(text)))
+
+
+kmcsm = on_command("mcsm", priority=1, block=True)
+
+
+@kmcsm.handle()
+async def _(bot: KBot, event: KEvent):
+    if int(event.user_id) not in await MCTrustIDs.get_all_enabled_ids(
+        user_from=UserFrom.Kook
+    ):
+        await mcsm_ctl.finish("你没有权限使用这个命令")
+
+    expeire_time = datetime.now() + timedelta(minutes=1)
+
+    if card := await make_control_card(expeire_time=expeire_time):
+        msg: MessageCreateReturn = await kmcsm.send(KMessage(KMS.Card(card)))
+        if msg.msg_id:
+            record = await KookMsg.create(
+                msg_id=msg.msg_id,
+                user_id=event.user_id,
+                expeire_time=expeire_time,
+            )
+            await record.save()
+
+            set_outdate_card_scheduler(bot, msg.msg_id, expeire_time)
+
+    else:
+        msg = await kmcsm.send("无可用服务器")
+
+    await kmcsm.finish()
+
+
+kmcsm_button = on_notice()
+
+
+@kmcsm_button.handle()
+async def _(bot: KBot, event: KEvent):
+    await button_event(bot, event)
+    await kmcsm_button.finish()
