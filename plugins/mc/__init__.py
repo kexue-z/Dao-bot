@@ -19,10 +19,10 @@ from nonebot.typing import T_State
 from nonebot.params import CommandArg
 from nonebot.permission import SUPERUSER
 from nonebot.internal.adapter.bot import Bot
-from nonebot_plugin_saa import Image, MessageFactory
 from nonebot import on_notice, get_driver, on_command
 from nonebot.adapters.kaiheila import Event as KEvent
 from nonebot.adapters.kaiheila.bot import Bot as KBot
+from nonebot.internal.adapter import Message as _Message
 from nonebot.adapters.kaiheila import Message as KMessage
 from nonebot.adapters.kaiheila import MessageSegment as KMS
 from nonebot.adapters.kaiheila.api import MessageCreateReturn
@@ -129,7 +129,7 @@ async def _(state: T_State):
         await mcdel.finish(f"已删除 {server_name}")
 
 
-def check_superuser(event: Event):
+def check_superuser(event: Event | KEvent):
     config = get_driver().config.superusers
 
     if event.get_user_id() in config:
@@ -142,26 +142,36 @@ mcsm_add = on_command("mcsmadd")
 
 
 @mcsm_add.handle()
-async def _(event: MessageEvent, arg: Message = CommandArg()):
-    user_id = 0
-    if not (
-        event.user_id in await MCTrustIDs.get_all_enabled_ids(user_from=UserFrom.QQ)
-        or check_superuser(event)
-    ):
-        await mcsm_add.finish("你没有权限使用这个命令")
-    for a in arg:
-        if a.type == "at":
-            user_id: int = int(a.data["qq"])
-            break
+async def mcsm_add_1(
+    event: MessageEvent | KEvent, arg: Message | KMessage = CommandArg()
+):
+    # TODO
+    pass
+    # user_id = 0
 
-    if user_id:
-        if not await MCTrustIDs.exists(user_id=user_id):
-            await MCTrustIDs.add_id(user_id=user_id, user_from=UserFrom.QQ)
-            await mcsm_add.finish(
-                Message.template("已添加 {}").format(MessageSegment.at(user_id))
-            )
+    # if isinstance(event, KEvent) and isinstance(arg, KMessage):
+    #     user_from = UserFrom.Kook
+    #     user_id = arg
 
-    await mcsm_add.finish(Message("添加失败, 或已经存在"))
+    # else:
+    #     user_from = UserFrom.QQ
+
+    # if not (
+    #     event.user_id in await MCTrustIDs.get_all_enabled_ids(user_from=user_from)
+    #     or check_superuser(event)
+    # ):
+    #     await mcsm_add.finish("你没有权限使用这个命令")
+    # for a in arg:
+    #     user_id: int = int(a.data["qq"])
+
+    # if user_id:
+    #     if not await MCTrustIDs.exists(user_id=user_id):
+    #         await MCTrustIDs.add_id(user_id=user_id, user_from=user_from)
+    #         await mcsm_add.finish(
+    #             Message.template("已添加 {}").format(MessageSegment.at(user_id))
+    #         )
+
+    # await mcsm_add.finish(Message("添加失败, 或已经存在"))
 
 
 mcsm_ctl = on_command("mcsm", priority=5)
