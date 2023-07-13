@@ -1,6 +1,6 @@
 from json import dumps
 from typing import List
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from dateutil import tz
 from nonebot.log import logger
@@ -148,7 +148,7 @@ def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime):
             ),
         )
 
-    action_time = time + timedelta(seconds=30)
+    action_time = time
 
     scheduler.add_job(
         set_card_job, trigger="date", run_date=action_time, args=[bot, msg_id]
