@@ -9,16 +9,16 @@ from khl_card.types import KmarkdownColors as KMDC
 from khl_card.accessory import PlainText, ThemeTypes
 from khl_card.builder import CardBuilder, CardMessageBuilder
 
-from .typing_models import ServerInfo
+from ..data_models.typing_models import ServerInfo
 
 
 def make_server_card(card: CardBuilder, server: ServerInfo):
     status_dict = {
-        -1: KMD.color("状态未知", color=KMDC.INFO),
-        0: KMD.color("已停止", color=KMDC.WARNING),
+        -1: KMD.color("状态未知", color=KMDC.SECONDARY),
+        0: KMD.color("已停止", color=KMDC.DANGER),
         1: KMD.color("正在停止", color=KMDC.WARNING),
-        2: KMD.color("正在启动", color=KMDC.SECONDARY),
-        3: KMD.color("正在运行", color=KMDC.PRIMARY),
+        2: KMD.color("正在启动", color=KMDC.PRIMARY),
+        3: KMD.color("正在运行", color=KMDC.SUCCESS),
     }
 
     msg = KMD("状态: ") + status_dict[server.status] + KMD("\n")
@@ -116,3 +116,52 @@ def make_error_card(err: str):
     )
 
     return CardMessageBuilder().card(cb).build().build()
+
+
+from ..data_models.mc_ping_res import MCPing
+
+STATUS_DICT = {
+    -1: "状态未知",
+    0: "已停止",
+    1: "正在停止",
+    2: "正在启动",
+    3: "正在运行",
+}
+STATUS_THEME_DICT = {
+    -1: ThemeTypes.SECONDARY,
+    0: ThemeTypes.DANGER,
+    1: ThemeTypes.WARNING,
+    2: ThemeTypes.INFO,
+    3: ThemeTypes.SUCCESS,
+}
+
+
+def ping_card(p: MCPing) -> Card:
+    return (
+        CardBuilder()
+        .header(f"{p.name} {p.ip}")
+        .divider()
+        .context(
+            Context(
+                KMD(f"延迟: **{p.latency}ms**\n"),
+                KMD(f"MOTD: **{p.motd}**\n"),
+                KMD(f"游戏版本: **{p.version}**"),
+                KMD(f"玩家数: **{p.player_online}/{p.max_online}**"),
+                KMD(f"在线玩家: **{','.join([_p for _p in p.player_list])}**"),
+            )
+        )
+        .build()
+        .set_theme(STATUS_THEME_DICT[p.mcsm_status])
+    )
+
+
+def make_ping_card(mcping: List[MCPing]):
+    cmb = CardMessageBuilder()
+    cmb = cmb.card(
+        CardBuilder().header(PlainText(":rocket:MC 服务器详情", emoji=True)).build()
+    )
+
+    for s in mcping:
+        cmb = cmb.card(ping_card(s))
+
+    return cmb.build().build()

@@ -32,3 +32,69 @@ def server_todo(todo: str) -> str:
     elif todo in ("kill", "终止", "强关"):
         return "kill"
     return ""
+
+
+from re import findall
+from typing import List
+
+from mcstatus import JavaServer
+
+from .data_models.mc_ping_res import MCPing
+from .kook.data_source import get_server_status
+
+
+async def mcping():
+    servers = await get_server_status()
+
+    mcpings: List[MCPing] = []
+
+    for s in servers:
+        js = await JavaServer.async_lookup(s.ip, timeout=5)
+        status = js.status()
+
+        motd = status.motd.to_plain()
+        version_list = findall(r"\d+\.\d+(?:\.[\dxX]+)?", status.version.name)
+
+        if len(version_list) != 1:
+            version = f"{version_list[0]}-{version_list[-1]}"
+        else:
+            version = version_list[0]
+
+        player_online = status.players.online
+        max_online = status.players.max
+
+        player_list = []
+        if status.players.online:
+            if status.players.sample:
+                player_list = [
+                    p.name
+                    for p in status.players.sample
+                    if p.id != "00000000-0000-0000-0000-000000000000"
+                ]
+        else:
+            player_list = []
+
+        latency = round(status.latency)
+
+        mcpings.append(
+            MCPing(
+                name=s.name,
+                ip=s.ip,
+                version=version,
+                player_online=player_online,
+                max_online=max_online,
+                player_list=player_list,
+                latency=latency,
+                motd=motd,
+                mcsm_status=s.status,
+            )
+        )
+    return mcpings
+
+
+from .kook.utils import make_ping_card
+
+
+async def mc_ping_kook():
+    mcpings = await mcping()
+    return make_ping_card(mcpings)

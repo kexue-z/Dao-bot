@@ -9,7 +9,7 @@ from nonebot.adapters.kaiheila import Bot, Event
 from nonebot_plugin_apscheduler import scheduler
 from nonebot.adapters.kaiheila.event import CartBtnClickNoticeEvent
 
-from .typing_models import ServerInfo
+from ..data_models.typing_models import ServerInfo
 from .utils import make_card, make_done_card, make_error_card, make_outdate_card
 from ..mcsm import MCSMAPIError, HTTPStatusError, call_server, search_remote_services
 
