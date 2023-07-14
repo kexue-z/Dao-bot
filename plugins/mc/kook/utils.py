@@ -147,7 +147,7 @@ def ping_card(p: MCPing) -> Card:
                 f"MOTD: **{p.motd}**\n"
                 f"游戏版本: **{p.version}**\n"
                 f"玩家数: **{p.player_online}/{p.max_online}**\n"
-                f"在线玩家: **{','.join([_p for _p in p.player_list])}**\n"
+                f"在线玩家: **{','.join([_p for _p in p.player_list])} **\n"
                 f"MCSM 状态: **{STATUS_DICT[p.mcsm_status]}**"
             )
         )

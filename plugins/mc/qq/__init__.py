@@ -1,46 +1,59 @@
 import re
 from random import randint
 
-from nonebot import on_command
+from nonebot.rule import Rule
 from nonebot.log import logger
 from nonebot.typing import T_State
 from nonebot.params import CommandArg
+from nonebot import get_driver, on_command
 from models.mc import UserFrom, MCServers, MCTrustIDs, ServerCommandHistory
 from nonebot.adapters.onebot.v11 import Event, Message, MessageEvent, MessageSegment
 
 from ..mcsm import MCSMAPIError, HTTPStatusError, call_server
 from ..data_source import server_todo, check_superuser, generate_server_list
 
-mcsm_add = on_command("mcsmadd")
+superusers = get_driver().config.superusers
+
+
+async def is_in_white_list(
+    event: MessageEvent,
+    state: T_State,
+):
+    user_from = UserFrom.QQ
+    user_id = event.user_id
+
+    if user_id in await MCTrustIDs.get_all_enabled_ids(user_from=user_from):
+        state["user_from"] = user_from
+        return True
+
+    if str(user_id) in superusers:
+        return True
+
+    return False
+
+
+mcsm_add = on_command("mcsmadd", rule=Rule(is_in_white_list))
 """QQ: 添加控制服务器的权限"""
 
 
 @mcsm_add.handle()
-async def _(event: MessageEvent, arg: Message = CommandArg()):
-    user_id = 0
-
-    user_from = UserFrom.QQ
-
-    if not (
-        event.user_id in await MCTrustIDs.get_all_enabled_ids(user_from=user_from)
-        or check_superuser(event)
-    ):
-        await mcsm_add.finish("你没有权限使用这个命令")
-
+async def _(state: T_State, arg: Message = CommandArg()):
     user_list = []
+
+    user_from = state["user_from"]
 
     for msg in arg:
         if msg.type == "at":
             user_list.append(int(msg.data["qq"]))
 
-    if user_id:
-        if not await MCTrustIDs.exists(user_id=user_id):
-            await MCTrustIDs.add_id(user_id=user_id, user_from=user_from)
-            await mcsm_add.finish(
-                Message.template("已添加 {}").format(MessageSegment.at(user_id))
-            )
+    msg = Message()
 
-    await mcsm_add.finish(Message("添加失败, 或已经存在"))
+    for user_id in user_list:
+        if not await MCTrustIDs.exists(user_id=user_id, user_from=user_from):
+            await MCTrustIDs.add_id(user_id=user_id, user_from=user_from)
+            msg += Message.template("已添加 {}\n").format(MessageSegment.at(user_id))
+
+    await mcsm_add.finish(msg)
 
 
 mcsm_ctl = on_command("mcsm", priority=5)

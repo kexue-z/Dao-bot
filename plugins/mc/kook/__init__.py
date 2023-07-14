@@ -9,7 +9,7 @@ from nonebot.adapters.kaiheila import Bot, Event, Message
 from nonebot.adapters.kaiheila import MessageSegment as KMS
 from nonebot.adapters.kaiheila.api import MessageCreateReturn
 from nonebot import on_notice, get_driver, on_command, on_message
-from nonebot.adapters.kaiheila.event import CartBtnClickNoticeEvent
+from nonebot.adapters.kaiheila.event import MessageEvent, CartBtnClickNoticeEvent
 
 from .data_source import button_event, make_control_card, set_outdate_card_scheduler
 
@@ -17,7 +17,7 @@ superusers = get_driver().config.superusers
 
 
 async def is_whitelist(event: Event):
-    if int(event.user_id) not in await MCTrustIDs.get_all_enabled_ids(
+    if int(event.user_id) in await MCTrustIDs.get_all_enabled_ids(
         user_from=UserFrom.Kook
     ):
         return True
@@ -34,17 +34,20 @@ def is_kook(bot: Bot):
     return False
 
 
-def kook_command_start(event: Event):
+def kook_command_start(event: MessageEvent):
     msg_list = event.get_plaintext().split(maxsplit=1)
-    if "mcsmadd" in msg_list[0]:
-        return True
+    try:
+        if "mcsmadd" in msg_list[0]:
+            return True
+    except Exception:
+        pass
     return False
 
 
-def is_button_event(event: Event):
-    if isinstance(event, CartBtnClickNoticeEvent):
-        return True
-    return False
+# def is_button_event(event: Event):
+#     if isinstance(event, CartBtnClickNoticeEvent):
+#         return True
+#     return False
 
 
 async def is_in_button_msg(state: T_State, event: CartBtnClickNoticeEvent):
@@ -133,7 +136,7 @@ async def _(bot: Bot, event: Event):
 
 kmcsm_button = on_notice(
     rule=Rule(
-        is_button_event,
+        # is_button_event,
         is_in_button_msg,
     )
 )

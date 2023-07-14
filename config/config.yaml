@@ -5,6 +5,8 @@ driver: "~httpx+~websockets"
 # onebot_ws_urls: ["ws://192.168.0.78:9908"]
 
 superusers: !secret superusers
+kook_superusers: !secret kook_superusers
+
 nickname:
   - 屑岛风
 command_start:
