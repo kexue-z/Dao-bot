@@ -21,9 +21,9 @@ async def is_in_white_list(
 ):
     user_from = UserFrom.QQ
     user_id = event.user_id
+    state["user_from"] = user_from
 
     if user_id in await MCTrustIDs.get_all_enabled_ids(user_from=user_from):
-        state["user_from"] = user_from
         return True
 
     if str(user_id) in superusers:

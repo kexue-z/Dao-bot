@@ -56,7 +56,7 @@ async def mcping():
         try:
             js = await JavaServer.async_lookup(s.ip, timeout=5)
             status = js.status()
-        except gaierror:
+        except Exception:
             mcpings.append(
                 MCPing(
                     name=s.name,
