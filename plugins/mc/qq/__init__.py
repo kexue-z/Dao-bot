@@ -62,7 +62,6 @@ mcsm_ctl = on_command("mcsm", priority=5, rule=Rule(is_in_white_list))
 
 @mcsm_ctl.handle()
 async def _(
-    event: MessageEvent,
     state: T_State,
     arg: Message = CommandArg(),
 ):
