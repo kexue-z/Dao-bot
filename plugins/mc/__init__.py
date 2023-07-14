@@ -393,7 +393,7 @@ async def _(bot: KBot, event: KEvent):
         if msg.msg_id:
             record = await KookMsg.create(
                 msg_id=msg.msg_id,
-                user_id=event.user_id,
+                user_id=int(event.user_id),
                 expeire_time=expeire_time,
             )
             await record.save()

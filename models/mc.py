@@ -14,7 +14,7 @@ class UserFrom(IntEnum):
 
 class MCTrustIDs(Model):
     id = fields.IntField(pk=True, generated=True)
-    user_id = fields.IntField()
+    user_id = fields.BigIntField(max_length=32)
     """用户ID"""
     enabled = fields.BooleanField(default=False)
     """是否启用"""
@@ -109,7 +109,7 @@ class MCServers(Model):
 class ServerCommandHistory(Model):
     id = fields.IntField(pk=True, unique=True, generated=True)
     time = fields.DatetimeField(auto_now_add=True)
-    user_id = fields.IntField()
+    user_id = fields.BigIntField()
     command = fields.TextField()
     target_instance_uuid = fields.CharField(max_length=32)
     target_remote_uuid = fields.CharField(max_length=32)
@@ -159,7 +159,7 @@ class ServerCommandHistory(Model):
 # TODO
 class KookMsg(Model):
     msg_id = fields.CharField(max_length=36, pk=True)
-    user_id = fields.CharField(max_length=12)
+    user_id = fields.BigIntField()
     expeire_time = fields.DatetimeField()
 
     class Meta:
