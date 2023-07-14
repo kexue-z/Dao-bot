@@ -56,7 +56,7 @@ async def _(state: T_State, arg: Message = CommandArg()):
     await mcsm_add.finish(msg)
 
 
-mcsm_ctl = on_command("mcsm", priority=5)
+mcsm_ctl = on_command("mcsm", priority=5, rule=Rule(is_in_white_list))
 """QQ: 开关服务器"""
 
 
@@ -66,9 +66,6 @@ async def _(
     state: T_State,
     arg: Message = CommandArg(),
 ):
-    if event.user_id not in await MCTrustIDs.get_all_enabled_ids(user_from=UserFrom.QQ):
-        await mcsm_ctl.finish("你没有权限使用这个命令")
-
     match = re.match(
         r"(on|start|开服|open|off|stop|kill|关服|close|restart|重启|强关|终止)\s?(.*)",
         arg.extract_plain_text(),
