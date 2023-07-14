@@ -47,7 +47,7 @@ def is_button_event(event: Event):
     return False
 
 
-async def is_in_button_msg(state: T_State, event: Event):
+async def is_in_button_msg(state: T_State, event: CartBtnClickNoticeEvent):
     data = event.extra
     if data.body:
         value: str = data.body.get("value")  # type: ignore
