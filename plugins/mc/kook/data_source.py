@@ -2,12 +2,11 @@ from json import dumps
 from typing import List
 from datetime import datetime
 
-from dateutil import tz
 from nonebot.log import logger
+from nonebot.typing import T_State
 from models.mc import KookMsg, MCServers
 from nonebot.adapters.kaiheila import Bot, Event
 from nonebot_plugin_apscheduler import scheduler
-from nonebot.adapters.kaiheila.event import CartBtnClickNoticeEvent
 
 from ..data_models.typing_models import ServerInfo
 from .utils import make_card, make_done_card, make_error_card, make_outdate_card
@@ -61,86 +60,67 @@ async def make_control_card(expeire_time: datetime) -> List:
     return make_card(res, expeire_time)
 
 
-async def button_event(bot: Bot, event: Event):
-    if isinstance(event, CartBtnClickNoticeEvent):
-        data = event.extra
-        if data.body:
-            value: str = data.body.get("value")  # type: ignore
-            msg_id: str = data.body.get("msg_id")  # type: ignore
-            user_id: str = data.body.get("user_id")  # type: ignore
+async def button_event(bot: Bot, state: T_State):
+    instance_uuid = state.get("instance_uuid", "")
+    funcs = state.get("funcs", "")
+    msg_id = state.get("msg_id", "")
 
-            instance_uuid = value.split(":", 1)[0]
-            funcs = value.split(":", 1)[1]
+    server = await MCServers.get(instance_uuid=instance_uuid)
 
-            logger.debug(
-                f"Got value: {value} msg_id: {msg_id} user_id: {user_id} instance_id: {instance_uuid} funcs: {funcs}"
-            )
+    # 获取服务器名称
+    server_name = ""
+    server_list = await get_server_status()
+    for server in server_list:
+        if server.instance_uuid == instance_uuid:
+            server_name = server.name
 
-            record = await KookMsg.get(msg_id=msg_id)
+    # 调用API
+    try:
+        await call_server(
+            type=funcs,
+            instance_uuid=instance_uuid,
+            remote_uuid=server.remote_uuid,
+        )
 
-            if not (
-                user_id == user_id
-                and record.expeire_time.astimezone(tz.tzlocal())
-                >= datetime.now(tz=tz.tzlocal())
-            ):
-                return False
+        # 操作成功
+        await bot.message_update(
+            msg_id=msg_id,
+            content=dumps(
+                make_done_card(server_name=server_name, funcs=funcs),
+                ensure_ascii=False,
+            ),
+        )
 
-            server = await MCServers.get(instance_uuid=instance_uuid)
+        scheduler.remove_job(job_id=msg_id)
+        return True
 
-            # 获取服务器名称
-            server_name = ""
-            server_list = await get_server_status()
-            for server in server_list:
-                if server.instance_uuid == instance_uuid:
-                    server_name = server.name
+    except MCSMAPIError as e:
+        msg = f":collision: MCSM API错误: (ins){e}(ins)"
 
-            # 调用API
-            try:
-                await call_server(
-                    type=funcs,
-                    instance_uuid=instance_uuid,
-                    remote_uuid=server.remote_uuid,
-                )
+        await bot.message_update(
+            msg_id=msg_id,
+            content=dumps(
+                make_error_card(msg),
+                ensure_ascii=False,
+            ),
+        )
 
-                # 操作成功
-                await bot.message_update(
-                    msg_id=msg_id,
-                    content=dumps(
-                        make_done_card(server_name=server_name, funcs=funcs),
-                        ensure_ascii=False,
-                    ),
-                )
+    except HTTPStatusError as e:
+        msg = f":collision: HTTP错误: (ins){e}(ins)"
 
-                scheduler.remove_job(job_id=msg_id)
-                return True
+        await bot.message_update(
+            msg_id=msg_id,
+            content=dumps(
+                make_error_card(msg),
+                ensure_ascii=False,
+            ),
+        )
 
-            except MCSMAPIError as e:
-                msg = f":collision: MCSM API错误: (ins){e}(ins)"
-
-                await bot.message_update(
-                    msg_id=msg_id,
-                    content=dumps(
-                        make_error_card(msg),
-                        ensure_ascii=False,
-                    ),
-                )
-
-            except HTTPStatusError as e:
-                msg = f":collision: HTTP错误: (ins){e}(ins)"
-
-                await bot.message_update(
-                    msg_id=msg_id,
-                    content=dumps(
-                        make_error_card(msg),
-                        ensure_ascii=False,
-                    ),
-                )
-
-            finally:
-                return False
+    finally:
+        return False
 
 
-def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime, id: str):
+def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime):
     async def set_card_job(bot: Bot, msg_id: str):
         await bot.message_update(
             msg_id=msg_id,
@@ -157,5 +137,5 @@ def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime, id: str):
         trigger="date",
         run_date=action_time,
         args=[bot, msg_id],
-        id=id,
+        id=msg_id,
     )

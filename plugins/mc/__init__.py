@@ -12,6 +12,7 @@ add_model("models.mc")
 from random import randint
 
 from dateutil import tz
+from nonebot import get_driver
 from nonebot.log import logger
 from nonebot.typing import T_State
 from nonebot.params import CommandArg
@@ -29,6 +30,9 @@ from models.mc import UserFrom, MCServers, MCTrustIDs, ServerCommandHistory
 
 from .mcsm import MCSMAPIError, HTTPStatusError, call_command
 from .data_source import mc_ping_qq, mc_ping_kook, generate_server_list
+
+superusers = get_driver().config.superusers
+
 
 mc_server = on_command("mc", priority=1)
 """QQ/KOOK: 获取MC服务器状态"""
@@ -84,7 +88,10 @@ async def _(
     if not (user_from and command):
         await mcsm_command.finish("错误!")
 
-    if event.user_id not in await MCTrustIDs.get_all_enabled_ids(user_from=user_from):
+    if (
+        user_id not in await MCTrustIDs.get_all_enabled_ids(user_from=user_from)
+        or str(user_id) not in superusers
+    ):
         await mcsm_command.finish("你没有权限使用这个命令")
 
     if command.startswith("/"):
