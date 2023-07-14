@@ -22,7 +22,6 @@ from nonebot.internal.adapter.bot import Bot
 from nonebot import on_notice, get_driver, on_command
 from nonebot.adapters.kaiheila import Event as KEvent
 from nonebot.adapters.kaiheila.bot import Bot as KBot
-from nonebot.internal.adapter import Message as _Message
 from nonebot.adapters.kaiheila import Message as KMessage
 from nonebot.adapters.kaiheila import MessageSegment as KMS
 from nonebot.adapters.kaiheila.api import MessageCreateReturn
