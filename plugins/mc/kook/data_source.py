@@ -110,6 +110,8 @@ async def button_event(bot: Bot, event: Event):
                         ensure_ascii=False,
                     ),
                 )
+
+                scheduler.remove_job(job_id=msg_id)
                 return True
 
             except MCSMAPIError as e:
@@ -138,7 +140,7 @@ async def button_event(bot: Bot, event: Event):
                 return False
 
 
-def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime):
+def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime, id: str):
     async def set_card_job(bot: Bot, msg_id: str):
         await bot.message_update(
             msg_id=msg_id,
@@ -151,5 +153,9 @@ def set_outdate_card_scheduler(bot: Bot, msg_id: str, time: datetime):
     action_time = time
 
     scheduler.add_job(
-        set_card_job, trigger="date", run_date=action_time, args=[bot, msg_id]
+        set_card_job,
+        trigger="date",
+        run_date=action_time,
+        args=[bot, msg_id],
+        id=id,
     )

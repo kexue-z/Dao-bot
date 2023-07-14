@@ -399,7 +399,7 @@ async def _(bot: KBot, event: KEvent):
             )
             await record.save()
 
-            set_outdate_card_scheduler(bot, msg.msg_id, expeire_time)
+            set_outdate_card_scheduler(bot, msg.msg_id, expeire_time, id=msg.msg_id)
 
     else:
         msg = await kmcsm.send("无可用服务器")
