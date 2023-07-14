@@ -1,4 +1,7 @@
+from nonebot import get_driver
 from models.mc import MCServers
+from nonebot.adapters.onebot.v11 import Event
+from nonebot.adapters.kaiheila import Event as KEvent
 
 
 async def generate_server_list() -> dict:
@@ -139,3 +142,12 @@ async def mc_ping_qq():
         )
 
     return msg
+
+
+def check_superuser(event: Event | KEvent):
+    config = get_driver().config.superusers
+
+    if event.get_user_id() in config:
+        return True
+    else:
+        return False
