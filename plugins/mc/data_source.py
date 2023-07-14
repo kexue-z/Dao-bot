@@ -135,9 +135,9 @@ async def mc_ping_qq():
             f"# {p.name} {p.ip}\n\n"
             f"延迟: **{p.latency}ms**\n\n"
             f"MOTD: **{p.motd}**\n\n"
-            f"游戏版本: **{p.version}\n\n**"
+            f"游戏版本: **{p.version}**\n\n"
             f"玩家数: **{p.player_online}/{p.max_online}**\n\n"
-            f"在线玩家: **{','.join([_p for _p in p.player_list])} **\n\n"
+            f"在线玩家: {','.join([_p for _p in p.player_list])}\n\n"
             f"MCSM 状态: **{STATUS_DICT[p.mcsm_status]}**\n\n"
         )
 
