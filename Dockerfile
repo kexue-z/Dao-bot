@@ -2,7 +2,7 @@ FROM python:3.11-bullseye as requirements-stage
 
 WORKDIR /tmp
 
-RUN curl -sSL https://pdm.fming.dev/dev/install-pdm.py | python3 -
+RUN curl -sSL https://pdm.fming.dev/install-pdm.py | python3 -
 
 ENV PATH="${PATH}:/root/.local/bin"
 
