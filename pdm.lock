@@ -1075,16 +1075,17 @@ files = [
 
 [[package]]
 name = "nonebot-adapter-onebot"
-version = "2.2.3"
+version = "2.2.4"
 requires_python = ">=3.8,<4.0"
 summary = "OneBot(CQHTTP) adapter for nonebot2"
 dependencies = [
     "msgpack<2.0.0,>=1.0.3",
     "nonebot2<3.0.0,>=2.0.0-beta.3",
+    "typing-extensions<5.0.0,>=4.0.0",
 ]
 files = [
-    {file = "nonebot_adapter_onebot-2.2.3-py3-none-any.whl", hash = "sha256:e715e05578cb58cf42adddb0bac6c060a6ea7c9b2f18e6f011786bbc2bc8d0bd"},
-    {file = "nonebot_adapter_onebot-2.2.3.tar.gz", hash = "sha256:e0ac165536a24f7c5e620092ab596022e8f85d462c17ec8d7a17b191093b4859"},
+    {file = "nonebot_adapter_onebot-2.2.4-py3-none-any.whl", hash = "sha256:ae9971bb77a2984d6ca097d5565132723b051dafdfd1cef954a62f45684ae62c"},
+    {file = "nonebot_adapter_onebot-2.2.4.tar.gz", hash = "sha256:1024b503514f87d6262adf1bde6f160b3a159afc4f6c21987eece3dacb4762dd"},
 ]
 
 [[package]]
@@ -1162,7 +1163,7 @@ files = [
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.6.9"
+version = "0.6.10"
 requires_python = "<4.0,>=3.8"
 summary = "Get Heweather information and convert to pictures"
 dependencies = [
@@ -1173,8 +1174,8 @@ dependencies = [
     "pydantic>=1.5.0",
 ]
 files = [
-    {file = "nonebot_plugin_heweather-0.6.9-py3-none-any.whl", hash = "sha256:2cc247203c5db3b7d3744dd38d071fa9c5dcd96a0c94709c2e0ba419300bab59"},
-    {file = "nonebot_plugin_heweather-0.6.9.tar.gz", hash = "sha256:45e84bd7a459f7b1c70e78f5141d595f21ecb26629f5fcd112b6980489238bc1"},
+    {file = "nonebot_plugin_heweather-0.6.10-py3-none-any.whl", hash = "sha256:595292e450ed4a2899efe0e4d776d4c7b2d97ac6ead83840a84790b9940c50d0"},
+    {file = "nonebot_plugin_heweather-0.6.10.tar.gz", hash = "sha256:7b0eedbfffc228f4183ceea79198fd06b9d223170a77c49f4cd0a401018f7470"},
 ]
 
 [[package]]
