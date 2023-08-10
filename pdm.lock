@@ -153,18 +153,17 @@ files = [
 
 [[package]]
 name = "async-poe-client"
-version = "0.2.5"
+version = "0.2.8"
 requires_python = ">=3.7,<4.0"
 summary = "A stable, fast and convenient async client for poe.com"
 dependencies = [
     "aiohttp-socks<0.9.0,>=0.8.0",
     "aiohttp<4.0.0,>=3.8.5",
     "loguru<0.8.0,>=0.7.0",
-    "pyexecjs2<2.0.0,>=1.6.1",
 ]
 files = [
-    {file = "async_poe_client-0.2.5-py3-none-any.whl", hash = "sha256:7c5464e2b722c80eeaaad9b9cc0f5cbe97b6745fddd0609ce6be3af2cf60edc9"},
-    {file = "async_poe_client-0.2.5.tar.gz", hash = "sha256:432e452d9f72a71dbe5b3c48da301394bb2d4030b8d284f38226e4a14acf4614"},
+    {file = "async_poe_client-0.2.8-py3-none-any.whl", hash = "sha256:35f98ab1a8f04359b5667829137592026494a6db1671c0ff9a1dd987855e2fca"},
+    {file = "async_poe_client-0.2.8.tar.gz", hash = "sha256:45719c6eebc09ee1d0d871ca68b4b4298eff49212c5e6169476d486f92467c29"},
 ]
 
 [[package]]
@@ -430,12 +429,12 @@ files = [
 
 [[package]]
 name = "dnspython"
-version = "2.4.1"
+version = "2.4.2"
 requires_python = ">=3.8,<4.0"
 summary = "DNS toolkit"
 files = [
-    {file = "dnspython-2.4.1-py3-none-any.whl", hash = "sha256:5b7488477388b8c0b70a8ce93b227c5603bc7b77f1565afe8e729c36c51447d7"},
-    {file = "dnspython-2.4.1.tar.gz", hash = "sha256:c33971c79af5be968bb897e95c2448e11a645ee84d93b265ce0b7aabe5dfdca8"},
+    {file = "dnspython-2.4.2-py3-none-any.whl", hash = "sha256:57c6fbaaeaaf39c891292012060beb141791735dbb4004798328fc2c467402d8"},
+    {file = "dnspython-2.4.2.tar.gz", hash = "sha256:8dcfae8c7460a2f84b4072e26f1c9f4101ca20c071649cb7c34e8b6a93d58984"},
 ]
 
 [[package]]
@@ -1230,7 +1229,7 @@ files = [
 
 [[package]]
 name = "nonebot-plugin-send-anything-anywhere"
-version = "0.2.7"
+version = "0.3.0"
 requires_python = ">=3.8,<4.0"
 summary = "An adaptor for nonebot2 adaptors"
 dependencies = [
@@ -1240,8 +1239,8 @@ dependencies = [
     "strenum<0.5.0,>=0.4.8",
 ]
 files = [
-    {file = "nonebot_plugin_send_anything_anywhere-0.2.7-py3-none-any.whl", hash = "sha256:b9932bf2fe990825a870d061eacf6df9129f4d8b2b4a8a468f9f25d673e267a3"},
-    {file = "nonebot_plugin_send_anything_anywhere-0.2.7.tar.gz", hash = "sha256:99367d4b4cf302fef32f9dc195dc2abacc7ed95cc665bc6a7e72e159bee4c15a"},
+    {file = "nonebot_plugin_send_anything_anywhere-0.3.0-py3-none-any.whl", hash = "sha256:30ed3346e9acd0b80f7be5306b70f581d6a20f90388e46ccc984303d4c4449be"},
+    {file = "nonebot_plugin_send_anything_anywhere-0.3.0.tar.gz", hash = "sha256:1ec98b48c842cdc656fbc9d90ee44a60eb77761d94843cf03cc1327f1b04773c"},
 ]
 
 [[package]]
@@ -1265,13 +1264,13 @@ files = [
 
 [[package]]
 name = "nonebot-plugin-spark-gpt"
-version = "1.2.5"
+version = "1.2.6"
 requires_python = ">=3.10,<4.0"
 summary = "Spark-GPT,将多种来源的gpt接入qq,TG,Kook,Discord及更多平台,提供webui进行实时配置热更新,效率高超,使用便捷,管理完善,功能强大"
 dependencies = [
     "Sydneygpt==0.11.8",
     "aiohttp<4.0.0,>=3.8.4",
-    "async-poe-client<0.3.0,>=0.2.5",
+    "async-poe-client<0.3.0,>=0.2.8",
     "bidict<0.23.0,>=0.22.1",
     "charset-normalizer<4.0.0,>=3.1.0",
     "edgegpt==0.12.1",
@@ -1289,8 +1288,8 @@ dependencies = [
     "uvicorn<0.23.0,>=0.22.0",
 ]
 files = [
-    {file = "nonebot_plugin_spark_gpt-1.2.5-py3-none-any.whl", hash = "sha256:57d7ade5f6e16bf81f06dbdbc8ca69451f39b8a2447a571287c6c1531a795596"},
-    {file = "nonebot_plugin_spark_gpt-1.2.5.tar.gz", hash = "sha256:762943aec96c04c3470a58d3c7de49abfa0844deccf5874c18a0156d619ed899"},
+    {file = "nonebot_plugin_spark_gpt-1.2.6-py3-none-any.whl", hash = "sha256:6a071b0dd6d55590b837718213ce03d736622ba4f440eac9a18e44c31c2e680a"},
+    {file = "nonebot_plugin_spark_gpt-1.2.6.tar.gz", hash = "sha256:6545e5d94b11439128c11dd6c0ae157729344268f054b186e820344268a9b467"},
 ]
 
 [[package]]
@@ -1624,18 +1623,6 @@ dependencies = [
 files = [
     {file = "pyee-9.0.4-py2.py3-none-any.whl", hash = "sha256:9f066570130c554e9cc12de5a9d86f57c7ee47fece163bbdaa3e9c933cfbdfa5"},
     {file = "pyee-9.0.4.tar.gz", hash = "sha256:2770c4928abc721f46b705e6a72b0c59480c4a69c9a83ca0b00bb994f1ea4b32"},
-]
-
-[[package]]
-name = "pyexecjs2"
-version = "1.6.1"
-summary = "Run JavaScript code from Python"
-dependencies = [
-    "six>=1.10.0",
-]
-files = [
-    {file = "PyExecJS2-1.6.1-py3-none-any.whl", hash = "sha256:4d46616ca522a228ebc3c5eb3744232abdf78b2abaa0db5ede0d96219a3af778"},
-    {file = "PyExecJS2-1.6.1.tar.gz", hash = "sha256:bf8edafa419ff988e61e30ac9946eb3a7c066a1ec07d0c5b0b82b56f16b99050"},
 ]
 
 [[package]]
