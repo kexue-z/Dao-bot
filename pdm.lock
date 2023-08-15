@@ -956,7 +956,7 @@ files = [
 
 [[package]]
 name = "mcstatus"
-version = "11.0.0"
+version = "11.0.1"
 requires_python = ">=3.8.1,<4"
 summary = "A library to query Minecraft Servers for their status and capabilities."
 dependencies = [
@@ -964,8 +964,8 @@ dependencies = [
     "dnspython<3.0.0,>=2.3.0",
 ]
 files = [
-    {file = "mcstatus-11.0.0-py3-none-any.whl", hash = "sha256:5c7d5a0de03dfe376526a7954cb2e98cfb6dbfbca2a8c582ad6fccf9c6b5abec"},
-    {file = "mcstatus-11.0.0.tar.gz", hash = "sha256:9765b9287640d8ed4eb4d2b2acf06514eed56688383c2cac2adf71c1e48880f3"},
+    {file = "mcstatus-11.0.1-py3-none-any.whl", hash = "sha256:813c403ddd32782f6734021a536154aba5daaf190f19f45325a931dc273a137a"},
+    {file = "mcstatus-11.0.1.tar.gz", hash = "sha256:489c5424693bc41fc443d4194d40cc09849eb6af3f908751366131e73b3ef0ef"},
 ]
 
 [[package]]
@@ -1245,7 +1245,7 @@ files = [
 
 [[package]]
 name = "nonebot-plugin-setu-now"
-version = "0.6.3"
+version = "0.6.4"
 requires_python = "<4.0,>=3.8"
 summary = "另一个色图插件"
 dependencies = [
@@ -1258,8 +1258,8 @@ dependencies = [
     "pydantic>=1.5.0",
 ]
 files = [
-    {file = "nonebot_plugin_setu_now-0.6.3-py3-none-any.whl", hash = "sha256:fa981202c3a0d5a8086218ff1024fe2f695751ef5e9fa955e6e5c4d83dcfa2cd"},
-    {file = "nonebot_plugin_setu_now-0.6.3.tar.gz", hash = "sha256:c050ee42fd7e85b5b762ec973692a6d98e179568df61290160440925f33a73c2"},
+    {file = "nonebot_plugin_setu_now-0.6.4-py3-none-any.whl", hash = "sha256:d8a6c407a2d3aa5d5ab804f47c65a300bf2f05404e5b06d5d3aed918103200ce"},
+    {file = "nonebot_plugin_setu_now-0.6.4.tar.gz", hash = "sha256:b94ec247a4c00ed6626469cc2561fe7ea98836cc52f61c5e6683b1a9056ebf74"},
 ]
 
 [[package]]
