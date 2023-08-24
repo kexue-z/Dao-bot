@@ -152,6 +152,35 @@ files = [
 ]
 
 [[package]]
+name = "arclet-alconna"
+version = "1.7.19"
+requires_python = ">=3.8"
+summary = "A High-performance, Generality, Humane Command Line Arguments Parser Library."
+dependencies = [
+    "nepattern<0.6.0,>=0.5.13",
+    "tarina>=0.3.3",
+    "typing-extensions>=4.5.0",
+]
+files = [
+    {file = "arclet_alconna-1.7.19-py3-none-any.whl", hash = "sha256:554bc506f22d9c3a37983ef32ff586c362afa7ea26dab6289dde18ff3f51372d"},
+    {file = "arclet_alconna-1.7.19.tar.gz", hash = "sha256:a20e8dc2702cd25b7efcc4de2675cc1007a4c778bc98931806c95e47ffdbb38f"},
+]
+
+[[package]]
+name = "arclet-alconna-tools"
+version = "0.6.6"
+requires_python = ">=3.8"
+summary = "Builtin Tools for Alconna"
+dependencies = [
+    "arclet-alconna<2.0,>=1.7.18",
+    "nepattern<0.6.0,>=0.5.13",
+]
+files = [
+    {file = "arclet-alconna-tools-0.6.6.tar.gz", hash = "sha256:fd9918f40c4ead8ce189f7151b6fe1ad1501e73dc51b291cb2a063c18dbe38db"},
+    {file = "arclet_alconna_tools-0.6.6-py3-none-any.whl", hash = "sha256:c955553a1a1e171efa5cd2563757c1e9fed0b5af9600a5c1c4ad3d149d7abba6"},
+]
+
+[[package]]
 name = "async-poe-client"
 version = "0.2.8"
 requires_python = ">=3.7,<4.0"
@@ -1058,6 +1087,20 @@ files = [
 ]
 
 [[package]]
+name = "nepattern"
+version = "0.5.13"
+requires_python = ">=3.8"
+summary = "a complex pattern, support typing"
+dependencies = [
+    "tarina>=0.3.3",
+    "typing-extensions>=4.5.0",
+]
+files = [
+    {file = "nepattern-0.5.13-py3-none-any.whl", hash = "sha256:cbd536df2119f1552e416baa11f4bc50627fb97308c84f8a31405eda2c5ba97e"},
+    {file = "nepattern-0.5.13.tar.gz", hash = "sha256:1d0c6d7f7f122037c2342c7160aa3a4350cfa7c4726da39216cb823a07261720"},
+]
+
+[[package]]
 name = "nonebot-adapter-kaiheila"
 version = "0.2.8"
 requires_python = ">=3.9,<4.0"
@@ -1102,6 +1145,22 @@ files = [
 ]
 
 [[package]]
+name = "nonebot-plugin-alconna"
+version = "0.17.0"
+requires_python = ">=3.8"
+summary = "Alconna Adapter for Nonebot"
+dependencies = [
+    "arclet-alconna-tools<0.7.0,>=0.6.6",
+    "arclet-alconna<2.0.0,>=1.7.19",
+    "nepattern<0.6.0,>=0.5.13",
+    "nonebot2>=2.0.0rc4",
+]
+files = [
+    {file = "nonebot_plugin_alconna-0.17.0-py3-none-any.whl", hash = "sha256:069c0d8fce2a5988b80e1194ea7b8ddc44f317afddee4debe23a56354422bd39"},
+    {file = "nonebot_plugin_alconna-0.17.0.tar.gz", hash = "sha256:99d2a41716c604458c1b815c494ca514d2b7d75b85b76d89474067ba5e68ab06"},
+]
+
+[[package]]
 name = "nonebot-plugin-apscheduler"
 version = "0.3.0"
 requires_python = ">=3.8,<4.0"
@@ -1116,17 +1175,32 @@ files = [
 ]
 
 [[package]]
+name = "nonebot-plugin-cesaa"
+version = "0.1.0"
+requires_python = ">=3.8,<4.0"
+summary = "为 chatrecorder 添加 send-anything-anywhere 的 PlatformTarget 支持"
+dependencies = [
+    "nonebot-plugin-chatrecorder<0.5.0,>=0.4.1",
+    "nonebot-plugin-send-anything-anywhere<0.4.0,>=0.3.0",
+]
+files = [
+    {file = "nonebot_plugin_cesaa-0.1.0-py3-none-any.whl", hash = "sha256:2c7f097161c294259783308f0ef318d25be6ddbc52c8b2d34fdd2c9d78774da0"},
+    {file = "nonebot_plugin_cesaa-0.1.0.tar.gz", hash = "sha256:0e1f9bb6208e54a7cccecfab0b387cda18fda1eb9dc7f853ba176567bcb5ef11"},
+]
+
+[[package]]
 name = "nonebot-plugin-chatrecorder"
-version = "0.2.4"
+version = "0.4.1"
 requires_python = ">=3.8,<4.0"
 summary = "适用于 Nonebot2 的聊天记录插件"
 dependencies = [
-    "nonebot-plugin-datastore<2.0.0,>=1.0.0",
+    "nonebot-plugin-datastore<2.0.0,>=1.1.0",
+    "nonebot-plugin-session<0.2.0,>=0.1.0",
     "nonebot2[fastapi]<3.0.0,>=2.0.0",
 ]
 files = [
-    {file = "nonebot_plugin_chatrecorder-0.2.4-py3-none-any.whl", hash = "sha256:1e0f27cafe25ed33739e3069bf2494d335e124d2baecdf09e1a9dfe1a2c85f07"},
-    {file = "nonebot_plugin_chatrecorder-0.2.4.tar.gz", hash = "sha256:cb0dc30f5503df042c8678ff9f680677b9a3ea01f1919b0fc3981eb4f5ea2d35"},
+    {file = "nonebot_plugin_chatrecorder-0.4.1-py3-none-any.whl", hash = "sha256:9cbba7100d7137f2919b8ce95899b03c0c960a5f6f64703f8f19a89b703dc95f"},
+    {file = "nonebot_plugin_chatrecorder-0.4.1.tar.gz", hash = "sha256:d1b5235a113f9a982808900fb65d2c7fdbcc416484d06eaed42d28f4b1533960"},
 ]
 
 [[package]]
@@ -1146,23 +1220,23 @@ files = [
 
 [[package]]
 name = "nonebot-plugin-datastore"
-version = "1.0.0"
+version = "1.1.0"
 requires_python = ">=3.8,<4.0"
 summary = "适用于 Nonebot2 的数据存储插件"
 dependencies = [
     "alembic<2.0.0,>=1.9.1",
-    "nonebot-plugin-localstore!=0.3.0,!=0.4.0,<0.6.0,>=0.2.0",
+    "nonebot-plugin-localstore!=0.3.0,!=0.4.0,>=0.2.0",
     "nonebot2[httpx]<3.0.0,>=2.0.0",
     "sqlalchemy[aiosqlite]<3.0.0,>=2.0.0",
 ]
 files = [
-    {file = "nonebot_plugin_datastore-1.0.0-py3-none-any.whl", hash = "sha256:d52185fc711f2f950a2d2868c18d957fde166691f84390ac7bc724b463e4fc1d"},
-    {file = "nonebot_plugin_datastore-1.0.0.tar.gz", hash = "sha256:b10ebac479563b8dbb0f4fca99b8252d065f368a79bb02d220c7565815dd284c"},
+    {file = "nonebot_plugin_datastore-1.1.0-py3-none-any.whl", hash = "sha256:8ca11b6da0f1ff09cf0effe9f1baf3475874ec1c7c8ffe0053bb21524112c95e"},
+    {file = "nonebot_plugin_datastore-1.1.0.tar.gz", hash = "sha256:1e7fdba17fba3986467a98e1938d3e2ad65767d548146a31b7ded340d050a22c"},
 ]
 
 [[package]]
 name = "nonebot-plugin-heweather"
-version = "0.6.10"
+version = "0.6.11"
 requires_python = "<4.0,>=3.8"
 summary = "Get Heweather information and convert to pictures"
 dependencies = [
@@ -1173,8 +1247,8 @@ dependencies = [
     "pydantic>=1.5.0",
 ]
 files = [
-    {file = "nonebot_plugin_heweather-0.6.10-py3-none-any.whl", hash = "sha256:595292e450ed4a2899efe0e4d776d4c7b2d97ac6ead83840a84790b9940c50d0"},
-    {file = "nonebot_plugin_heweather-0.6.10.tar.gz", hash = "sha256:7b0eedbfffc228f4183ceea79198fd06b9d223170a77c49f4cd0a401018f7470"},
+    {file = "nonebot_plugin_heweather-0.6.11-py3-none-any.whl", hash = "sha256:7c5d8074028e359b6b6457ff4ad8e8e1b088308dc0aba5beadc808c80be7409e"},
+    {file = "nonebot_plugin_heweather-0.6.11.tar.gz", hash = "sha256:0affb797e2e84ca63a6f77ab2aa95689b5d8f53e068b6beeda0f11b8a41c2d0a"},
 ]
 
 [[package]]
@@ -1241,6 +1315,20 @@ dependencies = [
 files = [
     {file = "nonebot_plugin_send_anything_anywhere-0.3.0-py3-none-any.whl", hash = "sha256:30ed3346e9acd0b80f7be5306b70f581d6a20f90388e46ccc984303d4c4449be"},
     {file = "nonebot_plugin_send_anything_anywhere-0.3.0.tar.gz", hash = "sha256:1ec98b48c842cdc656fbc9d90ee44a60eb77761d94843cf03cc1327f1b04773c"},
+]
+
+[[package]]
+name = "nonebot-plugin-session"
+version = "0.1.0"
+requires_python = ">=3.8,<4.0"
+summary = "Nonebot2 会话信息提取与会话id定义"
+dependencies = [
+    "nonebot2[fastapi]<3.0.0,>=2.0.0",
+    "strenum<0.5.0,>=0.4.8",
+]
+files = [
+    {file = "nonebot_plugin_session-0.1.0-py3-none-any.whl", hash = "sha256:beac5ab8142285b10a33bf9efad41833ec99200b40c1fdbdbc4c88ad268a436c"},
+    {file = "nonebot_plugin_session-0.1.0.tar.gz", hash = "sha256:1b4ebc1c637818bc86e087f1b7748c18e0d391c99b71f22fc174fdb9aedded62"},
 ]
 
 [[package]]
@@ -1352,23 +1440,25 @@ files = [
 
 [[package]]
 name = "nonebot-plugin-wordcloud"
-version = "0.4.9"
+version = "0.5.0"
 requires_python = ">=3.8,<4.0"
 summary = "适用于 NoneBot2 的词云插件"
 dependencies = [
     "emoji<3.0.0,>=1.6.3",
     "jieba<0.43.0,>=0.42.1",
-    "nonebot-adapter-onebot<3.0.0,>=2.2.0",
+    "nonebot-plugin-alconna>=0.17.0",
     "nonebot-plugin-apscheduler<0.4.0,>=0.3.0",
-    "nonebot-plugin-chatrecorder<0.3.0,>=0.2.3",
+    "nonebot-plugin-cesaa<0.2.0,>=0.1.0",
+    "nonebot-plugin-chatrecorder<0.5.0,>=0.4.1",
     "nonebot-plugin-datastore<2.0.0,>=0.6.0",
+    "nonebot-plugin-send-anything-anywhere<0.4.0,>=0.3.0",
     "nonebot2[fastapi]<3.0.0,>=2.0.0",
     "tzdata",
     "wordcloud<2.0.0,>=1.8.1",
 ]
 files = [
-    {file = "nonebot_plugin_wordcloud-0.4.9-py3-none-any.whl", hash = "sha256:1510e6eaeefcfd732a66d7508eb4e24699510f15e20753c30ee6c897bc391717"},
-    {file = "nonebot_plugin_wordcloud-0.4.9.tar.gz", hash = "sha256:d03f2ebfef7cddd8cca3864fcd39bef10bddff4f9f392e429a41a06cd537e7da"},
+    {file = "nonebot_plugin_wordcloud-0.5.0-py3-none-any.whl", hash = "sha256:c20798ba4d9412b8c2a0bed4b5ad15d4f3809449396d15ebf5d45d557152acf6"},
+    {file = "nonebot_plugin_wordcloud-0.5.0.tar.gz", hash = "sha256:a170b90722295d46ae46f8d4c89cd53a9c2d2edb0e09bd4d63c3b6b2e25a065d"},
 ]
 
 [[package]]
@@ -2003,6 +2093,37 @@ dependencies = [
 files = [
     {file = "SydneyGPT-0.11.8-py3-none-any.whl", hash = "sha256:3a31e2f62044f41b8716f07f1f226a7d1c62809c88565097860028ee11b51e3a"},
     {file = "SydneyGPT-0.11.8.tar.gz", hash = "sha256:ac3a66d75aa1f587dbfa587ac9c053f7337624151d49de2ba04b2f96926e7f3a"},
+]
+
+[[package]]
+name = "tarina"
+version = "0.3.3"
+requires_python = ">=3.8"
+summary = "A collection of common utils for Arclet"
+dependencies = [
+    "typing-extensions>=4.4.0",
+]
+files = [
+    {file = "tarina-0.3.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:de2429a632f31b09bdb2d5f668311d7de4882f1ac3ebc5022decf647f900af5a"},
+    {file = "tarina-0.3.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f56b904a451e287e6251c1312be628afddf670bfa87841b5b1c32d324a1c7c43"},
+    {file = "tarina-0.3.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2c643c1e384e206af3ba2eb7142f6b3680d51d0b51e01a61bbf1f3350040c791"},
+    {file = "tarina-0.3.3-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:ae87c40c09a62b0898267fb4cbeaece3ca2d7bd8cd2f50c8ecb19583cca3fa64"},
+    {file = "tarina-0.3.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:201e31c7b694132ce67662f63142b33e45835223a753fd5f4d301da5ac021b5e"},
+    {file = "tarina-0.3.3-cp310-cp310-musllinux_1_1_i686.whl", hash = "sha256:9b9a99acff1e6391c593f449ae76848471d34688f04eecf7d3ba0725157563c7"},
+    {file = "tarina-0.3.3-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:3c4cec6381869116c7a8f7d9b0cb7433967f5b324faa9fc2e4784fdb9bab79f8"},
+    {file = "tarina-0.3.3-cp310-cp310-win32.whl", hash = "sha256:ca4b1978614dbb5f30c4378be1ad4f4aa6fb227cdf32740964ee9760d6a8e3a9"},
+    {file = "tarina-0.3.3-cp310-cp310-win_amd64.whl", hash = "sha256:efa6e1ab03c1948e3efd4645b8960dd312407e029462726a9e77822261a6be3d"},
+    {file = "tarina-0.3.3-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:e1d28e974fe5915dde245019430f248ddbdd91e8df1dec53306448cc24f4d9a8"},
+    {file = "tarina-0.3.3-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:a14079252a54501285956f1e96004477af8b9ae64a575f561b99bfa778c01707"},
+    {file = "tarina-0.3.3-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:4dcc7112b927a023a635528566b62beb7a99f72f2b9e88fde29fafb61136a579"},
+    {file = "tarina-0.3.3-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7546e4cefadcc5f163611b0af8af2391b711c337d7a0d32a3977ec0bf3e8c87d"},
+    {file = "tarina-0.3.3-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:aa2897e7cad66be833c2e392181ecff33e59038bf85cf18000c3e48c2ee85fde"},
+    {file = "tarina-0.3.3-cp311-cp311-musllinux_1_1_i686.whl", hash = "sha256:fbcaa4a6c57528ed23199f778445d20215cc2421c1d494dedbe671164bd29dc5"},
+    {file = "tarina-0.3.3-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:6471aef032461a6917a24af1fb9952bfb5c9bbe26999ea87455bf43157687097"},
+    {file = "tarina-0.3.3-cp311-cp311-win32.whl", hash = "sha256:87da7c87f448180712c02f6345c686742d9e755d58bb32f70c1bf680e1ae0684"},
+    {file = "tarina-0.3.3-cp311-cp311-win_amd64.whl", hash = "sha256:730a8fc6dc71adf09197a73ef1e39978e5fe7ec3b7be9a5060905fe48baf27ec"},
+    {file = "tarina-0.3.3-py3-none-any.whl", hash = "sha256:0547c75e3e53ca202c420e6d829d5bcf5758e478fc5964b92f9de2f838cfb12a"},
+    {file = "tarina-0.3.3.tar.gz", hash = "sha256:ac9faf7569021cfa137a9cee1be5185bae9ff4e4e6a5b93c66abdf056d1e04fa"},
 ]
 
 [[package]]
