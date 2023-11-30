@@ -1134,16 +1134,16 @@ files = [
 
 [[package]]
 name = "mcstatus"
-version = "11.0.1"
+version = "11.1.0"
 requires_python = ">=3.8.1,<4"
 summary = "A library to query Minecraft Servers for their status and capabilities."
 dependencies = [
     "asyncio-dgram<3.0.0,>=2.1.2",
-    "dnspython<3.0.0,>=2.3.0",
+    "dnspython<3.0.0,>=2.4.2",
 ]
 files = [
-    {file = "mcstatus-11.0.1-py3-none-any.whl", hash = "sha256:813c403ddd32782f6734021a536154aba5daaf190f19f45325a931dc273a137a"},
-    {file = "mcstatus-11.0.1.tar.gz", hash = "sha256:489c5424693bc41fc443d4194d40cc09849eb6af3f908751366131e73b3ef0ef"},
+    {file = "mcstatus-11.1.0-py3-none-any.whl", hash = "sha256:15b81f777ac1413f5a450d221eac913dc1581169b633bd7d2417c96eb49ee965"},
+    {file = "mcstatus-11.1.0.tar.gz", hash = "sha256:d14bf46db8ae5b98a68aebb7fce91a169282e9ac09eb7f6a10a20d9e7d18ca80"},
 ]
 
 [[package]]
