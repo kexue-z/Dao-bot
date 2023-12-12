@@ -1241,15 +1241,16 @@ files = [
 
 [[package]]
 name = "nonebot-adapter-kaiheila"
-version = "0.2.12"
+version = "0.3.0"
 requires_python = ">=3.8,<4.0"
 summary = "kaiheila adapter for nonebot2"
 dependencies = [
     "nonebot2<3.0.0,>=2.0.0",
+    "typing-extensions<5.0.0,>=4.8.0",
 ]
 files = [
-    {file = "nonebot_adapter_kaiheila-0.2.12-py3-none-any.whl", hash = "sha256:3ddc7e47b7213807d652428b95663e03991d1d89e79f434fbcf8b73a95a7a5ee"},
-    {file = "nonebot_adapter_kaiheila-0.2.12.tar.gz", hash = "sha256:102e00642e693f859b3263f53dc41675e4c8ec6c123e253fdddecf3b3f2ec61f"},
+    {file = "nonebot_adapter_kaiheila-0.3.0-py3-none-any.whl", hash = "sha256:8868f57f9ac591dff46d5cf711c419aa76ece22a5dd2380abc33d337132b5157"},
+    {file = "nonebot_adapter_kaiheila-0.3.0.tar.gz", hash = "sha256:b32b4e9d911b98ae0270540ed7fa414e94f74b228363b6b012ae2f2d54ed4e21"},
 ]
 
 [[package]]
