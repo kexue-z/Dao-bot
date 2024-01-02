@@ -1134,7 +1134,7 @@ files = [
 
 [[package]]
 name = "mcstatus"
-version = "11.1.0"
+version = "11.1.1"
 requires_python = ">=3.8.1,<4"
 summary = "A library to query Minecraft Servers for their status and capabilities."
 dependencies = [
@@ -1142,8 +1142,8 @@ dependencies = [
     "dnspython<3.0.0,>=2.4.2",
 ]
 files = [
-    {file = "mcstatus-11.1.0-py3-none-any.whl", hash = "sha256:15b81f777ac1413f5a450d221eac913dc1581169b633bd7d2417c96eb49ee965"},
-    {file = "mcstatus-11.1.0.tar.gz", hash = "sha256:d14bf46db8ae5b98a68aebb7fce91a169282e9ac09eb7f6a10a20d9e7d18ca80"},
+    {file = "mcstatus-11.1.1-py3-none-any.whl", hash = "sha256:7f5f7f44fa1d17c4e05c0ae94ecc114d9d146ef572e7dd9f2d9da72771ce135c"},
+    {file = "mcstatus-11.1.1.tar.gz", hash = "sha256:b2856ee4032faf810b0c6af10a141381e6115caf14a7348c47edc8e3da84f5d4"},
 ]
 
 [[package]]
