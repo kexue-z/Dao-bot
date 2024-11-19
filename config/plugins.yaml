@@ -1,6 +1,9 @@
 plugins:
   - nonebot_plugin_manager
   - nonebot_plugin_setu_now
+  - nonebot_plugin_mcsm
+  - nonebot_plugin_bracket
   # - nonebot_plugin_heweather
+  - nonebot_plugin_dialectlist
 plugin_dirs:
   - plugins

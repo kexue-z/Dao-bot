@@ -1,8 +1,8 @@
 host: 0.0.0.0
 port: 9901
-driver: "~httpx+~websockets"
+driver: "~fastapi"
 
-onebot_ws_urls: ["ws://127.0.0.1:6700"]
+# onebot_ws_urls: ["ws://127.0.0.1:6700"]
 
 superusers: !secret superusers
 
@@ -16,3 +16,15 @@ log_level: INFO
 # qweather_apitype: 1
 
 # db_url: !secret db_url
+
+# setu
+setu_add_random_effect: false
+setu_minimum_send_interval: 10
+setu_send_as_bytes: true
+setu_size: small
+setu_excludeAI: true
+
+# MCSM
+mcsm_api_key: !secret mcsm_api_key
+mcsm_url: !secret mcsm_url
+mcsm_img_path: ./docs/images/dao-bot.png
