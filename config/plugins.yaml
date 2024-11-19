@@ -4,6 +4,6 @@ plugins:
   - nonebot_plugin_mcsm
   - nonebot_plugin_bracket
   # - nonebot_plugin_heweather
-  - nonebot_plugin_dialectlist
+  - nonebot_plugin_treehelp
 plugin_dirs:
   - plugins
