@@ -1,9 +1,9 @@
 from time import sleep
 
-from nonebot.matcher import Matcher
+
 from nonebot import on_notice, get_driver
 from nonebot.adapters.onebot.v11.bot import Bot
-from nonebot.adapters.onebot.v11 import Event, GroupBanNoticeEvent
+from nonebot.adapters.onebot.v11 import GroupBanNoticeEvent
 
 group_mute = on_notice(priority=10, block=True)
 

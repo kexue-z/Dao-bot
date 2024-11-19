@@ -6,7 +6,7 @@ test
 wb
 secrets.yaml
 *.ttf
-plugins/_*
+
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python

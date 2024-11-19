@@ -1,11 +1,6 @@
 plugins:
-  - nonebot_plugin_heweather
-  - nonebot_plugin_word_bank2
   - nonebot_plugin_manager
-  - nonebot_plugin_withdraw
-  # - nonebot_bison
   - nonebot_plugin_setu_now
-  - nonebot_plugin_wordcloud
-
+  # - nonebot_plugin_heweather
 plugin_dirs:
   - plugins

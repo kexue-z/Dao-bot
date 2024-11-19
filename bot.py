@@ -4,12 +4,12 @@
 from pathlib import Path
 
 import nonebot
+import nonebot.config
 from nonebot.log import logger
 from nonebot.adapters.onebot.v11 import Adapter
-from nonebot.adapters.kaiheila import Adapter as khlAdapter
 
 from utils.yaml import Secrets, load_yaml
-from utils.pushover import send_startup_message
+from json import loads
 
 logger.add(
     "data/log/{time:MM}-{time:DD}.log",
@@ -19,15 +19,12 @@ logger.add(
 )
 
 
-config_json = dict(load_yaml("config/config.yaml", Secrets(Path("config"))))  # type: ignore
-nonebot.init(**config_json)
-# send_startup_message(config_json["pushover_token"], config_json["pushover_user"])
+config = load_yaml("config/config.yaml", Secrets(Path("config")))
+nonebot.init(**config)
 
-# app = nonebot.get_asgi()
 
 driver = nonebot.get_driver()
 driver.register_adapter(Adapter)
-driver.register_adapter(khlAdapter)
 
 
 all_plugins = load_yaml("config/plugins.yaml")

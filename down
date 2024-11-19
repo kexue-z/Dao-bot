@@ -1,2 +1,0 @@
-docker-compose down
-echo "已停止"
