@@ -15,6 +15,7 @@ dependencies = [
     "nonebot-plugin-heweather>=0.8.2",
     "nonebot-plugin-htmlrender>=0.4.0",
     "nonebot-plugin-manager>=0.5.16",
+    "nonebot-plugin-marshoai>=0.6.1",
     "nonebot-plugin-mcsm>=0.2.1",
     "nonebot-plugin-setu-now>=0.6.5.1",
     "nonebot-plugin-tortoise-orm>=0.1.4",

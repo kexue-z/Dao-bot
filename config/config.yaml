@@ -28,3 +28,5 @@ setu_excludeAI: true
 mcsm_api_key: !secret mcsm_api_key
 mcsm_url: !secret mcsm_url
 mcsm_img_path: ./docs/images/dao-bot.png
+
+marshoai_token: !secret marshoai_token
