@@ -1,5 +1,5 @@
 host: 0.0.0.0
-port: 9901
+port: 9902
 driver: "~fastapi"
 
 # onebot_ws_urls: ["ws://127.0.0.1:6700"]
@@ -30,3 +30,8 @@ mcsm_url: !secret mcsm_url
 mcsm_img_path: ./docs/images/dao-bot.png
 
 marshoai_token: !secret marshoai_token
+marshoai_at: true
+
+bison_to_me: false
+bison_use_pic: true
+bison_use_pic_merge: 1
